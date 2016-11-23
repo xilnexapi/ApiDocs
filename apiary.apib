@@ -1,0 +1,1598 @@
+FORMAT: 1A
+HOST: https://api.xilnex.com/
+
+# Core Data API V1
+## Scope and Concepts
+Web bytes provides a complete API accessible via HTTPS. This API is the best 
+way to intergrate website, e-commerce, server, mobile written in any programming 
+language such as JavaScript, Ruby, Swift, Object-C. C#, Java, php, etc.
+
+## Setup for REST API
+For using this API you need send authenticated HTTP requests. Exists several 
+way to do this:
+* Send a HTTP header `Token: {api_token}`, where `{api_token}` is your API
+token
+* Send a HTTP header `Dkey: {Dkey}`, where `{dkey}` is your private key
+
+Your API token and Dkey you can request from our comapny **api@webbytes.com.my**
+by providing below
+information in your email
+* Company Name:
+* Name:
+* Purpose of the API:
+    * Purpose:
+    * Request action: `Read, Write, Update, Delete`
+* Super admin email address:
+* Api e-mail address :
+* Api e-mail password : 
+
+API e-mail address and password `You need to create a user on xilnex application, and
+specific for API purpose only`
+
+Allowed HTTPs requests:
+* `POST` - To create resource
+* `PUT` - To update resource
+* `GET` - Get a resource or list of resources
+* `DELETE` - To delete resource
+
+Description Of Usual Server Responses:
+* 200 `ok` - the request was successful
+    * `ok` 
+        * `true` mean success to process 
+    * `status` - status of process
+        * `SuccessQuery`
+        * `SuccessInsert`
+        * `SuccessDelete`
+        * `SuccessUpdate`
+    * `warning`
+        * null
+    * `error`
+        * null
+    * `data` - Json data response from Api
+        * Object
+    * `timestamp`
+* 400 `Bad Request` - the request could not be understood or was missing required parameters.
+    * `ok` 
+        * `false` mean failed to process
+    * `status` - status of process
+    * `warning` - warning message return from server
+    * `timestamp`
+* 401 `Unauthorized` - authentication failed or user doesn't have 
+permissions for requested operation.
+* 500 `Internal server error` - server error
+## Group AccessControl
+
+### /logic/v1/accesscontrol/{accessGroup}/{userGroup}
+
+#### GET
+
++ Parameters
+
+    + accessGroup (required)
+    
+    + userGroup (required)
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
+#### get Access control [GET /logic/v1/accesscontrol/Accesscontrols]
+
++ Parameters
+
+    + accessGroup
+    
+    + userGroup
+    
+    + userName
+    
+    + accessArea
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
+### /logic/v1/accesscontrol/Save
+
+#### Save or update the user group permission [POST]
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            [
+              {
+                "Access_Controls": [
+                  {
+                    "check": false,
+                    "SaveValue": "non fugiat minim",
+                    "Display": "velit sunt deserunt aliqua ea"
+                  },
+                  {
+                    "SaveValue": "aliquip velit",
+                    "check": false,
+                    "Display": "aliqua non ut amet"
+                  },
+                  {
+                    "Display": "Excepteur deserunt cillum",
+                    "check": false
+                  },
+                  {
+                    "check": false,
+                    "SaveValue": "i",
+                    "Display": "minim pariatur a"
+                  },
+                  {
+                    "Display": "sit"
+                  }
+                ],
+                "UserGroup": "ea minim"
+              },
+              {
+                "Access_Controls": [
+                  {}
+                ]
+              }
+            ]
+
+    + Schema
+
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "UserGroup": {
+                    "type": "string"
+                  },
+                  "Access_Controls": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "Display": {
+                          "type": "string"
+                        },
+                        "SaveValue": {
+                          "type": "string"
+                        },
+                        "check": {
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
+## Group CompanyInfo
+
+### /logic/v1/companyinfo/{locationid}
+
+#### GET
+
++ Parameters
+
+    + locationid (required)
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
+### /logic/v1/companyinfo/PostCompanyInfo
+
+#### POST
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+              "OutletLocation": "aliqua eu",
+              "OutletType": "ullamco labore dolor consequa",
+              "COMPANY_MAIN_CONTACT_EMAIL": "ipsum incididunt dolor in",
+              "COMPANY_PRINTED_NAME": "eiusmo",
+              "COMPANY_MAIN_CONTACT_TEL": "dolor et laborum labore",
+              "ArrOutletOwndership": [
+                "Ut occaecat est eu"
+              ],
+              "LocationLongitude": 58425084,
+              "CompanyRegistrationNumber": "mollit",
+              "CurrentCountry_": "incididunt dolor ex",
+              "COMPANY_FAX": "est officia exerc",
+              "Location_Entity": "pariatur",
+              "COMPANY_PRINTED_ADDRESS": "ipsum qui anim enim et",
+              "LocationLatitude": -52926077,
+              "Outlet_Ownership": "amet a",
+              "COMPANY_MAIN_CONTACT": "tempor nostrud"
+            }
+
+    + Schema
+
+            {
+              "description": "Outlet company information model",
+              "type": "object",
+              "properties": {
+                "locationID": {
+                  "description": "selected outlet location id",
+                  "type": "string"
+                },
+                "locationName": {
+                  "description": "selected outlet location name",
+                  "type": "string"
+                },
+                "COMPANY_PRINTED_NAME": {
+                  "type": "string"
+                },
+                "COMPANY_PRINTED_ADDRESS": {
+                  "type": "string"
+                },
+                "COMPANY_MAIN_CONTACT": {
+                  "type": "string"
+                },
+                "COMPANY_MAIN_CONTACT_EMAIL": {
+                  "type": "string"
+                },
+                "COMPANY_MAIN_CONTACT_TEL": {
+                  "type": "string"
+                },
+                "COMPANY_FAX": {
+                  "type": "string"
+                },
+                "CompanyRegistrationNumber": {
+                  "type": "string"
+                },
+                "GSTRegistrationNumber": {
+                  "type": "string"
+                },
+                "Location_Entity": {
+                  "type": "string"
+                },
+                "OutletType": {
+                  "type": "string"
+                },
+                "ArrOutletType": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "OutletLocation": {
+                  "type": "string"
+                },
+                "Outlet_Ownership": {
+                  "type": "string"
+                },
+                "ArrOutletOwndership": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "CurrentCountry_": {
+                  "type": "string"
+                },
+                "ArrCountry": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "LocationLongitude": {
+                  "format": "double",
+                  "type": "number"
+                },
+                "LocationLatitude": {
+                  "format": "double",
+                  "type": "number"
+                }
+              }
+            }
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
+### /logic/v1/companyinfo/PostSignUpDetails
+
+#### POST
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+              "OutletCount": 47038801
+            }
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {
+                "Complete": {
+                  "type": "boolean"
+                },
+                "BusinessName": {
+                  "type": "string"
+                },
+                "BusinessType": {
+                  "type": "string"
+                },
+                "OutletCount": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              }
+            }
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
+## Group LocationCreation
+
+### /logic/v1/locationfunctions/NewOutlet/{outletname}
+
+#### POST
+
++ Parameters
+
+    + outletname (required)
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
+## Group Member
+
+### /logic/v1/useraccount/change_password
+
+#### PUT
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {
+                "CurrentPassword": {
+                  "type": "string"
+                },
+                "NewPassword": {
+                  "type": "string"
+                },
+                "confirmPassword": {
+                  "type": "string"
+                }
+              }
+            }
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
+### /logic/v1/useraccount/reset_password
+
+#### PUT
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
+#### AlternateLookUp, MobileNo and RegCode need to be unique [PUT /logic/v1/useraccount/update_member_unique_1]
+
++ Parameters
+
+    + id (required)
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+              "Company_Name": "in quis officia",
+              "Creation_Date": "22/07/1964",
+              "Email": "d2DRZtUqnCq9OLRmOCbj6iPubkM9Y8OZ2zmQfnzk9yjVmSMmKF2nfi0Jt0keooAH3WMsSxqczKonj2h6Lajm1tcMx'bECe3vkQn0EAYdSPiwTbUR9ky7mxczw377qOa8nFed2fTH2TQZut9jO3AFHMLCqnMj9d4qQMErGyfpzAtvaOsKQ-LlmumawFF5LN7VXDNKsvDK8O6DsGJxMuvEO7UodD+EEK9KnzqduupLzz_NhhgY7C9378Mb1oVsRUTCUInZbgmu72xj'wgxv686edVoJrNRP93aGXUKxI4SrVb4j8xUAqiRVk8XjIRVcyQEOEBWuzHJaWzFd7tERXiZHY5XJNlkoHI_gbHL6rEEqVeQG'z3c-_zhMSOkZbtMFWYN5MVXnx7kop5rMDQR0fZgw7BL4gT7.PeR8DFOaZ8zOWurTnGasJ-p2LxvOhVM60CUrbI8p4M4JtU_ikbxQhpC3Xyziut5sqbO-loBXZjscgYl7iRZCWdc65ZuC1Y4NafxTAn4q8rQPdI3eMzLug9sJ.rBf7QUsULX4acEE8.wPFRxVVgiD0jMmErJCxlDTAEloIttu2_vlX1n4FxDuqAfTJo-IeZH_hf.K0ha9UbU70LjXO1MPWRJIiD_GZ90wutPC7gYlYkuNIcCl_4WynDABApyI6wc9fWzbkhnP47PBNhlUrLBoB7wswzWgwPFiiBB+BIzW4TNPhsB1nH0q3vVeUrFTDKzlpB6eDbw9WB5UNHq_uEQZQ6lhXkjYY553gdcgFqF6Bc6qLRwvVqaZYzz1ZzqJEpO3x16jQ'aZDzOSi5TYJBEp8cjJSi_3lkMUPQcZdj.y192A5SK5WKjviYN.7c1YZKkFEGn78ur1oH4'DJvDsfwVWNJiM5qEdDM0tYFPQ6GbiM5TgrBncDroJN5Turvdq792kn2XGBCuPEmmY'K4CUz4dwYdNmukJntg1IYt1UAOYnXOPRRmsP9Zzt2bMp1_gRjfnA8SeKWW7lbHmi4'YtRjOdGQYrwmU.bQOL31j9fTPGyT89oxrKJHorSCD1-gZML5fMxyw10fttnX8mPqvXv4rYOgrubmydSLKE4aClUO'qJVLW0g8zzm2hFN1Tmp9owoTD96HP72VEK1F8uOGoz8Ife2VAYVe1whyszsmvatbkSfSc5TJ8IKNFift2ioJXYIwJk+LGjU1Ewwfoe+u_AHN6AUNXOJ8TKBbiIfFYOprONHrqtGw3NVTIyR3a89B5JdESsyYgFNIe4F3BiJLr_6ial1K3jqE359qwdT1j97HU8.3u2vhoYxtjnFqxV7RjGZTE0W5fzlbVNGe7BryW1k_gv8mqtl8V7'ukb0XbnMxRvYZtda8QNqhoG8HfAzTEs9KZBCPUDXMiCcR8OfYxiOjcQSkQur7rTSsEwBv0GA4jkeSrIm5e-iW2L9ld0k455bc0lt7GzojRqpmuGIQ87dDb_sw2k+dfYMp2lXDi9Nush8xnmlNjsP99ddSDq9lUJ3K6oNJQ8ee3cor3IRqMC1aW7ZDtu7LgY8nN1QjAZlxOR3ixEyhA.FXLgnZFS_awwWNu9Pic2qrb5aYRUMV2+unraz_a5t6jJGSTAfmrknfCg7zrhKa8S3UpphUyUh50a9QMqVhuIQm8Z84w3Aahg94feM6WfWAdd6nwn+Ak5c9zIcimmEgD0uW8ODURm4.cZbP3_XHZMOOyPd079sfCBbJ86EtuksZW8xyus-vY2Vcc14tOhySdKelBGTlScIRX_C01AEFzGB_cJMldyDYDTGbxj4Fr47ysNNCNajQY3L4kTvV0OZY.KzYv9qCvxKvCMwCTghxY81LxatPAbVuHQSXDHs7JNCNkn5Ut'VMJqxgLa49OhmR3S0fzJ_ialmdvf5HGrm11JVJpHKVZ3KUIg9B9HI4MDX.5mA1OaNOpxyUxsa8ClhO_zqv32N942V9Lybf6B2xksTA6khCL5a8HPk'Ww67v.lEpqGGknHfm4ZTI0gQhr8_WbxLremLQGpCu5X8tubLhgKr_TqAudFKTNJR8XWOYWBuXSrp7Jogl+STwk9ve5lzya5bBitWc_7YFEoMgPjgXdjDGTpbzGAsp+rvjlCVBXpKFYuvZSO_OWBkhOwmbJmbGMZ5fw8vUTeydiKs.spyyLGqSvllN.4aVcf.ZkRqiiZhKSH8GWdLyF1iOun_cphoarh6Oq2qhrKAkNuFs43IHSqHzvRhtMvt_BSOqBbn_VM11lnB_bIYlrD+u45pfE0faT2kZx2NlabC51VnHultkC1zq19aKDNlXhvgiZROD8r5g6Q-AYGYmURIvqJ8ge94A67FCbr3Y9FFEtLdmrk+n3siotuOymWfBZFgxso2TgTa87c8jNnQdWbeGf3E0rxxY4j2UhM_LVvtre5yv8KZFAAFkdAk+tcJpwqIK1ausuZJUA_RRydjVYpv9iaTI6PvYDbu86VCSEYL3zXRVJftD0bK1dh3WZw0zY1j'MRZjeCeqICUhD8IZ8UYswhT8i-VJFR5uDAaUf8XYoDiyXVYvLOrHKWU72xZpnwgkeWLyB168kDI_464lDgcccyfODVclZ7EeAAmwD96-obCQZ15YanC4M2AaxIDIDCYGDppS4uT5BLOo98L0M9lF2YZG5Oi8NkqTXUSazl5QsIaQXMtx6Ea91XFGqfNP.e2otu7XNTZGBrStT5Fko9afAngfCbTM869USf9Fs4xQrMV8UqcZSx3vqvnjl-IcDoVQmh319NMgWdX7HjdSi7hW9ldQh'X4cTp3Y4PrrD8F1toNwpuRCL_WoJ3qvOLXd4KWt4JhLbYZ83y_4Q0JaRF1P4mwgGDanV75U5K'x7a5twNQvwMu4tzGM4JdzwxE28SMfKz6CDGQqDi.KX8LC0rsJlde743KJitc2OtW7fvus267gWW0bAhgS1t8ClUPqm6TpCyD5V1vOWXcqlsjiA5d4ZBLfRQ+fGbnxnHZQK7PFKoRN_CUvs2iSTotQN2C92WhVUx4qGwak65Z.9rgSPtivyMXHLMCarW77x_BfVEE02XqpyfYOsdrpGkx1r8wI885l_5'GpwtlucWrtvLNBk3WBeWQRS6SzBnzFjZmVl796VbbLQeR2ocF8RwxP.IhRCt+fr6ZIJUERbOxZUCcFsIJDmto2JNXCGxXcL1fB4TGhk4Jwno4DdSIrFDeHVsyjtsJaogPL.RVU2cvGAdrCKk7n4D.xhlIHrKZYX46zYvFO0yXLGYsRjzAYHk07Hc8ilp9NrTB7F9EpMy3Z.57a0sA6tzwgyr-DjsJ7yKPMlnNZuSUpK87VMECzPGbN0OQakT2zI+kXez9oY8l0tJx78IO7Vb1SRzgGknzE3uDW8q8eXBbz9c6CQXU_x9AU4mhX1wx47VnPyEA69nQYHkJVNdddh6CZITNxZqWuL2-5oNkAyN0DdAEWKQYgqVuXp_9YyfWq3HFdu.nUrr0iCzrrrytSxUq72Mc3GbY0bt4okbT12biHsZPHzHN827kmLykpd2Ze5wD4NMxEW840M1kWVcjuP.Lem2JVjAjUTfsmTWEgrvpcScgQ54afv5Se7FSVqAz2cGhMVAOvxkgaxO8lNshSjQiyHN2JlYEMgcXMxQkgpWJcVPDBm4X_xNX'BcRZaAulxOb4qzP7PNWhBc1MO2TtcgJ4Iq5NA8Ks7k6qx_hQmcZcYnVKDEjorwwquEGvAro8abCVlqpxYKVjSPs0yd.LEji4QYJUkEFDv5nyOvKgDLou_XwnKrjqwCIStCyy0xz925C38k53Q18AeJ.STvJG_fTYHDvgivf4dl_aBGt4C1Q1qqo5unIrdFthz2iGLgGN3naxljhDP5Ktw9eoRoIXszSQdT4ZR03rz'qjmFEFVCGWoFQngQS5ruY4WuBtDCuJ6r'D7Kw6IsZa0ZbHju9XcCIyjFaif3xxUll5gi0E_ehgqkHDlcdbGizk-Lr0CFtt86K2RbmhcuSwjLN3xeXSnsk1PB5oc8Jf6pRC2KKRDBi58aiOwkepgV00HdDCpc6TbsvDtmEOStmW3_tOA_-10R3qrsNF5_o_SxgkvPswlrw1xBuovKpYQ2IzVZ_D8DT4KKR7JR-qN9qtlErTwn6XEWw6PcqNdWMEJ8C6JSElzYxU8PshFpgMEyVlnTF83mRz49aOBxdwfO0hhr89pwQtIv34kR9waUSWi8GXE0bg+fHNJ_h-hooG8W2lgM_glifY7zClPeohGRZSPGMd8e8F8O0zljYfMea14c'cHZpYtCAgv_vcLJF0NGUOUd2cME3C_zjUiXtlSZiMhnsptbb1ZPQ8PM7RV9jA2S4jWMlqD1On7RlFprHto0jZtdqzLY'70cwhA.wwL7_kfDwTy1PRSlELkGVRGYiUvSLhAH76Bpf6JGFxgW9oL6CcuU1WyyKyFvHkf9agA53mnxBgboQniXFAoE622GQnoejJ5uU.dBYVF32rEk1NS3ifst5k6dtROTgqKeBncSN7Avuo5UEk73OP4Y3uwQmfku4ppKs8Yu8X6uNBgml-yVjodafgxPhC9YEFFq48LTrUbQCrU6H2GfAnfm12I7M1pq82zHXXhB2T9cuoaOUy7C3bFjRCogEIDabfco46ZU0E7KY4iRm55cT.FoQJiE4cYuQAYRji9Uf7K8vn0Dcg2FKLB7Nv7Gz9COkANMMDB5QM7QZa3rZRD8mWqXB_PfKhFRinr0L5-3bhWD4_3RC2+4N9QLwLqrDpQ171LrJn'YM0SaTmvOe0jPsdjDBE8mN.bPCMFq3QfcS2Cv5hadhN-DC8w6rd3P_lLmTKZ0QUmmypd1Z5HHkD597x2sz1OjMRQCD2Nk6If7G5_sKmKUnmoorgXtqP'KaVfGdcaBBFV7rFgoVkp4gxc_zST9A2SVG9xDFndKplLmoTmEh99r3DtjjXCcRY4v8dPVsu7l7'wrO2CjooFSK8iT5B1ClmDjxmDPrr66mBujXTBsirhVQnktnJjUnb8rnsZ+65Driao51NqGLObB8nl8tcZwg_NiGO8JwhLVlbL1ZKI2CYHvSI6I@o7IPdTkWRM8aanx-A3N3mdg7sQKmwYgN2ZTKnskxO79Y2x69i6ETTkU.0IBBw_AKcJuKrpaHZ-gQT2tFVRVtPmQ_SQGkQg1GbYmsTEx9fluOF9d-B0hUBVg5By1TaqBz1H-ytBOHR55It36Y9APyVL4_Eq4V7.mhsVWP5UtTYv0fA9Y5q-kNabmqtRtY8WKSD9Kj9Rb7tgz-1kHv2s29h4su28fuUvkfEzqLPc_im.ei3ZlgnJS_0BLGsoEgcW2aqEAXbscExuYapm1cj2yg0fPpcOfG6PnJYm2G4qWILtg8IPkR6TyP8NEp3mX3wosfe3T5vflTlgmg1v.zywmgS0pERkcOlq7wCFviE6GtbTRnmLeGnWpYPyJMHNep4XYOhv54dD4mWaAUJpFUY7rYeb.b6BRqQ1JJ6pai5n0KrRxaMSRgP0REuQMlviRumpDVVbwLc0HDEeDCowQiYgiwsLItMh3Nzv5bQg6ZP.w-hjgwIM3IMdhsCkHUoVX_PEJcnMEzpqPU9zJZdJl2AyHY_5X8pA5id3_KfaG5NARVwQwk9aYxfIEcG7o-MvEaIfgrAJftWrIp78LYW-G625r683tyAGQgB10WnDDqIuwua11kQT48RN6PZeYu0taLht-y_dlkHsa3s.GU4noszlj8buy.tzXKnGywdruggFkEPW37USgqwCg5hhzbdzY2_0S13s7zg3zlQ_93qbpkwy4Y9SzieK7H9ubF3yrlP6e9jPDyjBd-iyxqJYd0xNIBeqOFPoQ8IwxYWGFmKNZoOJGLZEiapbVATQYE_-bRCpSbcgfxXFcbUaQJJkIVtQKoyZDN7hwuansfCr9LPLCxNaBs6pqy5PeVWghrfWcVbUmc5bDuWuFNvs2OA93NUDn9v2dx5GPO1.bB0H1av6co_5WRhTiBMRf3TlVa2RTssyGj2Rv9G7-u_6tdRVPQwnwyrsLacZBKhqMqPLDVb0mfySVfroeXjz9V2YQ_pyv8CXOV28V5wqUnOSXXVpy3EYWyaQ6hlK8ue5EG-fFV27AhrCwEb3XVW4cI4.uaRxARDbINS.5UykCjefADrzpLZtKOsYEoXz6XGbJ376ChjBAMhghQMRu913yy4Ry.k32vbUB7vRr5myACpB1exBn6pWVDd9mPJw_O-tEwPMuZd3ecJGzHRo_6gqgKlIWD5vfz3Ha3vZ72ea7PdsULKfuGfghZSsLPvwO_udPYyCIiEcnEYCR42krKeOPfQiJG-WAev4JJjX9lPtluIcpzE3r77B50YrxXaRWtyPTiYXWE.L2FWxQ8lII9liFqNkKlSLP38JGzq6HDzQjADXy8BCNp6vfsVZ-wdOZYJQas_qPJyZQ_egkP6xak4QKXJCyWmTBNOfzNfB9QxGOpByzm7I-tX1O1NfOZOeEKvg8n489eG8x0QqwPw.Hqgkci2b081Zv1_-PnrhWyg.7OHC8IvyObkinZaxV01GSrLH_Ri.cN5YGYAQgod2DtqFhsRULmwtK3fBqylcthQXs8lEIPPiIo7V6mpQGl6m3GpqGXX.sNwuUrfjuPSfZ6kYwauWYoi6tIiyv6vBL3tBgUDnjjsuieE0rPYG1UMBaKi30z1CxWRjrpSsyWWBFZy941YNIOAJ3Re.nNsIgLHBNVsPdSrf8bs8cknmWMI3KdXZ48s9dVyKk.KvQcNArYsbKY9qlYwGwMZsUzULCOLItVQs2fwDpvMYXIOh5soLkwMZmBMlOCUdUFam1up2Hkjl2OGRNq91q_3PgJEp5oXKWL-V9rVbgDDYxwvqGJSvwKG0bPW0YfVZxyY5IXIDttXV7Ak2DiIq2YCGVGGlu9LG4llNF.KorZVInEmrJ_NGBmk9y2EiGQR1CJZhmV5BrCwFFcLEFn_UWLXtiHb7af-Cs3nQc3rmKpI4klbTHuzaLJpeu.N2lPvKI4OK6Q4GdjzqqoItjNmcEhY7Pb_jRWg1ZBTbmue39fEjsC5qMZFP1WWchDb4nJwddT990Iuy86jGgbiIaK-1FP_BHJukfnx4oQNzHytecqwaEEOlp88tKm2WC1UvaN5QK3XkrZ7BTm330oYuOhMKIfn0Gpytlp5BBfxPTi-Ne2HZbrRWz5UgD52EVt5BBoUO5zwn76FBVY-1xgQPpJbW-iKzguIcNt3kskC9olffh7P01L72VYGfARe5f.JW67AzLeW6Q9m8Qlh6lQnkk5DSkPH1vaEWWEvj6SAYuzm4NHmk58YwjUjuTas44NseSIen1YkRp1Fw.6NlftYaRPkxNh__1No9FXqfcShP2oN0fUwKeerIXYskmCly22yCNQLUfMRsPSdSiBYmkt0mqN7WG_Y9PxdGU.fwlIHEp_g6JJ516lXaCbVZTVM6uY2l8eF0pYf.h5BMvVikofvG8A7vHLYIfJV2boBW97C0f3jcT870mvGIvkYW83hbxa3QzYw60RTVE2OKWtorQgcpjjzeH4QydiIBb",
+              "Custom_Field_Value_18": "sit et nisi amet ex",
+              "Pay_Term": "aliquip quis occaecat",
+              "BOOL_VERIFIED": false,
+              "Customer_Code": "sit cupidatat nisi",
+              "Custom_Field_Value_4": "velit eu",
+              "Last_Name": "in",
+              "INT_EXTEND_2": 163882457,
+              "BOOL_Enable_DOB": false,
+              "Ship_Remark": "exercitation fugiat ea",
+              "Deliver_Street": "tempor exercitation",
+              "Mobile": "cupidatat",
+              "Office": "amet Ut ut enim consectetur",
+              "Fax": "minim sit",
+              "DOUBLE_Point_Value": -35648874,
+              "Created_Location_ID": "ullamco sit voluptate",
+              "IC": "",
+              "Bill_Street": "in proident et nostrud",
+              "MGST_Tax_Code": "in",
+              "Website": "labore sint in proident",
+              "Custom_Field_Value_12": "enim anim laborum",
+              "STRING_EXTEND_1": "nisi dolor in Lorem",
+              "GST_No": "exercitation dolor eiusmod",
+              "Password": "dolor nulla exercitation",
+              "Bool_Active": true,
+              "BOOL_Is_Inclusive_MGST": true,
+              "Bill_Zipcode": "cillum",
+              "Remarks": "non proident",
+              "Custom_Field_Value_7": "anim labore",
+              "Custom_Field_Value_6": "qui ut in aute",
+              "Company_Registration_Number": "adipisicing",
+              "Deliver_Zipcode": "aliqua et dolor",
+              "DOUBLE_Cash_Value": 71342339,
+              "Custom_Field_Value_1": "mollit commodo do",
+              "Gender": "veniam mollit aute",
+              "Reference_Client_ID": "voluptate nisi ex",
+              "Custom_Field_Value_10": "dolor dolor id enim",
+              "DOB": "29/02/6996",
+              "Alt_Phone": "ullamco quis pariatur exercitation dolore",
+              "DOUBLE_Accumulate_Value": -87556195,
+              "Age": "Duis cillum commodo deserunt",
+              "Location_Name": "ut laboris dolore enim",
+              "Alt_Name": "proident deserunt",
+              "Race": "nostrud ut",
+              "Company_Type": "pariatur",
+              "Default_Sales_Type": "cillum",
+              "Skype_Contact": "ipsum pariatur laboris laborum",
+              "Salutation": "ex aliquip occaecat",
+              "Location_ID": "laborum aliqua",
+              "Deliver_Country": "ex velit consequat in",
+              "Custom_Field_Value_17": "labore occaecat",
+              "Custom_Field_Value_14": "laborum consequat exercitation",
+              "STRING_EXTEND_3": "consectetur cillum",
+              "ID": -28972944,
+              "Phone": "et ex aute dolor",
+              "Currency": "nostrud eiusmod Lorem est incididunt",
+              "BOOL_Web_Registered": true,
+              "Bill_Remark": "consectetur qui",
+              "Bill_State": "ea nulla",
+              "Bill_Country": "officia laborum",
+              "PROFILE_PICTURE_URL": "sint reprehenderit dolor deserunt",
+              "STRING_EXTEND_2": "irure nostrud aliqua id occaecat",
+              "Expiry_Extend_Date": "12/01/7445",
+              "Ref_Customer_Code": "fugiat",
+              "Deliver_City": "velit nostrud adipisicing voluptate pariatur",
+              "Bill_City": "dolor proident tempor veniam",
+              "Custom_Field_Value_15": "dolore cupidatat id",
+              "Price_Scheme": "amet dolor nostrud",
+              "Custom_Field_Value_8": "nulla proident occaecat anim Duis",
+              "BOOL_Approved": true,
+              "INT_PLATFORM": 1117272940,
+              "Customer_Account_No": "qui ut amet",
+              "Custom_Field_Value_11": "esse fugiat sed pariatur",
+              "API_USERNAME": "eiusmod et",
+              "Income": "in velit p",
+              "INT_EXTEND_1": 1499053469,
+              "Customer_Group": "laborum reprehenderit Duis consequat",
+              "Facebook_Contact": "commo",
+              "Atlternate_Look_Up": "irure",
+              "Custom_Field_Value_5": "non reprehenderit",
+              "Custom_Field_Value_16": "ex eiusmod commodo",
+              "Friendster_Contact": "quis Lorem nostrud culpa"
+            }
+
+    + Schema
+
+            {
+              "required": [
+                "Company_Name",
+                "Creation_Date"
+              ],
+              "type": "object",
+              "properties": {
+                "ID": {
+                  "format": "int64",
+                  "type": "integer"
+                },
+                "Company_ID": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Company_Name": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Company_Registration_Number": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Company_Type": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Salutation": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "First_Name": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Last_Name": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Email": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "pattern": "^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$",
+                  "type": "string"
+                },
+                "Website": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Phone": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Office": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Mobile": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Alt_Name": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Alt_Contact": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Alt_Phone": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Bill_Street": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Bill_City": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Bill_State": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Bill_Zipcode": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Deliver_Street": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Deliver_City": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Deliver_State": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Deliver_Zipcode": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Additional_Info": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Fax": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Bill_Country": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Deliver_Country": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Remarks": {
+                  "maxLength": 1000,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Password": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Binarykey": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "BOOL_Web_Registered": {
+                  "type": "boolean"
+                },
+                "BOOL_Approved": {
+                  "type": "boolean"
+                },
+                "Bill_Remark": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Ship_Remark": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Price_Scheme": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "INT_EXTEND_1": {
+                  "format": "double",
+                  "maximum": 2147483647,
+                  "minimum": -2147483648,
+                  "type": "number"
+                },
+                "INT_EXTEND_2": {
+                  "format": "double",
+                  "maximum": 2147483647,
+                  "minimum": -2147483648,
+                  "type": "number"
+                },
+                "INT_EXTEND_3": {
+                  "format": "double",
+                  "maximum": 2147483647,
+                  "minimum": -2147483648,
+                  "type": "number"
+                },
+                "STRING_EXTEND_1": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "STRING_EXTEND_2": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "STRING_EXTEND_3": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Custom_Field_Value_1": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Custom_Field_Value_2": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Custom_Field_Value_3": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Custom_Field_Value_4": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Custom_Field_Value_5": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Custom_Field_Value_6": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Custom_Field_Value_7": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Custom_Field_Value_8": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Custom_Field_Value_9": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Custom_Field_Value_10": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Custom_Field_Value_11": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Custom_Field_Value_12": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Custom_Field_Value_13": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Custom_Field_Value_14": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Custom_Field_Value_15": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Custom_Field_Value_16": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Custom_Field_Value_17": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Custom_Field_Value_18": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Gender": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Race": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Age": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "DOUBLE_Point_Value": {
+                  "format": "double",
+                  "type": "number"
+                },
+                "DOUBLE_Cash_Value": {
+                  "format": "double",
+                  "type": "number"
+                },
+                "DOUBLE_Accumulate_Value": {
+                  "format": "double",
+                  "type": "number"
+                },
+                "Reference_Client_ID": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Friendster_Contact": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Facebook_Contact": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Skype_Contact": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "MSN_Contact": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Creation_Date": {
+                  "pattern": "^(((0[1-9]|[12]\\d|3[01])\\/(0[13578]|1[02])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]\\d|30)\\/(0[13456789]|1[012])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\/02\\/((19|[2-9]\\d)\\d{2}))|(29\\/02\\/((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$",
+                  "type": "string"
+                },
+                "Atlternate_Look_Up": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "DOB": {
+                  "pattern": "^(((0[1-9]|[12]\\d|3[01])\\/(0[13578]|1[02])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]\\d|30)\\/(0[13456789]|1[012])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\/02\\/((19|[2-9]\\d)\\d{2}))|(29\\/02\\/((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$",
+                  "type": "string"
+                },
+                "BOOL_Enable_DOB": {
+                  "type": "boolean"
+                },
+                "DOUBLE_Individual_Discount": {
+                  "format": "double",
+                  "type": "number"
+                },
+                "Location_ID": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Location_Name": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Default_Sales_Type": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Pay_Term": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Currency": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "DOUBLE_Max_Credit": {
+                  "format": "double",
+                  "type": "number"
+                },
+                "Ref_Customer_Code": {
+                  "type": "string"
+                },
+                "INT_Terms": {
+                  "format": "int32",
+                  "maximum": 2147483647,
+                  "minimum": -2147483648,
+                  "type": "integer"
+                },
+                "Created_Location_ID": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Income": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Customer_Code": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Customer_Group": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Customer_Account_No": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Bool_Active": {
+                  "type": "boolean"
+                },
+                "BOOL_Allow_All_Branches": {
+                  "type": "boolean"
+                },
+                "Expiry_Extend_Date": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "pattern": "^(((0[1-9]|[12]\\d|3[01])\\/(0[13578]|1[02])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]\\d|30)\\/(0[13456789]|1[012])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\/02\\/((19|[2-9]\\d)\\d{2}))|(29\\/02\\/((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$",
+                  "type": "string"
+                },
+                "GST_No": {
+                  "maxLength": 50,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "BOOL_Is_Inclusive_MGST": {
+                  "type": "boolean"
+                },
+                "MGST_Tax_Code": {
+                  "maxLength": 50,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "Created_By": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "IC": {
+                  "maxLength": 25,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "BOOL_VERIFIED": {
+                  "type": "boolean"
+                },
+                "PROFILE_PICTURE_URL": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "INT_PLATFORM": {
+                  "format": "int32",
+                  "maximum": 2147483647,
+                  "minimum": -2147483648,
+                  "type": "integer"
+                },
+                "API_USERNAME": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                },
+                "API_PASSWORD": {
+                  "maxLength": 255,
+                  "minLength": 0,
+                  "type": "string"
+                }
+              }
+            }
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
+## Group Printing
+
+### /logic/v1/printingfunctions/{category}/{docno}/{index}/{locationid}
+
+#### GET
+
++ Parameters
+
+    + category (required)
+    
+    + docno (required)
+    
+    + index (required)
+    
+    + locationid (required)
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
+## Group SalesFunctions
+
+### /logic/v1/salesfunctions/GetCreateInvoiceStatus/{key}
+
+#### Get Create Invoice Status [GET]
+
+to get process of the create sales invoice, 
+
++ Parameters
+
+    + key (required)
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
+### /logic/v1/salesfunctions/CreateInvoice1
+
+#### Generate Invoice based on sales,salesitems and payments [POST]
+
+Testing on create sales invoice, it will not save the sale into database.
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
+### /logic/v1/salesfunctions/CreateInvoice
+
+#### Generate Invoice based on sales,salesitems and payments [POST]
+
+Generate invoice based on sales, sales item and payments, after receive
+a set of data, API will return success. Client should call 
+GetCreateInvoiceStatus to validate the process of the invoice process status
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+        [
+            {
+                "IsAutoGeneratePayment": true,
+                "IsAutoGeneratePM": true,
+                "IsControlStock": true,
+                "SalesInfo": {
+                    "ID": 232323,
+                    "Sales_No": "23232323",
+                    "Sales_Date": "2016-11-02T07:22:02.000Z",
+                    "DOUBLE_Total_Amount": 200.08,
+                    "Customer_Name": "Cash",
+                    "DOUBLE_Paid_Amount": 200.08,
+                    "DOUBLE_Balance_Amount": 0,
+                    "Cashier": "Lim Hua Ho",
+                    "Bill_Street": "17 Jalan Masu",
+                    "Bill_City": "Bayan Lepas",
+                    "Bill_State": "Pulau Pinang",
+                    "Bill_Country": "Malaysia",
+                    "Bill_PostCode": "15622",
+                    "Bill_Remark": "Sales",
+                    "Ship_Street": "17 Jalan Masu",
+                    "Ship_City": "Bayan Lepas",
+                    "Ship_State": "Pulau Pinang",
+                    "Ship_Country": "Malaysia",
+                    "Ship_PostCode": "15622",
+                    "Ship_Remark": "Consignment Code",
+                    "Sales_Person": "Lim Hua Ho",
+                    "Ship_Status": "SHIPPED",
+                    "Sales_Status": "COMPLETED",
+                    "Payment_Status": "PAID",
+                    "Sale_Location": "234624364364126434124634146346",
+                    "Sale_Remark": "Sales",
+                    "Double_Cost": 25,
+                    "Double_Profit": 100,
+                    "BOOL_Is_Cash_Sales": true,
+                    "BOOL_Is_WebSales": true,
+                    "DOUBLE_Net_Amount": 200,
+                    "BOOL_Is_ReturnSales": false,
+                    "BOOL_Is_InternalSales": false,
+                    "Sales_Type": "Retail",
+                    "Completed_Date": "2016-11-02T07:22:02.000Z",
+                    "Customer_Type": "Member",
+                    "Estimated_Delivery_Date": "2016-09-08T07:22:02.000Z",
+                    "BOOL_IsBillPrinted": false,
+                    "BOOL_IsRefund": false,
+                },
+                "SalesItemList": 
+                [
+                    {
+                        "ID": 5646446,
+                        "Item_Code": "5454974479",
+                        "Item_Name": "Milo 100g",
+                        "DOUBLE_Price": 2.30,
+                        "Vendorcode": "U9877",
+                        "Sales_no": "155455",
+                        "INT_Number_Of_Return": 0,
+                        "INT_Quantity": 1,
+                        "INT_Shipped_quantity": 1,
+                        "DOUBLE_Profit": 4,
+                        "DOUBLE_Cost": 3,
+                        "DOUBLE_Discount_Percentage": 0,
+                        "Brand": "Nestle",
+                        "Customer_Name": "CASH",
+                        "Sales_Date": "2016-09-07T07:22:02.9000Z",
+                        "Sales_Location": "531465441364413644364435",
+                        "OnSales_Item_Code": "5644645645",
+                        "DOUBLE_Manufacturer_Suggested_Retail_Price": 0,
+                        "DOUBLE_Sale_Price": 12.60,
+                        "DOUBLE_Employee_Price": 0,
+                        "DOUBLE_Wholesale_Price": 0,
+                        "DOUBLE_Custom_Price": 0,
+                        "DOUBLE_Web_Price": 0,
+                        "DOUBLE_Web_Dealer_Price": 0,
+                        "DOUBLE_GST_Percentage": 0,
+                        "DOUBLE_GST_Amount": 0,
+                        "BOOL_Is_Unique_Item": true,
+                        "BOOL_IsPackage": true,
+                        "BOOL_IsService": true,
+                        "BOOL_Is_Prepack": true,
+                        "BOOL_IsPrint": true,
+                        "BOOL_IsFOC": false,
+                        "Sales_Person": "CASH",
+                        "Datetime__Sales_Date": "2016-09-07T07:22:02.000Z",
+                        "Sales_Order_No": "54949449",
+                        "Sales_OrderItem_No": "65464646",
+                        "Ref_SalesItem_ID": 0,
+                        "DOUBLE_Total_Returned": 0,
+                        "Warranty_Serial_No": "14541646",
+                        "Warranty_Expiry_Date": "2016-09-07T07:22:02.000Z",
+                        "Datetime__Warranty_Expiry_Date": "2016-09-07T07:22:02.000Z",
+                        "DOUBLE_UOM_Quantity": 0,
+                        "DeclarationSessionID": "095956",
+                        "EODLogID": "515455",
+                        "StoreEODID": "5445455",
+                        "Business_Date": "2016-09-07T07:22:02.000Z",
+                        "Voucher_No": "Voucher001",
+                        "PromoIgnore": true,
+                        "DOUBLE_MGST_Tax_Percentage": 0,
+                        "DOUBLE_MGST_Tax_Amount": 0,
+                        "BOOL_Is_Inclusive_MGST": true,
+                        "DOUBLE_Enter_Price": 0,
+                        "BOOL_Is_ServiceChargeItem": true,
+                        "DOUBLE_ServiceCharge_Percentage": 0,
+                        "Discount_Remark": "Voucher001",
+                        "BOOL_DiscountIncludeSubItem": true,
+                        "ConsignmentDO_ID": "65464",
+                        "ConsignmentDOItem_ID": "565535",
+                        "SalesItemSaved_Datetime": "2016-09-07T07:22:02.000Z",
+                        "SalesItemAcknowledged_Datetime": "2016-09-07T07:22:02.000Z",
+                        "Bool_PrintStatus": true,
+                        "bool_Is_DO_Ignore": true,
+                    }
+                ],
+                "paymentList": 
+                [
+                    {
+                        "ID": 541545,
+                        "Date": "2016-09-07T07:22:02.000Z",
+                        "Customer_ID": "51246",
+                        "Invoice_ID": "456414",
+                        "DOUBLE_Amount": 12.00,
+                        "Method": "CC",
+                        "Reference": "Sales",
+                        "Location_ID": "6265265262565623fddfdssf",
+                        "BOOL_IsVoid": true,
+                        "SenderPaymentID": "1465464",
+                        "ReceiverPaymentID": "4545465",
+                        "Received_By": "CC",
+                        "Remark": "Sales",
+                        "DOUBLE_Tendered": 0,
+                        "DeclarationSessionID": "415145456",
+                        "EODLogID": "8541414",
+                        "StoreEODID": "54154145",
+                        "BOOL_IsDeposit": true,
+                        "SalesOrderID": "54154145",
+                        "ServiceID": "544594",
+                        "Business_Date": "2016-09-07T07:22:02.000Z",
+                        "Payment_Type": "CC",
+                        "Internal_Ref_ID": 0,
+                        "Double_Available_Balance": 0,
+                        "Used_Date": "2016-09-07T07:22:02.000Z",
+                        "Prepaid_CardNo": "511415641",
+                        "Prepaid_TrxnRefNo": "262146641",
+                        "double_exchange_rate": 0,
+                        "Currency_Symbol": "RM",
+                        "double_foreign_amount": 0
+                    }
+                ]
+            }
+        ]
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": 
+                {
+                    "key":"56d4f64f6df5252s1ds"
+                }
+            }
+
+    + Schema
+
+            {
+                "ok": boolean,
+                "status": string,
+                "warning": string,
+                "error": string,
+                "data": object
+            }
+
+## Group SalesMallIntegrated
+
+### /logic/v1/salesmallintegrated/GetInvoices
+
+#### POST
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+              "locationid": [
+                "in",
+                "est"
+              ],
+              "DateFrom": "et aliqua eu consectetur do",
+              "DateTo": "in reprehenderit ea"
+            }
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {
+                "locationid": {
+                  "description": "locationid : An Array of locationid",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "DateFrom": {
+                  "description": "DateFrom : Sales Date From",
+                  "type": "string"
+                },
+                "DateTo": {
+                  "description": "DateTo : Sales Date To",
+                  "type": "string"
+                }
+              }
+            }
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
+### /logic/v1/salesmallintegrated/UpdatePosted
+
+#### POST
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {
+                "IDs": {
+                  "description": "ID : Sales ID",
+                  "type": "array",
+                  "items": {
+                    "format": "int64",
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
+## Group SalesOrderFunctions
+
+### /logic/v1/salesfunctions/RecursiveSO
+
+#### Auto billing on recursive sales order [POST]
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
