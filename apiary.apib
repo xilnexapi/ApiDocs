@@ -10,9 +10,8 @@ language such as JavaScript, Ruby, Swift, Object-C. C#, Java, php, etc.
 ## Setup for REST API
 For using this API you need send authenticated HTTP requests. Exists several 
 way to do this:
-* Send a HTTP header `Token: {api_token}`, where `{api_token}` is your API
-token
-* Send a HTTP header `Dkey: {Dkey}`, where `{dkey}` is your private key
+* Send a HTTP header with include `Token: {api_token}` and `Dkey: {Dkey}`
+, where `{api_token}` is your API token and `{dkey}` is your private key
 
 Your API token and Dkey you can request from our comapny **api@webbytes.com.my**
 by providing below
@@ -29,13 +28,14 @@ information in your email
 API e-mail address and password `You need to create a user on xilnex application, and
 specific for API purpose only`
 
-Allowed HTTPs requests:
+## Basic Usage
+### Allowed HTTPs requests:
 * `POST` - To create resource
 * `PUT` - To update resource
 * `GET` - Get a resource or list of resources
 * `DELETE` - To delete resource
 
-Description Of Usual Server Responses:
+### Description Of Usual Server Responses:
 * 200 `ok` - the request was successful
     * `ok` 
         * `true` mean success to process 
@@ -60,6 +60,8 @@ Description Of Usual Server Responses:
 * 401 `Unauthorized` - authentication failed or user doesn't have 
 permissions for requested operation.
 * 500 `Internal server error` - server error
+
+
 ## Group AccessControl
 
 ### /logic/v1/accesscontrol/{accessGroup}/{userGroup}
