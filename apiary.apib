@@ -1466,6 +1466,271 @@ GetCreateInvoiceStatus to validate the process of the invoice process status
                 "data": object
             }
 
+## Group Sales
+
+### /logic/v2/sales/{id}
+
+#### Get Sales Detail [GET]
+
+get sales by id
+
++ Parameters
+
+    + id (required)
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": {
+                "sales": {
+                  "id": "501140",
+                  "dateTime": "2016-12-12T17:17:22.000Z",
+                  "recipientName": " ",
+                  "clientId": "9008",
+                  "clientName": "test",
+                  "paid": 0,
+                  "balance": 15,
+                  "term": "0",
+                  "cashier": "REAL MART Admin",
+                  "billingAdress": {
+                    "street": null,
+                    "city": null,
+                    "state": null,
+                    "zipcode": null,
+                    "country": null
+                  },
+                  "shippingAdress": {
+                    "street": null,
+                    "city": null,
+                    "state": null,
+                    "zipcode": null,
+                    "country": null
+                  },
+                  "shippingRemark": null,
+                  "shipmentDateTime": null,
+                  "salesPerson": "REAL MART Admin",
+                  "shippingStatus": null,
+                  "status": "OPEN",
+                  "paymentStatus": "PENDING",
+                  "location": "Coded UI Branch 2",
+                  "remark": null,
+                  "discountPercentage": 0,
+                  "taxPercentage": 0,
+                  "cost": 0,
+                  "profit": 15,
+                  "rounding": 0,
+                  "recipientContact": null,
+                  "netAmount": 15,
+                  "grandTotal": 15,
+                  "gstTaxAmount": 0,
+                  "exchangeRate": 0,
+                  "foreignTotalAmount": 0,
+                  "currencyCode": null,
+                  "items": 
+                  [
+                    {
+                      "salesDate": "16-12-2016T00:00:00.000Z",
+                      "itemId": 5046,
+                      "itemCode": "12092016",
+                      "alternateLookup": "",
+                      "itemName": "12092016",
+                      "itemType": "",
+                      "model": "",
+                      "description": "",
+                      "brand": "",
+                      "unitPrice": 15,
+                      "quantity": 3,
+                      "profit": 15,
+                      "cost": 0,
+                      "discountPercentage": 0,
+                      "instoreLocation": "default",
+                      "priceSchemes": {
+                        "manufacturerPrice": 0,
+                        "salePrice": 15,
+                        "employeePrice": 0,
+                        "wholesalePrice": 0,
+                        "customPrice": 0,
+                        "webPrice": 0,
+                        "webDealerPrice": 0,
+                        "cost": 0
+                      },
+                      "uniqueId": "",
+                      "matrixId": "",
+                      "matrixBarcode": "",
+                      "matrixX": "",
+                      "matrixY": "",
+                      "salesPerson": "REAL MART Admin",
+                      "subtotal": 45,
+                      "taxCode": "SR",
+                      "gstPercentage": 0,
+                      "gstAmount": 0,
+                      "gstInclusive": true,
+                      "enterPrice": 15
+                    }
+                 ]
+                }
+            },
+            "timestamp": 1483520163
+        }
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
+### /logic/v2/sales/search?clientid={clientid}&datefrom={datefrom}&dateto={dateto}&locationid={locationid}
+
+#### Get Sales Detail with filter [GET]
+
+get sales by client id and date range
+
++ Parameters
+
+    + clientid
+    + datefrom
+    + dateto
+    + locationid
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": [{
+                "sales": {
+                  "id": "501140",
+                  "dateTime": "2016-12-12T17:17:22.000Z",
+                  "recipientName": " ",
+                  "clientId": "9008",
+                  "clientName": "test",
+                  "paid": 0,
+                  "balance": 15,
+                  "term": "0",
+                  "cashier": "REAL MART Admin",
+                  "billingAdress": {
+                    "street": null,
+                    "city": null,
+                    "state": null,
+                    "zipcode": null,
+                    "country": null
+                  },
+                  "shippingAdress": {
+                    "street": null,
+                    "city": null,
+                    "state": null,
+                    "zipcode": null,
+                    "country": null
+                  },
+                  "shippingRemark": null,
+                  "shipmentDateTime": null,
+                  "salesPerson": "REAL MART Admin",
+                  "shippingStatus": null,
+                  "status": "OPEN",
+                  "paymentStatus": "PENDING",
+                  "location": "Coded UI Branch 2",
+                  "remark": null,
+                  "discountPercentage": 0,
+                  "taxPercentage": 0,
+                  "cost": 0,
+                  "profit": 15,
+                  "rounding": 0,
+                  "recipientContact": null,
+                  "netAmount": 15,
+                  "grandTotal": 15,
+                  "gstTaxAmount": 0,
+                  "exchangeRate": 0,
+                  "foreignTotalAmount": 0,
+                  "currencyCode": null,
+                  "items": 
+                  [
+                    {
+                      "salesDate": "16-12-2016T00:00:00.000Z",
+                      "itemId": 5046,
+                      "itemCode": "12092016",
+                      "alternateLookup": "",
+                      "itemName": "12092016",
+                      "itemType": "",
+                      "model": "",
+                      "description": "",
+                      "brand": "",
+                      "unitPrice": 15,
+                      "quantity": 3,
+                      "profit": 15,
+                      "cost": 0,
+                      "discountPercentage": 0,
+                      "instoreLocation": "default",
+                      "priceSchemes": {
+                        "manufacturerPrice": 0,
+                        "salePrice": 15,
+                        "employeePrice": 0,
+                        "wholesalePrice": 0,
+                        "customPrice": 0,
+                        "webPrice": 0,
+                        "webDealerPrice": 0,
+                        "cost": 0
+                      },
+                      "uniqueId": "",
+                      "matrixId": "",
+                      "matrixBarcode": "",
+                      "matrixX": "",
+                      "matrixY": "",
+                      "salesPerson": "REAL MART Admin",
+                      "subtotal": 45,
+                      "taxCode": "SR",
+                      "gstPercentage": 0,
+                      "gstAmount": 0,
+                      "gstInclusive": true,
+                      "enterPrice": 15
+                    }
+                 ]
+                }
+            }]les function,
+            "timestamp": 1483520163
+        }
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
 ## Group SalesMallIntegrated
 
 ### /logic/v1/salesmallintegrated/GetInvoices
