@@ -1809,6 +1809,148 @@ create invoice
               "type": "object",
               "properties": {}
             }
+            
+### /logic/v2/sales/status/{key}
+
+#### Get Sales status [GET]
+
+get Sales status
+
++ Parameters
+
+    + key - data is key to get invoice creation status
+    
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+        
+            {  
+               "ok":true,
+               "status":"SuccessQuery",
+               "warning":null,
+               "error":null,
+               "data":{  
+                  "message":"success",
+                  "sales":{  
+                     "sales":{  
+                        "id":"9009501",
+                        "dateTime":"2017-02-22T14:44:50.000Z",
+                        "recipientName":"active members 01",
+                        "clientId":"5043",
+                        "clientName":"active members 01",
+                        "paid":88,
+                        "balance":0,
+                        "term":"1",
+                        "cashier":"realmart@xilnex.com",
+                        "billingAddress":{  
+                           "street":"476 5th Ave New York",
+                           "city":"New York City",
+                           "state":"New York",
+                           "zipcode":"10018",
+                           "country":"United States"
+                        },
+                        "shippingAddress":{  
+                           "street":"",
+                           "city":"",
+                           "state":"",
+                           "zipcode":"",
+                           "country":""
+                        },
+                        "shippingRemark":null,
+                        "shipmentDateTime":null,
+                        "salesPerson":"RealMart Admin",
+                        "shippingStatus":"NA",
+                        "status":"COMPLETED",
+                        "paymentStatus":"PAID",
+                        "location":"Coded UI Branch 2",
+                        "confirmLocation":null,
+                        "remark":"dummy sales remark",
+                        "discountPercentage":0,
+                        "taxPercentage":0,
+                        "cost":0,
+                        "profit":83.02,
+                        "rounding":0,
+                        "recipientContact":null,
+                        "netAmount":88,
+                        "grandTotal":88,
+                        "gstTaxAmount":4.98,
+                        "exchangeRate":0,
+                        "foreignTotalAmount":0,
+                        "currencyCode":null,
+                        "siteId":null,
+                        "items":[  
+                           {  
+                              "salesDate":"2017-02-22T00:00:00.000Z",
+                              "itemId":5046,
+                              "itemCode":"12092016",
+                              "alternateLookup":"",
+                              "itemName":"12092016",
+                              "itemType":"",
+                              "model":"asd",
+                              "description":"",
+                              "brand":"",
+                              "unitPrice":83.02,
+                              "quantity":1,
+                              "profit":83.02,
+                              "cost":0,
+                              "advanceDiscount":null,
+                              "discountPercentage":0,
+                              "instoreLocation":"default",
+                              "priceSchemes":{  
+                                 "manufacturerPrice":0,
+                                 "salePrice":15,
+                                 "employeePrice":0,
+                                 "wholesalePrice":10,
+                                 "customPrice":0,
+                                 "webPrice":38,
+                                 "webDealerPrice":0,
+                                 "cost":0
+                              },
+                              "uniqueId":null,
+                              "matrixId":null,
+                              "matrixBarcode":null,
+                              "matrixX":null,
+                              "matrixY":null,
+                              "salesPerson":"RealMart Admin",
+                              "subtotal":88,
+                              "taxCode":"SR",
+                              "gstPercentage":6,
+                              "gstAmount":4.98,
+                              "gstInclusive":true,
+                              "enterPrice":88
+                           }
+                        ],
+                        "collection":[  
+                           {  
+                              "amount":88,
+                              "reference":null,
+                              "method":"cash"
+                           }
+                        ]
+                     }
+                  }
+               },
+               "timestamp":1487745887
+    }    
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
 
 ## Group SalesMallIntegrated
 
