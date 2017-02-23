@@ -1730,6 +1730,85 @@ get sales by client id and date range
               "type": "object",
               "properties": {}
             }
+            
+### /logic/v2/sales/invoices
+
+#### Post Sales Detail [POST]
+
+create invoice
+
++ Parameters
+
+    + status - OPEN, CONFIRMED, COMPLETED, CANCELLED, WRITE_OFF
+    + method(Collection) - cash, card, bank, cheque, web, creditnote, voucher, point, debitcard, forfeiture_voucher, creditcard_charges, contra, tradein, Other, BCard, prepaid, BCardToken, TnG, Entertainment, XCard 
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+        
+            {
+                "sales":
+                {
+                    "clientId": 502,
+                    "term":1,
+                    "dateTime":"2016-12-16T00:00:00.000Z",
+                    "billingAddress":
+                    {
+                        "street":"476",
+                        "city":"new ",
+                        "state":"new You",
+                        "zipcode":"12345",
+                        "country":"US"
+                    },
+                    "salesPerson":"Realmart",
+                    "shippingRemark":"anytime",
+                    "status":"COMPLETED", 
+                    "location":"Code UI Branh",
+                    "remark":"remak",
+                    "items":[
+                    {
+                        "itemCode":"1233", 
+                        "quantity":1,
+                        "enterPrice":88
+                    }
+                    ],
+                    "collection":[
+                    {
+                        "method":"cash", 
+                        "amount":100
+                    }
+                    ]
+                }
+            }
+        
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": "3536e4f575d14ace914c3de26848eb1e",
+                "timestamp": 1487745887
+}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
 
 ## Group SalesMallIntegrated
 
@@ -1865,3 +1944,34 @@ get sales by client id and date range
               "type": "object",
               "properties": {}
             }
+            
+#  Data Structures
+## SaleV2 (object)
++ clientId
++ term
++ billingAddress (AddressV2)
++ shippingRemark
++ status
++ location
++ remark
++ items (ItemV2)
++ collection (CollectionV2)
+
+#  Data Structures
+## AddressV2
++ street
++ city
++ state
++ zipcode
++ country
+
+#  Data Structures
+## CollectionV2 (object)
++ method
++ amount (number)
+
+#  Data Structures
+## ItemV2 (object)
++ itemCode
++ quantity (number)
++ enterPrice (number)
