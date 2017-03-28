@@ -1735,7 +1735,14 @@ get sales by client id and date range
 
 #### Post Sales Detail [POST]
 
-create invoice
+## Create invoice
+* POST invoice 
+
+## Callback URL
+* Callback URL will need to provide for us, will need use for post back the invoice status to merchant.
+* Example: [POST]http:www.xxx.com/sales/callback
+
+![name](http://wbgeneric.blob.core.windows.net/resources/SalesV2UML.png)
 
 + Parameters
 
@@ -1801,13 +1808,27 @@ create invoice
                 "error": null,
                 "data": "3536e4f575d14ace914c3de26848eb1e",
                 "timestamp": 1487745887
-}
+            }
 
     + Schema
 
             {
               "type": "object",
               "properties": {}
+            }
+            
+#### Callback URL [POST]
++ Response 200 (application/json)
+
+    + Body (application/json)
+    
+            {
+                “salesId”:5043,
+                “sale”:
+                        {
+                        }
+                “key”:2345679590789232,
+                “status”:”success”
             }
             
 ### /logic/v2/sales/status/{key}
