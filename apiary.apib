@@ -1739,7 +1739,7 @@ get sales by client id and date range
 * POST invoice 
 
 ## Callback URL
-* Callback URL will need to provide for us, will need use for post back the invoice status to merchant.
+* Callback URL is necessary, where api will post the invoice status back to merchant based on the callback url when it is success to process.
 * Example: [POST]http:www.xxx.com/sales/callback
 
 ![name](http://wbgeneric.blob.core.windows.net/resources/SalesV2UML.png)
@@ -1817,7 +1817,7 @@ get sales by client id and date range
               "properties": {}
             }
             
-#### Callback URL [POST]
+#### Callback [POST]
 + Response 200 (application/json)
 
     + Body (application/json)
