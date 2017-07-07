@@ -227,6 +227,83 @@ permissions for requested operation.
               "properties": {}
             }
 
+## Group Commision
+
+### /login/v2/commision/users
+
+#### GET
+
++ Parameters
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+    
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": {
+                    "userCommissionPointFactors": 
+                    [
+                        {
+                            "id": 9001,
+                            "username": "xxx@xilnex.com",
+                            "firstname": "xxx",
+                            "lastname": "",
+                            "pointFactor": 2,
+                            "incentiveType": "salesincentive"
+                        }
+                    ]
+                },
+                "timestamp": 1495512201
+            }
+
+
+    + Schema
+
+### /login/v2/commision/users
+
+#### DELETE
+
++ Parameters
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+    
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessDelete",
+                "warning": null,
+                "error": null,
+                "data": "",
+                "timestamp": 1495513201
+            }
+
+    + Schema
+    
 ## Group CompanyInfo
 
 ### /logic/v1/companyinfo/{locationid}
@@ -1172,9 +1249,9 @@ permissions for requested operation.
 
 ## Group Printing
 
-### /logic/v1/printingfunctions/{category}/{docno}/{index}/{locationid}
+### /logic/v1/printingfunctions/{category}/{docno}/{index}/{locationid} 
 
-#### GET
+#### Printing detail [GET]
 
 + Parameters
 
@@ -1341,6 +1418,177 @@ get sales by id
               "properties": {}
             }
 
+### /logic/v2/sales/{id}/cancel
+
+#### Cancel Sales [PUT]
+
+Cancel sales
+
++ Parameters
+
+    + id (required)
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+            {
+                "sale": 
+                {
+                    "cancelRemark": "testing server",
+                    "cancelOutlet": "Main Branch"
+                }
+            }
+
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessUpdate",
+                "warning": null,
+                "error": null,
+                "data": {
+                    "sale": 
+                    {
+                        "id": 501431,
+                        "dateTime": "2017-07-06T18:07:12.000Z",
+                        "recipientName": " ",
+                        "clientId": "5042",
+                        "clientName": "Cindy E. Bilodeau",
+                        "paid": 0,
+                        "balance": 0,
+                        "term": "0",
+                        "cashier": "RealMart Admin",
+                        "billingAddress": {
+                            "street": "",
+                            "city": "",
+                            "state": "",
+                            "zipcode": "",
+                            "country": ""
+                        },
+                        "shippingAddress": {
+                            "street": "Thomas Nolan Kaszas II",
+                            "city": "Otter Lane",
+                            "state": "Middleberge ",
+                            "zipcode": "5322",
+                            "country": "FL 32068"
+                        },
+                        "shippingRemark": "",
+                        "shipmentDateTime": null,
+                        "salesPerson": "RealMart Admin",
+                        "shippingStatus": "NA",
+                        "status": "CANCELLED",
+                        "paymentStatus": "NA",
+                        "outlet": "Coded UI Branch 2",
+                        "confirmOutlet": null,
+                        "remark": "",
+                        "discountPercentage": 0,
+                        "taxPercentage": 0,
+                        "cost": 10,
+                        "profit": 90,
+                        "rounding": 0,
+                        "recipientContact": "",
+                        "netAmount": 100,
+                        "grandTotal": 100,
+                        "gstTaxAmount": 0,
+                        "exchangeRate": 1,
+                        "foreignTotalAmount": 0,
+                        "currencyCode": null,
+                        "siteId": null,
+                        "reference": "",
+                        "shipmentProvider": null,
+                        "items": [
+                            {
+                                "id": 502069,
+                                "salesDate": "2017-07-06T00:00:00.000Z",
+                                "itemId": 236016,
+                                "itemCode": "1015",
+                                "alternateLookup": "100010866",
+                                "itemName": "1015",
+                                "itemType": "",
+                                "model": "",
+                                "description": "",
+                                "brand": "",
+                                "unitPrice": 100,
+                                "quantity": 1,
+                                "profit": 90,
+                                "cost": 10,
+                                "advanceDiscount": null,
+                                "discountPercentage": 0,
+                                "instoreLocation": "default",
+                                "priceSchemes": {
+                                    "manufacturerPrice": 60,
+                                    "salePrice": 28,
+                                    "employeePrice": 30,
+                                    "wholesalePrice": 40,
+                                    "customPrice": 2,
+                                    "webPrice": 70,
+                                    "webDealerPrice": 80,
+                                    "cost": 10
+                                },
+                                "uniqueId": "",
+                                "matrixId": "",
+                                "matrixBarcode": "",
+                                "matrixX": "",
+                                "matrixY": "",
+                                "salesPerson": "RealMart Admin",
+                                "subtotal": 100,
+                                "taxCode": "",
+                                "gstPercentage": 0,
+                                "gstAmount": 0,
+                                "gstInclusive": false,
+                                "enterPrice": 100,
+                                "scanCode": "1015",
+                                "remark": null,
+                                "deliveryQuantity": 0,
+                                "subItems": null
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "amount": 100,
+                                "reference": "123123",
+                                "method": "card",
+                                "id": 501140,
+                                "clientID": "5042",
+                                "invoiceID": "501431",
+                                "outlet": "Coded UI Branch 2",
+                                "availableBalance": 0,
+                                "remarks": null,
+                                "salesOrderId": "",
+                                "isDeposit": false
+                            }
+                        ],
+                        "cancelBy": "realmart@xilnex.com",
+                        "cancelRemark": "testing server",
+                        "cancelOutlet": "MAIN BRANCH",
+                        "cancelDateTime": "2017-07-06T18:17:27.000Z"
+                    },
+                    "sales": null,
+                    "key": null,
+                    "status": null
+                },
+                "timestamp": 1499393494
+            }
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+            
+            
 ### /logic/v2/sales/search?clientid={clientid}&datefrom={datefrom}&dateto={dateto}&locationid={locationid}
 
 #### Get Sales Detail with filter [GET]
