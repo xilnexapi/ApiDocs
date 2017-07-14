@@ -778,6 +778,209 @@ create client by checking compulsory setting
         
 ## Group Commision
 
+### /logic/v2/commission/{id}
+
+#### DELETE
+
++ Parameters
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+    
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessDelete",
+                "warning": null,
+                "error": null,
+                "data": null,
+                "timestamp": 1494989373
+            }
+
+
+    + Schema
+    
+### /login/v2/commision/profits?year={year}&month={month}&outletname={outlet}
+
+#### GET
+
++ Parameters
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+    
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": {
+                "profits": [
+                  {
+                    "id": 9001,
+                    "outlet": "MAIN BRANCH",
+                    "year": 2017,
+                    "month": 3,
+                    "profitLoss": 2467.07
+                  },
+                  {
+                    "id": 9002,
+                    "outlet": "MAIN BRANCH",
+                    "year": 2017,
+                    "month": 4,
+                    "profitLoss": 27632.81
+                  }
+                ]
+                },
+                "timestamp": 1493177978
+            }
+
+    + Schema
+    
+### /login/v2/commision/rates
+
+#### POST
+
++ Parameters
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+        {  
+            "settings":[  
+              {  
+                 "minimumValue":0,
+                 "maximumValue":100,
+                 "rate":5
+              },
+              {  
+                 "minimumValue":101,
+                 "maximumValue":200,
+                 "rate":5
+              }
+            ]
+        }
+    
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+                "ok":true,
+                "status":"SuccessInsert",
+                "warning":null,
+                "error":null,
+                "data":{  
+                  "settings":[  
+                     {  
+                        "id":9001,
+                        "minimumValue":0,
+                        "maximumValue":100,
+                        "rate":5
+                     },
+                     {  
+                        "id":9002,
+                        "minimumValue":101,
+                        "maximumValue":200,
+                        "rate":6
+                     }
+                  ]
+                },
+                "timestamp":1493177719
+            }
+
+
+    + Schema
+    
+### /login/v2/commision/rates
+
+#### PUT
+
++ Parameters
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+        {  
+            "settings":[  
+              {  
+                 "id":9001,
+                 "minimumValue":0,
+                 "maximumValue":100,
+                 "rate":5
+              },
+              {  "id":9002,
+                 "minimumValue":101,
+                 "maximumValue":200,
+                 "rate":5
+              }
+            ]
+        }
+    
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+                "ok":true,
+                "status":"SuccessUpdate",
+                "warning":null,
+                "error":null,
+                "data":{  
+                  "settings":[  
+                     {  
+                        "id":9001,
+                        "minimumValue":0,
+                        "maximumValue":100,
+                        "rate":5
+                     },
+                     {  
+                        "id":9002,
+                        "minimumValue":101,
+                        "maximumValue":200,
+                        "rate":6
+                     }
+                  ]
+                },
+                "timestamp":1493177719
+            }
+
+
+    + Schema
+    
 ### /login/v2/commision/users
 
 #### GET
