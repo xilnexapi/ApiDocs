@@ -227,6 +227,555 @@ permissions for requested operation.
               "properties": {}
             }
 
+## Group Clients
+
+### /logic/v2/clients/query?code={AnyCode}
+#### GET
++ Any code = Client code, mobile, identity card, company name 
++ Use to retrive single result, the code must be exactly same.
+
++ Parameters
++ Request
+    
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
++ Response 200 (application/json)
+
+    + Body
+        {
+          "ok": true,
+          "status": "SuccessQuery",
+          "warning": null,
+          "error": null,
+          "data": {
+            "client": null,
+            "clients": [
+              {
+                "id": 5042,
+                "alternateLookup": "",
+                "priceScheme": "0",
+                "terms": 0,
+                "creditLimit": 0,
+                "billingAddress": "",
+                "shippingAddress": "",
+                "billing": {
+                  "street": "",
+                  "city": "",
+                  "state": "",
+                  "zipcode": "",
+                  "country": ""
+                },
+                "shipping": {
+                  "street": "",
+                  "city": "",
+                  "state": "",
+                  "zipcode": "",
+                  "country": ""
+                },
+                "name": "Cindy E. Bilodeau",
+                "code": "12052016",
+                "title": "",
+                "email": "",
+                "type": "",
+                "group": "",
+                "registrationCode": "",
+                "gender": "female",
+                "dob": "",
+                "ic": "",
+                "nationality": null,
+                "createdBy": "realmart@xilnex.com",
+                "mobile": null,
+                "office": null,
+                "fax": null,
+                "phone": null,
+                "alternateContact": null,
+                "alternatePhone": null,
+                "category": null,
+                "firstName": null,
+                "lastName": null,
+                "expiryDate": "0001-01-01T00:00:00.000Z",
+                "pointValue": 128
+        
+              }
+            ]
+          },
+          "timestamp": 1487901986
+        }
+        
+### /logic/v2/clients/search?code={AnyCode}
+#### GET
++ Any code = Client code, mobile, identity card, company name 
++ Use to retrive a list of result, api will query data like AnyCode.
+
++ Parameters
++ Request
+    
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+    
++ Response 200 (application/json)
+
+        {
+            "ok": true,
+            "status": "SuccessQuery",
+            "warning": null,
+            "error": null,
+            "data": {
+            "client": null,
+            "clients": [
+              {
+                "id": 32706,
+                "alternateLookup": "",
+                "priceScheme": "0",
+                "terms": 0,
+                "creditLimit": 0,
+                "billingAddress": "",
+                "shippingAddress": "",
+                "billing": {
+                  "street": "",
+                  "city": "",
+                  "state": "",
+                  "zipcode": "",
+                  "country": ""
+                },
+                "shipping": {
+                  "street": "",
+                  "city": "",
+                  "state": "",
+                  "zipcode": "",
+                  "country": ""
+                },
+                "name": "freeyew",
+                "code": "aaa",
+                "title": "",
+                "email": "",
+                "type": "staff",
+                "group": "",
+                "registrationCode": "",
+                "gender": "female",
+                "dob": "2016-02-01T00:00:00.000Z",
+                "ic": "",
+                "nationality": null,
+                "createdBy": "realmart@xilnex.com",
+                "mobile": null,
+                "office": null,
+                "fax": null,
+                "phone": null,
+                "alternateContact": null,
+                "alternatePhone": null,
+                "category": null,
+                "firstName": null,
+                "lastName": null
+              }
+            ]
+          },
+          "timestamp": 1487901505
+        }
+
+### /logic/v2/clients/{id}
+#### GET
++ Id = client id 
++ To retrive client Information
+
++ Parameters
++ Request
+    
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+        
++ Response 200 (application/json)
+
+        {
+          "ok": true,
+          "status": "SuccessQuery",
+          "warning": null,
+          "error": null,
+          "data": {
+            "client": {
+              "id": 32706,
+              "alternateLookup": "",
+              "priceScheme": "0",
+              "terms": 0,
+              "creditLimit": 0,
+              "billingAddress": "",
+              "shippingAddress": "",
+              "billing": {
+                "street": "",
+                "city": "",
+                "state": "",
+                "zipcode": "",
+                "country": ""
+              },
+              "shipping": {
+                "street": "",
+                "city": "",
+                "state": "",
+                "zipcode": "",
+                "country": ""
+              },
+              "name": "freeyew",
+              "code": "aaa",
+              "title": "",
+              "email": "",
+              "type": "staff",
+              "group": "",
+              "registrationCode": "",
+              "gender": "female",
+              "dob": "2016-02-01T00:00:00.000Z",
+              "ic": "",
+              "nationality": null,
+              "createdBy": "xxx@xilnex.com",
+              "mobile": null,
+              "office": null,
+              "fax": null,
+              "phone": null,
+              "alternateContact": null,
+              "alternatePhone": null,
+              "category": null,
+              "firstName": null,
+              "lastName": null
+            },
+            "clients": null
+          },
+          "timestamp": 1487901676
+        }
+
+
+### /logic/v2/clients/{id}/sales
+#### GET
++ Id = client id 
++ To retrive client purchase history
+
++ Parameters
++ Request
+    
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+        
++ Response 200 (application/json)
+        {
+            "ok": true,
+            "status": "SuccessQuery",
+            "warning": null,
+            "error": null,
+            "data": {
+                "purchaseHistories": [
+                  {
+                    "outlet": "PENANG BRANCH",
+                    "sales": [
+                      {
+                        "salesId": 327056,
+                        "amount": 0,
+                        "paidAmount": 0,
+                        "balanceAmount": 0,
+                        "salesDate": "2017-02-01T00:00:00.000Z"
+                      }
+                    ]
+                  }
+                ]
+            },
+            "timestamp": 1487902292
+        }
+
+    
+### /logic/v2/clients/entryform
+#### GET
+To retrive full list of client entry form
+
++ Parameters
++ Request
+    
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+        
++ Response 200 (application/json)
+        {
+            "ok": true,
+            "status": "SuccessQuery",
+            "warning": null,
+            "error": null,
+            "data": {
+            "compulsoryFields": [
+              {
+                "fieldName": "Company_Name",
+                "fieldTitle": "Company Name",
+                "type": "string",
+                "isCompulsory": true,
+                "defaultValue": null,
+                "options": null
+              },
+              {
+                "fieldName": "STRING_EXTEND_2",
+                "fieldTitle": "Client Category",
+                "type": "selection",
+                "isCompulsory": true,
+                "defaultValue": null,
+                "options": [
+                  "Personal",
+                  "Company"
+                ]
+              },
+              {
+                "fieldName": "DOB",
+                "fieldTitle": "Date Of Birth",
+                "type": "datetime",
+                "isCompulsory": true,
+                "defaultValue": "",
+                "options": null
+              },
+              {
+                "fieldName": "Race",
+                "fieldTitle": "Race",
+                "type": "selection",
+                "isCompulsory": true,
+                "defaultValue": "",
+                "options": [
+                  "Chinese"
+                ]
+              }
+            ]
+            },
+            "timestamp": 1487900654
+        }
+
+    
+### /logic/v2/clients/client
+#### POST
+create customer without go through compulsory setting
+
++ Parameters
++ Request
+    
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+        {  
+            "client":{  
+              "id":0,
+              "alternateLookup":null,
+              "priceScheme":null,
+              "terms":0,
+              "creditLimit":0,
+              "billing":{  
+                 "street":"bill street",
+                 "city":"bill city",
+                 "state":"bill state"
+              },
+              "shipping":{  
+                 "street":"ship street",
+                 "city":"ship city",
+                 "state":"ship state",
+                 "zipcode":"00000",
+                 "country":"ship country"
+              },
+              "name":"suelynn",
+              "code":"",
+              "title":"",
+              "email":"",
+              "type":"",
+              "group":"",
+              "registrationCode":"",
+              "gender":"",
+              "ic":"",
+              "nationality":"",
+              "createdBy":"",
+              "mobile":"",
+              "office":"",
+              "fax":"",
+              "phone":"",
+              "alternateContact":"",
+              "alternatePhone":"",
+              "category":"catA",
+              "firstName":"suelynn",
+              "lastName":"chiew"
+            }
+        }  
+        
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+    
+        {  
+            "ok":true,
+            "status":"SuccessQuery",
+            "warning":null,
+            "error":null,
+            "data":{  
+              "client":{  
+                 "id":90014,
+                 "alternateLookup":null,
+                 "priceScheme":null,
+                 "terms":0,
+                 "creditLimit":0,
+                 "billingAddress":"bill street\nbill city\nbill state",
+                 "shippingAddress":"ship street\nship city\n00000\nship state\nship country",
+                 "billing":{  
+                    "street":"bill street",
+                    "city":"bill city",
+                    "state":"bill state",
+                    "zipcode":null,
+                    "country":null
+                 },
+                 "shipping":{  
+                    "street":"ship street",
+                    "city":"ship city",
+                    "state":"ship state",
+                    "zipcode":"00000",
+                    "country":"ship country"
+                 },
+                 "name":"suelynn",
+                 "code":"90014",
+                 "title":"",
+                 "email":"",
+                 "type":"",
+                 "group":"",
+                 "registrationCode":"",
+                 "gender":"",
+                 "dob":"",
+                 "ic":"",
+                 "nationality":null,
+                 "createdBy":"",
+                 "mobile":null,
+                 "office":null,
+                 "fax":null,
+                 "phone":null,
+                 "alternateContact":null,
+                 "alternatePhone":null,
+                 "category":null,
+                 "firstName":null,
+                 "lastName":null
+              },
+              "clients":null
+            },
+            "timestamp":1487901794
+        }
+    
+### /logic/v2/clients/quickclient
+#### POST
+create client by checking compulsory setting
+
++ Parameters
++ Request
+    
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+        
+        {
+            "client":{
+                "id": 0,
+                "alternateLookup": null,
+                "priceScheme": null,
+                "terms": 0,
+                "creditLimit": 0,
+                "billingAddress": null,
+                "shippingAddress": null,
+                "name": "suelynn",
+                "code": "",
+                "title": "",
+                "email": "",
+                "type": "",
+                "group": "",
+                "registrationCode": "",
+                "gender": "",
+                "ic": "",
+                "nationality": "",
+                "createdBy": "",
+                "mobile": "",
+                "office": "",
+                "fax": "",
+                "phone": "",
+                "alternateContact": "",
+                "alternatePhone": "",
+                "dob": ""
+            }
+        }
+        
++ Response 200 (application/json)
+
+        {  
+            "ok":true,
+            "status":"SuccessQuery",
+            "warning":null,
+            "error":null,
+            "data":{  
+              "client":{  
+                 "id":90014,
+                 "alternateLookup":null,
+                 "priceScheme":null,
+                 "terms":0,
+                 "creditLimit":0,
+                 "billingAddress":"bill street\nbill city\nbill state",
+                 "shippingAddress":"ship street\nship city\n00000\nship state\nship country",
+                 "billing":{  
+                    "street":"bill street",
+                    "city":"bill city",
+                    "state":"bill state",
+                    "zipcode":null,
+                    "country":null
+                 },
+                 "shipping":{  
+                    "street":"ship street",
+                    "city":"ship city",
+                    "state":"ship state",
+                    "zipcode":"00000",
+                    "country":"ship country"
+                 },
+                 "name":"suelynn",
+                 "code":"90014",
+                 "title":"",
+                 "email":"",
+                 "type":"",
+                 "group":"",
+                 "registrationCode":"",
+                 "gender":"",
+                 "dob":"",
+                 "ic":"",
+                 "nationality":null,
+                 "createdBy":"",
+                 "mobile":null,
+                 "office":null,
+                 "fax":null,
+                 "phone":null,
+                 "alternateContact":null,
+                 "alternatePhone":null,
+                 "category":null,
+                 "firstName":null,
+                 "lastName":null
+              },
+              "clients":null
+            },
+            "timestamp":1487901794
+        }
+        
 ## Group Commision
 
 ### /login/v2/commision/users
@@ -1426,7 +1975,7 @@ Cancel sales
 
 + Parameters
 
-    + id (required)
+    + id (required) - invoice Id
 
 + Request
 
