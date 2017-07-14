@@ -809,6 +809,71 @@ create client by checking compulsory setting
 
 
     + Schema
+
+### /login/v2/commision/profits
+
+#### POST
+
++ Parameters
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+        {  
+            "profits":[  
+              {  
+                 "outlet":"main branch",
+                 "year":2017,
+                 "month":1,
+                 "profitLoss":2467.07
+              },
+              {  
+                 "outlet":"main branch",
+                 "year":2017,
+                 "month":2,
+                 "profitLoss":27632.81
+              }
+            ]
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            
+        {
+            "ok": true,
+            "status": "SuccessQuery",
+            "warning": null,
+            "error": null,
+            "data": {
+            "profits": [
+              {
+                "id": 9001,
+                "outlet": "MAIN BRANCH",
+                "year": 2017,
+                "month": 3,
+                "profitLoss": 2467.07
+              },
+              {
+                "id": 9002,
+                "outlet": "MAIN BRANCH",
+                "year": 2017,
+                "month": 4,
+                "profitLoss": 27632.81
+              }
+            ]
+          },
+          "timestamp": 1493177978
+        }
+
+
+    + Schema
+    
     
 ### /login/v2/commision/profits?year={year}&month={month}&outletname={outlet}
 
