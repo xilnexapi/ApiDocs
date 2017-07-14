@@ -99,7 +99,9 @@ permissions for requested operation.
               "properties": {}
             }
 
-#### get Access control [GET /logic/v1/accesscontrol/Accesscontrols]
+### /logic/v1/accesscontrol/Accesscontrols
+
+####  get Access control [GET]
 
 + Parameters
 
@@ -234,7 +236,6 @@ permissions for requested operation.
 + Any code = Client code, mobile, identity card, company name 
 + Use to retrive single result, the code must be exactly same.
 
-+ Parameters
 + Request
     
     + Headers
@@ -245,7 +246,6 @@ permissions for requested operation.
     + Body
 + Response 200 (application/json)
 
-    + Body
         {
           "ok": true,
           "status": "SuccessQuery",
@@ -311,7 +311,6 @@ permissions for requested operation.
 + Any code = Client code, mobile, identity card, company name 
 + Use to retrive a list of result, api will query data like AnyCode.
 
-+ Parameters
 + Request
     
     + Headers
@@ -385,7 +384,6 @@ permissions for requested operation.
 + Id = client id 
 + To retrive client Information
 
-+ Parameters
 + Request
     
     + Headers
@@ -458,7 +456,6 @@ permissions for requested operation.
 + Id = client id 
 + To retrive client purchase history
 
-+ Parameters
 + Request
     
     + Headers
@@ -469,28 +466,29 @@ permissions for requested operation.
     + Body
         
 + Response 200 (application/json)
-        {
-            "ok": true,
-            "status": "SuccessQuery",
-            "warning": null,
-            "error": null,
-            "data": {
-                "purchaseHistories": [
-                  {
-                    "outlet": "PENANG BRANCH",
-                    "sales": [
-                      {
-                        "salesId": 327056,
-                        "amount": 0,
-                        "paidAmount": 0,
-                        "balanceAmount": 0,
-                        "salesDate": "2017-02-01T00:00:00.000Z"
-                      }
+
+        {  
+            "ok":true,
+            "status":"SuccessQuery",
+            "warning":null,
+            "error":null,
+            "data":{  
+              "purchaseHistories":[  
+                 {  
+                    "outlet":"PENANG BRANCH",
+                    "sales":[  
+                       {  
+                          "salesId":327056,
+                          "amount":0,
+                          "paidAmount":0,
+                          "balanceAmount":0,
+                          "salesDate":"2017-02-01T00:00:00.000Z"
+                       }
                     ]
-                  }
-                ]
+                 }
+              ]
             },
-            "timestamp": 1487902292
+            "timestamp":1487902292
         }
 
     
@@ -498,7 +496,6 @@ permissions for requested operation.
 #### GET
 To retrive full list of client entry form
 
-+ Parameters
 + Request
     
     + Headers
@@ -509,6 +506,7 @@ To retrive full list of client entry form
     + Body
         
 + Response 200 (application/json)
+
         {
             "ok": true,
             "status": "SuccessQuery",
@@ -563,7 +561,6 @@ To retrive full list of client entry form
 #### POST
 create customer without go through compulsory setting
 
-+ Parameters
 + Request
     
     + Headers
@@ -572,6 +569,7 @@ create customer without go through compulsory setting
             Header: {header}
             Token: {token}
     + Body
+    
         {  
             "client":{  
               "id":0,
@@ -612,7 +610,7 @@ create customer without go through compulsory setting
               "firstName":"suelynn",
               "lastName":"chiew"
             }
-        }  
+        }
         
 + Response 200 (application/json)
 
@@ -679,7 +677,6 @@ create customer without go through compulsory setting
 #### POST
 create client by checking compulsory setting
 
-+ Parameters
 + Request
     
     + Headers
@@ -782,7 +779,6 @@ create client by checking compulsory setting
 
 #### DELETE
 
-+ Parameters
 + Request
 
     + Headers
@@ -2430,114 +2426,103 @@ get sales by client id and date range
     + Body
 
 + Response 200 (application/json)
-
-    OK
-
-    + Body
-
-            {
-                "ok": true,
-                "status": "SuccessQuery",
-                "warning": null,
-                "error": null,
-                "data": [{
-                "sales": {
-                  "id": "501140",
-                  "dateTime": "2016-12-16T00:00:00.000Z",
-                  "recipientName": " ",
-                  "clientId": "9008",
-                  "clientName": "test",
-                  "paid": 0,
-                  "balance": 15,
-                  "term": "0",
-                  "cashier": "REAL MART Admin",
-                  "billingAdress": {
-                    "street": null,
-                    "city": null,
-                    "state": null,
-                    "zipcode": null,
-                    "country": null
-                  },
-                  "shippingAdress": {
-                    "street": null,
-                    "city": null,
-                    "state": null,
-                    "zipcode": null,
-                    "country": null
-                  },
-                  "shippingRemark": null,
-                  "shipmentDateTime": null,
-                  "salesPerson": "REAL MART Admin",
-                  "shippingStatus": null,
-                  "status": "OPEN",
-                  "paymentStatus": "PENDING",
-                  "location": "Coded UI Branch 2",
-                  "remark": null,
-                  "discountPercentage": 0,
-                  "taxPercentage": 0,
-                  "cost": 0,
-                  "profit": 15,
-                  "rounding": 0,
-                  "recipientContact": null,
-                  "netAmount": 15,
-                  "grandTotal": 15,
-                  "gstTaxAmount": 0,
-                  "exchangeRate": 0,
-                  "foreignTotalAmount": 0,
-                  "currencyCode": null,
-                  "items": 
-                  [
-                    {
-                      "salesDate": "2016-12-16T00:00:00.000Z",
-                      "itemId": 5046,
-                      "itemCode": "12092016",
-                      "alternateLookup": "",
-                      "itemName": "12092016",
-                      "itemType": "",
-                      "model": "",
-                      "description": "",
-                      "brand": "",
-                      "unitPrice": 15,
-                      "quantity": 3,
-                      "profit": 15,
-                      "cost": 0,
-                      "discountPercentage": 0,
-                      "instoreLocation": "default",
-                      "priceSchemes": {
-                        "manufacturerPrice": 0,
-                        "salePrice": 15,
-                        "employeePrice": 0,
-                        "wholesalePrice": 0,
-                        "customPrice": 0,
-                        "webPrice": 0,
-                        "webDealerPrice": 0,
-                        "cost": 0
-                      },
-                      "uniqueId": "",
-                      "matrixId": "",
-                      "matrixBarcode": "",
-                      "matrixX": "",
-                      "matrixY": "",
-                      "salesPerson": "REAL MART Admin",
-                      "subtotal": 45,
-                      "taxCode": "SR",
-                      "gstPercentage": 0,
-                      "gstAmount": 0,
-                      "gstInclusive": true,
-                      "enterPrice": 15
-                    }
-                 ]
-                }
-            }]les function,
-            "timestamp": 1483520163
+        {  
+            "ok":true,
+            "status":"SuccessQuery",
+            "warning":null,
+            "error":null,
+            "data":[  
+              {  
+                 "sales":{  
+                    "id":"501140",
+                    "dateTime":"2016-12-16T00:00:00.000Z",
+                    "recipientName":" ",
+                    "clientId":"9008",
+                    "clientName":"test",
+                    "paid":0,
+                    "balance":15,
+                    "term":"0",
+                    "cashier":"REAL MART Admin",
+                    "billingAdress":{  
+                       "street":null,
+                       "city":null,
+                       "state":null,
+                       "zipcode":null,
+                       "country":null
+                    },
+                    "shippingAdress":{  
+                       "street":null,
+                       "city":null,
+                       "state":null,
+                       "zipcode":null,
+                       "country":null
+                    },
+                    "shippingRemark":null,
+                    "shipmentDateTime":null,
+                    "salesPerson":"REAL MART Admin",
+                    "shippingStatus":null,
+                    "status":"OPEN",
+                    "paymentStatus":"PENDING",
+                    "location":"Coded UI Branch 2",
+                    "remark":null,
+                    "discountPercentage":0,
+                    "taxPercentage":0,
+                    "cost":0,
+                    "profit":15,
+                    "rounding":0,
+                    "recipientContact":null,
+                    "netAmount":15,
+                    "grandTotal":15,
+                    "gstTaxAmount":0,
+                    "exchangeRate":0,
+                    "foreignTotalAmount":0,
+                    "currencyCode":null,
+                    "items":[  
+                       {  
+                          "salesDate":"2016-12-16T00:00:00.000Z",
+                          "itemId":5046,
+                          "itemCode":"12092016",
+                          "alternateLookup":"",
+                          "itemName":"12092016",
+                          "itemType":"",
+                          "model":"",
+                          "description":"",
+                          "brand":"",
+                          "unitPrice":15,
+                          "quantity":3,
+                          "profit":15,
+                          "cost":0,
+                          "discountPercentage":0,
+                          "instoreLocation":"default",
+                          "priceSchemes":{  
+                             "manufacturerPrice":0,
+                             "salePrice":15,
+                             "employeePrice":0,
+                             "wholesalePrice":0,
+                             "customPrice":0,
+                             "webPrice":0,
+                             "webDealerPrice":0,
+                             "cost":0
+                          },
+                          "uniqueId":"",
+                          "matrixId":"",
+                          "matrixBarcode":"",
+                          "matrixX":"",
+                          "matrixY":"",
+                          "salesPerson":"REAL MART Admin",
+                          "subtotal":45,
+                          "taxCode":"SR",
+                          "gstPercentage":0,
+                          "gstAmount":0,
+                          "gstInclusive":true,
+                          "enterPrice":15
+                       }
+                    ]
+                 }
+              }
+            ],
+            "timestamp":1483520163
         }
-
-    + Schema
-
-            {
-              "type": "object",
-              "properties": {}
-            }
             
 ### /logic/v2/sales/invoices
 
@@ -2629,14 +2614,14 @@ when sales creation.
 #### Callback [POST]
 + Response 200 (application/json)
 
-    + Body (application/json)
+    + Body 
     
-            {
-                “sale”:
-                        {
-                        }
-                “key”:2345679590789232,
-                “status”:”success”
+            {  
+               "sale":{  
+            
+               },
+               "key":2345679590789232,
+               "status":"success"
             }
 
 ## Group SalesMallIntegrated
