@@ -233,9 +233,11 @@ permissions for requested operation.
 
 ### /logic/v2/clients/query?code={AnyCode}
 #### GET
-+ Any code = Client code, mobile, identity card, company name 
 + Use to retrive single result, the code must be exactly same.
 
++ Parameters
+    + AnyCode: Client code, mobile, identity card, company name 
+    
 + Request
     
     + Headers
@@ -308,9 +310,11 @@ permissions for requested operation.
         
 ### /logic/v2/clients/search?code={AnyCode}
 #### GET
-+ Any code = Client code, mobile, identity card, company name 
 + Use to retrive a list of result, api will query data like AnyCode.
 
++ Parameters
+    + AnyCode: Client code, mobile, identity card, company name 
+    
 + Request
     
     + Headers
@@ -381,9 +385,11 @@ permissions for requested operation.
 
 ### /logic/v2/clients/{id}
 #### GET
-+ Id = client id 
 + To retrive client Information
 
++ Parameters
+    + id: Client id
+    
 + Request
     
     + Headers
@@ -453,9 +459,11 @@ permissions for requested operation.
 
 ### /logic/v2/clients/{id}/sales
 #### GET
-+ Id = client id 
 + To retrive client purchase history
 
++ Parameters
+    + id: Client id
+    
 + Request
     
     + Headers
