@@ -1338,6 +1338,371 @@ create client by checking compulsory setting
               "type": "object",
               "properties": {}
             }
+            
+## Group Items
+
+### /logic/v2/items/{id}
+
+#### GET
+To retrive item detail
+
++ Parameters
+    + id: item id
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": {
+                "item": {
+                  "id": 236016,
+                  "itemCode": "1015",
+                  "itemName": "1015",
+                  "itemType": "",
+                  "itemModel": "",
+                  "alternateLookup": "",
+                  "description": "",
+                  "brand": "",
+                  "category": "Category1",
+                  "departmentCode": "",
+                  "departmentName": null,
+                  "vendorCode": "",
+                  "cost": 11.21,
+                  "suggestedPrice": 60,
+                  "salesPrice": 28,
+                  "employeePrice": 30,
+                  "wholesalesPrice": 40,
+                  "customPrice": 2,
+                  "webPrice": 70,
+                  "webDealerPrice": 80,
+                  "attribute": "",
+                  "size": "",
+                  "stockType": null,
+                  "matrixXGroup": null,
+                  "matrixYGroup": null,
+                  "groupName": "Group01",
+                  "promotionGroup": "PromoGroup1",
+                  "customField1": "1",
+                  "customField2": "2",
+                  "customField3": "3",
+                  "customField4": "4",
+                  "customField5": "5",
+                  "customField6": "6",
+                  "customField7": "7",
+                  "customField8": "8",
+                  "customField9": "9",
+                  "customField10": "10",
+                  "customField11": "11",
+                  "customField12": "12",
+                  "customField13": "13",
+                  "customField14": "14",
+                  "customField15": "15",
+                  "gstRate": 6,
+                  "gstSupplyCode": "SR",
+                  "gstPurchaseCode": "TX",
+                  "productMatrixInfo": null,
+                  "uniqueItemInfo": null,
+                  "subItems": null
+                },
+                "items": null
+                },
+                "timestamp": 1487902852
+            }
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+            
+### /logic/v2/items/search/{code}
+
+#### GET
+To retrive item details by code
+
++ Parameter
+    + code: item code
+    
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    {
+        "ok": true,
+        "status": "SuccessQuery",
+        "warning": null,
+        "error": null,
+        "data": {
+        "item": null,
+        "items": [
+          {
+            "id": 236016,
+            "itemCode": "1015",
+            "itemName": "1015",
+            "itemType": "",
+            "itemModel": "",
+            "alternateLookup": "",
+            "description": "",
+            "brand": "",
+            "category": "Category1",
+            "departmentCode": "",
+            "departmentName": null,
+            "vendorCode": "",
+            "cost": 11.21,
+            "suggestedPrice": 60,
+            "salesPrice": 28,
+            "employeePrice": 30,
+            "wholesalesPrice": 40,
+            "customPrice": 2,
+            "webPrice": 70,
+            "webDealerPrice": 80,
+            "attribute": "",
+            "size": "",
+            "stockType": null,
+            "matrixXGroup": null,
+            "matrixYGroup": null,
+            "groupName": "Group01",
+            "promotionGroup": "PromoGroup1",
+            "customField1": "1",
+            "customField2": "2",
+            "customField3": "3",
+            "customField4": "4",
+            "customField5": "5",
+            "customField6": "6",
+            "customField7": "7",
+            "customField8": "8",
+            "customField9": "9",
+            "customField10": "10",
+            "customField11": "11",
+            "customField12": "12",
+            "customField13": "13",
+            "customField14": "14",
+            "customField15": "15",
+            "gstRate": 6,
+            "gstSupplyCode": "SR",
+            "gstPurchaseCode": "TX",
+            "productMatrixInfo": null,
+            "uniqueItemInfo": null,
+            "subItems": null
+          }
+        ]
+        },
+        "timestamp": 1487902691
+    }
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+            
+### /logic/v2/items/barcodequery?code={code}&locationid={locationid}
+
+#### GET
+To retrive item details by code and location
+
++ Parameter
+    + code: item code
+    + locationId: location id
+    
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+        {
+            "ok": true,
+            "status": "SuccessQuery",
+            "warning": null,
+            "error": null,
+            "data": {
+            "item": {
+                "id": 5044,
+                "itemCode": "edrte",
+                "itemName": "erte",
+                "itemType": "",
+                "itemModel": "",
+                "alternateLookup": "",
+                "description": "",
+                "brand": "",
+                "category": "Package",
+                "departmentCode": "",
+                "departmentName": "",
+                "vendorCode": "",
+                "cost": 33.98,
+                "suggestedPrice": 0,
+                "salesPrice": 35,
+                "employeePrice": 0,
+                "wholesalesPrice": 10,
+                "customPrice": 0,
+                "webPrice": 0,
+                "webDealerPrice": 0,
+                "attribute": "",
+                "size": "",
+                "stockType": "bundle",
+                "matrixXGroup": null,
+                "matrixYGroup": null,
+                "groupName": "",
+                "promotionGroup": null,
+                "customField1": "01",
+                "customField2": "02",
+                "customField3": "03",
+                "customField4": "04",
+                "customField5": "05",
+                "customField6": "06",
+                "customField7": "07",
+                "customField8": "08",
+                "customField9": "09",
+                "customField10": "010",
+                "customField11": "011",
+                "customField12": "012",
+                "customField13": "013",
+                "customField14": "014",
+                "customField15": "015",
+                "gstRate": 6,
+                "gstSupplyCode": "SR",
+                "gstPurchaseCode": "TX",
+                "productMatrixInfo": null,
+                "uniqueItemInfo": null,
+                "subItems": [
+                {
+                    "id": 2324,
+                    "itemCode": "1015",
+                    "itemName": "1015",
+                    "itemType": "",
+                    "itemModel": "",
+                    "alternateLookup": "",
+                    "description": "",
+                    "brand": "",
+                    "category": "Category1",
+                    "departmentCode": "",
+                    "departmentName": null,
+                    "vendorCode": "",
+                    "cost": 11.21,
+                    "suggestedPrice": 60,
+                    "salesPrice": 28,
+                    "employeePrice": 30,
+                    "wholesalesPrice": 40,
+                    "customPrice": 2,
+                    "webPrice": 70,
+                    "webDealerPrice": 80,
+                    "attribute": "",
+                    "size": "",
+                    "stockType": null,
+                    "matrixXGroup": null,
+                    "matrixYGroup": null,
+                    "groupName": "Group01",
+                    "promotionGroup": "PromoGroup1",
+                    "customField1": "1",
+                    "customField2": "2",
+                    "customField3": "3",
+                    "customField4": "4",
+                    "customField5": "5",
+                    "customField6": "6",
+                    "customField7": "7",
+                    "customField8": "8",
+                    "customField9": "9",
+                    "customField10": "10",
+                    "customField11": "11",
+                    "customField12": "12",
+                    "customField13": "13",
+                    "customField14": "14",
+                    "customField15": "15",
+                    "gstRate": 6,
+                    "gstSupplyCode": "SR",
+                    "gstPurchaseCode": "TX",
+                    "productMatrixInfo": null,
+                    "uniqueItemInfo": null,
+                    "subItems": null
+                }
+                ]
+            },
+            "items": null
+            },
+            "timestamp": 1487902749
+        }
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+            
+### /logic/v2/items/priceschemes
+
+#### GET
+To retrive item price schemes name list 
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": {
+                "fields": [
+                  "Sales Price",
+                  "Employee Price",
+                  "Wholesale Price",
+                  "Custom Price",
+                  "Suggested Price",
+                  "Web Price",
+                  "Web Dealer Price"
+                ]
+                },
+                "timestamp": 1492750849
+            }
+
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
 
 ## Group LocationCreation
 
