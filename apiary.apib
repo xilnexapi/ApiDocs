@@ -300,7 +300,9 @@ permissions for requested operation.
                 "firstName": null,
                 "lastName": null,
                 "expiryDate": "0001-01-01T00:00:00.000Z",
-                "pointValue": 128
+                "pointValue": 128,
+                "image":"",
+                "active":false
         
               }
             ]
@@ -376,7 +378,11 @@ permissions for requested operation.
                 "alternatePhone": null,
                 "category": null,
                 "firstName": null,
-                "lastName": null
+                "lastName": null,
+                "expiryDate":"0001-01-01T00:00:00.000Z",
+                "pointValue":0,
+                "image":"",
+                "active":false
               }
             ]
           },
@@ -449,7 +455,11 @@ permissions for requested operation.
               "alternatePhone": null,
               "category": null,
               "firstName": null,
-              "lastName": null
+              "lastName": null,
+              "expiryDate":"0001-01-01T00:00:00.000Z",
+              "pointValue":0,
+              "image":"",
+              "active":false
             },
             "clients": null
           },
@@ -616,7 +626,11 @@ create customer without go through compulsory setting
               "alternatePhone":"",
               "category":"catA",
               "firstName":"suelynn",
-              "lastName":"chiew"
+              "lastName":"chiew",
+              "expiryDate": "0001-01-01T00:00:00.000Z",
+                "pointValue": 128,
+                "image":"",
+                "active":false
             }
         }
         
@@ -674,7 +688,11 @@ create customer without go through compulsory setting
                  "alternatePhone":null,
                  "category":null,
                  "firstName":null,
-                 "lastName":null
+                 "lastName":null,
+                "expiryDate": "0001-01-01T00:00:00.000Z",
+                "pointValue": 128,
+                "image":"",
+                "active":false
               },
               "clients":null
             },
@@ -774,7 +792,11 @@ create client by checking compulsory setting
                  "alternatePhone":null,
                  "category":null,
                  "firstName":null,
-                 "lastName":null
+                 "lastName":null,
+                 "expiryDate": "0001-01-01T00:00:00.000Z",
+                "pointValue": 128,
+                "image":"",
+                "active":false
               },
               "clients":null
             },
@@ -1447,6 +1469,7 @@ To retrive item details by code
 
 + Response 200 (application/json)
 
+    + Body
     {
         "ok": true,
         "status": "SuccessQuery",
@@ -1704,7 +1727,7 @@ To retrive item price schemes name list
               "properties": {}
             }
 
-## Group LocationCreation
+## Group Locations
 
 ### /logic/v1/locationfunctions/NewOutlet/{outletname}
 
@@ -2417,6 +2440,69 @@ To retrive item price schemes name list
                 }
               }
             }
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
+## Group Mobile Catalogues
+
+### /logic/v1/MobileCatalogues
+
+#### Create Mobile Catalogues [POST]
+
++ Parameters
++ Request
+    + Headers
+
+        Accept: application/json
+
+    + Body
+            {  
+               "redemptionVoucherType":{  
+                  "redemptionTypeName":"Cash voucher RM350",
+                  "redemptionTypeDescription":"Cash voucher RM350",
+                  "activateDate":"2017-01-01T00:00:00.000Z",
+                  "expiryDate":"2999-01-01T00:00:00.000Z",
+                  "isReuseable":1,
+                  "redemptionCode":"RDP-RM350-CV",
+                  "redemptionGroup":"RDP-RM350-CV",
+                  "campagnTarget":"100000",
+                  "tAndC":"This Cash Voucher is valid for use at ",
+                  "isActivate":1,
+                  "childLifetimeDay":365,
+                  "childLastDate":"",
+                  "maxRedemptionPerClient":100,
+                  "maxRedemptionPerCampaign":100000,
+                  "thumbnailUrl":"",
+                  "thumbnailHQUrl":"",
+                  "photoUrl":"",
+                  "photoHQUrl":"",
+                  "voucherPrefix":"RDP350CV",
+                  "lengthOfVoucherNo":20,
+                  "voucherMasterType":"1",
+                  "redemptionTypeId":17909
+               },
+               "redeptionRules":[  
+                  {  
+                     "affiliateType":0,
+                     "transactionType":"Credit",
+                     "affiliateValue":50000
+                  }
+               ]
+            }
+
 
 + Response 200 (application/json)
 
