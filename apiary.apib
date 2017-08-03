@@ -1726,8 +1726,87 @@ To retrive item price schemes name list
               "type": "object",
               "properties": {}
             }
+## Group Outlets
+
+### /logic/v2/outlets
+
+#### GET
+
++ Request
+    
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessQuery",
+               "warning":null,
+               "error":null,
+               "data":{  
+                  "location":null,
+                  "locations":[  
+                     {  
+                        "id":"1",
+                        "outlet":"MAIN BRANCH"
+                     },
+                     {  
+                        "id":"a0e2cf1fbfd4414f8356d6e2a32e6457",
+                        "outlet":"PENANG BRANCH"
+                     },
+                     {  
+                        "id":"c0d0b16f4b0c4834a52087176462bdc1",
+                        "outlet":"PERAK BRANCH"
+                     }
+                  ]
+               },
+               "timestamp":1487903117
+            }
+            
+### /logic/v2/outlets/{id}
+
+#### GET
+
++ Request
+    
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+ 
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessQuery",
+               "warning":null,
+               "error":null,
+               "data":{  
+                  "location":{  
+                     "id":"7d6f07132d2045d2be58e9f0ed807727",
+                     "outlet":"Cheras"
+                  },
+                  "locations":null
+               },
+               "timestamp":1487903159
+            }
 
 ## Group Locations
+
+
 
 ### /logic/v1/locationfunctions/NewOutlet/{outletname}
 
