@@ -803,6 +803,70 @@ create client by checking compulsory setting
             "timestamp":1487901794
         }
         
+### /logic/v2/clients/quickclient
+
+#### PUT
+
++ Request
+    
+    + Headers
+            
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    
+    + Body
+            
++ Response 200 (application/json)
+
+    OK
+    
+    + Body
+    
+            {  
+               "client":{  
+                  "id":5042,
+                  "alternateLookup":null,
+                  "priceScheme":null,
+                  "terms":0,
+                  "creditLimit":0,
+                  "billing":{  
+                     "street":"bill street",
+                     "city":"bill city",
+                     "state":"bill state"
+                  },
+                  "shipping":{  
+                     "street":"ship street",
+                     "city":"ship city",
+                     "state":"ship state",
+                     "zipcode":"00000",
+                     "country":"ship country"
+                  },
+                  "name":"suelynn",
+                  "code":"",
+                  "title":"",
+                  "email":"",
+                  "type":"",
+                  "group":"",
+                  "registrationCode":"",
+                  "gender":"",
+                  "ic":"",
+                  "nationality":"",
+                  "createdBy":"",
+                  "mobile":"",
+                  "office":"",
+                  "fax":"",
+                  "phone":"",
+                  "alternateContact":"",
+                  "alternatePhone":"",
+                  "category":"catA",
+                  "firstName":"suelynn",
+                  "lastName":"chiew"
+               }
+            }
+ 
+            
+        
 ## Group Commision
 
 ### /logic/v2/commission/{id}
