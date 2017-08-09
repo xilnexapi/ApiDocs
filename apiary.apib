@@ -10,7 +10,7 @@ language such as JavaScript, Ruby, Swift, Object-C. C#, Java, php, etc.
 ## Setup for REST API
 For using this API you need send authenticated HTTP requests. Exists several 
 way to do this:
-* Send a HTTP header with include `Token: {api_token}` and `Dkey: {Dkey}`
+* Send a HTTPS header with include `Token: {api_token}` and `Dkey: {Dkey}`
 , where `{api_token}` is your API token and `{dkey}` is your private key
 ![name](https://s15.postimg.org/oagoiyr7f/Screenshot_1.png)
 
@@ -31,6 +31,9 @@ API e-mail address and password `You need to create a user on xilnex application
 specific for API purpose only`
 
 ## Basic Usage
+### HTTPS
+* All endpoints are available over HTTPS only.
+
 ### Allowed HTTPs requests:
 * `POST` - To create resource
 * `PUT` - To update resource
@@ -239,7 +242,7 @@ permissions for requested operation.
 + Use to retrive single result, the code must be exactly same.
 
 + Parameters
-    + AnyCode: Client code, mobile, identity card, company name 
+    + AnyCode: Client code, mobile, identity card, client name 
     
 + Request
     
