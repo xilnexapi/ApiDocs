@@ -1209,6 +1209,62 @@ Update client detail
 
 
     + Schema
+    
+### /login/v2/commision/users
+
+#### POST
+
++ Parameters
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+    
+            {  
+                "userCommissionPointFactors":[  
+                {  
+                    "username":"realmart@xilnex.com.my",
+                    "firstname":"MartTheReal",
+                    "lastname":"",
+                    "pointFactor":2,
+                    "incentiveType":"salesincentive"
+                }
+                ]
+            }
+    
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": {
+                    "userCommissionPointFactors": 
+                    [
+                        {
+                            "id": 9001,
+                            "username": "xxx@xilnex.com",
+                            "firstname": "xxx",
+                            "lastname": "",
+                            "pointFactor": 2,
+                            "incentiveType": "salesincentive"
+                        }
+                    ]
+                },
+                "timestamp": 1495512201
+            }
+
+
+    + Schema
 
 ### /login/v2/commision/users
 
