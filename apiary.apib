@@ -1242,25 +1242,96 @@ Update client detail
 
     + Body
 
-            {
-                "ok": true,
-                "status": "SuccessQuery",
-                "warning": null,
-                "error": null,
-                "data": {
-                    "userCommissionPointFactors": 
-                    [
-                        {
-                            "id": 9001,
-                            "username": "xxx@xilnex.com",
-                            "firstname": "xxx",
-                            "lastname": "",
-                            "pointFactor": 2,
-                            "incentiveType": "salesincentive"
-                        }
+            {  
+                "ok":true,
+                "status":"SuccessInsert",
+                "warning":null,
+                "error":null,
+                "data":{  
+                    "userCommissionPointFactors":[  
+                    {  
+                        "id":9001,
+                        "username":"realmart@xilnex.com",
+                        "firstname":"MartTheReal",
+                        "lastname":"",
+                        "pointFactor":2,
+                        "incentiveType":"salesincentive"
+                    },
+                    {  
+                        "id":9002,
+                        "username":"realmart@xilnex.com.my",
+                        "firstname":"MartTheReal",
+                        "lastname":"",
+                        "pointFactor":2,
+                        "incentiveType":"salesincentive"
+                    }
                     ]
                 },
-                "timestamp": 1495512201
+                "timestamp":1495512880
+            }
+
+
+    + Schema
+    
+### /login/v2/commision/users
+
+#### PUT
+
++ Parameters
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+    
+            {  
+                "userCommissionPointFactors":[  
+                    {  
+                        "id":9001,
+                        "username":"realmart@xilnex.com",
+                        "firstname":"MartTheReal",
+                        "lastname":"",
+                        "pointFactor":3,
+                        "incentiveType":"salesincentive"
+                    }
+                ]
+            }
+    
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+                "ok":true,
+                "status":"SuccessInsert",
+                "warning":null,
+                "error":null,
+                "data":{  
+                    "userCommissionPointFactors":[  
+                    {  
+                        "id":9001,
+                        "username":"realmart@xilnex.com",
+                        "firstname":"MartTheReal",
+                        "lastname":"",
+                        "pointFactor":2,
+                        "incentiveType":"salesincentive"
+                    },
+                    {  
+                        "id":9002,
+                        "username":"realmart@xilnex.com.my",
+                        "firstname":"MartTheReal",
+                        "lastname":"",
+                        "pointFactor":2,
+                        "incentiveType":"salesincentive"
+                    }
+                    ]
+                },
+                "timestamp":1495512880
             }
 
 
