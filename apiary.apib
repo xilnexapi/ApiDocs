@@ -3182,6 +3182,18 @@ when sales creation.
     + status - OPEN, CONFIRMED, COMPLETED, CANCELLED, WRITE_OFF
     + method(Collection) - cash, card, bank, cheque, web, creditnote, voucher, point, debitcard, forfeiture_voucher, creditcard_charges, contra, tradein, Other, BCard, prepaid, BCardToken, TnG, Entertainment, XCard 
     + clientId(Optional)
+    + cashier(Optional)
+    + shippingAdress(Optional)
+    + discountPercentage(Optional) - discount percentage for all order item
+    + billDiscountAmount(Optional) - discount amount for transaction, discount amount will split into each order item.
+    + recipientContact(Optional)
+    + shipmentProvider(Optional) - e.g. GDEX, Skynet etc.
+    + itemCode/itemId - One of the code must be enter.
+    + matrixId(Optional)
+    + enterPrice(Optional) - Selling price 
+    + reference(Optional) - if using voucher or card will need to key in.
+    + confirmOutlet(Optional) - if the sales status is confirm, confirm outlet must be enter.
+    + key(Optional) - if needed custom key, else server will return a new key
 + Request
 
     + Headers
@@ -3197,7 +3209,9 @@ when sales creation.
                 {
                     "clientId": 502,
                     "term":1,
+                    "cashier":"REAL MART Admin",
                     "dateTime":"2016-12-16T00:00:00.000Z",
+                    "salesPerson":"Realmart",
                     "billingAddress":
                     {
                         "street":"476",
@@ -3206,21 +3220,40 @@ when sales creation.
                         "zipcode":"12345",
                         "country":"US"
                     },
-                    "salesPerson":"Realmart",
+                    "shippingAdress":{  
+                        "street":null,
+                        "city":null,
+                        "state":null,
+                        "zipcode":null,
+                        "country":null
+                    },
                     "shippingRemark":"anytime",
+                    "salesPerson":"Realmart",
                     "status":"COMPLETED", 
                     "outlet":"Code UI Branh",
                     "remark":"remak",
+                    "outlet":"Code UI Branch",
+                    "confirmOutlet":"Code UI Branch",
+                    "remark":null,
+                    "discountPercentage":0,
+                    "billDiscountAmount":0,
+                    "recipientContact":null,
                     "items":[
                     {
                         "itemCode":"1233", 
+                        "itemId":101,
                         "quantity":1,
                         "enterPrice":88
+                        "discountPercentage":0,
+                        "matrixId":"201",
+                        "matrixBarcode":"matrix001",
+                        "enterPrice":10
                     }
                     ],
                     "collection":[
                     {
                         "method":"cash", 
+                        "reference":"",
                         "amount":100
                     }
                     ]
