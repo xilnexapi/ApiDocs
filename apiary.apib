@@ -1431,7 +1431,37 @@ Update client detail
               "type": "object",
               "properties": {}
             }
-            
+
+## Group Integration
+
+### /logic/v2/integration
+
+#### POST
+
++ Parameters
+    + id: item id
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+            {  
+                "integration":{  
+                    "externalDocumentId":"1002",
+                    "internalDocumentId":"9002",
+                    "integrationModule":"lazada",
+                    "integrationType":"sales"
+                }
+            }
+    
 ## Group Items
 
 ### /logic/v2/items/{id}
@@ -1796,6 +1826,83 @@ To retrive item price schemes name list
             {
               "type": "object",
               "properties": {}
+            }
+## Group Outlets
+
+### /logic/v2/outlets
+
+#### GET
+
++ Request
+    
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessQuery",
+               "warning":null,
+               "error":null,
+               "data":{  
+                  "location":null,
+                  "locations":[  
+                     {  
+                        "id":"1",
+                        "outlet":"MAIN BRANCH"
+                     },
+                     {  
+                        "id":"a0e2cf1fbfd4414f8356d6e2a32e6457",
+                        "outlet":"PENANG BRANCH"
+                     },
+                     {  
+                        "id":"c0d0b16f4b0c4834a52087176462bdc1",
+                        "outlet":"PERAK BRANCH"
+                     }
+                  ]
+               },
+               "timestamp":1487903117
+            }
+            
+### /logic/v2/outlets/{id}
+
+#### GET
+
++ Request
+    
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+ 
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessQuery",
+               "warning":null,
+               "error":null,
+               "data":{  
+                  "location":{  
+                     "id":"7d6f07132d2045d2be58e9f0ed807727",
+                     "outlet":"Cheras"
+                  },
+                  "locations":null
+               },
+               "timestamp":1487903159
             }
 
 ## Group Locations
@@ -2592,84 +2699,6 @@ To retrive item price schemes name list
               "properties": {}
             }
 
-## Group Outlets
-
-### /logic/v2/outlets
-
-#### GET
-
-+ Request
-    
-    + Headers
-
-            Accept: application/json
-
-    + Body
-
-+ Response 200 (application/json)
-
-    OK
-
-    + Body
-
-            {  
-               "ok":true,
-               "status":"SuccessQuery",
-               "warning":null,
-               "error":null,
-               "data":{  
-                  "location":null,
-                  "locations":[  
-                     {  
-                        "id":"1",
-                        "outlet":"MAIN BRANCH"
-                     },
-                     {  
-                        "id":"a0e2cf1fbfd4414f8356d6e2a32e6457",
-                        "outlet":"PENANG BRANCH"
-                     },
-                     {  
-                        "id":"c0d0b16f4b0c4834a52087176462bdc1",
-                        "outlet":"PERAK BRANCH"
-                     }
-                  ]
-               },
-               "timestamp":1487903117
-            }
-            
-### /logic/v2/outlets/{id}
-
-#### GET
-
-+ Request
-    
-    + Headers
-
-            Accept: application/json
-
-    + Body
-
-+ Response 200 (application/json)
-
-    OK
- 
-    + Body
-
-            {  
-               "ok":true,
-               "status":"SuccessQuery",
-               "warning":null,
-               "error":null,
-               "data":{  
-                  "location":{  
-                     "id":"7d6f07132d2045d2be58e9f0ed807727",
-                     "outlet":"Cheras"
-                  },
-                  "locations":null
-               },
-               "timestamp":1487903159
-            }
-            
 ## Group Printing
 
 ### /logic/v1/printingfunctions/{category}/{docno}/{index}/{locationid} 
@@ -3153,18 +3182,6 @@ when sales creation.
     + status - OPEN, CONFIRMED, COMPLETED, CANCELLED, WRITE_OFF
     + method(Collection) - cash, card, bank, cheque, web, creditnote, voucher, point, debitcard, forfeiture_voucher, creditcard_charges, contra, tradein, Other, BCard, prepaid, BCardToken, TnG, Entertainment, XCard 
     + clientId(Optional)
-    + cashier(Optional)
-    + shippingAdress(Optional)
-    + discountPercentage(Optional) - discount percentage for all order item
-    + billDiscountAmount(Optional) - discount amount for transaction, discount amount will split into each order item.
-    + recipientContact(Optional)
-    + shipmentProvider(Optional) - e.g. GDEX, Skynet etc.
-    + itemCode/itemId - One of the code must be enter.
-    + matrixId(Optional)
-    + enterPrice(Optional) - Selling price 
-    + reference(Optional) - if using voucher or card will need to key in.
-    + confirmOutlet(Optional) - if the sales status is confirm, confirm outlet must be enter.
-    + key(Optional) - if needed custom key, else server will return a new key
 + Request
 
     + Headers
@@ -3178,9 +3195,9 @@ when sales creation.
             {
                 "sale":
                 {
-                    "dateTime":"2016-12-16T00:00:00.000Z",
                     "clientId": 502,
-                    "cashier":"REAL MART Admin",
+                    "term":1,
+                    "dateTime":"2016-12-16T00:00:00.000Z",
                     "billingAddress":
                     {
                         "street":"476",
@@ -3189,42 +3206,25 @@ when sales creation.
                         "zipcode":"12345",
                         "country":"US"
                     },
-                    "shippingAdress":{  
-                        "street":null,
-                        "city":null,
-                        "state":null,
-                        "zipcode":null,
-                        "country":null
-                    },
-                    "shippingRemark":"anytime",
                     "salesPerson":"Realmart",
+                    "shippingRemark":"anytime",
                     "status":"COMPLETED", 
-                    "outlet":"Code UI Branch",
-                    "confirmOutlet":"Code UI Branch",
-                    "remark":null,
-                    "discountPercentage":0,
-                    "billDiscountAmount":0,
-                    "recipientContact":null,
+                    "outlet":"Code UI Branh",
+                    "remark":"remak",
                     "items":[
                     {
                         "itemCode":"1233", 
-                        "itemId":101,
                         "quantity":1,
-                        "discountPercentage":0,
-                        "matrixId":"201",
-                        "matrixBarcode":"matrix001",
-                        "enterPrice":10
+                        "enterPrice":88
                     }
                     ],
                     "collection":[
                     {
                         "method":"cash", 
-                        "reference":"",
                         "amount":100
                     }
                     ]
-                },
-                "key":"546444",
+                }
             }
         
 
@@ -3282,8 +3282,8 @@ when sales creation.
                 "in",
                 "est"
               ],
-              "DateFrom": "",
-              "DateTo": ""
+              "DateFrom": "et aliqua eu consectetur do",
+              "DateTo": "in reprehenderit ea"
             }
 
     + Schema
@@ -3397,7 +3397,53 @@ when sales creation.
               "type": "object",
               "properties": {}
             }
+  
+## Group Shipment
+
+### /logic/v2/shipment
+
+#### POST
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+            {  
+                "shipment":{  
+                "documentId":"9009615",
+                "documentType":"sales",
+                "shippingOutlet":"Coded UI Branch 2",
+                "shipmentProvider":"LGS-FM40",
+                "shipmentItems":[  
+                {  
+                    "itemID":236016,
+                    "documentItemID":90010520,
+                    "shippingQuantity":1,
+                    "senderName":"sue"
+                }
+                ]
+                }
+            }
             
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {}
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
+  
 ## Group Stock
 
 ### /logic/v1/stock/{AnyCode}
