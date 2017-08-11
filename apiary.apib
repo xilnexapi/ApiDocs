@@ -2165,11 +2165,16 @@ To retrive item price schemes name list
               "properties": {}
             }
 
-#### AlternateLookUp, MobileNo and RegCode need to be unique [PUT /logic/v1/useraccount/update_member_unique_1]
+#### /logic/v1/useraccount/update_member_unique_1 [PUT]
+
+
 
 + Parameters
 
     + id (required)
+    + AlternateLookUp(Required) unique
+    + MobileNo(Required) unique
+    + RegCode(Required) unique
 
 + Request (application/json)
 
