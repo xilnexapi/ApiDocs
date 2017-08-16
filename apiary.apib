@@ -76,9 +76,12 @@ permissions for requested operation.
 
 #### GET
 
+Retrive access control by access group and user group
+
 + Parameters
 
-    + accessGroup (required)
+    + accessGroup (required) -  Administration, Client, Custom, Item, Listing,
+    Menu_Tab, Purchasing, Receive, Report_Printing, Sales, Vendor, Report
     
     + userGroup (required)
 
@@ -109,9 +112,11 @@ permissions for requested operation.
 
 ####  get Access control [GET]
 
+Retrive access control by access group or user group or user name or access Area
 + Parameters
 
-    + accessGroup
+    + accessGroup - -  Administration, Client, Custom, Item, Listing,
+    Menu_Tab, Purchasing, Receive, Report_Printing, Sales, Vendor, Report
     
     + userGroup
     
@@ -146,6 +151,7 @@ permissions for requested operation.
 
 #### Save or update the user group permission [POST]
 
+
 + Request (application/json)
 
     + Headers
@@ -175,10 +181,8 @@ permissions for requested operation.
                     "check": false,
                     "SaveValue": "i",
                     "Display": "minim pariatur a"
-                  },
-                  {
-                    "Display": "sit"
                   }
+
                 ],
                 "UserGroup": "ea minim"
               },
@@ -2165,16 +2169,11 @@ To retrive item price schemes name list
               "properties": {}
             }
 
-#### /logic/v1/useraccount/update_member_unique_1 [PUT]
-
-
+#### AlternateLookUp, MobileNo and RegCode need to be unique [PUT /logic/v1/useraccount/update_member_unique_1]
 
 + Parameters
 
     + id (required)
-    + AlternateLookUp(Required) unique
-    + MobileNo(Required) unique
-    + RegCode(Required) unique
 
 + Request (application/json)
 
