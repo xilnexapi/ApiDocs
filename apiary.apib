@@ -3023,12 +3023,271 @@ get sales by id
               "type": "object",
               "properties": {}
             }
+            
+### /logic/v2/sales/search?clientid={clientid}&datefrom={datefrom}&dateto={dateto}&locationid={locationid}
 
-### /logic/v2/sales/{id}/cancel
+#### Get Sales Detail with filter [GET]
+
+get sales by client id and date range
+
++ Parameters
+
+    + clientid
+    + datefrom - YYYY-MM-DDThh:mm:ss.sssZ
+    + dateto - YYYY-MM-DDThh:mm:ss.sssZ
+    + locationid
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+
++ Response 200 (application/json)
+        {  
+            "ok":true,
+            "status":"SuccessQuery",
+            "warning":null,
+            "error":null,
+            "data":[  
+              {  
+                 "sales":{  
+                    "id":"501140",
+                    "dateTime":"2016-12-16T00:00:00.000Z",
+                    "recipientName":" ",
+                    "clientId":"9008",
+                    "clientName":"test",
+                    "paid":0,
+                    "balance":15,
+                    "term":"0",
+                    "cashier":"REAL MART Admin",
+                    "billingAdress":{  
+                       "street":null,
+                       "city":null,
+                       "state":null,
+                       "zipcode":null,
+                       "country":null
+                    },
+                    "shippingAdress":{  
+                       "street":null,
+                       "city":null,
+                       "state":null,
+                       "zipcode":null,
+                       "country":null
+                    },
+                    "shippingRemark":null,
+                    "shipmentDateTime":null,
+                    "salesPerson":"REAL MART Admin",
+                    "shippingStatus":null,
+                    "status":"OPEN",
+                    "paymentStatus":"PENDING",
+                    "location":"Coded UI Branch 2",
+                    "remark":null,
+                    "discountPercentage":0,
+                    "taxPercentage":0,
+                    "cost":0,
+                    "profit":15,
+                    "rounding":0,
+                    "recipientContact":null,
+                    "netAmount":15,
+                    "grandTotal":15,
+                    "gstTaxAmount":0,
+                    "exchangeRate":0,
+                    "foreignTotalAmount":0,
+                    "currencyCode":null,
+                    "items":[  
+                       {  
+                          "salesDate":"2016-12-16T00:00:00.000Z",
+                          "itemId":5046,
+                          "itemCode":"12092016",
+                          "alternateLookup":"",
+                          "itemName":"12092016",
+                          "itemType":"",
+                          "model":"",
+                          "description":"",
+                          "brand":"",
+                          "unitPrice":15,
+                          "quantity":3,
+                          "profit":15,
+                          "cost":0,
+                          "discountPercentage":0,
+                          "instoreLocation":"default",
+                          "priceSchemes":{  
+                             "manufacturerPrice":0,
+                             "salePrice":15,
+                             "employeePrice":0,
+                             "wholesalePrice":0,
+                             "customPrice":0,
+                             "webPrice":0,
+                             "webDealerPrice":0,
+                             "cost":0
+                          },
+                          "uniqueId":"",
+                          "matrixId":"",
+                          "matrixBarcode":"",
+                          "matrixX":"",
+                          "matrixY":"",
+                          "salesPerson":"REAL MART Admin",
+                          "subtotal":45,
+                          "taxCode":"SR",
+                          "gstPercentage":0,
+                          "gstAmount":0,
+                          "gstInclusive":true,
+                          "enterPrice":15
+                       }
+                    ]
+                 }
+              }
+            ],
+            "timestamp":1483520163
+        }
+            
+### /logic/v2/sales/invoices
+
+#### Post Sales Detail [POST]
+
+## Create invoice
+* POST invoice 
+
+## Callback URL
+* Callback URL is necessary, where api will post the invoice status back to merchant based on the callback url 
+when sales creation.
+* Example: [POST]http://www.{YourCompanyDomain}.com/sales/callback
+
+![name](http://wbgeneric.blob.core.windows.net/resources/SalesV2UML.png)
+
++ Parameters
+
+    + status - OPEN, CONFIRMED, COMPLETED, CANCELLED, WRITE_OFF
+    + method(Collection) - cash, card, bank, cheque, web, creditnote, voucher, point, debitcard, forfeiture_voucher, creditcard_charges, contra, tradein, Other, BCard, prepaid, BCardToken, TnG, Entertainment, XCard 
+    + clientId(Optional)
+    + cashier(Optional)
+    + shippingAdress(Optional)
+    + discountPercentage(Optional) - discount percentage for all order item. if discount percentage and bill Discount Amount both exist, api will take discount percentage as priority!
+    + billDiscountAmount(Optional) - discount amount for transaction, discount amount will split into each order item.
+    + recipientContact(Optional)
+    + shipmentProvider(Optional) - e.g. GDEX, Skynet etc.
+    + itemCode/itemId - One of the code must be enter.
+    + matrixId(Optional)
+    + enterPrice(Optional) - Selling price 
+    + reference(Optional) - if using voucher or card will need to key in.
+    + confirmOutlet(Optional) - if the sales status is confirm, confirm outlet must be enter.
+    + key(Optional) - if needed custom key, else server will return a new key
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+        
+            {
+                "sale":
+                {
+                    "clientId": 502,
+                    "term":1,
+                    "cashier":"REAL MART Admin",
+                    "dateTime":"2016-12-16T00:00:00.000Z",
+                    "salesPerson":"Realmart",
+                    "billingAddress":
+                    {
+                        "street":"476",
+                        "city":"new ",
+                        "state":"new You",
+                        "zipcode":"12345",
+                        "country":"US"
+                    },
+                    "shippingAdress":{  
+                        "street":null,
+                        "city":null,
+                        "state":null,
+                        "zipcode":null,
+                        "country":null
+                    },
+                    "shippingRemark":"anytime",
+                    "salesPerson":"Realmart",
+                    "status":"COMPLETED", 
+                    "outlet":"Code UI Branh",
+                    "remark":"remak",
+                    "outlet":"Code UI Branch",
+                    "confirmOutlet":"Code UI Branch",
+                    "remark":null,
+                    "discountPercentage":0,
+                    "billDiscountAmount":0,
+                    "recipientContact":null,
+                    "items":[
+                    {
+                        "itemCode":"1233", 
+                        "itemId":101,
+                        "quantity":1,
+                        "enterPrice":88
+                        "discountPercentage":0,
+                        "matrixId":"201",
+                        "matrixBarcode":"matrix001",
+                        "enterPrice":10
+                    }
+                    ],
+                    "collection":[
+                    {
+                        "method":"cash", 
+                        "reference":"",
+                        "amount":100
+                    }
+                    ]
+                }
+            }
+        
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": "3536e4f575d14ace914c3de26848eb1e",
+                "timestamp": 1487745887
+            }
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+            
+#### Callback [POST]
++ Response 200 (application/json)
+
+    + Body 
+    
+            {  
+               "sale":{  
+            
+               },
+               "key":2345679590789232,
+               "status":"success"
+            }
+            
+### /logic/v2/sales/invoices/{id}/cancel
 
 #### Cancel Sales [PUT]
 
-Cancel sales
+Cancel sales invoice
+
+Sales invoice can be cancel in all situation such as 
+Sales status: OPEN, CONFIRMED, COMPLETED, CANCELLED, WRITE_OFF
+Shipment: NA, PENDING, SHIPPED,
 
 + Parameters
 
@@ -3193,262 +3452,6 @@ Cancel sales
               "type": "object",
               "properties": {}
             }
-            
-            
-### /logic/v2/sales/search?clientid={clientid}&datefrom={datefrom}&dateto={dateto}&locationid={locationid}
-
-#### Get Sales Detail with filter [GET]
-
-get sales by client id and date range
-
-+ Parameters
-
-    + clientid
-    + datefrom - YYYY-MM-DDThh:mm:ss.sssZ
-    + dateto - YYYY-MM-DDThh:mm:ss.sssZ
-    + locationid
-
-+ Request
-
-    + Headers
-
-            Accept: application/json
-            DKey: (required)
-            Token: (required)
-
-    + Body
-
-+ Response 200 (application/json)
-        {  
-            "ok":true,
-            "status":"SuccessQuery",
-            "warning":null,
-            "error":null,
-            "data":[  
-              {  
-                 "sales":{  
-                    "id":"501140",
-                    "dateTime":"2016-12-16T00:00:00.000Z",
-                    "recipientName":" ",
-                    "clientId":"9008",
-                    "clientName":"test",
-                    "paid":0,
-                    "balance":15,
-                    "term":"0",
-                    "cashier":"REAL MART Admin",
-                    "billingAdress":{  
-                       "street":null,
-                       "city":null,
-                       "state":null,
-                       "zipcode":null,
-                       "country":null
-                    },
-                    "shippingAdress":{  
-                       "street":null,
-                       "city":null,
-                       "state":null,
-                       "zipcode":null,
-                       "country":null
-                    },
-                    "shippingRemark":null,
-                    "shipmentDateTime":null,
-                    "salesPerson":"REAL MART Admin",
-                    "shippingStatus":null,
-                    "status":"OPEN",
-                    "paymentStatus":"PENDING",
-                    "location":"Coded UI Branch 2",
-                    "remark":null,
-                    "discountPercentage":0,
-                    "taxPercentage":0,
-                    "cost":0,
-                    "profit":15,
-                    "rounding":0,
-                    "recipientContact":null,
-                    "netAmount":15,
-                    "grandTotal":15,
-                    "gstTaxAmount":0,
-                    "exchangeRate":0,
-                    "foreignTotalAmount":0,
-                    "currencyCode":null,
-                    "items":[  
-                       {  
-                          "salesDate":"2016-12-16T00:00:00.000Z",
-                          "itemId":5046,
-                          "itemCode":"12092016",
-                          "alternateLookup":"",
-                          "itemName":"12092016",
-                          "itemType":"",
-                          "model":"",
-                          "description":"",
-                          "brand":"",
-                          "unitPrice":15,
-                          "quantity":3,
-                          "profit":15,
-                          "cost":0,
-                          "discountPercentage":0,
-                          "instoreLocation":"default",
-                          "priceSchemes":{  
-                             "manufacturerPrice":0,
-                             "salePrice":15,
-                             "employeePrice":0,
-                             "wholesalePrice":0,
-                             "customPrice":0,
-                             "webPrice":0,
-                             "webDealerPrice":0,
-                             "cost":0
-                          },
-                          "uniqueId":"",
-                          "matrixId":"",
-                          "matrixBarcode":"",
-                          "matrixX":"",
-                          "matrixY":"",
-                          "salesPerson":"REAL MART Admin",
-                          "subtotal":45,
-                          "taxCode":"SR",
-                          "gstPercentage":0,
-                          "gstAmount":0,
-                          "gstInclusive":true,
-                          "enterPrice":15
-                       }
-                    ]
-                 }
-              }
-            ],
-            "timestamp":1483520163
-        }
-            
-### /logic/v2/sales/invoices
-
-#### Post Sales Detail [POST]
-
-## Create invoice
-* POST invoice 
-
-## Callback URL
-* Callback URL is necessary, where api will post the invoice status back to merchant based on the callback url 
-when sales creation.
-* Example: [POST]http://www.{YourCompanyDomain}.com/sales/callback
-
-![name](http://wbgeneric.blob.core.windows.net/resources/SalesV2UML.png)
-
-+ Parameters
-
-    + status - OPEN, CONFIRMED, COMPLETED, CANCELLED, WRITE_OFF
-    + method(Collection) - cash, card, bank, cheque, web, creditnote, voucher, point, debitcard, forfeiture_voucher, creditcard_charges, contra, tradein, Other, BCard, prepaid, BCardToken, TnG, Entertainment, XCard 
-    + clientId(Optional)
-    + cashier(Optional)
-    + shippingAdress(Optional)
-    + discountPercentage(Optional) - discount percentage for all order item
-    + billDiscountAmount(Optional) - discount amount for transaction, discount amount will split into each order item.
-    + recipientContact(Optional)
-    + shipmentProvider(Optional) - e.g. GDEX, Skynet etc.
-    + itemCode/itemId - One of the code must be enter.
-    + matrixId(Optional)
-    + enterPrice(Optional) - Selling price 
-    + reference(Optional) - if using voucher or card will need to key in.
-    + confirmOutlet(Optional) - if the sales status is confirm, confirm outlet must be enter.
-    + key(Optional) - if needed custom key, else server will return a new key
-+ Request
-
-    + Headers
-
-            Accept: application/json
-            DKey: (required)
-            Token: (required)
-
-    + Body
-        
-            {
-                "sale":
-                {
-                    "clientId": 502,
-                    "term":1,
-                    "cashier":"REAL MART Admin",
-                    "dateTime":"2016-12-16T00:00:00.000Z",
-                    "salesPerson":"Realmart",
-                    "billingAddress":
-                    {
-                        "street":"476",
-                        "city":"new ",
-                        "state":"new You",
-                        "zipcode":"12345",
-                        "country":"US"
-                    },
-                    "shippingAdress":{  
-                        "street":null,
-                        "city":null,
-                        "state":null,
-                        "zipcode":null,
-                        "country":null
-                    },
-                    "shippingRemark":"anytime",
-                    "salesPerson":"Realmart",
-                    "status":"COMPLETED", 
-                    "outlet":"Code UI Branh",
-                    "remark":"remak",
-                    "outlet":"Code UI Branch",
-                    "confirmOutlet":"Code UI Branch",
-                    "remark":null,
-                    "discountPercentage":0,
-                    "billDiscountAmount":0,
-                    "recipientContact":null,
-                    "items":[
-                    {
-                        "itemCode":"1233", 
-                        "itemId":101,
-                        "quantity":1,
-                        "enterPrice":88
-                        "discountPercentage":0,
-                        "matrixId":"201",
-                        "matrixBarcode":"matrix001",
-                        "enterPrice":10
-                    }
-                    ],
-                    "collection":[
-                    {
-                        "method":"cash", 
-                        "reference":"",
-                        "amount":100
-                    }
-                    ]
-                }
-            }
-        
-
-+ Response 200 (application/json)
-
-    OK
-
-    + Body
-
-            {
-                "ok": true,
-                "status": "SuccessQuery",
-                "warning": null,
-                "error": null,
-                "data": "3536e4f575d14ace914c3de26848eb1e",
-                "timestamp": 1487745887
-            }
-
-    + Schema
-
-            {
-              "type": "object",
-              "properties": {}
-            }
-            
-#### Callback [POST]
-+ Response 200 (application/json)
-
-    + Body 
-    
-            {  
-               "sale":{  
-            
-               },
-               "key":2345679590789232,
-               "status":"success"
-            }
 
 ## Group SalesMallIntegrated
 
@@ -3555,6 +3558,240 @@ when sales creation.
               "type": "object",
               "properties": {}
             }
+
+## Group SalesOrder
+
+### /logic/v2/salesorder
+
+#### Create sales order [POST]
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+            {  
+               "salesOrder":{  
+                  "dateTime":"2017-04-05T17:29:56.000Z",
+                  "recipient":"Lazada Customer",
+                  "clientId":"5043",
+                  "clientName":"Cindy E. Bilodeau",
+                  "paidAmount":70,
+                  "term":0,
+                  "cashier":"RealMart Admin",
+                  "billingRemark":"test",
+                  "shipmentAdress":{  
+                     "street":"Thomas Nolan Kaszas III",
+                     "city":"Otter Lane",
+                     "state":"Middleberge ",
+                     "zipcode":"5322",
+                     "country":"FL 32068"
+                  },
+                  "shipmentRemark":"test",
+                  "salesOrderPerson":"RealMart Admin",
+                  "status":"CONFIRMED",
+                  "paymentStatus":"PAID",
+                  "Outlet":"Main Branch",
+                  "type":"Internal Sales",
+                  "purchaseOrderNo":"",
+                  "confirmOutlet":"Main Branch",
+                  "salesOrderItems":[  
+                     {  
+                        "itemCode":"1015",
+                        "quantity":1,
+                        "discountPercentage":10,
+                        "salesOrderPerson":"RealMart Admin",
+                        "enterPrice":110
+                     }
+                  ],
+                  "collection":[  
+                     {  
+                        "amount":99,
+                        "reference":"",
+                        "method":"cash"
+                     }
+                  ]
+               }
+            }
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessQuery",
+               "warning":null,
+               "error":null,
+               "data":{  
+                  "salesOrder":{  
+                     "id":50154,
+                     "dateTime":"2017-04-06T17:37:29.000Z",
+                     "total":25.2,
+                     "recipient":" ",
+                     "clientId":"5042",
+                     "clientName":"Cindy E. Bilodeau",
+                     "paidAmount":25.2,
+                     "balance":0,
+                     "term":0,
+                     "cashier":"RealMart Admin",
+                     "billingAddress":{  
+                        "street":"",
+                        "city":"",
+                        "state":"",
+                        "zipcode":"",
+                        "country":""
+                     },
+                     "billingRemark":"",
+                     "shipmentAdress":{  
+                        "street":"Thomas Nolan Kaszas II",
+                        "city":"Otter Lane",
+                        "state":"Middleberge ",
+                        "zipcode":"5322",
+                        "country":"FL 32068"
+                     },
+                     "shipmentRemark":"",
+                     "shipmentDateTime":"0001-01-01T00:00:00.000Z",
+                     "salesOrderPerson":"RealMart Admin",
+                     "status":"COMPLETED",
+                     "paymentStatus":"PAID",
+                     "Outlet":"Coded UI Branch 2",
+                     "remark":"",
+                     "discountPercentage":0,
+                     "taxPercentage":0,
+                     "cost":0.94,
+                     "profit":20.45,
+                     "rounding":0,
+                     "recipientContact":"",
+                     "cancelBy":null,
+                     "cancelRemark":null,
+                     "cancelDateTime":"0001-01-01T00:00:00.000Z",
+                     "cancelOutlet":null,
+                     "netAmount":25.2,
+                     "receiveId":"",
+                     "type":"Internal Sales",
+                     "purchaseOrderNo":"",
+                     "confirmOutlet":"Coded UI Branch 2",
+                     "siteId":"50",
+                     "quotationId":"",
+                     "customField1":"",
+                     "customField2":"",
+                     "customField3":"",
+                     "customField4":"",
+                     "customField5":"",
+                     "mgstTaxAmount":1.43,
+                     "currencyCode":"",
+                     "salesOrderItems":[  
+                        {  
+                           "id":50253,
+                           "itemId":"236016",
+                           "itemName":"Disc 10.00% ** 1015",
+                           "itemType":"",
+                           "itemModel":"",
+                           "description":"",
+                           "unitPrice":23.77,
+                           "vendorCode":"182019",
+                           "salesOrderId":"50154",
+                           "quantity":1,
+                           "profit":20.45,
+                           "cost":0.94,
+                           "discountPercentage":10,
+                           "instoreLocation":"default",
+                           "brand":"",
+                           "date":"06/04/2017",
+                           "itemCode":"1015",
+                           "prices":{  
+                              "manufacturerPrice":60,
+                              "salePrice":28,
+                              "employeePrice":30,
+                              "wholesalePrice":40,
+                              "customPrice":2,
+                              "webPrice":70,
+                              "webDealerPrice":80,
+                              "cost":0.94
+                           },
+                           "isUniqueItem":false,
+                           "uniqueId":"",
+                           "isPackage":false,
+                           "isService":false,
+                           "isPrepack":false,
+                           "commissionOne":0,
+                           "commissionRateOne":10,
+                           "commissionTwo":0,
+                           "commissionRateTwo":0,
+                           "commissionThree":0,
+                           "commissionRateThree":0,
+                           "commissionFour":0,
+                           "commissionRateFour":0,
+                           "itemCategory":"Category1",
+                           "remark":"",
+                           "packageCode":"",
+                           "parentId":"",
+                           "pcid":"",
+                           "itemIndex":0,
+                           "isMatrix":false,
+                           "matrixId":"",
+                           "matrixBarcode":"",
+                           "matrixX":"",
+                           "matrixY":"",
+                           "salesOrderPerson":"RealMart Admin",
+                           "alternateLookUp":"",
+                           "uom":"",
+                           "isWeighted":false,
+                           "scanCode":"1015",
+                           "status":"COMPLETED",
+                           "postedQuantity":1,
+                           "postingQuantity":0,
+                           "multiLevelDiscount":"10%",
+                           "customField1":"1",
+                           "customField2":"2",
+                           "customField3":"3",
+                           "customField4":"4",
+                           "customField5":"5",
+                           "promoGroup":"PromoGroup1",
+                           "gstTaxCode":"SR",
+                           "gstPercentage":6,
+                           "gstAmount":1.43,
+                           "gstInclusive":true,
+                           "enterPrice":28,
+                           "subItems":[  
+            
+                           ]
+                        }
+                     ],
+                     "collection":[  
+                        {  
+                           "amount":25.2,
+                           "reference":"",
+                           "method":"cash",
+                           "id":501041,
+                           "clientID":"5042",
+                           "invoiceID":"",
+                           "outlet":"Coded UI Branch 2",
+                           "availableBalance":25.2,
+                           "remarks":null,
+                           "salesOrderId":"50154",
+                           "isDeposit":true
+                        }
+                     ]
+                  },
+                  "key":null,
+                  "status":null
+               },
+               "timestamp":1491474001
+            }
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+            
 
 ## Group SalesOrderFunctions
 
