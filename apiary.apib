@@ -1592,11 +1592,11 @@ Update client detail
 ## Group Integration
 
 ### /logic/v2/integration
-
 #### POST
-
+Use to update invoice id when sales is cancel and re-create
 + Parameters
-    + id: item id
+    + externalDocumentId: Reference key from external (example: e-commerce invoice id)
+    + integrationModule: (example Lazada, 11street, Shopee)
 + Request
 
     + Headers
@@ -1615,10 +1615,350 @@ Update client detail
                     "externalDocumentId":"1002",
                     "internalDocumentId":"9002",
                     "integrationModule":"lazada",
-                    "integrationType":"sales"
+                    "documentType":"sales",
+                    "postStatus":false,
+                    "postingDateTime":"2017-03-17T18:09:55.000Z"
                 }
             }
+
+### /logic/v2/integration/pending?integrationModule={integrationModule}&documentType={type}
+#### GET
+Get pending orders based on integration module
++ Parameters
+    + documentType: (example: Sales Invoice, Sales Order)
+    + integrationModule: (example: Lazada, 11street, Shopee)
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+            {  
+               "ok":true,
+               "status":"SuccessQuery",
+               "warning":null,
+               "error":null,
+               "data":[  
+                  {  
+                     "id":9003,
+                     "externalOrderId":"laz0103",
+                     "internalDocumentId":"9009512",
+                     "postStatus":false,
+                     "integrationModule":"lazada",
+                     "integrationType":"sales"
+                  }
+               ],
+               "timestamp":1489543516
+            }
     
+### /logic/v2/integration/document?integrationModule={integrationModule}&externalDocumentId={key}
+#### GET
+Retrieve posted document by key and module
+
++ Parameters
+    + externalDocumentId: Reference key from external (example: e-commerce invoice id)
+    + integrationModule: (example Lazada, 11street, Shopee)
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessQuery",
+               "warning":null,
+               "error":null,
+               "data":{  
+                  "integration":{  
+                     "id":9009512,
+                     "dateTime":"2017-03-15T09:57:14.000Z",
+                     "recipientName":"active members 01",
+                     "clientId":"5043",
+                     "clientName":"active members 01",
+                     "paid":88,
+                     "balance":0,
+                     "term":"1",
+                     "cashier":"realmart@xilnex.com",
+                     "billingAddress":{  
+                        "street":"476 5th Ave New York",
+                        "city":"New York City",
+                        "state":"New York",
+                        "zipcode":"10018",
+                        "country":"United States"
+                     },
+                     "shippingAddress":{  
+                        "street":"",
+                        "city":"",
+                        "state":"",
+                        "zipcode":"",
+                        "country":""
+                     },
+                     "shippingRemark":null,
+                     "shipmentDateTime":null,
+                     "salesPerson":"RealMart Admin",
+                     "shippingStatus":"NA",
+                     "status":"COMPLETED",
+                     "paymentStatus":"PAID",
+                     "outlet":"MAIN BRANCH",
+                     "confirmOutlet":null,
+                     "remark":"dummy sales remark",
+                     "discountPercentage":0,
+                     "taxPercentage":0,
+                     "cost":0,
+                     "profit":83.02,
+                     "rounding":0,
+                     "recipientContact":null,
+                     "netAmount":88,
+                     "grandTotal":88,
+                     "gstTaxAmount":4.98,
+                     "exchangeRate":0,
+                     "foreignTotalAmount":0,
+                     "currencyCode":null,
+                     "siteId":null,
+                     "reference":"laz0103",
+                     "items":[  
+                        {  
+                           "salesDate":"2017-03-15T00:00:00.000Z",
+                           "itemId":5046,
+                           "itemCode":"12092016",
+                           "alternateLookup":"",
+                           "itemName":"12092016",
+                           "itemType":"",
+                           "model":"asd",
+                           "description":"",
+                           "brand":"",
+                           "unitPrice":83.02,
+                           "quantity":1,
+                           "profit":83.02,
+                           "cost":0,
+                           "advanceDiscount":null,
+                           "discountPercentage":0,
+                           "instoreLocation":"default",
+                           "priceSchemes":{  
+                              "manufacturerPrice":0,
+                              "salePrice":15,
+                              "employeePrice":0,
+                              "wholesalePrice":10,
+                              "customPrice":0,
+                              "webPrice":38,
+                              "webDealerPrice":0,
+                              "cost":0
+                           },
+                           "uniqueId":null,
+                           "matrixId":null,
+                           "matrixBarcode":null,
+                           "matrixX":null,
+                           "matrixY":null,
+                           "salesPerson":"RealMart Admin",
+                           "subtotal":88,
+                           "taxCode":"SR",
+                           "gstPercentage":6,
+                           "gstAmount":4.98,
+                           "gstInclusive":true,
+                           "enterPrice":88,
+                           "scanCode":null,
+                           "remark":null,
+                           "subItems":null
+                        }
+                     ],
+                     "collection":[  
+                        {  
+                           "amount":88,
+                           "reference":null,
+                           "method":"cash"
+                        }
+                     ]
+                  },
+                  "sales":null,
+                  "key":null,
+                  "status":null
+               },
+               "timestamp":1489543235
+            }
+
+### /logic/v2/integration/document?documentType={documentType}&externalDocumentId={key}
+#### GET
+Retrieve integration status by id and document type
+
++ Parameters
+    + externalDocumentId: Reference key from external (example: e-commerce invoice id)
+    + documentType: (example: Sales Invoice, Sales Order)
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessQuery",
+               "warning":null,
+               "error":null,
+               "data":{  
+                  "integration":{  
+                     "id":9009512,
+                     "dateTime":"2017-03-15T09:57:14.000Z",
+                     "recipientName":"active members 01",
+                     "clientId":"5043",
+                     "clientName":"active members 01",
+                     "paid":88,
+                     "balance":0,
+                     "term":"1",
+                     "cashier":"realmart@xilnex.com",
+                     "billingAddress":{  
+                        "street":"476 5th Ave New York",
+                        "city":"New York City",
+                        "state":"New York",
+                        "zipcode":"10018",
+                        "country":"United States"
+                     },
+                     "shippingAddress":{  
+                        "street":"",
+                        "city":"",
+                        "state":"",
+                        "zipcode":"",
+                        "country":""
+                     },
+                     "shippingRemark":null,
+                     "shipmentDateTime":null,
+                     "salesPerson":"RealMart Admin",
+                     "shippingStatus":"NA",
+                     "status":"COMPLETED",
+                     "paymentStatus":"PAID",
+                     "outlet":"MAIN BRANCH",
+                     "confirmOutlet":null,
+                     "remark":"dummy sales remark",
+                     "discountPercentage":0,
+                     "taxPercentage":0,
+                     "cost":0,
+                     "profit":83.02,
+                     "rounding":0,
+                     "recipientContact":null,
+                     "netAmount":88,
+                     "grandTotal":88,
+                     "gstTaxAmount":4.98,
+                     "exchangeRate":0,
+                     "foreignTotalAmount":0,
+                     "currencyCode":null,
+                     "siteId":null,
+                     "reference":"laz0103",
+                     "items":[  
+                        {  
+                           "salesDate":"2017-03-15T00:00:00.000Z",
+                           "itemId":5046,
+                           "itemCode":"12092016",
+                           "alternateLookup":"",
+                           "itemName":"12092016",
+                           "itemType":"",
+                           "model":"asd",
+                           "description":"",
+                           "brand":"",
+                           "unitPrice":83.02,
+                           "quantity":1,
+                           "profit":83.02,
+                           "cost":0,
+                           "advanceDiscount":null,
+                           "discountPercentage":0,
+                           "instoreLocation":"default",
+                           "priceSchemes":{  
+                              "manufacturerPrice":0,
+                              "salePrice":15,
+                              "employeePrice":0,
+                              "wholesalePrice":10,
+                              "customPrice":0,
+                              "webPrice":38,
+                              "webDealerPrice":0,
+                              "cost":0
+                           },
+                           "uniqueId":null,
+                           "matrixId":null,
+                           "matrixBarcode":null,
+                           "matrixX":null,
+                           "matrixY":null,
+                           "salesPerson":"RealMart Admin",
+                           "subtotal":88,
+                           "taxCode":"SR",
+                           "gstPercentage":6,
+                           "gstAmount":4.98,
+                           "gstInclusive":true,
+                           "enterPrice":88,
+                           "scanCode":null,
+                           "remark":null,
+                           "subItems":null
+                        }
+                     ],
+                     "collection":[  
+                        {  
+                           "amount":88,
+                           "reference":null,
+                           "method":"cash"
+                        }
+                     ]
+                  },
+                  "sales":null,
+                  "key":null,
+                  "status":null
+               },
+               "timestamp":1489543235
+            }
+
+### /logic/v2/integration/status?integrationModule={integrationModule}&externalDocumentId={externalDocumentId}
+#### PATCH
+Update post status on integration
+
++ Parameters
+    + externalDocumentId: Reference key from external (example: e-commerce invoice id)
+    + integrationModule: (example Lazada, 11street, Shopee)
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+            {  
+               "status":true
+            }
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessQuery",
+               "warning":null,
+               "error":null,
+               "data":true,
+               "timestamp":1489543513
+            }
+            
 ## Group Items
 
 ### /logic/v2/items/{id}
