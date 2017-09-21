@@ -1595,8 +1595,8 @@ Update client detail
 #### POST
 Use to update invoice id when sales is cancel and re-create
 + Parameters
-    + externalDocumentId: Reference key from external (example: e-commerce invoice id)
-    + integrationModule: (example Lazada, 11street, Shopee)
+    + externalDocumentId: Reference key from external Example: e-commerce invoice id
+    + integrationModule: Example Lazada, 11street, Shopee
 + Request
 
     + Headers
@@ -1621,12 +1621,12 @@ Use to update invoice id when sales is cancel and re-create
                 }
             }
 
-### /logic/v2/integration/pending?integrationModule={integrationModule}&documentType={type}
+### /logic/v2/integration/pending?integrationModule={integrationModule}&documentType={documentType}
 #### GET
 Get pending orders based on integration module
 + Parameters
-    + documentType: (example: Sales Invoice, Sales Order)
-    + integrationModule: (example: Lazada, 11street, Shopee)
+    + documentType: Example: Sales Invoice, Sales Order
+    + integrationModule: Example: Lazada, 11street, Shopee
 + Request
 
     + Headers
@@ -1663,8 +1663,8 @@ Get pending orders based on integration module
 Retrieve posted document by key and module
 
 + Parameters
-    + externalDocumentId: Reference key from external (example: e-commerce invoice id)
-    + integrationModule: (example Lazada, 11street, Shopee)
+    + externalDocumentId: Reference key from external Example: e-commerce invoice id
+    + integrationModule: Example Lazada, 11street, Shopee
 + Request
 
     + Headers
@@ -1797,8 +1797,8 @@ Retrieve posted document by key and module
 Retrieve integration status by id and document type
 
 + Parameters
-    + externalDocumentId: Reference key from external (example: e-commerce invoice id)
-    + documentType: (example: Sales Invoice, Sales Order)
+    + externalDocumentId: Reference key from external Example: e-commerce invoice id
+    + documentType: Example: Sales Invoice, Sales Order
 + Request
 
     + Headers
@@ -1931,8 +1931,8 @@ Retrieve integration status by id and document type
 Update post status on integration
 
 + Parameters
-    + externalDocumentId: Reference key from external (example: e-commerce invoice id)
-    + integrationModule: (example Lazada, 11street, Shopee)
+    + externalDocumentId: Reference key from external. Example: ecommerce invoice id
+    + integrationModule: Example Lazada, 11street, Shopee
 + Request
 
     + Headers
