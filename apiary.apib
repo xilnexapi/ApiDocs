@@ -588,7 +588,9 @@ To retrive full list of client entry form
 ### /logic/v2/clients/client
 #### POST
 create customer without go through compulsory setting
-
++ Parameters
+    + category: Example Personal, Company
+    
 + Request
     
     + Headers
@@ -714,7 +716,9 @@ create customer without go through compulsory setting
 ### /logic/v2/clients/quickclient
 #### POST
 create client by checking compulsory setting
-
++ Parameters
+    + category: Example Personal, Company
+    
 + Request
     
     + Headers
@@ -821,7 +825,9 @@ create client by checking compulsory setting
 #### PUT
 
 Update client detail
-
++ Parameters
+    + category: Example Personal, Company
+    
 + Request
     
     + Headers
@@ -874,7 +880,7 @@ Update client detail
                   "phone":"",
                   "alternateContact":"",
                   "alternatePhone":"",
-                  "category":"catA",
+                  "category":"Personal",
                   "firstName":"suelynn",
                   "lastName":"chiew"
                }
