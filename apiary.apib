@@ -3309,7 +3309,7 @@ get sales by id
                   "shippingStatus": null,
                   "status": "OPEN",
                   "paymentStatus": "PENDING",
-                  "location": "Coded UI Branch 2",
+                  "outlet": "Coded UI Branch 2",
                   "remark": null,
                   "discountPercentage": 0,
                   "taxPercentage": 0,
@@ -3377,7 +3377,7 @@ get sales by id
               "properties": {}
             }
             
-### /logic/v2/sales/search?clientid={clientid}&datefrom={datefrom}&dateto={dateto}&locationid={locationid}
+### /logic/v2/sales/search?clientid={clientid}&datefrom={datefrom}&dateto={dateto}&outlet={outletname}
 
 #### Get Sales Detail with filter [GET]
 
@@ -3388,7 +3388,7 @@ get sales by client id and date range
     + clientid
     + datefrom - YYYY-MM-DDThh:mm:ss.sssZ
     + dateto - YYYY-MM-DDThh:mm:ss.sssZ
-    + locationid
+    + outletname
 
 + Request
 
@@ -3438,7 +3438,7 @@ get sales by client id and date range
                     "shippingStatus":null,
                     "status":"OPEN",
                     "paymentStatus":"PENDING",
-                    "location":"Coded UI Branch 2",
+                    "outlet":"Coded UI Branch 2",
                     "remark":null,
                     "discountPercentage":0,
                     "taxPercentage":0,
