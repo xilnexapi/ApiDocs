@@ -243,7 +243,8 @@ Retrive access control by access group or user group or user name or access Area
 
 ### /logic/v2/clients/query?code={AnyCode}
 #### GET
-+ Use to retrive single result, the code must be exactly same.
++ Use to retrive single result, the code must be exactly same
++ search: alternate lookup-> company name-> mobile-> customer code-> ic-> email
 
 + Parameters
     + AnyCode: Client code, mobile, identity card, client name 
@@ -1947,7 +1948,10 @@ Update post status on integration
 
     + Body
             {  
-               "status":true
+                 "internalDocumentId":"9009512",
+                 "postStatus":true,
+                 "integrationModule":"lazada",
+                 "integrationType":"sales"
             }
 
 + Response 200 (application/json)
