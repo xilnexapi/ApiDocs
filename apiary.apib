@@ -595,7 +595,7 @@ To retrive full list of client entry form
 #### POST
 create customer without go through compulsory setting
 + Parameters
-    + category: Example Personal, Company
+    + category: Example Personal , Company(client is company name)
     
 + Request
     
@@ -3535,6 +3535,7 @@ when sales creation.
     + reference(Optional) - if using voucher or card will need to key in.
     + confirmOutlet(Optional) - if the sales status is confirm, confirm outlet must be enter.
     + key(Optional) - if needed custom key, else server will return a new key
+    + module(Optional) 
 + Request
 
     + Headers
@@ -3599,8 +3600,7 @@ when sales creation.
                     }
                     ]
                 },
-                "key":"",
-                "integrationModule":""
+                "key":"WS0001"
             }
         
 
