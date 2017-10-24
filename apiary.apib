@@ -246,6 +246,38 @@ Retrive access control by access group or user group or user name or access Area
 
 ## Group Clients
 
+### /logic/v2/clients/pointAdjust
+#### PUT
++ Use to adjust customer point 
++ Parameters
+ 
+    
++ Request
+    
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+            {  
+               "clientPoint":{  
+                  "clientId":5042,
+                  "pointAdjustment":5
+               }
+            }
+
++ Response 200 (application/json)
+
+        {  
+           "ok":true,
+           "status":"SuccessUpdate",
+           "warning":null,
+           "error":null,
+           "data":null,
+           "timestamp":1504759973
+        }
+        
 ### /logic/v2/clients/query?code={AnyCode}
 #### GET
 + Use to retrive single result, the code must be exactly same
@@ -3250,6 +3282,94 @@ To retrive item price schemes name list
               "properties": {}
             }
 
+## Group Redemption Voucher
+
+### /logic/v2/redemptionvoucher/paymentvoucher/redeem
+
+#### redeem payment voucher [PUT]
+
++ Parameters
+
+    + id (required)
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+    
+            {  
+               "vouchers":[  
+                  {  
+                     "redemptionOutlet":"PENANG BRANCH",
+                     "voucherNumber":"124rqwe234234",
+                     "paymentId":"1002"
+                  }
+               ]
+            }
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessUpdate",
+               "warning":null,
+               "error":null,
+               "data":"Voucher(s) redeemed",
+               "timestamp":1508493704
+            }
+            
+### /logic/v2/redemptionvoucher/salesvoucher/redeem
+
+#### redeem sales voucher [PUT]
+
++ Parameters
+
+    + id (required)
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+    
+            {  
+               "vouchers":[  
+                  {  
+                     "redemptionOutlet":"PENANG BRANCH",
+                     "voucherNumber":"124rqwe234234",
+                     "salesId":"1002"
+                  }
+               ]
+            }
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessUpdate",
+               "warning":null,
+               "error":null,
+               "data":"Voucher(s) redeemed",
+               "timestamp":1508493704
+            }
+            
 ## Group Sales
 
 ### /logic/v2/sales/{id}
@@ -4225,6 +4345,367 @@ Shipment: NA, PENDING, SHIPPED,
             {
               "type": "object",
               "properties": {}
+            }
+            
+### /logic/v2/shipment/{id}
+
+#### GET
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Token: {token}
+            DKey: {dkey}
+
+    + Body
+           
+            
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessQuery",
+               "warning":null,
+               "error":null,
+               "data":{  
+                  "shipment":{  
+                     "id":5096,
+                     "documentId":"5080",
+                     "documentType":"Transfer",
+                     "shippingOutlet":"H001 - HQ / WAREHOUSE",
+                     "shippingAddress":{  
+                        "street":"FMC GREENLAND SDN BHD\nG49E, Aeon Metro Prima, No. 1, Jalan Metro Prima Kepong, 52100 Kuala Lumpur, Malaysia. ",
+                        "city":"",
+                        "state":"",
+                        "zipcode":"",
+                        "country":""
+                     },
+                     "shippingRemark":"For customer",
+                     "trackingNumber":"",
+                     "receiver":"",
+                     "shippingDateTime":"2017-06-14T09:56:06.000Z",
+                     "shipmentStatus":null,
+                     "deliverToOutlet":null,
+                     "receiverId":null,
+                     "issuedBy":null,
+                     "shipTo":null,
+                     "cancelledBy":null,
+                     "cancelRemark":null,
+                     "cancelDateTime":"0001-01-01T00:00:00.000Z",
+                     "cancelOutlet":null,
+                     "shipmentProvider":null,
+                     "shipmentItems":[  
+                        {  
+                           "id":50226,
+                           "itemID":102585,
+                           "itemCode":"60309",
+                           "itemName":"PC-SM2L-PLASTIC OUTER COVER",
+                           "documentItemID":50190,
+                           "shippingQuantity":1,
+                           "shipmentID":5096,
+                           "matrixX":"",
+                           "matrixY":"",
+                           "receiverInstoreOutlet":"default",
+                           "totalReceived":1,
+                           "cost":17.5,
+                           "uniqueID":"",
+                           "alternateLookUp":"NSM-2L009",
+                           "matrixBarcode":"",
+                           "itemPriceScheme":{  
+                              "manufacturerPrice":0,
+                              "salePrice":25,
+                              "employeePrice":0,
+                              "wholesalePrice":0,
+                              "customPrice":25,
+                              "webPrice":0,
+                              "webDealerPrice":0,
+                              "cost":17.5
+                           },
+                           "remark":"",
+                           "driverCommissionRate":0,
+                           "driverCommissionPercentage":0,
+                           "installerCommissionRate":0,
+                           "installerCommissionPercentage":0,
+                           "driver":null,
+                           "installer":null,
+                           "carton":1,
+                           "uom":"UNIT",
+                           "uomQuantity":1,
+                           "uomFactor":1,
+                           "packageID":"-1",
+                           "senderName":null,
+                           "instoreOutlet":null
+                        }
+                     ]
+                  },
+                  "shipments":null
+               },
+               "timestamp":1508748134
+            }
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+            
+### /logic/v2/shipment/{id}/sales
+
+#### GET
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Token: {token}
+            DKey: {dkey}
+
+    + Body
+           
+            
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessQuery",
+               "warning":null,
+               "error":null,
+               "data":{  
+                  "shipment":null,
+                  "shipments":[  
+                     {  
+                        "id":5096,
+                        "documentId":"5080",
+                        "documentType":"Transfer",
+                        "shippingOutlet":"H001 - HQ / WAREHOUSE",
+                        "shippingAddress":{  
+                           "street":"FMC GREENLAND SDN BHD\nG49E, Aeon Metro Prima, No. 1, Jalan Metro Prima Kepong, 52100 Kuala Lumpur, Malaysia. ",
+                           "city":"",
+                           "state":"",
+                           "zipcode":"",
+                           "country":""
+                        },
+                        "shippingRemark":"For customer",
+                        "trackingNumber":"",
+                        "receiver":"",
+                        "shippingDateTime":"2017-06-14T09:56:06.000Z",
+                        "shipmentStatus":null,
+                        "deliverToOutlet":null,
+                        "receiverId":null,
+                        "issuedBy":null,
+                        "shipTo":null,
+                        "cancelledBy":null,
+                        "cancelRemark":null,
+                        "cancelDateTime":"0001-01-01T00:00:00.000Z",
+                        "cancelOutlet":null,
+                        "shipmentProvider":null,
+                        "shipmentItems":[  
+                           {  
+                              "id":50226,
+                              "itemID":102585,
+                              "itemCode":"60309",
+                              "itemName":"PC-SM2L-PLASTIC OUTER COVER",
+                              "documentItemID":50190,
+                              "shippingQuantity":1,
+                              "shipmentID":5096,
+                              "matrixX":"",
+                              "matrixY":"",
+                              "receiverInstoreOutlet":"default",
+                              "totalReceived":1,
+                              "cost":17.5,
+                              "uniqueID":"",
+                              "alternateLookUp":"NSM-2L009",
+                              "matrixBarcode":"",
+                              "itemPriceScheme":{  
+                                 "manufacturerPrice":0,
+                                 "salePrice":25,
+                                 "employeePrice":0,
+                                 "wholesalePrice":0,
+                                 "customPrice":25,
+                                 "webPrice":0,
+                                 "webDealerPrice":0,
+                                 "cost":17.5
+                              },
+                              "remark":"",
+                              "driverCommissionRate":0,
+                              "driverCommissionPercentage":0,
+                              "installerCommissionRate":0,
+                              "installerCommissionPercentage":0,
+                              "driver":null,
+                              "installer":null,
+                              "carton":1,
+                              "uom":"UNIT",
+                              "uomQuantity":1,
+                              "uomFactor":1,
+                              "packageID":"-1",
+                              "senderName":null,
+                              "instoreOutlet":null
+                           }
+                        ]
+                     }
+                  ]
+               },
+               "timestamp":1508748348
+            }
+            
+### /logic/v2/shipment/{id}/trackingcode
+
+#### GET
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Token: {token}
+            DKey: {dkey}
+
+    + Body
+            {  
+               "shipment":{  
+                  "trackingNumber":"tc2132432"
+               }
+            }
+           
+            
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessQuery",
+               "warning":null,
+               "error":null,
+               "data":{  
+                  "shipment":{  
+                     "id":501268,
+                     "documentId":"501285",
+                     "documentType":"Transfer",
+                     "shippingOutlet":"H001 - HQ / WAREHOUSE",
+                     "shippingAddress":{  
+                        "street":"FMC GREENLAND SDN BHD\nNo.71, Jalan Puteri 5/3, Bandar Puteri, 47100 Puchong, Selangor, Malaysia. ",
+                        "city":"",
+                        "state":"",
+                        "zipcode":"",
+                        "country":""
+                     },
+                     "shippingRemark":"BAKERY",
+                     "trackingNumber":"tc2132432",
+                     "receiver":"",
+                     "shippingDateTime":"2017-10-17T10:58:45.000Z",
+                     "shipmentStatus":null,
+                     "deliverToOutlet":null,
+                     "receiverId":null,
+                     "issuedBy":null,
+                     "shipTo":null,
+                     "cancelledBy":null,
+                     "cancelRemark":null,
+                     "cancelDateTime":"0001-01-01T00:00:00.000Z",
+                     "cancelOutlet":null,
+                     "shipmentProvider":null,
+                     "shipmentItems":[  
+                        {  
+                           "id":5012840,
+                           "itemID":10179,
+                           "itemCode":"10032",
+                           "itemName":"YKY-MULTI SEED LOAF (FB02)",
+                           "documentItemID":5029284,
+                           "shippingQuantity":8,
+                           "shipmentID":501268,
+                           "matrixX":"",
+                           "matrixY":"",
+                           "receiverInstoreOutlet":"default",
+                           "totalReceived":8,
+                           "cost":1.62,
+                           "uniqueID":"",
+                           "alternateLookUp":"FB02",
+                           "matrixBarcode":"",
+                           "itemPriceScheme":{  
+                              "manufacturerPrice":3.5,
+                              "salePrice":3.5,
+                              "employeePrice":3.5,
+                              "wholesalePrice":3.5,
+                              "customPrice":3.5,
+                              "webPrice":0,
+                              "webDealerPrice":0,
+                              "cost":1.62
+                           },
+                           "remark":"",
+                           "driverCommissionRate":0,
+                           "driverCommissionPercentage":0,
+                           "installerCommissionRate":0,
+                           "installerCommissionPercentage":0,
+                           "driver":null,
+                           "installer":null,
+                           "carton":1,
+                           "uom":"UNIT",
+                           "uomQuantity":0,
+                           "uomFactor":1,
+                           "packageID":"-1",
+                           "senderName":null,
+                           "instoreOutlet":null
+                        },
+                        {  
+                           "id":5012841,
+                           "itemID":103580,
+                           "itemCode":"20602",
+                           "itemName":"YKY-ORGANIC WHOLE WHEAT TOAST",
+                           "documentItemID":5029285,
+                           "shippingQuantity":5,
+                           "shipmentID":501268,
+                           "matrixX":"",
+                           "matrixY":"",
+                           "receiverInstoreOutlet":"default",
+                           "totalReceived":5,
+                           "cost":6.39,
+                           "uniqueID":"",
+                           "alternateLookUp":"2016001000299",
+                           "matrixBarcode":"",
+                           "itemPriceScheme":{  
+                              "manufacturerPrice":8.42,
+                              "salePrice":9.9,
+                              "employeePrice":9.9,
+                              "wholesalePrice":11.9,
+                              "customPrice":8.91,
+                              "webPrice":9.9,
+                              "webDealerPrice":0,
+                              "cost":6.39
+                           },
+                           "remark":"",
+                           "driverCommissionRate":0,
+                           "driverCommissionPercentage":0,
+                           "installerCommissionRate":0,
+                           "installerCommissionPercentage":0,
+                           "driver":null,
+                           "installer":null,
+                           "carton":1,
+                           "uom":"UNIT",
+                           "uomQuantity":0,
+                           "uomFactor":1,
+                           "packageID":"-1",
+                           "senderName":null,
+                           "instoreOutlet":null
+                        }
+                     ]
+                  },
+                  "shipments":null
+               },
+               "timestamp":1508749262
             }
 
   
