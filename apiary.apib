@@ -4307,7 +4307,7 @@ Shipment: NA, PENDING, SHIPPED,
 ### /logic/v2/shipment
 
 #### POST
-
++ create shipment
 + Request
 
     + Headers
@@ -4456,10 +4456,13 @@ Shipment: NA, PENDING, SHIPPED,
               "properties": {}
             }
             
-### /logic/v2/shipment/{id}/sales
+### /logic/v2/shipment/sales/{id}
 
 #### GET
++ get sales shipment by sales id
++ Parameters
 
+    + id (required) - sales Id
 + Request
 
     + Headers
@@ -4562,8 +4565,11 @@ Shipment: NA, PENDING, SHIPPED,
             
 ### /logic/v2/shipment/{id}/trackingcode
 
-#### GET
+#### PUT
++ update shipment with tracking number
++ Parameters
 
+    + id (required) - shipment Id
 + Request
 
     + Headers
