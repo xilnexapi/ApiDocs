@@ -750,120 +750,15 @@ create customer without go through compulsory setting
             },
             "timestamp":1487901794
         }
-    
-### /logic/v2/clients/quickclient
-#### POST
-create client by checking compulsory setting
-+ Parameters
-    + category: Example Personal, Company
-    
-+ Request
-    
-    + Headers
 
-            Accept: application/json
-            Header: {header}
-            Token: {token}
-    + Body
         
-        {
-            "client":{
-                "id": 0,
-                "alternateLookup": null,
-                "priceScheme": null,
-                "terms": 0,
-                "creditLimit": 0,
-                "billingAddress": null,
-                "shippingAddress": null,
-                "name": "suelynn",
-                "code": "",
-                "title": "",
-                "email": "",
-                "type": "",
-                "group": "",
-                "registrationCode": "",
-                "gender": "",
-                "ic": "",
-                "nationality": "",
-                "createdBy": "",
-                "mobile": "",
-                "office": "",
-                "fax": "",
-                "phone": "",
-                "alternateContact": "",
-                "alternatePhone": "",
-                "dob": ""
-            }
-        }
-        
-+ Response 200 (application/json)
-
-        {  
-            "ok":true,
-            "status":"SuccessQuery",
-            "warning":null,
-            "error":null,
-            "data":{  
-              "client":{  
-                 "id":90014,
-                 "alternateLookup":null,
-                 "priceScheme":null,
-                 "terms":0,
-                 "creditLimit":0,
-                 "billingAddress":"bill street\nbill city\nbill state",
-                 "shippingAddress":"ship street\nship city\n00000\nship state\nship country",
-                 "billing":{  
-                    "street":"bill street",
-                    "city":"bill city",
-                    "state":"bill state",
-                    "zipcode":null,
-                    "country":null
-                 },
-                 "shipping":{  
-                    "street":"ship street",
-                    "city":"ship city",
-                    "state":"ship state",
-                    "zipcode":"00000",
-                    "country":"ship country"
-                 },
-                 "name":"suelynn",
-                 "code":"90014",
-                 "title":"",
-                 "email":"",
-                 "type":"",
-                 "group":"",
-                 "registrationCode":"",
-                 "gender":"",
-                 "dob":"",
-                 "ic":"",
-                 "nationality":null,
-                 "createdBy":"",
-                 "mobile":null,
-                 "office":null,
-                 "fax":null,
-                 "phone":null,
-                 "alternateContact":null,
-                 "alternatePhone":null,
-                 "category":null,
-                 "firstName":null,
-                 "lastName":null,
-                 "expiryDate": "0001-01-01T00:00:00.000Z",
-                "pointValue": 128,
-                "image":"",
-                "active":true,
-                "createdOutlet":"Main Outlet"
-              },
-              "clients":null
-            },
-            "timestamp":1487901794
-        }
-        
-### /logic/v2/clients
+### /logic/v2/clients/{clientId}
 
 #### PUT
 
 Update client detail
 + Parameters
+    + clientId: client id
     + category: Example Personal, Company
     
 + Request
@@ -3372,15 +3267,15 @@ To retrive item price schemes name list
             
 ## Group Sales
 
-### /logic/v2/sales/{id}
+### /logic/v2/sales/{SalesId}
 
 #### Get Sales Detail [GET]
 
-get sales by id
+get sales by Sales id
 
 + Parameters
 
-    + id (required)
+    + SalesId (required)
 
 + Request
 
@@ -3932,6 +3827,134 @@ Shipment: NA, PENDING, SHIPPED,
               "type": "object",
               "properties": {}
             }
+            
+### /logic/v2/sales/invoices/{id}/shipments
+
+#### Cancel Sales [PUT]
+
+Get Shipment detail
+
+Sales invoice can be cancel in all situation such as 
+Sales status: OPEN, CONFIRMED, COMPLETED, CANCELLED, WRITE_OFF
+Shipment: NA, PENDING, SHIPPED,
+
++ Parameters
+
+    + id (required) - invoice Id
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessQuery",
+               "warning":null,
+               "error":null,
+               "data":{  
+                  "shipment":null,
+                  "shipments":[  
+                     {  
+                        "id":"90039",
+                        "shippingDateTime":"2017-11-30T10:26:12.428Z",
+                        "salesId":"9009666",
+                        "shippingOutlet":"Coded UI Branch 2",
+                        "shippingAddress":{  
+                           "street":"",
+                           "city":"",
+                           "state":"",
+                           "zipcode":"",
+                           "country":""
+                        },
+                        "shippingRemark":null,
+                        "trackingNumber":null,
+                        "shippingProvider":null,
+                        "shipmentStatus":null,
+                        "receivedBy":null,
+                        "receivedDateTime":null,
+                        "shippingToOutlet":null,
+                        "receiver":"jkj",
+                        "receiverId":null,
+                        "deliveredBy":"realmart@xilnex.com",
+                        "documentType":"1",
+                        "documentId":"9009666",
+                        "issuedBy":null,
+                        "shipTo":null,
+                        "cancelledBy":null,
+                        "cancelRemark":null,
+                        "cancelDateTime":null,
+                        "cancelOutlet":null,
+                        "shipmentProvider":null,
+                        "acknowledged":false,
+                        "shipmentItems":[  
+                           {  
+                              "shipmentId":"90039",
+                              "itemId":"36901",
+                              "itemCode":"N27112017",
+                              "itemName":"N27112017",
+                              "shippingQuantity":1,
+                              "shippingOutlet":"Coded UI Branch 2",
+                              "instoreOutlet":"default",
+                              "salesItemId":null,
+                              "matrixX":null,
+                              "matrixY":null,
+                              "receiverInstoreOutlet":null,
+                              "totalReceived":0,
+                              "shipmentType":null,
+                              "documentItemId":"90010654",
+                              "uniqueId":null,
+                              "alternateLookUp":"36901",
+                              "matrixBarcode":null,
+                              "itemPriceScheme":{  
+                                 "manufacturerPrice":0,
+                                 "salePrice":4.717,
+                                 "employeePrice":0,
+                                 "wholesalePrice":0,
+                                 "customPrice":0,
+                                 "webPrice":0,
+                                 "webDealerPrice":0,
+                                 "cost":0
+                              },
+                              "remark":null,
+                              "driverCommissionRate":0,
+                              "driverCommissionPercentage":0,
+                              "installerCommissionRate":0,
+                              "installerCommissionPercentage":0,
+                              "driver":null,
+                              "installer":null,
+                              "carton":0,
+                              "uom":"-1",
+                              "uomQuantity":0,
+                              "uomFactor":1,
+                              "packageId":null,
+                              "senderName":null
+                           }
+                        ]
+                     }
+                  ]
+               },
+               "timestamp":1512027237
+            }
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
 
 ## Group SalesMallIntegrated
 
@@ -4456,113 +4479,7 @@ Shipment: NA, PENDING, SHIPPED,
               "properties": {}
             }
             
-### /logic/v2/shipment/sales/{Salesid}
 
-#### GET
-+ get sales shipment by sales id
-+ Parameters
-
-    + SalesId (required) - sales Id
-+ Request
-
-    + Headers
-
-            Accept: application/json
-            Token: {token}
-            DKey: {dkey}
-
-    + Body
-           
-            
-+ Response 200 (application/json)
-
-    OK
-
-    + Body
-
-            {  
-               "ok":true,
-               "status":"SuccessQuery",
-               "warning":null,
-               "error":null,
-               "data":{  
-                  "shipment":null,
-                  "shipments":[  
-                     {  
-                        "id":5096,
-                        "documentId":"5080",
-                        "documentType":"Transfer",
-                        "shippingOutlet":"H001 - HQ / WAREHOUSE",
-                        "shippingAddress":{  
-                           "street":"FMC GREENLAND SDN BHD\nG49E, Aeon Metro Prima, No. 1, Jalan Metro Prima Kepong, 52100 Kuala Lumpur, Malaysia. ",
-                           "city":"",
-                           "state":"",
-                           "zipcode":"",
-                           "country":""
-                        },
-                        "shippingRemark":"For customer",
-                        "trackingNumber":"",
-                        "receiver":"",
-                        "shippingDateTime":"2017-06-14T09:56:06.000Z",
-                        "shipmentStatus":null,
-                        "deliverToOutlet":null,
-                        "receiverId":null,
-                        "issuedBy":null,
-                        "shipTo":null,
-                        "cancelledBy":null,
-                        "cancelRemark":null,
-                        "cancelDateTime":"0001-01-01T00:00:00.000Z",
-                        "cancelOutlet":null,
-                        "shipmentProvider":null,
-                        "shipmentItems":[  
-                           {  
-                              "id":50226,
-                              "itemID":102585,
-                              "itemCode":"60309",
-                              "itemName":"PC-SM2L-PLASTIC OUTER COVER",
-                              "documentItemID":50190,
-                              "shippingQuantity":1,
-                              "shipmentID":5096,
-                              "matrixX":"",
-                              "matrixY":"",
-                              "receiverInstoreOutlet":"default",
-                              "totalReceived":1,
-                              "cost":17.5,
-                              "uniqueID":"",
-                              "alternateLookUp":"NSM-2L009",
-                              "matrixBarcode":"",
-                              "itemPriceScheme":{  
-                                 "manufacturerPrice":0,
-                                 "salePrice":25,
-                                 "employeePrice":0,
-                                 "wholesalePrice":0,
-                                 "customPrice":25,
-                                 "webPrice":0,
-                                 "webDealerPrice":0,
-                                 "cost":17.5
-                              },
-                              "remark":"",
-                              "driverCommissionRate":0,
-                              "driverCommissionPercentage":0,
-                              "installerCommissionRate":0,
-                              "installerCommissionPercentage":0,
-                              "driver":null,
-                              "installer":null,
-                              "carton":1,
-                              "uom":"UNIT",
-                              "uomQuantity":1,
-                              "uomFactor":1,
-                              "packageID":"-1",
-                              "senderName":null,
-                              "instoreOutlet":null
-                           }
-                        ]
-                     }
-                  ]
-               },
-               "timestamp":1508748348
-            }
-            
 ### /logic/v2/shipment/{id}/trackingcode
 
 #### PUT
