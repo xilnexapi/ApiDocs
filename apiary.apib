@@ -3176,6 +3176,1191 @@ To retrive item price schemes name list
               "type": "object",
               "properties": {}
             }
+            
+## Group Quotation
+
+### /logic/v2/quotations/{quotationsId}
+
+#### Get quotation [GET]
+
++ Parameters
+
+    + quotationsId (required)
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessQuery",
+               "warning":null,
+               "error":null,
+               "data":{  
+                  "quotation":{  
+                     "id":90045,
+                     "dateTime":"2017-01-18T00:00:00.000Z",
+                     "grandTotal":300,
+                     "paidAmount":0,
+                     "balanceAmount":0,
+                     "term":0,
+                     "cashier":null,
+                     "quotationPerson":"RealMart Admin",
+                     "status":"Confirmed",
+                     "outlet":"MAIN BRANCH",
+                     "remarks":null,
+                     "discountPercentage":0,
+                     "taxPercentage":0,
+                     "cost":0,
+                     "profit":110,
+                     "roundingAmount":0,
+                     "netAmount":0,
+                     "settlementDate":null,
+                     "isInternalSales":false,
+                     "internalLocation":null,
+                     "frReceivedID":null,
+                     "type":"Retail",
+                     "purchaseOrderID":null,
+                     "confirmLocation":"MAIN BRANCH",
+                     "siteID":null,
+                     "expiryDate":null,
+                     "gstTaxAmount":0,
+                     "exchangeRate":0,
+                     "foreignAmount":0,
+                     "currencyCode":null,
+                     "client":{  
+                        "recipientContact":"",
+                        "recipientName":"wk test\n\n\nzxczxc\n\n\n",
+                        "id":90045,
+                        "name":"wk test\n\n\nzxczxc\n\n\n",
+                        "billingAddress":{  
+                           "street":"",
+                           "city":"",
+                           "state":"",
+                           "zipcode":"",
+                           "country":""
+                        },
+                        "shippingAddress":{  
+                           "street":"",
+                           "city":"",
+                           "state":"",
+                           "zipcode":"",
+                           "country":""
+                        },
+                        "billingRemark":"",
+                        "shippingRemark":"haha",
+                        "shippingDateTime":null
+                     },
+                     "cancellationInfo":{  
+                        "cancelBy":null,
+                        "cancelRemark":null,
+                        "cancelDateTime":null,
+                        "cancelLocation":null
+                     },
+                     "items":[  
+                        {  
+                           "id":90060,
+                           "itemId":236016,
+                           "itemName":"1015",
+                           "itemType":"",
+                           "model":"",
+                           "description":"",
+                           "unitPrice":100,
+                           "vendorCode":null,
+                           "quantity":2,
+                           "profit":100,
+                           "cost":0,
+                           "discountPercentage":0,
+                           "discountAmount":0,
+                           "instoreLocation":"default",
+                           "brand":"",
+                           "date":"2017-01-18T00:00:00.000Z",
+                           "location":"MAIN BRANCH",
+                           "itemCode":"1015",
+                           "priceSchemes":{  
+                              "manufacturerPrice":60,
+                              "salePrice":120,
+                              "employeePrice":30,
+                              "wholesalePrice":40,
+                              "customPrice":0,
+                              "webPrice":70,
+                              "webDealerPrice":80,
+                              "cost":0
+                           },
+                           "gstPercentage":0,
+                           "gstAmount":0,
+                           "stockType":"normal",
+                           "uniqueID":null,
+                           "commissionOne":0,
+                           "commissionRateOne":0,
+                           "commissionTwo":0,
+                           "commissionRateTwo":0,
+                           "commissionThree":0,
+                           "commissionRateThree":0,
+                           "commissionFour":0,
+                           "commissionRateFour":0,
+                           "itemCategory":"Category1",
+                           "itemRemark":null,
+                           "packageCode":null,
+                           "pcid":null,
+                           "itemIndex":"1",
+                           "matrixID":"",
+                           "matrixBarcode":null,
+                           "matrixXValue":null,
+                           "matrixYValue":null,
+                           "quotationPerson":"RealMart Admin",
+                           "alternateLookup":"",
+                           "uom":null,
+                           "scanCode":"1015",
+                           "itemStatus":"CONFIRMED",
+                           "multiLevelDiscount":null,
+                           "taxCode":"SR",
+                           "gstTaxPercentage":6,
+                           "gstTaxAmount":0,
+                           "gstInclusive":false,
+                           "enterPrice":100,
+                           "foreignUnitPrice":0,
+                           "foreignSubtotal":0,
+                           "clientId":90045,
+                           "clientName":"wk test\n\n\nzxczxc\n\n\n",
+                           "subtotal":212,
+                           "subItems":[  
+            
+                           ]
+                        },
+                        {  
+                           "id":90061,
+                           "itemId":282061,
+                           "itemName":"bundle2",
+                           "itemType":"",
+                           "model":"",
+                           "description":"",
+                           "unitPrice":10,
+                           "vendorCode":null,
+                           "quantity":10,
+                           "profit":10,
+                           "cost":0,
+                           "discountPercentage":0,
+                           "discountAmount":0,
+                           "instoreLocation":"default",
+                           "brand":"",
+                           "date":"2017-01-18T00:00:00.000Z",
+                           "location":"MAIN BRANCH",
+                           "itemCode":"bundle2",
+                           "priceSchemes":{  
+                              "manufacturerPrice":0,
+                              "salePrice":10,
+                              "employeePrice":0,
+                              "wholesalePrice":0,
+                              "customPrice":0,
+                              "webPrice":0,
+                              "webDealerPrice":0,
+                              "cost":0
+                           },
+                           "gstPercentage":0,
+                           "gstAmount":0,
+                           "stockType":"normal",
+                           "uniqueID":null,
+                           "commissionOne":0,
+                           "commissionRateOne":0,
+                           "commissionTwo":0,
+                           "commissionRateTwo":0,
+                           "commissionThree":0,
+                           "commissionRateThree":0,
+                           "commissionFour":0,
+                           "commissionRateFour":0,
+                           "itemCategory":"Package",
+                           "itemRemark":null,
+                           "packageCode":null,
+                           "pcid":null,
+                           "itemIndex":"2",
+                           "matrixID":"",
+                           "matrixBarcode":null,
+                           "matrixXValue":null,
+                           "matrixYValue":null,
+                           "quotationPerson":"RealMart Admin",
+                           "alternateLookup":"",
+                           "uom":null,
+                           "scanCode":"bundle2",
+                           "itemStatus":"CONFIRMED",
+                           "multiLevelDiscount":null,
+                           "taxCode":"SR",
+                           "gstTaxPercentage":6,
+                           "gstTaxAmount":0,
+                           "gstInclusive":false,
+                           "enterPrice":10,
+                           "foreignUnitPrice":0,
+                           "foreignSubtotal":0,
+                           "clientId":90045,
+                           "clientName":"wk test\n\n\nzxczxc\n\n\n",
+                           "subtotal":106,
+                           "subItems":[  
+            
+                           ]
+                        }
+                     ]
+                  }
+               },
+               "timestamp":1487900051
+            }
+            
+### /logic/v2/quotations
+
+#### Create quotation [POST]
+
++ Parameters
+
+    + gstPercentage(Optional)
+    + gstAmount(Optional)
+    + stockType(Optional)
+    + uniqueID(Optional)
+    + matrixID(Optional)
+    + matrixBarcode(Optional)
+    + matrixXValue(Optional)
+    + matrixYValue(Optional)
+    + scanCode(Optional)
+    + subItems(Optional)
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+    
+            {  
+               "quotation":{  
+                  "dateTime":"02-12-2016T11:02:00.000Z",
+                  "recipient":" ",
+                  "client":{  
+                     "id":123,
+                     "recipientContact":"abc",
+                     "recipientName":"abc"
+                  },
+                  "clientName":"client1",
+                  "term":"0",
+                  "cashier":"REAL MART Admin",
+                  "billingAddress":{  
+                     "street":"",
+                     "city":"",
+                     "state":"",
+                     "zipcode":"",
+                     "country":""
+                  },
+                  "shippingAddress":{  
+                     "street":"",
+                     "city":"",
+                     "state":"",
+                     "zipcode":"",
+                     "country":""
+                  },
+                  "billingRemark":"",
+                  "shippingRemark":"",
+                  "pic":"REAL MART Admin",
+                  "status":"CONFIRMED",
+                  "outlet":"Coded UI Branch 2",
+                  "remarks":"",
+                  "discountPercentage":0,
+                  "taxPercentage":0,
+                  "recipientContact":"1234567890",
+                  "cancelRemark":null,
+                  "type":"Retail",
+                  "confirmLocation":"Coded UI Branch 2",
+                  "expiryDate":"31/12/9999"
+               },
+               "items":[  
+                  {  
+                     "itemID":"236016",
+                     "quantity":1,
+                     "discountPercentage":0,
+                     "itemCode":"1015",
+                     "gstPercentage":6,
+                     "gstAmount":5.34,
+                     "stockType":"normal",
+                     "uniqueID":"",
+                     "itemRemark":"",
+                     "itemIndex":"0",
+                     "matrixID":"",
+                     "matrixBarcode":"",
+                     "matrixXValue":"",
+                     "matrixYValue":"",
+                     "quotationPerson":"REAL MART Admin",
+                     "scanCode":"1015",
+                     "isMgstInclusive":true,
+                     "enterPrice":100,
+                     "subItems":[  
+            
+                     ]
+                  }
+               ]
+            }
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessInsert",
+                "warning": null,
+                "error": null,
+                "data": {
+                "quotation": {
+                  "id": 9004,
+                  "dateTime": "02-12-2016T11:02:00.000Z",
+                  "grandTotal": 100,
+                  "recipient": " ",
+                  "clientID": "28209",
+                  "clientName": "client1",
+                  "paidAmount": 0,
+                  "balanceAmount": 0,
+                  "term": "0",
+                  "cashier": "REAL MART Admin",
+                  "billingAddress": {
+                    "street": "",
+                    "city": "",
+                    "state": "",
+                    "zipcode": "",
+                    "country": ""
+                  },
+                  "shippingAddress": {
+                    "street": "",
+                    "city": "",
+                    "state": "",
+                    "zipcode": "",
+                    "country": ""
+                  },
+                  "billingRemark": "",
+                  "shippingRemark": "",
+                  "shippingDateTime": null,
+                  "pic": "REAL MART Admin",
+                  "status": "CONFIRMED",
+                  "location": "Coded UI Branch 2",
+                  "remarks": "",
+                  "discountPercentage": 0,
+                  "taxPercentage": 0,
+                  "cost": 0,
+                  "profit": 100,
+                  "roundingAmount": 0,
+                  "recipientContact": "1234567890",
+                  "cancelBy": null,
+                  "cancelRemark": null,
+                  "cancelDateTime": null,
+                  "cancelLocation": null,
+                  "netAmount": 0,
+                  "settlementDate": null,
+                  "isInternalSales": false,
+                  "internalLocation": null,
+                  "frReceivedID": null,
+                  "type": "Retail",
+                  "purchaseOrderID": null,
+                  "confirmLocation": "Coded UI Branch 2",
+                  "siteID": null,
+                  "expiryDate": null,
+                  "mgstTaxAmount": 0,
+                  "exchangeRate": 0,
+                  "foreignAmount": 0,
+                  "currencyCode": null
+                },
+                "items": [
+                  {
+                    "id": 9004,
+                    "itemID": "236016",
+                    "itemName": "1015",
+                    "itemType": "",
+                    "model": "",
+                    "description": "",
+                    "unitPrice": 100,
+                    "vendorCode": null,
+                    "quantity": 1,
+                    "profit": 100,
+                    "cost": 0,
+                    "discountPercentage": 0,
+                    "instoreLocation": "default",
+                    "brand": "",
+                    "clientID": "28209",
+                    "clientName": "client1",
+                    "date": "2016-12-02T00:00:00.000Z",
+                    "location": "Coded UI Branch 2",
+                    "itemCode": "1015",
+                    "priceSchemes": {
+                      "manufacturerPrice": 60,
+                      "salePrice": 20,
+                      "employeePrice": 30,
+                      "wholesalePrice": 40,
+                      "customPrice": 50,
+                      "webPrice": 70,
+                      "webDealerPrice": 80,
+                      "cost": 0
+                    },
+                    "gstPercentage": 0,
+                    "gstAmount": 0,
+                    "stockType": "normal",
+                    "uniqueID": null,
+                    "commissionOne": 0,
+                    "commissionRateOne": 0,
+                    "commissionTwo": 0,
+                    "commissionRateTwo": 0,
+                    "commissionThree": 0,
+                    "commissionRateThree": 0,
+                    "commissionFour": 0,
+                    "commissionRateFour": 0,
+                    "itemCategory": "Category1",
+                    "itemRemark": null,
+                    "packageCode": null,
+                    "pcid": null,
+                    "itemIndex": "1",
+                    "matrixID": "",
+                    "matrixBarcode": null,
+                    "matrixXValue": null,
+                    "matrixYValue": null,
+                    "quotationPerson": "REAL MART Admin",
+                    "altLookup": "",
+                    "uom": null,
+                    "scanCode": "1015",
+                    "itemStatus": "CONFIRMED",
+                    "multiLevelDiscount": null,
+                    "taxCode": "SR",
+                    "mgstTaxPercentage": 0,
+                    "mgstTaxAmount": 0,
+                    "isMgstInclusive": true,
+                    "enterPrice": 100,
+                    "foreignUnitPrice": 0,
+                    "foreignSubtotal": 0,
+                    "subItems": []
+                  }
+                ]
+                },
+                "timestamp": 1480659973
+                }
+                
+### /logic/v2/quotations/{QuotationId}
+
+#### Update quotation [PUT]
+
++ Parameters
+    + QuotationId
+    + gstPercentage(Optional)
+    + gstAmount(Optional)
+    + stockType(Optional)
+    + uniqueID(Optional)
+    + matrixID(Optional)
+    + matrixBarcode(Optional)
+    + matrixXValue(Optional)
+    + matrixYValue(Optional)
+    + scanCode(Optional)
+    + subItems(Optional)
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+    
+            {  
+               "quotation":{  
+                  "dateTime":"02-12-2016T11:02:00.000Z",
+                  "recipient":" ",
+                  "client":{  
+                     "id":123,
+                     "recipientContact":"abc",
+                     "recipientName":"abc"
+                  },
+                  "clientName":"client1",
+                  "term":"0",
+                  "cashier":"REAL MART Admin",
+                  "billingAddress":{  
+                     "street":"",
+                     "city":"",
+                     "state":"",
+                     "zipcode":"",
+                     "country":""
+                  },
+                  "shippingAddress":{  
+                     "street":"",
+                     "city":"",
+                     "state":"",
+                     "zipcode":"",
+                     "country":""
+                  },
+                  "billingRemark":"",
+                  "shippingRemark":"",
+                  "pic":"REAL MART Admin",
+                  "status":"CONFIRMED",
+                  "outlet":"Coded UI Branch 2",
+                  "remarks":"",
+                  "discountPercentage":0,
+                  "taxPercentage":0,
+                  "recipientContact":"1234567890",
+                  "cancelRemark":null,
+                  "type":"Retail",
+                  "confirmLocation":"Coded UI Branch 2",
+                  "expiryDate":"31/12/9999"
+               },
+               "items":[  
+                  {  
+                     "itemID":"236016",
+                     "quantity":1,
+                     "discountPercentage":0,
+                     "itemCode":"1015",
+                     "gstPercentage":6,
+                     "gstAmount":5.34,
+                     "stockType":"normal",
+                     "uniqueID":"",
+                     "itemRemark":"",
+                     "itemIndex":"0",
+                     "matrixID":"",
+                     "matrixBarcode":"",
+                     "matrixXValue":"",
+                     "matrixYValue":"",
+                     "quotationPerson":"REAL MART Admin",
+                     "scanCode":"1015",
+                     "isMgstInclusive":true,
+                     "enterPrice":100,
+                     "subItems":[  
+            
+                     ]
+                  }
+               ]
+            }
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessInsert",
+                "warning": null,
+                "error": null,
+                "data": {
+                "quotation": {
+                  "id": 9004,
+                  "dateTime": "02-12-2016T11:02:00.000Z",
+                  "grandTotal": 100,
+                  "recipient": " ",
+                  "clientID": "28209",
+                  "clientName": "client1",
+                  "paidAmount": 0,
+                  "balanceAmount": 0,
+                  "term": "0",
+                  "cashier": "REAL MART Admin",
+                  "billingAddress": {
+                    "street": "",
+                    "city": "",
+                    "state": "",
+                    "zipcode": "",
+                    "country": ""
+                  },
+                  "shippingAddress": {
+                    "street": "",
+                    "city": "",
+                    "state": "",
+                    "zipcode": "",
+                    "country": ""
+                  },
+                  "billingRemark": "",
+                  "shippingRemark": "",
+                  "shippingDateTime": null,
+                  "pic": "REAL MART Admin",
+                  "status": "CONFIRMED",
+                  "location": "Coded UI Branch 2",
+                  "remarks": "",
+                  "discountPercentage": 0,
+                  "taxPercentage": 0,
+                  "cost": 0,
+                  "profit": 100,
+                  "roundingAmount": 0,
+                  "recipientContact": "1234567890",
+                  "cancelBy": null,
+                  "cancelRemark": null,
+                  "cancelDateTime": null,
+                  "cancelLocation": null,
+                  "netAmount": 0,
+                  "settlementDate": null,
+                  "isInternalSales": false,
+                  "internalLocation": null,
+                  "frReceivedID": null,
+                  "type": "Retail",
+                  "purchaseOrderID": null,
+                  "confirmLocation": "Coded UI Branch 2",
+                  "siteID": null,
+                  "expiryDate": null,
+                  "mgstTaxAmount": 0,
+                  "exchangeRate": 0,
+                  "foreignAmount": 0,
+                  "currencyCode": null
+                },
+                "items": [
+                  {
+                    "id": 9004,
+                    "itemID": "236016",
+                    "itemName": "1015",
+                    "itemType": "",
+                    "model": "",
+                    "description": "",
+                    "unitPrice": 100,
+                    "vendorCode": null,
+                    "quantity": 1,
+                    "profit": 100,
+                    "cost": 0,
+                    "discountPercentage": 0,
+                    "instoreLocation": "default",
+                    "brand": "",
+                    "clientID": "28209",
+                    "clientName": "client1",
+                    "date": "2016-12-02T00:00:00.000Z",
+                    "location": "Coded UI Branch 2",
+                    "itemCode": "1015",
+                    "priceSchemes": {
+                      "manufacturerPrice": 60,
+                      "salePrice": 20,
+                      "employeePrice": 30,
+                      "wholesalePrice": 40,
+                      "customPrice": 50,
+                      "webPrice": 70,
+                      "webDealerPrice": 80,
+                      "cost": 0
+                    },
+                    "gstPercentage": 0,
+                    "gstAmount": 0,
+                    "stockType": "normal",
+                    "uniqueID": null,
+                    "commissionOne": 0,
+                    "commissionRateOne": 0,
+                    "commissionTwo": 0,
+                    "commissionRateTwo": 0,
+                    "commissionThree": 0,
+                    "commissionRateThree": 0,
+                    "commissionFour": 0,
+                    "commissionRateFour": 0,
+                    "itemCategory": "Category1",
+                    "itemRemark": null,
+                    "packageCode": null,
+                    "pcid": null,
+                    "itemIndex": "1",
+                    "matrixID": "",
+                    "matrixBarcode": null,
+                    "matrixXValue": null,
+                    "matrixYValue": null,
+                    "quotationPerson": "REAL MART Admin",
+                    "altLookup": "",
+                    "uom": null,
+                    "scanCode": "1015",
+                    "itemStatus": "CONFIRMED",
+                    "multiLevelDiscount": null,
+                    "taxCode": "SR",
+                    "mgstTaxPercentage": 0,
+                    "mgstTaxAmount": 0,
+                    "isMgstInclusive": true,
+                    "enterPrice": 100,
+                    "foreignUnitPrice": 0,
+                    "foreignSubtotal": 0,
+                    "subItems": []
+                  }
+                ]
+                },
+                "timestamp": 1480659973
+                }
+                
+### /logic/v2/quotations/{QuotationId}/confirm
+
+#### Confirm quotation [PUT]
+
++ Parameters
+    + QuotationId
+    
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+    
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessQuery",
+               "warning":null,
+               "error":null,
+               "data":{  
+                  "quotationId":90045,
+                  "quotation":{  
+                     "id":90045,
+                     "dateTime":"2017-01-18T00:00:00.000Z",
+                     "grandTotal":300,
+                     "paidAmount":0,
+                     "balanceAmount":0,
+                     "term":0,
+                     "cashier":null,
+                     "quotationPerson":"RealMart Admin",
+                     "status":"Confirmed",
+                     "outlet":"MAIN BRANCH",
+                     "remarks":null,
+                     "discountPercentage":0,
+                     "taxPercentage":0,
+                     "cost":0,
+                     "profit":110,
+                     "roundingAmount":0,
+                     "netAmount":0,
+                     "settlementDate":null,
+                     "isInternalSales":false,
+                     "internalLocation":null,
+                     "frReceivedID":null,
+                     "type":"Retail",
+                     "purchaseOrderID":null,
+                     "confirmLocation":"MAIN BRANCH",
+                     "siteID":null,
+                     "expiryDate":null,
+                     "gstTaxAmount":0,
+                     "exchangeRate":0,
+                     "foreignAmount":0,
+                     "currencyCode":null,
+                     "client":{  
+                        "recipientContact":"",
+                        "recipientName":"wk test\n\n\nzxczxc\n\n\n",
+                        "id":90045,
+                        "name":"wk test\n\n\nzxczxc\n\n\n",
+                        "billingAddress":{  
+                           "street":"",
+                           "city":"",
+                           "state":"",
+                           "zipcode":"",
+                           "country":""
+                        },
+                        "shippingAddress":{  
+                           "street":"",
+                           "city":"",
+                           "state":"",
+                           "zipcode":"",
+                           "country":""
+                        },
+                        "billingRemark":"",
+                        "shippingRemark":"haha",
+                        "shippingDateTime":null
+                     },
+                     "cancellationInfo":{  
+                        "cancelBy":null,
+                        "cancelRemark":null,
+                        "cancelDateTime":null,
+                        "cancelLocation":null
+                     },
+                     "items":[  
+                        {  
+                           "id":90060,
+                           "itemId":236016,
+                           "itemName":"1015",
+                           "itemType":"",
+                           "model":"",
+                           "description":"",
+                           "unitPrice":100,
+                           "vendorCode":null,
+                           "quantity":2,
+                           "profit":100,
+                           "cost":0,
+                           "discountPercentage":0,
+                           "discountAmount":0,
+                           "instoreLocation":"default",
+                           "brand":"",
+                           "date":"2017-01-18T00:00:00.000Z",
+                           "location":"MAIN BRANCH",
+                           "itemCode":"1015",
+                           "priceSchemes":{  
+                              "manufacturerPrice":60,
+                              "salePrice":120,
+                              "employeePrice":30,
+                              "wholesalePrice":40,
+                              "customPrice":0,
+                              "webPrice":70,
+                              "webDealerPrice":80,
+                              "cost":0
+                           },
+                           "gstPercentage":0,
+                           "gstAmount":0,
+                           "stockType":"normal",
+                           "uniqueID":null,
+                           "commissionOne":0,
+                           "commissionRateOne":0,
+                           "commissionTwo":0,
+                           "commissionRateTwo":0,
+                           "commissionThree":0,
+                           "commissionRateThree":0,
+                           "commissionFour":0,
+                           "commissionRateFour":0,
+                           "itemCategory":"Category1",
+                           "itemRemark":null,
+                           "packageCode":null,
+                           "pcid":null,
+                           "itemIndex":"1",
+                           "matrixID":"",
+                           "matrixBarcode":null,
+                           "matrixXValue":null,
+                           "matrixYValue":null,
+                           "quotationPerson":"RealMart Admin",
+                           "alternateLookup":"",
+                           "uom":null,
+                           "scanCode":"1015",
+                           "itemStatus":"CONFIRMED",
+                           "multiLevelDiscount":null,
+                           "taxCode":"SR",
+                           "gstTaxPercentage":6,
+                           "gstTaxAmount":0,
+                           "gstInclusive":false,
+                           "enterPrice":100,
+                           "foreignUnitPrice":0,
+                           "foreignSubtotal":0,
+                           "clientId":90045,
+                           "clientName":"wk test\n\n\nzxczxc\n\n\n",
+                           "subtotal":212,
+                           "subItems":[  
+            
+                           ]
+                        },
+                        {  
+                           "id":90061,
+                           "itemId":282061,
+                           "itemName":"bundle2",
+                           "itemType":"",
+                           "model":"",
+                           "description":"",
+                           "unitPrice":10,
+                           "vendorCode":null,
+                           "quantity":10,
+                           "profit":10,
+                           "cost":0,
+                           "discountPercentage":0,
+                           "discountAmount":0,
+                           "instoreLocation":"default",
+                           "brand":"",
+                           "date":"2017-01-18T00:00:00.000Z",
+                           "location":"MAIN BRANCH",
+                           "itemCode":"bundle2",
+                           "priceSchemes":{  
+                              "manufacturerPrice":0,
+                              "salePrice":10,
+                              "employeePrice":0,
+                              "wholesalePrice":0,
+                              "customPrice":0,
+                              "webPrice":0,
+                              "webDealerPrice":0,
+                              "cost":0
+                           },
+                           "gstPercentage":0,
+                           "gstAmount":0,
+                           "stockType":"normal",
+                           "uniqueID":null,
+                           "commissionOne":0,
+                           "commissionRateOne":0,
+                           "commissionTwo":0,
+                           "commissionRateTwo":0,
+                           "commissionThree":0,
+                           "commissionRateThree":0,
+                           "commissionFour":0,
+                           "commissionRateFour":0,
+                           "itemCategory":"Package",
+                           "itemRemark":null,
+                           "packageCode":null,
+                           "pcid":null,
+                           "itemIndex":"2",
+                           "matrixID":"",
+                           "matrixBarcode":null,
+                           "matrixXValue":null,
+                           "matrixYValue":null,
+                           "quotationPerson":"RealMart Admin",
+                           "alternateLookup":"",
+                           "uom":null,
+                           "scanCode":"bundle2",
+                           "itemStatus":"CONFIRMED",
+                           "multiLevelDiscount":null,
+                           "taxCode":"SR",
+                           "gstTaxPercentage":6,
+                           "gstTaxAmount":0,
+                           "gstInclusive":false,
+                           "enterPrice":10,
+                           "foreignUnitPrice":0,
+                           "foreignSubtotal":0,
+                           "clientId":90045,
+                           "clientName":"wk test\n\n\nzxczxc\n\n\n",
+                           "subtotal":106,
+                           "subItems":[  
+            
+                           ]
+                        }
+                     ]
+                  }
+               },
+               "timestamp":1487900051
+            }
+
+### /logic/v2/quotations/query?datefrom={datefrom}&dateto={dateto}&outlets={outlets name}
+
+#### Get quotation [GET]
+
++ Parameters
+    + datefrom: Iso8601 format
+    + dateto: Iso8601 format
+    + outlets: outlets Id 
+    
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+    
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessQuery",
+               "warning":null,
+               "error":null,
+               "data":{  
+                  "quotations":[  
+                     {  
+                        "id":90045,
+                        "dateTime":"2017-01-18T00:00:00.000Z",
+                        "grandTotal":300,
+                        "paidAmount":0,
+                        "balanceAmount":0,
+                        "term":0,
+                        "cashier":null,
+                        "quotationPerson":"RealMart Admin",
+                        "status":"Confirmed",
+                        "outlet":"MAIN BRANCH",
+                        "remarks":null,
+                        "discountPercentage":0,
+                        "taxPercentage":0,
+                        "cost":0,
+                        "profit":110,
+                        "roundingAmount":0,
+                        "netAmount":0,
+                        "settlementDate":null,
+                        "isInternalSales":false,
+                        "internalLocation":null,
+                        "frReceivedID":null,
+                        "type":"Retail",
+                        "purchaseOrderID":null,
+                        "confirmLocation":"MAIN BRANCH",
+                        "siteID":null,
+                        "expiryDate":null,
+                        "gstTaxAmount":0,
+                        "exchangeRate":0,
+                        "foreignAmount":0,
+                        "currencyCode":null,
+                        "client":{  
+                           "recipientContact":"",
+                           "recipientName":"wk test\n\n\nzxczxc\n\n\n",
+                           "id":90045,
+                           "name":"wk test\n\n\nzxczxc\n\n\n",
+                           "billingAddress":{  
+                              "street":"",
+                              "city":"",
+                              "state":"",
+                              "zipcode":"",
+                              "country":""
+                           },
+                           "shippingAddress":{  
+                              "street":"",
+                              "city":"",
+                              "state":"",
+                              "zipcode":"",
+                              "country":""
+                           },
+                           "billingRemark":"",
+                           "shippingRemark":"haha",
+                           "shippingDateTime":null
+                        },
+                        "cancellationInfo":{  
+                           "cancelBy":null,
+                           "cancelRemark":null,
+                           "cancelDateTime":null,
+                           "cancelLocation":null
+                        },
+                        "items":[  
+                           {  
+                              "id":90060,
+                              "itemId":236016,
+                              "itemName":"1015",
+                              "itemType":"",
+                              "model":"",
+                              "description":"",
+                              "unitPrice":100,
+                              "vendorCode":null,
+                              "quantity":2,
+                              "profit":100,
+                              "cost":0,
+                              "discountPercentage":0,
+                              "discountAmount":0,
+                              "instoreLocation":"default",
+                              "brand":"",
+                              "date":"2017-01-18T00:00:00.000Z",
+                              "location":"MAIN BRANCH",
+                              "itemCode":"1015",
+                              "priceSchemes":{  
+                                 "manufacturerPrice":60,
+                                 "salePrice":120,
+                                 "employeePrice":30,
+                                 "wholesalePrice":40,
+                                 "customPrice":0,
+                                 "webPrice":70,
+                                 "webDealerPrice":80,
+                                 "cost":0
+                              },
+                              "gstPercentage":0,
+                              "gstAmount":0,
+                              "stockType":"normal",
+                              "uniqueID":null,
+                              "commissionOne":0,
+                              "commissionRateOne":0,
+                              "commissionTwo":0,
+                              "commissionRateTwo":0,
+                              "commissionThree":0,
+                              "commissionRateThree":0,
+                              "commissionFour":0,
+                              "commissionRateFour":0,
+                              "itemCategory":"Category1",
+                              "itemRemark":null,
+                              "packageCode":null,
+                              "pcid":null,
+                              "itemIndex":"1",
+                              "matrixID":"",
+                              "matrixBarcode":null,
+                              "matrixXValue":null,
+                              "matrixYValue":null,
+                              "quotationPerson":"RealMart Admin",
+                              "alternateLookup":"",
+                              "uom":null,
+                              "scanCode":"1015",
+                              "itemStatus":"CONFIRMED",
+                              "multiLevelDiscount":null,
+                              "taxCode":"SR",
+                              "gstTaxPercentage":6,
+                              "gstTaxAmount":0,
+                              "gstInclusive":false,
+                              "enterPrice":100,
+                              "foreignUnitPrice":0,
+                              "foreignSubtotal":0,
+                              "clientId":90045,
+                              "clientName":"wk test\n\n\nzxczxc\n\n\n",
+                              "subtotal":212,
+                              "subItems":[  
+            
+                              ]
+                           },
+                           {  
+                              "id":90061,
+                              "itemId":282061,
+                              "itemName":"bundle2",
+                              "itemType":"",
+                              "model":"",
+                              "description":"",
+                              "unitPrice":10,
+                              "vendorCode":null,
+                              "quantity":10,
+                              "profit":10,
+                              "cost":0,
+                              "discountPercentage":0,
+                              "discountAmount":0,
+                              "instoreLocation":"default",
+                              "brand":"",
+                              "date":"2017-01-18T00:00:00.000Z",
+                              "location":"MAIN BRANCH",
+                              "itemCode":"bundle2",
+                              "priceSchemes":{  
+                                 "manufacturerPrice":0,
+                                 "salePrice":10,
+                                 "employeePrice":0,
+                                 "wholesalePrice":0,
+                                 "customPrice":0,
+                                 "webPrice":0,
+                                 "webDealerPrice":0,
+                                 "cost":0
+                              },
+                              "gstPercentage":0,
+                              "gstAmount":0,
+                              "stockType":"normal",
+                              "uniqueID":null,
+                              "commissionOne":0,
+                              "commissionRateOne":0,
+                              "commissionTwo":0,
+                              "commissionRateTwo":0,
+                              "commissionThree":0,
+                              "commissionRateThree":0,
+                              "commissionFour":0,
+                              "commissionRateFour":0,
+                              "itemCategory":"Package",
+                              "itemRemark":null,
+                              "packageCode":null,
+                              "pcid":null,
+                              "itemIndex":"2",
+                              "matrixID":"",
+                              "matrixBarcode":null,
+                              "matrixXValue":null,
+                              "matrixYValue":null,
+                              "quotationPerson":"RealMart Admin",
+                              "alternateLookup":"",
+                              "uom":null,
+                              "scanCode":"bundle2",
+                              "itemStatus":"CONFIRMED",
+                              "multiLevelDiscount":null,
+                              "taxCode":"SR",
+                              "gstTaxPercentage":6,
+                              "gstTaxAmount":0,
+                              "gstInclusive":false,
+                              "enterPrice":10,
+                              "foreignUnitPrice":0,
+                              "foreignSubtotal":0,
+                              "clientId":90045,
+                              "clientName":"wk test\n\n\nzxczxc\n\n\n",
+                              "subtotal":106,
+                              "subItems":[  
+            
+                              ]
+                           }
+                        ]
+                     }
+                  ]
+               },
+               "timestamp":1487900051
+            }
 
 ## Group Redemption Voucher
 
@@ -3955,6 +5140,1256 @@ Shipment: NA, PENDING, SHIPPED,
               "type": "object",
               "properties": {}
             }
+            
+### /logic/v2/sales/salesinvoice/{outlet}
+
+#### Post Sales Detail [POST]
+
+## Create invoice
+* POST invoice withour implement callback
+
++ Parameters
+    + outlet - outlet name
+    + status - OPEN, CONFIRMED, COMPLETED, CANCELLED, WRITE_OFF
+    + method(Collection) - cash, card, bank, cheque, web, creditnote, voucher, point, debitcard, forfeiture_voucher, creditcard_charges, contra, tradein, Other, BCard, prepaid, BCardToken, TnG, Entertainment, XCard 
+    + clientId(Optional)
+    + cashier(Optional)
+    + shippingAdress(Optional)
+    + discountPercentage(Optional) - discount percentage for all order item. if discount percentage and bill Discount Amount both exist, api will take discount percentage as priority!
+    + billDiscountAmount(Optional) - discount amount for transaction, discount amount will split into each order item.
+    + recipientContact(Optional)
+    + shipmentProvider(Optional) - e.g. GDEX, Skynet etc.
+    + itemCode/itemId - One of the code must be enter.
+    + matrixId(Optional)
+    + enterPrice(Optional) - Selling price 
+    + reference(Optional) - if using voucher or card will need to key in.
+    + confirmOutlet(Optional) - if the sales status is confirm, confirm outlet must be enter.
+    + key(Optional) - if needed custom key, else server will return a new key
+    + module(Optional) 
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+        
+            {
+                "sale":
+                {
+                    "term":1,
+                    "cashier":"REAL MART Admin",
+                    "dateTime":"2016-12-16T00:00:00.000Z",
+                    "salesPerson":"Realmart",
+                    "billingAddress":
+                    {
+                        "street":"476",
+                        "city":"new ",
+                        "state":"new You",
+                        "zipcode":"12345",
+                        "country":"US"
+                    },
+                    "shippingAdress":{  
+                        "street":null,
+                        "city":null,
+                        "state":null,
+                        "zipcode":null,
+                        "country":null
+                    },
+                    "shippingRemark":"anytime",
+                    "salesPerson":"Realmart",
+                    "status":"COMPLETED", 
+                    "outlet":"Code UI Branh",
+                    "remark":"remak",
+                    "outlet":"Code UI Branch",
+                    "confirmOutlet":"Code UI Branch",
+                    "remark":null,
+                    "discountPercentage":0,
+                    "billDiscountAmount":0,
+                    "recipientContact":null,
+                    "items":[
+                    {
+                        "itemCode":"1233", 
+                        "itemId":101,
+                        "quantity":1,
+                        "enterPrice":88
+                        "discountPercentage":0,
+                        "matrixId":"201",
+                        "matrixBarcode":"matrix001",
+                        "enterPrice":10
+                    }
+                    ],
+                    "collection":[
+                    {
+                        "method":"cash", 
+                        "reference":"",
+                        "amount":100
+                    }
+                    ]
+                },
+                "key":"WS0001"
+            }
+        
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessInsert",
+               "warning":null,
+               "error":null,
+               "data":{  
+                  "lastTimestamp":null,
+                  "sale":{  
+                     "id":9009632,
+                     "dateTime":"2017-11-24T11:54:12.428Z",
+                     "grandTotal":72,
+                     "paid":0,
+                     "balance":72,
+                     "term":null,
+                     "cashier":"realmart@xilnex.com",
+                     "shippingStatus":null,
+                     "status":"OPEN",
+                     "paymentStatus":"PENDING",
+                     "outlet":null,
+                     "remark":null,
+                     "discountPercentage":0,
+                     "taxPercentage":0,
+                     "cost":13149.06,
+                     "profit":-13079.79,
+                     "rounding":0,
+                     "netAmount":0,
+                     "settlementDateTime":null,
+                     "isSalesReturn":false,
+                     "isInternalSales":false,
+                     "internalOutlet":null,
+                     "salesType":null,
+                     "reference":null,
+                     "confirmOutlet":null,
+                     "siteId":"900",
+                     "salesOrderId":null,
+                     "quotationId":null,
+                     "businessDateTime":"2017-11-27T00:00:00.000Z",
+                     "gstTaxAmount":4.17,
+                     "customFieldValueOne":null,
+                     "customFieldValueTwo":null,
+                     "customFieldValueThree":null,
+                     "customFieldValueFour":null,
+                     "customFieldValueFive":null,
+                     "exchangeRate":0,
+                     "foreignTotalAmount":0,
+                     "recipientContact":null,
+                     "recipientName":null,
+                     "currencyCode":null,
+                     "salesPerson":"realmart@xilnex.com",
+                     "clientId":null,
+                     "clientName":"CASH",
+                     "billingAddress":null,
+                     "shippingAddress":null,
+                     "client":{  
+                        "Id":null,
+                        "RecipientContact":null,
+                        "RecipientName":null,
+                        "Name":"CASH",
+                        "BillingAddress":null,
+                        "ShippingAddress":null,
+                        "BillingRemark":null,
+                        "ShippingRemark":null,
+                        "ShippingDateTime":null,
+                        "IsoShippingDateTime":null,
+                        "Type":null
+                     },
+                     "cancelBy":null,
+                     "cancelRemark":null,
+                     "cancelOutlet":null,
+                     "cancelDateTime":null,
+                     "cancellationInfo":null,
+                     "billDiscountAmount":0,
+                     "items":[  
+                        {  
+                           "id":90010576,
+                           "itemId":36901,
+                           "salesDate":null,
+                           "itemName":"N27112017",
+                           "itemType":"Type02",
+                           "model":"",
+                           "description":"Description",
+                           "unitPrice":11.32,
+                           "quantity":1,
+                           "deliveryQuantity":1,
+                           "profit":11.32,
+                           "discountPercentage":0,
+                           "instoreOutlet":"default",
+                           "brand":"",
+                           "itemCode":"N27112017",
+                           "priceSchemes":{  
+                              "manufacturerPrice":0,
+                              "salePrice":4.717,
+                              "employeePrice":0,
+                              "wholesalePrice":0,
+                              "customPrice":0,
+                              "webPrice":0,
+                              "webDealerPrice":0,
+                              "cost":0
+                           },
+                           "commissionOne":0,
+                           "commissionTwo":0,
+                           "commissionRateOne":0,
+                           "commissionRateTwo":0,
+                           "commissionThree":0,
+                           "commissionFour":0,
+                           "commissionRateThree":0,
+                           "commissionRateFour":0,
+                           "category":"",
+                           "remark":null,
+                           "packageCode":null,
+                           "pcid":"",
+                           "matrixId":null,
+                           "matrixBarcode":null,
+                           "matrixX":null,
+                           "matrixY":null,
+                           "alternateLookup":"36901",
+                           "salesPerson":"realmart@xilnex.com",
+                           "scanCode":"N27112017",
+                           "salesOrderId":null,
+                           "salesOrderItemId":null,
+                           "advanceDiscount":null,
+                           "uniqueId":null,
+                           "alternateUniqueId":null,
+                           "salesItemType":null,
+                           "promoGroup":"",
+                           "businessDateTime":"2017-11-27T00:00:00.000Z",
+                           "voucherNumber":null,
+                           "CustomValueOne":"",
+                           "CustomValueTwo":"",
+                           "CustomValueThree":"",
+                           "CustomValueFour":"",
+                           "CustomValueFive":"",
+                           "taxCode":"SR",
+                           "gstPercentage":6,
+                           "gstAmount":0.68,
+                           "gstInclusive":true,
+                           "enterPrice":12,
+                           "discountRemark":null,
+                           "CustomValueSix":"",
+                           "CustomValueSeven":"",
+                           "CustomValueEight":"",
+                           "CustomValueNine":"",
+                           "CustomValueTen":"",
+                           "CustomValueEleven":"",
+                           "CustomValueTwelve":"",
+                           "CustomValueThirteen":"",
+                           "CustomValueFourteen":"",
+                           "CustomValueFifteen":"",
+                           "TotalTaxAmount":0.68,
+                           "TotalDiscountAmount":0,
+                           "subtotal":12,
+                           "cost":0,
+                           "subItems":[  
+            
+                           ]
+                        },
+                        {  
+                           "id":90010577,
+                           "itemId":36905,
+                           "salesDate":null,
+                           "itemName":"Bundle27112017",
+                           "itemType":"",
+                           "model":"",
+                           "description":"",
+                           "unitPrice":24,
+                           "quantity":1,
+                           "deliveryQuantity":1,
+                           "profit":0,
+                           "discountPercentage":0,
+                           "instoreOutlet":"default",
+                           "brand":"",
+                           "itemCode":"Bun27112017",
+                           "priceSchemes":{  
+                              "manufacturerPrice":0,
+                              "salePrice":10,
+                              "employeePrice":0,
+                              "wholesalePrice":0,
+                              "customPrice":0,
+                              "webPrice":0,
+                              "webDealerPrice":0,
+                              "cost":0
+                           },
+                           "commissionOne":0,
+                           "commissionTwo":0,
+                           "commissionRateOne":0,
+                           "commissionRateTwo":0,
+                           "commissionThree":0,
+                           "commissionFour":0,
+                           "commissionRateThree":0,
+                           "commissionRateFour":0,
+                           "category":"Package",
+                           "remark":null,
+                           "packageCode":"Bun27112017",
+                           "pcid":"000000",
+                           "matrixId":null,
+                           "matrixBarcode":null,
+                           "matrixX":null,
+                           "matrixY":null,
+                           "alternateLookup":"36905",
+                           "salesPerson":"realmart@xilnex.com",
+                           "scanCode":"Bun27112017",
+                           "salesOrderId":null,
+                           "salesOrderItemId":null,
+                           "advanceDiscount":null,
+                           "uniqueId":null,
+                           "alternateUniqueId":null,
+                           "salesItemType":null,
+                           "promoGroup":null,
+                           "businessDateTime":"2017-11-27T00:00:00.000Z",
+                           "voucherNumber":null,
+                           "CustomValueOne":null,
+                           "CustomValueTwo":null,
+                           "CustomValueThree":null,
+                           "CustomValueFour":null,
+                           "CustomValueFive":null,
+                           "taxCode":"SR",
+                           "gstPercentage":6,
+                           "gstAmount":1.44,
+                           "gstInclusive":true,
+                           "enterPrice":24,
+                           "discountRemark":null,
+                           "CustomValueSix":null,
+                           "CustomValueSeven":null,
+                           "CustomValueEight":null,
+                           "CustomValueNine":null,
+                           "CustomValueTen":null,
+                           "CustomValueEleven":null,
+                           "CustomValueTwelve":null,
+                           "CustomValueThirteen":null,
+                           "CustomValueFourteen":null,
+                           "CustomValueFifteen":null,
+                           "TotalTaxAmount":0,
+                           "TotalDiscountAmount":0,
+                           "subtotal":24,
+                           "cost":0,
+                           "subItems":[  
+            
+                           ]
+                        },
+                        {  
+                           "id":90010578,
+                           "itemId":36903,
+                           "salesDate":null,
+                           "itemName":"M27112017",
+                           "itemType":"Type02",
+                           "model":"",
+                           "description":"Description",
+                           "unitPrice":9.43,
+                           "quantity":1,
+                           "deliveryQuantity":1,
+                           "profit":9.43,
+                           "discountPercentage":0,
+                           "instoreOutlet":"default",
+                           "brand":"",
+                           "itemCode":"M27112017",
+                           "priceSchemes":{  
+                              "manufacturerPrice":0,
+                              "salePrice":4.7167,
+                              "employeePrice":0,
+                              "wholesalePrice":0,
+                              "customPrice":0,
+                              "webPrice":0,
+                              "webDealerPrice":0,
+                              "cost":0
+                           },
+                           "commissionOne":0,
+                           "commissionTwo":0,
+                           "commissionRateOne":0,
+                           "commissionRateTwo":0,
+                           "commissionThree":0,
+                           "commissionFour":0,
+                           "commissionRateThree":0,
+                           "commissionRateFour":0,
+                           "category":"",
+                           "remark":null,
+                           "packageCode":null,
+                           "pcid":"",
+                           "matrixId":"36904",
+                           "matrixBarcode":"GreenS",
+                           "matrixX":"Green",
+                           "matrixY":"S",
+                           "alternateLookup":"36903",
+                           "salesPerson":"realmart@xilnex.com",
+                           "scanCode":"M27112017",
+                           "salesOrderId":null,
+                           "salesOrderItemId":null,
+                           "advanceDiscount":null,
+                           "uniqueId":null,
+                           "alternateUniqueId":null,
+                           "salesItemType":null,
+                           "promoGroup":"",
+                           "businessDateTime":"2017-11-27T00:00:00.000Z",
+                           "voucherNumber":null,
+                           "CustomValueOne":"",
+                           "CustomValueTwo":"",
+                           "CustomValueThree":"",
+                           "CustomValueFour":"",
+                           "CustomValueFive":"",
+                           "taxCode":"SR",
+                           "gstPercentage":6,
+                           "gstAmount":0.57,
+                           "gstInclusive":true,
+                           "enterPrice":10,
+                           "discountRemark":null,
+                           "CustomValueSix":"",
+                           "CustomValueSeven":"",
+                           "CustomValueEight":"",
+                           "CustomValueNine":"",
+                           "CustomValueTen":"",
+                           "CustomValueEleven":"",
+                           "CustomValueTwelve":"",
+                           "CustomValueThirteen":"",
+                           "CustomValueFourteen":"",
+                           "CustomValueFifteen":"",
+                           "TotalTaxAmount":0.57,
+                           "TotalDiscountAmount":0,
+                           "subtotal":10,
+                           "cost":0,
+                           "subItems":[  
+            
+                           ]
+                        },
+                        {  
+                           "id":90010579,
+                           "itemId":36904,
+                           "salesDate":null,
+                           "itemName":"Postpack21112017",
+                           "itemType":"1",
+                           "model":"asd",
+                           "description":"aaaaa",
+                           "unitPrice":12.26,
+                           "quantity":1,
+                           "deliveryQuantity":1,
+                           "profit":-13136.8,
+                           "discountPercentage":0,
+                           "instoreOutlet":"default",
+                           "brand":"",
+                           "itemCode":"Pp21112017",
+                           "priceSchemes":{  
+                              "manufacturerPrice":0,
+                              "salePrice":13149.06,
+                              "employeePrice":13938,
+                              "wholesalePrice":60,
+                              "customPrice":0,
+                              "webPrice":228,
+                              "webDealerPrice":13149.06,
+                              "cost":13149.06
+                           },
+                           "commissionOne":0,
+                           "commissionTwo":0,
+                           "commissionRateOne":0,
+                           "commissionRateTwo":0,
+                           "commissionThree":0,
+                           "commissionFour":0,
+                           "commissionRateThree":0,
+                           "commissionRateFour":0,
+                           "category":"001",
+                           "remark":null,
+                           "packageCode":null,
+                           "pcid":"",
+                           "matrixId":null,
+                           "matrixBarcode":null,
+                           "matrixX":null,
+                           "matrixY":null,
+                           "alternateLookup":"36904",
+                           "salesPerson":"realmart@xilnex.com",
+                           "scanCode":"Pp21112017",
+                           "salesOrderId":null,
+                           "salesOrderItemId":null,
+                           "advanceDiscount":null,
+                           "uniqueId":null,
+                           "alternateUniqueId":null,
+                           "salesItemType":null,
+                           "promoGroup":null,
+                           "businessDateTime":"2017-11-27T00:00:00.000Z",
+                           "voucherNumber":null,
+                           "CustomValueOne":"",
+                           "CustomValueTwo":"JolinTest",
+                           "CustomValueThree":"",
+                           "CustomValueFour":"",
+                           "CustomValueFive":"",
+                           "taxCode":"SR",
+                           "gstPercentage":6,
+                           "gstAmount":0.74,
+                           "gstInclusive":true,
+                           "enterPrice":13,
+                           "discountRemark":null,
+                           "CustomValueSix":"",
+                           "CustomValueSeven":"",
+                           "CustomValueEight":"",
+                           "CustomValueNine":"",
+                           "CustomValueTen":"",
+                           "CustomValueEleven":"",
+                           "CustomValueTwelve":"",
+                           "CustomValueThirteen":"",
+                           "CustomValueFourteen":"",
+                           "CustomValueFifteen":"",
+                           "TotalTaxAmount":0.74,
+                           "TotalDiscountAmount":0,
+                           "subtotal":13,
+                           "cost":0,
+                           "subItems":[  
+            
+                           ]
+                        },
+                        {  
+                           "id":90010580,
+                           "itemId":36902,
+                           "salesDate":null,
+                           "itemName":"S27112017",
+                           "itemType":"Type02",
+                           "model":"",
+                           "description":"Description",
+                           "unitPrice":12.26,
+                           "quantity":1,
+                           "deliveryQuantity":1,
+                           "profit":12.26,
+                           "discountPercentage":0,
+                           "instoreOutlet":"default",
+                           "brand":"",
+                           "itemCode":"S27112017",
+                           "priceSchemes":{  
+                              "manufacturerPrice":0,
+                              "salePrice":4.72,
+                              "employeePrice":0,
+                              "wholesalePrice":0,
+                              "customPrice":0,
+                              "webPrice":0,
+                              "webDealerPrice":0,
+                              "cost":0
+                           },
+                           "commissionOne":0,
+                           "commissionTwo":0,
+                           "commissionRateOne":0,
+                           "commissionRateTwo":0,
+                           "commissionThree":0,
+                           "commissionFour":0,
+                           "commissionRateThree":0,
+                           "commissionRateFour":0,
+                           "category":"",
+                           "remark":null,
+                           "packageCode":null,
+                           "pcid":"",
+                           "matrixId":null,
+                           "matrixBarcode":null,
+                           "matrixX":null,
+                           "matrixY":null,
+                           "alternateLookup":"36902",
+                           "salesPerson":"realmart@xilnex.com",
+                           "scanCode":"S27112017",
+                           "salesOrderId":null,
+                           "salesOrderItemId":null,
+                           "advanceDiscount":null,
+                           "uniqueId":"1u2eiu348723g532",
+                           "alternateUniqueId":null,
+                           "salesItemType":null,
+                           "promoGroup":"",
+                           "businessDateTime":"2017-11-27T00:00:00.000Z",
+                           "voucherNumber":null,
+                           "CustomValueOne":"",
+                           "CustomValueTwo":"",
+                           "CustomValueThree":"",
+                           "CustomValueFour":"",
+                           "CustomValueFive":"",
+                           "taxCode":"SR",
+                           "gstPercentage":6,
+                           "gstAmount":0.74,
+                           "gstInclusive":true,
+                           "enterPrice":13,
+                           "discountRemark":null,
+                           "CustomValueSix":"",
+                           "CustomValueSeven":"",
+                           "CustomValueEight":"",
+                           "CustomValueNine":"",
+                           "CustomValueTen":"",
+                           "CustomValueEleven":"",
+                           "CustomValueTwelve":"",
+                           "CustomValueThirteen":"",
+                           "CustomValueFourteen":"",
+                           "CustomValueFifteen":"",
+                           "TotalTaxAmount":0.74,
+                           "TotalDiscountAmount":0,
+                           "subtotal":13,
+                           "cost":0,
+                           "subItems":[  
+            
+                           ]
+                        }
+                     ],
+                     "collections":[  
+                        {  
+                           "id":900604,
+                           "clientId":null,
+                           "invoiceId":null,
+                           "amount":0,
+                           "method":"Cash",
+                           "reference":null,
+                           "outlet":null,
+                           "paymentDate":null,
+                           "isVoid":false,
+                           "creditCardRate":0,
+                           "siteId":0,
+                           "cardAppCode":null,
+                           "cardType":null,
+                           "status":"",
+                           "receivedBy":null,
+                           "cardExpiry":null,
+                           "traceNumber":null,
+                           "remark":null,
+                           "tenderAmount":50,
+                           "change":0,
+                           "declarationSessionId":null,
+                           "eodLogId":null,
+                           "isDeposit":false,
+                           "salesOrderId":null,
+                           "cardType2":null,
+                           "cardType3":null,
+                           "businessDate":null,
+                           "internalReferenceId":null,
+                           "availableBalance":0,
+                           "usedDate":null,
+                           "prepaidCardNumber":null,
+                           "prepaidReferenceNumber":null,
+                           "exchangeRate":0,
+                           "currencyCode":null,
+                           "foreignAmount":0,
+                           "foreignGain":null,
+                           "cardLookup":null,
+                           "payments":[  
+            
+                           ]
+                        }
+                     ],
+                     "shipments":[  
+            
+                     ]
+                  },
+                  "sales":null
+               },
+               "timestamp":1511771379
+            }
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+            
+### /logic/v2/sales/salesinvoice/{outlet}
+
+#### Post Sales Detail [Put]
+
+## Update invoice
+* Update invoice
+
++ Parameters
+    + outlet - outlet name
+    + status - OPEN, CONFIRMED, COMPLETED, CANCELLED, WRITE_OFF
+    + method(Collection) - cash, card, bank, cheque, web, creditnote, voucher, point, debitcard, forfeiture_voucher, creditcard_charges, contra, tradein, Other, BCard, prepaid, BCardToken, TnG, Entertainment, XCard 
+    + clientId(Optional)
+    + cashier(Optional)
+    + shippingAdress(Optional)
+    + discountPercentage(Optional) - discount percentage for all order item. if discount percentage and bill Discount Amount both exist, api will take discount percentage as priority!
+    + billDiscountAmount(Optional) - discount amount for transaction, discount amount will split into each order item.
+    + recipientContact(Optional)
+    + shipmentProvider(Optional) - e.g. GDEX, Skynet etc.
+    + itemCode/itemId - One of the code must be enter.
+    + matrixId(Optional)
+    + enterPrice(Optional) - Selling price 
+    + reference(Optional) - if using voucher or card will need to key in.
+    + confirmOutlet(Optional) - if the sales status is confirm, confirm outlet must be enter.
+    + key(Optional) - if needed custom key, else server will return a new key
+    + module(Optional) 
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+        
+            {
+                "sale":
+                {
+                    "term":1,
+                    "cashier":"REAL MART Admin",
+                    "dateTime":"2016-12-16T00:00:00.000Z",
+                    "salesPerson":"Realmart",
+                    "billingAddress":
+                    {
+                        "street":"476",
+                        "city":"new ",
+                        "state":"new You",
+                        "zipcode":"12345",
+                        "country":"US"
+                    },
+                    "shippingAdress":{  
+                        "street":null,
+                        "city":null,
+                        "state":null,
+                        "zipcode":null,
+                        "country":null
+                    },
+                    "shippingRemark":"anytime",
+                    "salesPerson":"Realmart",
+                    "status":"COMPLETED", 
+                    "outlet":"Code UI Branh",
+                    "remark":"remak",
+                    "outlet":"Code UI Branch",
+                    "confirmOutlet":"Code UI Branch",
+                    "remark":null,
+                    "discountPercentage":0,
+                    "billDiscountAmount":0,
+                    "recipientContact":null,
+                    "items":[
+                    {
+                        "itemCode":"1233", 
+                        "itemId":101,
+                        "quantity":1,
+                        "enterPrice":88
+                        "discountPercentage":0,
+                        "matrixId":"201",
+                        "matrixBarcode":"matrix001",
+                        "enterPrice":10
+                    }
+                    ],
+                    "collection":[
+                    {
+                        "method":"cash", 
+                        "reference":"",
+                        "amount":100
+                    }
+                    ]
+                },
+                "key":"WS0001"
+            }
+        
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+           {
+                "ok": true,
+                "status": "SuccessInsert",
+                "warning": null,
+                "error": null,
+                "data": {
+                "lastTimestamp": null,
+                "sale": {
+                  "id": 9009632,
+                  "dateTime": "2017-11-24T11:54:12.428Z",
+                  "grandTotal": 72,
+                  "paid": 0,
+                  "balance": 72,
+                  "term": null,
+                  "cashier": "realmart@xilnex.com",
+                  "shippingStatus": null,
+                  "status": "OPEN",
+                  "paymentStatus": "PENDING",
+                  "outlet": null,
+                  "remark": null,
+                  "discountPercentage": 0,
+                  "taxPercentage": 0,
+                  "cost": 13149.06,
+                  "profit": -13079.79,
+                  "rounding": 0,
+                  "netAmount": 0,
+                  "settlementDateTime": null,
+                  "isSalesReturn": false,
+                  "isInternalSales": false,
+                  "internalOutlet": null,
+                  "salesType": null,
+                  "reference": null,
+                  "confirmOutlet": null,
+                  "siteId": "900",
+                  "salesOrderId": null,
+                  "quotationId": null,
+                  "businessDateTime": "2017-11-27T00:00:00.000Z",
+                  "gstTaxAmount": 4.17,
+                  "customFieldValueOne": null,
+                  "customFieldValueTwo": null,
+                  "customFieldValueThree": null,
+                  "customFieldValueFour": null,
+                  "customFieldValueFive": null,
+                  "exchangeRate": 0,
+                  "foreignTotalAmount": 0,
+                  "recipientContact": null,
+                  "recipientName": null,
+                  "currencyCode": null,
+                  "salesPerson": "realmart@xilnex.com",
+                  "clientId": null,
+                  "clientName": "CASH",
+                  "billingAddress": null,
+                  "shippingAddress": null,
+                  "client": {
+                    "Id": null,
+                    "RecipientContact": null,
+                    "RecipientName": null,
+                    "Name": "CASH",
+                    "BillingAddress": null,
+                    "ShippingAddress": null,
+                    "BillingRemark": null,
+                    "ShippingRemark": null,
+                    "ShippingDateTime": null,
+                    "IsoShippingDateTime": null,
+                    "Type": null
+                  },
+                  "cancelBy": null,
+                  "cancelRemark": null,
+                  "cancelOutlet": null,
+                  "cancelDateTime": null,
+                  "cancellationInfo": null,
+                  "billDiscountAmount": 0,
+                  "items": [
+                    {
+                      "id": 90010580,
+                      "itemId": 36902,
+                      "salesDate": null,
+                      "itemName": "S27112017",
+                      "itemType": "Type02",
+                      "model": "",
+                      "description": "Description",
+                      "unitPrice": 12.26,
+                      "quantity": 1,
+                      "deliveryQuantity": 1,
+                      "profit": 12.26,
+                      "discountPercentage": 0,
+                      "instoreOutlet": "default",
+                      "brand": "",
+                      "itemCode": "S27112017",
+                      "priceSchemes": {
+                        "manufacturerPrice": 0,
+                        "salePrice": 4.72,
+                        "employeePrice": 0,
+                        "wholesalePrice": 0,
+                        "customPrice": 0,
+                        "webPrice": 0,
+                        "webDealerPrice": 0,
+                        "cost": 0
+                      },
+                      "commissionOne": 0,
+                      "commissionTwo": 0,
+                      "commissionRateOne": 0,
+                      "commissionRateTwo": 0,
+                      "commissionThree": 0,
+                      "commissionFour": 0,
+                      "commissionRateThree": 0,
+                      "commissionRateFour": 0,
+                      "category": "",
+                      "remark": null,
+                      "packageCode": null,
+                      "pcid": "",
+                      "matrixId": null,
+                      "matrixBarcode": null,
+                      "matrixX": null,
+                      "matrixY": null,
+                      "alternateLookup": "36902",
+                      "salesPerson": "realmart@xilnex.com",
+                      "scanCode": "S27112017",
+                      "salesOrderId": null,
+                      "salesOrderItemId": null,
+                      "advanceDiscount": null,
+                      "uniqueId": "1u2eiu348723g532",
+                      "alternateUniqueId": null,
+                      "salesItemType": null,
+                      "promoGroup": "",
+                      "businessDateTime": "2017-11-27T00:00:00.000Z",
+                      "voucherNumber": null,
+                      "CustomValueOne": "",
+                      "CustomValueTwo": "",
+                      "CustomValueThree": "",
+                      "CustomValueFour": "",
+                      "CustomValueFive": "",
+                      "taxCode": "SR",
+                      "gstPercentage": 6,
+                      "gstAmount": 0.74,
+                      "gstInclusive": true,
+                      "enterPrice": 13,
+                      "discountRemark": null,
+                      "CustomValueSix": "",
+                      "CustomValueSeven": "",
+                      "CustomValueEight": "",
+                      "CustomValueNine": "",
+                      "CustomValueTen": "",
+                      "CustomValueEleven": "",
+                      "CustomValueTwelve": "",
+                      "CustomValueThirteen": "",
+                      "CustomValueFourteen": "",
+                      "CustomValueFifteen": "",
+                      "TotalTaxAmount": 0.74,
+                      "TotalDiscountAmount": 0,
+                      "subtotal": 13,
+                      "cost": 0,
+                      "subItems": []
+                    }
+                  ],
+                  "collections": [
+                    {
+                      "id": 900604,
+                      "clientId": null,
+                      "invoiceId": null,
+                      "amount": 0,
+                      "method": "Cash",
+                      "reference": null,
+                      "outlet": null,
+                      "paymentDate": null,
+                      "isVoid": false,
+                      "creditCardRate": 0,
+                      "siteId": 0,
+                      "cardAppCode": null,
+                      "cardType": null,
+                      "status": "",
+                      "receivedBy": null,
+                      "cardExpiry": null,
+                      "traceNumber": null,
+                      "remark": null,
+                      "tenderAmount": 50,
+                      "change": 0,
+                      "declarationSessionId": null,
+                      "eodLogId": null,
+                      "isDeposit": false,
+                      "salesOrderId": null,
+                      "cardType2": null,
+                      "cardType3": null,
+                      "businessDate": null,
+                      "internalReferenceId": null,
+                      "availableBalance": 0,
+                      "usedDate": null,
+                      "prepaidCardNumber": null,
+                      "prepaidReferenceNumber": null,
+                      "exchangeRate": 0,
+                      "currencyCode": null,
+                      "foreignAmount": 0,
+                      "foreignGain": null,
+                      "cardLookup": null,
+                      "payments": []
+                    }
+                  ],
+                  "shipments": []
+                },
+                "sales": null
+                },
+                "timestamp": 1511771379
+                }
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+            
+### /logic/v2/sales/salesinvoice/{outlet}/{status}
+
+#### update Sales status confirm/ complete [Put]
+
+## confirm invoice
+* confirm invoice
+
++ Parameters
+    + status - CONFIRM, COMPLETE 
+    
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+        
+            {
+                "sale":
+                {
+                    "term":1,
+                    "cashier":"REAL MART Admin",
+                    "dateTime":"2016-12-16T00:00:00.000Z",
+                    "salesPerson":"Realmart",
+                    "billingAddress":
+                    {
+                        "street":"476",
+                        "city":"new ",
+                        "state":"new You",
+                        "zipcode":"12345",
+                        "country":"US"
+                    },
+                    "shippingAdress":{  
+                        "street":null,
+                        "city":null,
+                        "state":null,
+                        "zipcode":null,
+                        "country":null
+                    },
+                    "shippingRemark":"anytime",
+                    "salesPerson":"Realmart",
+                    "status":"COMPLETED", 
+                    "outlet":"Code UI Branh",
+                    "remark":"remak",
+                    "outlet":"Code UI Branch",
+                    "confirmOutlet":"Code UI Branch",
+                    "remark":null,
+                    "discountPercentage":0,
+                    "billDiscountAmount":0,
+                    "recipientContact":null,
+                    "items":[
+                    {
+                        "itemCode":"1233", 
+                        "itemId":101,
+                        "quantity":1,
+                        "enterPrice":88
+                        "discountPercentage":0,
+                        "matrixId":"201",
+                        "matrixBarcode":"matrix001",
+                        "enterPrice":10
+                    }
+                    ],
+                    "collection":[
+                    {
+                        "method":"cash", 
+                        "reference":"",
+                        "amount":100
+                    }
+                    ]
+                },
+                "key":"WS0001"
+            }
+        
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+           {
+                "ok": true,
+                "status": "SuccessInsert",
+                "warning": null,
+                "error": null,
+                "data": {
+                "lastTimestamp": null,
+                "sale": {
+                  "id": 9009632,
+                  "dateTime": "2017-11-24T11:54:12.428Z",
+                  "grandTotal": 72,
+                  "paid": 0,
+                  "balance": 72,
+                  "term": null,
+                  "cashier": "realmart@xilnex.com",
+                  "shippingStatus": null,
+                  "status": "OPEN",
+                  "paymentStatus": "PENDING",
+                  "outlet": null,
+                  "remark": null,
+                  "discountPercentage": 0,
+                  "taxPercentage": 0,
+                  "cost": 13149.06,
+                  "profit": -13079.79,
+                  "rounding": 0,
+                  "netAmount": 0,
+                  "settlementDateTime": null,
+                  "isSalesReturn": false,
+                  "isInternalSales": false,
+                  "internalOutlet": null,
+                  "salesType": null,
+                  "reference": null,
+                  "confirmOutlet": null,
+                  "siteId": "900",
+                  "salesOrderId": null,
+                  "quotationId": null,
+                  "businessDateTime": "2017-11-27T00:00:00.000Z",
+                  "gstTaxAmount": 4.17,
+                  "customFieldValueOne": null,
+                  "customFieldValueTwo": null,
+                  "customFieldValueThree": null,
+                  "customFieldValueFour": null,
+                  "customFieldValueFive": null,
+                  "exchangeRate": 0,
+                  "foreignTotalAmount": 0,
+                  "recipientContact": null,
+                  "recipientName": null,
+                  "currencyCode": null,
+                  "salesPerson": "realmart@xilnex.com",
+                  "clientId": null,
+                  "clientName": "CASH",
+                  "billingAddress": null,
+                  "shippingAddress": null,
+                  "client": {
+                    "Id": null,
+                    "RecipientContact": null,
+                    "RecipientName": null,
+                    "Name": "CASH",
+                    "BillingAddress": null,
+                    "ShippingAddress": null,
+                    "BillingRemark": null,
+                    "ShippingRemark": null,
+                    "ShippingDateTime": null,
+                    "IsoShippingDateTime": null,
+                    "Type": null
+                  },
+                  "cancelBy": null,
+                  "cancelRemark": null,
+                  "cancelOutlet": null,
+                  "cancelDateTime": null,
+                  "cancellationInfo": null,
+                  "billDiscountAmount": 0,
+                  "items": [
+                    {
+                      "id": 90010580,
+                      "itemId": 36902,
+                      "salesDate": null,
+                      "itemName": "S27112017",
+                      "itemType": "Type02",
+                      "model": "",
+                      "description": "Description",
+                      "unitPrice": 12.26,
+                      "quantity": 1,
+                      "deliveryQuantity": 1,
+                      "profit": 12.26,
+                      "discountPercentage": 0,
+                      "instoreOutlet": "default",
+                      "brand": "",
+                      "itemCode": "S27112017",
+                      "priceSchemes": {
+                        "manufacturerPrice": 0,
+                        "salePrice": 4.72,
+                        "employeePrice": 0,
+                        "wholesalePrice": 0,
+                        "customPrice": 0,
+                        "webPrice": 0,
+                        "webDealerPrice": 0,
+                        "cost": 0
+                      },
+                      "commissionOne": 0,
+                      "commissionTwo": 0,
+                      "commissionRateOne": 0,
+                      "commissionRateTwo": 0,
+                      "commissionThree": 0,
+                      "commissionFour": 0,
+                      "commissionRateThree": 0,
+                      "commissionRateFour": 0,
+                      "category": "",
+                      "remark": null,
+                      "packageCode": null,
+                      "pcid": "",
+                      "matrixId": null,
+                      "matrixBarcode": null,
+                      "matrixX": null,
+                      "matrixY": null,
+                      "alternateLookup": "36902",
+                      "salesPerson": "realmart@xilnex.com",
+                      "scanCode": "S27112017",
+                      "salesOrderId": null,
+                      "salesOrderItemId": null,
+                      "advanceDiscount": null,
+                      "uniqueId": "1u2eiu348723g532",
+                      "alternateUniqueId": null,
+                      "salesItemType": null,
+                      "promoGroup": "",
+                      "businessDateTime": "2017-11-27T00:00:00.000Z",
+                      "voucherNumber": null,
+                      "CustomValueOne": "",
+                      "CustomValueTwo": "",
+                      "CustomValueThree": "",
+                      "CustomValueFour": "",
+                      "CustomValueFive": "",
+                      "taxCode": "SR",
+                      "gstPercentage": 6,
+                      "gstAmount": 0.74,
+                      "gstInclusive": true,
+                      "enterPrice": 13,
+                      "discountRemark": null,
+                      "CustomValueSix": "",
+                      "CustomValueSeven": "",
+                      "CustomValueEight": "",
+                      "CustomValueNine": "",
+                      "CustomValueTen": "",
+                      "CustomValueEleven": "",
+                      "CustomValueTwelve": "",
+                      "CustomValueThirteen": "",
+                      "CustomValueFourteen": "",
+                      "CustomValueFifteen": "",
+                      "TotalTaxAmount": 0.74,
+                      "TotalDiscountAmount": 0,
+                      "subtotal": 13,
+                      "cost": 0,
+                      "subItems": []
+                    }
+                  ],
+                  "collections": [
+                    {
+                      "id": 900604,
+                      "clientId": null,
+                      "invoiceId": null,
+                      "amount": 0,
+                      "method": "Cash",
+                      "reference": null,
+                      "outlet": null,
+                      "paymentDate": null,
+                      "isVoid": false,
+                      "creditCardRate": 0,
+                      "siteId": 0,
+                      "cardAppCode": null,
+                      "cardType": null,
+                      "status": "",
+                      "receivedBy": null,
+                      "cardExpiry": null,
+                      "traceNumber": null,
+                      "remark": null,
+                      "tenderAmount": 50,
+                      "change": 0,
+                      "declarationSessionId": null,
+                      "eodLogId": null,
+                      "isDeposit": false,
+                      "salesOrderId": null,
+                      "cardType2": null,
+                      "cardType3": null,
+                      "businessDate": null,
+                      "internalReferenceId": null,
+                      "availableBalance": 0,
+                      "usedDate": null,
+                      "prepaidCardNumber": null,
+                      "prepaidReferenceNumber": null,
+                      "exchangeRate": 0,
+                      "currencyCode": null,
+                      "foreignAmount": 0,
+                      "foreignGain": null,
+                      "cardLookup": null,
+                      "payments": []
+                    }
+                  ],
+                  "shipments": []
+                },
+                "sales": null
+                },
+                "timestamp": 1511771379
+                }
+
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
 
 ## Group SalesMallIntegrated
 
@@ -4634,31 +7069,66 @@ Shipment: NA, PENDING, SHIPPED,
   
 ## Group Stock
 
-### /logic/v1/stock/{AnyCode}
+### /logic/v2/stocks/item/{itemId}?outlet={outlet}
 
-#### Get Stock quantity [GET]
+#### Get Stock [GET]
 
 + Request
+    + itemId (required) - item Id
+    + outlet - outlet name
 
     + Headers
 
             Accept: application/json
+            Token: {token}
+            DKey: {dkey}
 
     + Body
-
+            
 + Response 200 (application/json)
 
     OK
 
     + Body
 
-            {}
-
-    + Schema
-
-            {
-              "type": "object",
-              "properties": {}
+            {  
+               "ok":true,
+               "status":"SuccessQuery",
+               "warning":null,
+               "error":null,
+               "data":{  
+                  "stocks":[  
+                     {  
+                        "outlet":"090120161",
+                        "itemId":"34103",
+                        "instoreOutlet":"default",
+                        "availableQuantity":24,
+                        "onhandQuantity":24
+                     },
+                     {  
+                        "outlet":"B2",
+                        "itemId":"34103",
+                        "instoreOutlet":"default",
+                        "availableQuantity":0,
+                        "onhandQuantity":0
+                     },
+                     {  
+                        "outlet":"",
+                        "itemId":"34103",
+                        "instoreOutlet":"default",
+                        "availableQuantity":0,
+                        "onhandQuantity":0
+                     },
+                     {  
+                        "outlet":"A2",
+                        "itemId":"34103",
+                        "instoreOutlet":"default",
+                        "availableQuantity":0,
+                        "onhandQuantity":0
+                     }
+                  ]
+               },
+               "timestamp":1511158730
             }
             
 #  Data Structures
