@@ -759,7 +759,6 @@ create customer without go through compulsory setting
 Update client detail
 + Parameters
     + clientId: client id
-    + category: Example Personal, Company
     
 + Request
     
@@ -770,6 +769,67 @@ Update client detail
             Token: {token}
     
     + Body
+            {  
+                "client":{  
+                    "currency":null,
+                    "name":"Abu",
+                    "alternateLookup":"234259",
+                    "priceScheme":null,
+                    "terms":0,
+                    "creditLimit":0,
+                    "billingAddress":null,
+                    "shippingAddress":null,
+                    "shipping":null,
+                    "billing":null,
+                    "code":null,
+                    "title":null,
+                    "email":null,
+                    "type":"sd",
+                    "group":null,
+                    "registrationCode":null,
+                    "gender":null,
+                    "dob":null,
+                    "ic":null,
+                    "nationality":null,
+                    "createdBy":null,
+                    "firstName":null,
+                    "lastName":null,
+                    "phone":null,
+                    "office":null,
+                    "mobile":null,
+                    "alternateName":null,
+                    "alternateContact":null,
+                    "alternatePhone":null,
+                    "additionalInfo":null,
+                    "fax":null,
+                    "remarks":null,
+                    "billingRemarks":null,
+                    "shippingRemarks":null,
+                    "race":null,
+                    "category":null,
+                    "active":true,
+                    "allowAllOutlets":true,
+                    "gstInclusive":false,
+                    "pointValue":0,
+                    "defaultSalesType":"RETAIL",
+                    "expiryDate":null,
+                    "createdOutlet":"",
+                    "pointFactor":0,
+                    "dedicatedSalesPerson":null,
+                    "image":null,
+                    "xilnexConnectOutlet":null,
+                    "payTerm":null,
+                    "gstNo":null,
+                    "currencyCode":null,
+                    "gstNumber":null,
+                    "taxCode":null,
+                    "createDate":null,
+                    "enableDOB":false,
+                    "listBranchClients":[  
+                    
+                    ]
+                }
+            }
             
 + Response 200 (application/json)
 
