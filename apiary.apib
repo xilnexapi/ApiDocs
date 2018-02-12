@@ -4637,9 +4637,8 @@ Shipment: NA, PENDING, SHIPPED,
                     ],
                     "collection":[
                     {
-                        "method":"cash", 
-                        "reference":"",
-                        "amount":100
+                        "method":"cash",
+                        "tenderAmount":100
                     }
                     ]
                 }
@@ -4696,6 +4695,270 @@ Shipment: NA, PENDING, SHIPPED,
                   ]
                }
             }
+            
+    + Schema 
+        {
+      "$id": "http://example.com/example.json",
+      "type": "object",
+      "definitions": {},
+      "$schema": "http://json-schema.org/draft-06/schema#",
+      "properties": {
+        "sale": {
+          "$id": "/properties/sale",
+          "type": "object",
+          "properties": {
+            "dateTime": {
+              "$id": "/properties/sale/properties/dateTime",
+              "type": "string",
+              "title": "The Datetime Schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "2017-11-30T10:26:12.428Z"
+              ]
+            },
+            "cashier": {
+              "$id": "/properties/sale/properties/cashier",
+              "type": "string",
+              "title": "The Cashier Schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "realmart@xilnex.com"
+              ]
+            },
+            "status": {
+              "$id": "/properties/sale/properties/status",
+              "type": "string",
+              "title": "The Status Schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "confirmed"
+              ]
+            },
+            "outlet": {
+              "$id": "/properties/sale/properties/outlet",
+              "type": "string",
+              "title": "The Outlet Schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "Coded UI Branch 2"
+              ]
+            },
+            "confirmOutlet": {
+              "$id": "/properties/sale/properties/confirmOutlet",
+              "type": "string",
+              "title": "The Confirmoutlet Schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "Coded UI Branch 2"
+              ]
+            },
+            "salesPerson": {
+              "$id": "/properties/sale/properties/salesPerson",
+              "type": "string",
+              "title": "The Salesperson Schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "realmart@xilnex.com"
+              ]
+            },
+            "client": {
+              "$id": "/properties/sale/properties/client",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "$id": "/properties/sale/properties/client/properties/id",
+                  "type": "integer",
+                  "title": "The Id Schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": 0,
+                  "examples": [
+                    327012
+                  ]
+                }
+              }
+            },
+            "collections": {
+              "$id": "/properties/sale/properties/collections",
+              "type": "array",
+              "items": {
+                "$id": "/properties/sale/properties/collections/items",
+                "type": "object",
+                "properties": {
+                  "method": {
+                    "$id": "/properties/sale/properties/collections/items/properties/method",
+                    "type": "string",
+                    "title": "The Method Schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                      "cash"
+                    ]
+                  },
+                  "tenderAmount": {
+                    "$id": "/properties/sale/properties/collections/items/properties/tenderAmount",
+                    "type": "integer",
+                    "title": "The Tenderamount Schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                      65
+                    ]
+                  }
+                }
+              }
+            },
+            "items": {
+              "$id": "/properties/sale/properties/items",
+              "type": "array",
+              "items": {
+                "$id": "/properties/sale/properties/items/items",
+                "type": "object",
+                "properties": {
+                  "itemCode": {
+                    "$id": "/properties/sale/properties/items/items/properties/itemCode",
+                    "type": "string",
+                    "title": "The Itemcode Schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                      "N27112017"
+                    ]
+                  },
+                  "quantity": {
+                    "$id": "/properties/sale/properties/items/items/properties/quantity",
+                    "type": "integer",
+                    "title": "The Quantity Schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                      1
+                    ]
+                  },
+                  "enterPrice": {
+                    "$id": "/properties/sale/properties/items/items/properties/enterPrice",
+                    "type": "integer",
+                    "title": "The Enterprice Schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                      24
+                    ]
+                  },
+                  "discountPercentage": {
+                    "$id": "/properties/sale/properties/items/items/properties/discountPercentage",
+                    "type": "integer",
+                    "title": "The Discountpercentage Schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                      6
+                    ]
+                  },
+                  "deliveryInfo": {
+                    "$id": "/properties/sale/properties/items/items/properties/deliveryInfo",
+                    "type": "object",
+                    "properties": {
+                      "shippingOutlet": {
+                        "$id": "/properties/sale/properties/items/items/properties/deliveryInfo/properties/shippingOutlet",
+                        "type": "string",
+                        "title": "The Shippingoutlet Schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                          "main branch"
+                        ]
+                      },
+                      "shippingAddress": {
+                        "$id": "/properties/sale/properties/items/items/properties/deliveryInfo/properties/shippingAddress",
+                        "type": "object",
+                        "properties": {
+                          "street": {
+                            "$id": "/properties/sale/properties/items/items/properties/deliveryInfo/properties/shippingAddress/properties/street",
+                            "type": "string",
+                            "title": "The Street Schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": "",
+                            "examples": [
+                              "sesame street"
+                            ]
+                          },
+                          "city": {
+                            "$id": "/properties/sale/properties/items/items/properties/deliveryInfo/properties/shippingAddress/properties/city",
+                            "type": "string",
+                            "title": "The City Schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": "",
+                            "examples": [
+                              "city"
+                            ]
+                          },
+                          "state": {
+                            "$id": "/properties/sale/properties/items/items/properties/deliveryInfo/properties/shippingAddress/properties/state",
+                            "type": "string",
+                            "title": "The State Schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": "",
+                            "examples": [
+                              "state"
+                            ]
+                          },
+                          "zipcode": {
+                            "$id": "/properties/sale/properties/items/items/properties/deliveryInfo/properties/shippingAddress/properties/zipcode",
+                            "type": "string",
+                            "title": "The Zipcode Schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": "",
+                            "examples": [
+                              "zipcode"
+                            ]
+                          },
+                          "country": {
+                            "$id": "/properties/sale/properties/items/items/properties/deliveryInfo/properties/shippingAddress/properties/country",
+                            "type": "string",
+                            "title": "The Country Schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": "",
+                            "examples": [
+                              "country"
+                            ]
+                          }
+                        }
+                      },
+                      "recipient": {
+                        "$id": "/properties/sale/properties/items/items/properties/deliveryInfo/properties/recipient",
+                        "type": "string",
+                        "title": "The Recipient Schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                          "abc"
+                        ]
+                      },
+                      "recipientContact": {
+                        "$id": "/properties/sale/properties/items/items/properties/deliveryInfo/properties/recipientContact",
+                        "type": "string",
+                        "title": "The Recipientcontact Schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                          "0101232143243"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
 
 + Response 200 (application/json)
 
