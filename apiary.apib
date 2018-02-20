@@ -648,7 +648,9 @@ create customer without go through compulsory setting
               "billing":{  
                  "street":"bill street",
                  "city":"bill city",
-                 "state":"bill state"
+                 "state":"bill state",
+                 "zipcode":"00000",
+                 "country":"ship country"
               },
               "shipping":{  
                  "street":"ship street",
@@ -2023,6 +2025,125 @@ To retrive item detail
                 },
                 "timestamp": 1487902852
             }
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+            
+### /logic/v2/items/DynamicModifierItems
+
+#### GET
+To retrive all dynamic modifier item
+
++ Parameters
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": {
+                    "lastTimestamp": null,
+                    "item": null,
+                    "items": [
+                        {
+                            "id": 2014,
+                            "itemCode": "AO002",
+                            "itemName": "Milk Tea",
+                            "itemType": "Drinks",
+                            "itemModel": "",
+                            "description": "",
+                            "brand": "",
+                            "category": "Milk Tea",
+                            "departmentCode": "",
+                            "departmentName": null,
+                            "vendorCode": "",
+                            "cost": 0,
+                            "suggestedPrice": 0,
+                            "salesPrice": 0,
+                            "employeePrice": 0,
+                            "wholesalesPrice": 0,
+                            "customPrice": 0,
+                            "webPrice": 0,
+                            "webDealerPrice": 0,
+                            "unitOfMeasurement": "",
+                            "alternateLookup": "",
+                            "attribute": "",
+                            "size": "",
+                            "image": null,
+                            "stockType": "NORMAL",
+                            "matrixXGroup": "",
+                            "matrixYGroup": "",
+                            "groupName": "Xilnex Milk Tea",
+                            "discountRate": "0.00",
+                            "promotionGroup": "",
+                            "promotionName": "",
+                            "customField1": "ABC",
+                            "customField2": "",
+                            "customField3": "",
+                            "customField4": "",
+                            "customField5": "",
+                            "customField6": "",
+                            "customField7": "",
+                            "customField8": "",
+                            "customField9": "",
+                            "customField10": "",
+                            "customField11": "",
+                            "customField12": "",
+                            "customField13": "",
+                            "customField14": "",
+                            "customField15": "",
+                            "gstRate": 0,
+                            "commission1": 0,
+                            "commission2": 0,
+                            "commissionRate1": 0,
+                            "commissionRate2": 0,
+                            "commission3": 0,
+                            "commission4": 0,
+                            "commissionRate3": 0,
+                            "commissionRate4": 0,
+                            "allowSellingWithoutStock": true,
+                            "parentItemId": null,
+                            "isLocalPrice": false,
+                            "isFoc": false,
+                            "isOpenPrice": false,
+                            "isDisable": false,
+                            "itemColor": "",
+                            "division": "",
+                            "gstSupplyCode": "",
+                            "gstPurchaseCode": "",
+                            "weight": 0,
+                            "height": 0,
+                            "length": 0,
+                            "width": 0,
+                            "matrixId": null,
+                            "matrixCode": null,
+                            "sellingPrice": 0,
+                            "listProductMatrix": [],
+                            "listUniqueItems": [],
+                            "listPackage": []
+                        }
+                        ]
+                    },
+                "timestamp": 1518429146
+            }
+    
     + Schema
 
             {
@@ -4566,20 +4687,21 @@ Shipment: NA, PENDING, SHIPPED,
     + outlet - outlet name
     + status - OPEN, CONFIRMED, COMPLETED, CANCELLED, WRITE_OFF
     + method(Collection) - cash, card, bank, cheque, web, creditnote, voucher, point, debitcard, forfeiture_voucher, creditcard_charges, contra, tradein, Other, BCard, prepaid, BCardToken, TnG, Entertainment, XCard 
-    + clientId(Optional)
+    + client(Optional)
     + cashier(Optional)
     + shippingAdress(Optional)
     + discountPercentage(Optional) - discount percentage for all order item. if discount percentage and bill Discount Amount both exist, api will take discount percentage as priority!
-    + billDiscountAmount(Optional) - discount amount for transaction, discount amount will split into each order item.
+    + billDiscountAmount(Optional, decimal) - discount amount for transaction, discount amount will split into each order item.
     + recipientContact(Optional)
     + recipientName(Optional)
     + shipmentProvider(Optional) - e.g. GDEX, Skynet etc.
     + itemCode/itemId - One of the code must be enter.
     + matrixId(Optional)
-    + enterPrice(Optional) - Selling price 
+    + enterPrice(Optional, decimal) - Selling price 
     + reference(Optional) - if using voucher or card will need to key in.
     + confirmOutlet(Optional) - if the sales status is confirm, confirm outlet must be enter.
     + module(Optional) 
+    + gstInclusive(Optional, bool) - Set to true, if the posting sales item price is inclusive of GST.
 + Request
 
     + Headers
@@ -4613,13 +4735,10 @@ Shipment: NA, PENDING, SHIPPED,
                         "country":null
                     },
                     "shippingRemark":"anytime",
-                    "salesPerson":"Realmart",
                     "status":"COMPLETED", 
                     "outlet":"Code UI Branh",
                     "remark":"remak",
-                    "outlet":"Code UI Branch",
                     "confirmOutlet":"Code UI Branch",
-                    "remark":null,
                     "discountPercentage":0,
                     "billDiscountAmount":0,
                     "recipientContact":null,
@@ -4628,17 +4747,20 @@ Shipment: NA, PENDING, SHIPPED,
                         "itemCode":"1233", 
                         "itemId":101,
                         "quantity":1,
-                        "enterPrice":88
+                        "enterPrice":88,
                         "discountPercentage":0,
                         "matrixId":"201",
-                        "matrixBarcode":"matrix001",
-                        "enterPrice":10
+                        "matrixBarcode":"matrix001"
+                        "gstInclusive":true
                     }
                     ],
-                    "collection":[
+                    "collections":[
                     {
                         "method":"cash",
                         "tenderAmount":100
+                    },
+                    {   "method":"card",
+                        "amount": 10
                     }
                     ]
                 }
@@ -4696,269 +4818,6 @@ Shipment: NA, PENDING, SHIPPED,
                }
             }
             
-    + Schema 
-        {
-      "$id": "http://example.com/example.json",
-      "type": "object",
-      "definitions": {},
-      "$schema": "http://json-schema.org/draft-06/schema#",
-      "properties": {
-        "sale": {
-          "$id": "/properties/sale",
-          "type": "object",
-          "properties": {
-            "dateTime": {
-              "$id": "/properties/sale/properties/dateTime",
-              "type": "string",
-              "title": "The Datetime Schema",
-              "description": "An explanation about the purpose of this instance.",
-              "default": "",
-              "examples": [
-                "2017-11-30T10:26:12.428Z"
-              ]
-            },
-            "cashier": {
-              "$id": "/properties/sale/properties/cashier",
-              "type": "string",
-              "title": "The Cashier Schema",
-              "description": "An explanation about the purpose of this instance.",
-              "default": "",
-              "examples": [
-                "realmart@xilnex.com"
-              ]
-            },
-            "status": {
-              "$id": "/properties/sale/properties/status",
-              "type": "string",
-              "title": "The Status Schema",
-              "description": "An explanation about the purpose of this instance.",
-              "default": "",
-              "examples": [
-                "confirmed"
-              ]
-            },
-            "outlet": {
-              "$id": "/properties/sale/properties/outlet",
-              "type": "string",
-              "title": "The Outlet Schema",
-              "description": "An explanation about the purpose of this instance.",
-              "default": "",
-              "examples": [
-                "Coded UI Branch 2"
-              ]
-            },
-            "confirmOutlet": {
-              "$id": "/properties/sale/properties/confirmOutlet",
-              "type": "string",
-              "title": "The Confirmoutlet Schema",
-              "description": "An explanation about the purpose of this instance.",
-              "default": "",
-              "examples": [
-                "Coded UI Branch 2"
-              ]
-            },
-            "salesPerson": {
-              "$id": "/properties/sale/properties/salesPerson",
-              "type": "string",
-              "title": "The Salesperson Schema",
-              "description": "An explanation about the purpose of this instance.",
-              "default": "",
-              "examples": [
-                "realmart@xilnex.com"
-              ]
-            },
-            "client": {
-              "$id": "/properties/sale/properties/client",
-              "type": "object",
-              "properties": {
-                "id": {
-                  "$id": "/properties/sale/properties/client/properties/id",
-                  "type": "integer",
-                  "title": "The Id Schema",
-                  "description": "An explanation about the purpose of this instance.",
-                  "default": 0,
-                  "examples": [
-                    327012
-                  ]
-                }
-              }
-            },
-            "collections": {
-              "$id": "/properties/sale/properties/collections",
-              "type": "array",
-              "items": {
-                "$id": "/properties/sale/properties/collections/items",
-                "type": "object",
-                "properties": {
-                  "method": {
-                    "$id": "/properties/sale/properties/collections/items/properties/method",
-                    "type": "string",
-                    "title": "The Method Schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                      "cash"
-                    ]
-                  },
-                  "tenderAmount": {
-                    "$id": "/properties/sale/properties/collections/items/properties/tenderAmount",
-                    "type": "integer",
-                    "title": "The Tenderamount Schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": 0,
-                    "examples": [
-                      65
-                    ]
-                  }
-                }
-              }
-            },
-            "items": {
-              "$id": "/properties/sale/properties/items",
-              "type": "array",
-              "items": {
-                "$id": "/properties/sale/properties/items/items",
-                "type": "object",
-                "properties": {
-                  "itemCode": {
-                    "$id": "/properties/sale/properties/items/items/properties/itemCode",
-                    "type": "string",
-                    "title": "The Itemcode Schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                      "N27112017"
-                    ]
-                  },
-                  "quantity": {
-                    "$id": "/properties/sale/properties/items/items/properties/quantity",
-                    "type": "integer",
-                    "title": "The Quantity Schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": 0,
-                    "examples": [
-                      1
-                    ]
-                  },
-                  "enterPrice": {
-                    "$id": "/properties/sale/properties/items/items/properties/enterPrice",
-                    "type": "integer",
-                    "title": "The Enterprice Schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": 0,
-                    "examples": [
-                      24
-                    ]
-                  },
-                  "discountPercentage": {
-                    "$id": "/properties/sale/properties/items/items/properties/discountPercentage",
-                    "type": "integer",
-                    "title": "The Discountpercentage Schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": 0,
-                    "examples": [
-                      6
-                    ]
-                  },
-                  "deliveryInfo": {
-                    "$id": "/properties/sale/properties/items/items/properties/deliveryInfo",
-                    "type": "object",
-                    "properties": {
-                      "shippingOutlet": {
-                        "$id": "/properties/sale/properties/items/items/properties/deliveryInfo/properties/shippingOutlet",
-                        "type": "string",
-                        "title": "The Shippingoutlet Schema",
-                        "description": "An explanation about the purpose of this instance.",
-                        "default": "",
-                        "examples": [
-                          "main branch"
-                        ]
-                      },
-                      "shippingAddress": {
-                        "$id": "/properties/sale/properties/items/items/properties/deliveryInfo/properties/shippingAddress",
-                        "type": "object",
-                        "properties": {
-                          "street": {
-                            "$id": "/properties/sale/properties/items/items/properties/deliveryInfo/properties/shippingAddress/properties/street",
-                            "type": "string",
-                            "title": "The Street Schema",
-                            "description": "An explanation about the purpose of this instance.",
-                            "default": "",
-                            "examples": [
-                              "sesame street"
-                            ]
-                          },
-                          "city": {
-                            "$id": "/properties/sale/properties/items/items/properties/deliveryInfo/properties/shippingAddress/properties/city",
-                            "type": "string",
-                            "title": "The City Schema",
-                            "description": "An explanation about the purpose of this instance.",
-                            "default": "",
-                            "examples": [
-                              "city"
-                            ]
-                          },
-                          "state": {
-                            "$id": "/properties/sale/properties/items/items/properties/deliveryInfo/properties/shippingAddress/properties/state",
-                            "type": "string",
-                            "title": "The State Schema",
-                            "description": "An explanation about the purpose of this instance.",
-                            "default": "",
-                            "examples": [
-                              "state"
-                            ]
-                          },
-                          "zipcode": {
-                            "$id": "/properties/sale/properties/items/items/properties/deliveryInfo/properties/shippingAddress/properties/zipcode",
-                            "type": "string",
-                            "title": "The Zipcode Schema",
-                            "description": "An explanation about the purpose of this instance.",
-                            "default": "",
-                            "examples": [
-                              "zipcode"
-                            ]
-                          },
-                          "country": {
-                            "$id": "/properties/sale/properties/items/items/properties/deliveryInfo/properties/shippingAddress/properties/country",
-                            "type": "string",
-                            "title": "The Country Schema",
-                            "description": "An explanation about the purpose of this instance.",
-                            "default": "",
-                            "examples": [
-                              "country"
-                            ]
-                          }
-                        }
-                      },
-                      "recipient": {
-                        "$id": "/properties/sale/properties/items/items/properties/deliveryInfo/properties/recipient",
-                        "type": "string",
-                        "title": "The Recipient Schema",
-                        "description": "An explanation about the purpose of this instance.",
-                        "default": "",
-                        "examples": [
-                          "abc"
-                        ]
-                      },
-                      "recipientContact": {
-                        "$id": "/properties/sale/properties/items/items/properties/deliveryInfo/properties/recipientContact",
-                        "type": "string",
-                        "title": "The Recipientcontact Schema",
-                        "description": "An explanation about the purpose of this instance.",
-                        "default": "",
-                        "examples": [
-                          "0101232143243"
-                        ]
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
 
 + Response 200 (application/json)
 
