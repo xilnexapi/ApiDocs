@@ -70,10 +70,12 @@ permissions for requested operation.
 * Date: The standard is called ISO-8601 and the format is: `YYYY-MM-DDTHH:mm:ss.sssZ`
     * Example: `2017-08-08T08:40:51.000Z`.
 
-## Basic Demo Project
+### Basic Demo Project
 `C#` - https://github.com/xilnexapi/CSharpDemo
 
 `PHP` - https://github.com/xilnexapi/PhpDemo
+
+`GO` - https://github.com/tylerlim/CallXilnexRestApi
 
 ## Group AccessControl
 
@@ -517,7 +519,7 @@ Retrive access control by access group or user group or user name or access Area
 
 ### /logic/v2/clients/{id}/sales
 #### GET
-+ To retrive client purchase history
++ To retrieve client purchase history
 
 + Parameters
     + id: Client id
@@ -628,7 +630,9 @@ To retrive full list of client entry form
 create customer without go through compulsory setting
 + Parameters
     + category: Example Personal , Company(client is company name)
-    
+    + paymentTerms: Payment terms
+    + paymentTermsRemark: Payment temrs remark
+    + accountNumber: Account number
 + Request
     
     + Headers
@@ -664,6 +668,7 @@ create customer without go through compulsory setting
               "title":"",
               "email":"",
               "type":"",
+              "accountNumber":"",
               "group":"",
               "registrationCode":"",
               "gender":"",
@@ -674,16 +679,18 @@ create customer without go through compulsory setting
               "office":"",
               "fax":"",
               "phone":"",
+              "paymentTerms":0,
+              "paymentTermsRemark":"",
               "alternateContact":"",
               "alternatePhone":"",
               "category":"catA",
               "firstName":"suelynn",
               "lastName":"chiew",
               "expiryDate": "0001-01-01T00:00:00.000Z",
-                "pointValue": 128,
-                "image":"",
-                "active":true,
-                "createdOutlet":"Main Outlet"
+              "pointValue": 128,
+              "image":"",
+              "active":true,
+              "createdOutlet":"Main Outlet"
             }
         }
         
@@ -703,7 +710,6 @@ create customer without go through compulsory setting
                  "id":90014,
                  "alternateLookup":null,
                  "priceScheme":null,
-                 "terms":0,
                  "creditLimit":0,
                  "billingAddress":"bill street\nbill city\nbill state",
                  "shippingAddress":"ship street\nship city\n00000\nship state\nship country",
@@ -761,7 +767,9 @@ create customer without go through compulsory setting
 Update client detail
 + Parameters
     + clientId: client id
-    
+    + paymentTerms: Payment terms
+    + paymentTermsRemark: Payment temrs remark
+    + accountNumber: Account number
 + Request
     
     + Headers
@@ -775,7 +783,6 @@ Update client detail
                "client":{  
                   "alternateLookup":null,
                   "priceScheme":null,
-                  "terms":0,
                   "creditLimit":0,
                   "billing":{  
                      "street":"bill street",
@@ -803,7 +810,10 @@ Update client detail
                   "mobile":"",
                   "office":"",
                   "fax":"",
+                  "accountNumber":"",
                   "phone":"",
+                  "paymentTerms":0,
+                  "paymentTermsRemark":"",
                   "alternateContact":"",
                   "alternatePhone":"",
                   "category":"Personal",
@@ -4719,13 +4729,15 @@ Shipment: NA, PENDING, SHIPPED,
                     "cashier":"REAL MART Admin",
                     "dateTime":"2016-12-16T00:00:00.000Z",
                     "salesPerson":"Realmart",
-                    "billingAddress":
-                    {
-                        "street":"476",
-                        "city":"new ",
-                        "state":"new You",
-                        "zipcode":"12345",
-                        "country":"US"
+                    "client":{  
+                         "id":327012,
+                         "billingAddress":{
+                            "street":"",
+                            "city":"",
+                            "state":"",
+                            "zipcode":"",
+                            "country":""
+                         }
                     },
                     "shippingAdress":{  
                         "street":null,
@@ -4776,8 +4788,15 @@ Shipment: NA, PENDING, SHIPPED,
                   "confirmOutlet":"Coded UI Branch 2",
                   "salesPerson":"realmart@xilnex.com",
                   "client":{  
-                     "id":327012
-                  },
+                        "id":327012,
+                        "billingAddress":{
+                            "street":"",
+                            "city":"",
+                            "state":"",
+                            "zipcode":"",
+                            "country":""
+                        }
+                    },
                   "collections":[  
                      {  
                         "method":"cash",
@@ -5302,7 +5321,7 @@ Shipment: NA, PENDING, SHIPPED,
             
 ### /logic/v2/sales/salesinvoice/{outlet}/confirm
 
-#### Comfirm Sales Detail [POST]
+#### Comfirm Sales Detail [PUT]
 
  Comfirm invoice
 
@@ -5596,7 +5615,7 @@ Shipment: NA, PENDING, SHIPPED,
 
 ### /logic/v2/sales/salesinvoice/{outlet}/complete
 
-#### Complete Sales Detail [POST]
+#### Complete Sales Detail [PUT]
 
  complete invoice
 
