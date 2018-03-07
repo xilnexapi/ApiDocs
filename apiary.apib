@@ -629,10 +629,10 @@ To retrive full list of client entry form
 #### POST
 create customer without go through compulsory setting
 + Parameters
-    + category: Example Personal , Company(client is company name)
-    + paymentTerms: Payment terms
-    + paymentTermsRemark: Payment temrs remark
-    + accountNumber: Account number
+    + category: Example Personal , Company 
+    + paymentTerms: (Optional, number)- Payment terms
+    + paymentTermsRemark: (Optional)- Payment terms remark
+    + accountNumber: (Optional)- Account number
 + Request
     
     + Headers
@@ -767,9 +767,9 @@ create customer without go through compulsory setting
 Update client detail
 + Parameters
     + clientId: client id
-    + paymentTerms: Payment terms
-    + paymentTermsRemark: Payment temrs remark
-    + accountNumber: Account number
+    + paymentTerms: (Optional, number)- Payment terms
+    + paymentTermsRemark: (Optional)- Payment terms remark
+    + accountNumber: (Optional)- Account number
 + Request
     
     + Headers
@@ -4692,6 +4692,28 @@ Shipment: NA, PENDING, SHIPPED,
  Create invoice
 * POST invoice withour implement callback
 * Optional: it also can support ship by item to diffrent address
+
+The standard Post sales fields are these:
+
+| Field Name | DataType | Required | Notes |
+|---|---|---|---|
+| status |string| YES | OPEN, CONFIRMED, COMPLETED, CANCELLED, WRITE_OFF |
+| method |string| NO | Collection: cash, card, bank, cheque, web, creditnote, voucher, point, debitcard, forfeiture_voucher, creditcard_charges, contra, tradein, Other, BCard, prepaid, BCardToken, TnG, Entertainment, XCard |
+| client |object| NO |  |
+| cashier |string| NO | cashier name |
+| shippingAdress |object| NO |  |
+| discountPercentage |number| NO |discount percentage for all order item. if discount percentage and bill Discount Amount both exist, api will take discount percentage as priority!  |
+| billDiscountAmount |decimal| NO |discount amount for transaction, discount amount will split into each order item.  |
+| recipientContact |string| NO |  |
+| recipientName |string| NO |  |
+| shipmentProvider |string| NO |e.g. GDEX, Skynet etc.  |
+| itemCode/itemId |string| NO | One of the code must be enter. |
+| matrixId |object| NO |  |
+| enterPrice |decimal| NO |Selling price   |
+| reference |string| NO | if using voucher or card will need to key in. |
+| confirmOutlet |string| NO |if the sales status is confirm, confirm outlet must be enter.  |
+| module |string| NO |  |
+| gstInclusive |bool| NO |Set to true, if the posting sales item price is inclusive of GST.  |
 
 + Parameters
     + outlet - outlet name
