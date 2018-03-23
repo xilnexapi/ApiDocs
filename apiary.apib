@@ -1954,6 +1954,127 @@ Update post status on integration
             
 ## Group Items
 
+### /logic/v2/items
+
+#### GET
+To retrive item list
+
++ Parameters
+    + offset(Optional): Initial starting point for paging (0 by default) 
+    + limit(Optional): Number of results to return (500 by default)
+    
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": {
+                    "resultSet": null,
+                    "items": [{
+                        "id": 1087,
+                        "itemCode": "PLP-HD2103",
+                        "itemName": "PRESSURE COOKER",
+                        "itemType": "",
+                        "itemModel": "",
+                        "description": "",
+                        "brand": "",
+                        "category": "",
+                        "departmentCode": "",
+                        "departmentName": "",
+                        "vendorCode": "",
+                        "cost": 0,
+                        "suggestedPrice": 0,
+                        "salesPrice": 0,
+                        "employeePrice": 0,
+                        "wholesalesPrice": 0,
+                        "customPrice": 0,
+                        "webPrice": 0,
+                        "webDealerPrice": 0,
+                        "unitOfMeasurement": "",
+                        "alternateLookup": "",
+                        "attribute": "",
+                        "size": "",
+                        "image": null,
+                        "stockType": "NORMAL",
+                        "matrixXGroup": null,
+                        "matrixYGroup": null,
+                        "groupName": "",
+                        "discountRate": "",
+                        "promotionGroup": "",
+                        "promotionName": null,
+                        "customField1": "",
+                        "customField2": "",
+                        "customField3": "",
+                        "customField4": "",
+                        "customField5": "",
+                        "customField6": "",
+                        "customField7": "",
+                        "customField8": "",
+                        "customField9": "",
+                        "customField10": "",
+                        "customField11": "",
+                        "customField12": "",
+                        "customField13": "",
+                        "customField14": "",
+                        "customField15": "",
+                        "gstRate": 0,
+                        "commission1": 0,
+                        "commission2": 0,
+                        "commissionRate1": 0,
+                        "commissionRate2": 0,
+                        "commission3": 0,
+                        "commission4": 0,
+                        "commissionRate3": 0,
+                        "commissionRate4": 0,
+                        "allowSellingWithoutStock": true,
+                        "parentItemId": null,
+                        "isLocalPrice": false,
+                        "isFoc": false,
+                        "isOpenPrice": false,
+                        "isDisable": false,
+                        "itemColor": "",
+                        "division": "",
+                        "gstSupplyCode": "SR",
+                        "gstPurchaseCode": "TX",
+                        "weight": 0,
+                        "height": 0,
+                        "length": 0,
+                        "width": 0,
+                        "matrixId": null,
+                        "matrixCode": null,
+                        "sellingPrice": 0,
+                        "reorderPoint": 0,
+                        "listProductMatrix": [],
+                        "listUniqueItems": [],
+                        "listPackage": []
+                    }
+                    ],
+                    "divisions": null,
+                    "brands": null
+                },
+                "timestamp": 1487902852
+            }
+    + Schema
+
+            {
+              "type": "object",
+              "properties": {}
+            }
+
 ### /logic/v2/items/{id}
 
 #### GET
@@ -1981,57 +2102,88 @@ To retrive item detail
                 "warning": null,
                 "error": null,
                 "data": {
-                "item": {
-                  "id": 236016,
-                  "itemCode": "1015",
-                  "itemName": "1015",
-                  "itemType": "",
-                  "itemModel": "",
-                  "alternateLookup": "",
-                  "description": "",
-                  "brand": "",
-                  "category": "Category1",
-                  "departmentCode": "",
-                  "departmentName": null,
-                  "vendorCode": "",
-                  "cost": 11.21,
-                  "suggestedPrice": 60,
-                  "salesPrice": 28,
-                  "employeePrice": 30,
-                  "wholesalesPrice": 40,
-                  "customPrice": 2,
-                  "webPrice": 70,
-                  "webDealerPrice": 80,
-                  "attribute": "",
-                  "size": "",
-                  "stockType": null,
-                  "matrixXGroup": null,
-                  "matrixYGroup": null,
-                  "groupName": "Group01",
-                  "promotionGroup": "PromoGroup1",
-                  "customField1": "1",
-                  "customField2": "2",
-                  "customField3": "3",
-                  "customField4": "4",
-                  "customField5": "5",
-                  "customField6": "6",
-                  "customField7": "7",
-                  "customField8": "8",
-                  "customField9": "9",
-                  "customField10": "10",
-                  "customField11": "11",
-                  "customField12": "12",
-                  "customField13": "13",
-                  "customField14": "14",
-                  "customField15": "15",
-                  "gstRate": 6,
-                  "gstSupplyCode": "SR",
-                  "gstPurchaseCode": "TX",
-                  "productMatrixInfo": null,
-                  "uniqueItemInfo": null,
-                  "subItems": null
-                },
-                "items": null
+                    "resultSet": null,
+                    "item": {
+                        "id": 1087,
+                        "itemCode": "PLP-HD2103",
+                        "itemName": "PRESSURE COOKER",
+                        "itemType": "",
+                        "itemModel": "",
+                        "description": "",
+                        "brand": "",
+                        "category": "",
+                        "departmentCode": "",
+                        "departmentName": "",
+                        "vendorCode": "",
+                        "cost": 0,
+                        "suggestedPrice": 0,
+                        "salesPrice": 0,
+                        "employeePrice": 0,
+                        "wholesalesPrice": 0,
+                        "customPrice": 0,
+                        "webPrice": 0,
+                        "webDealerPrice": 0,
+                        "unitOfMeasurement": "",
+                        "alternateLookup": "",
+                        "attribute": "",
+                        "size": "",
+                        "image": null,
+                        "stockType": "NORMAL",
+                        "matrixXGroup": null,
+                        "matrixYGroup": null,
+                        "groupName": "",
+                        "discountRate": "",
+                        "promotionGroup": "",
+                        "promotionName": null,
+                        "customField1": "",
+                        "customField2": "",
+                        "customField3": "",
+                        "customField4": "",
+                        "customField5": "",
+                        "customField6": "",
+                        "customField7": "",
+                        "customField8": "",
+                        "customField9": "",
+                        "customField10": "",
+                        "customField11": "",
+                        "customField12": "",
+                        "customField13": "",
+                        "customField14": "",
+                        "customField15": "",
+                        "gstRate": 0,
+                        "commission1": 0,
+                        "commission2": 0,
+                        "commissionRate1": 0,
+                        "commissionRate2": 0,
+                        "commission3": 0,
+                        "commission4": 0,
+                        "commissionRate3": 0,
+                        "commissionRate4": 0,
+                        "allowSellingWithoutStock": true,
+                        "parentItemId": null,
+                        "isLocalPrice": false,
+                        "isFoc": false,
+                        "isOpenPrice": false,
+                        "isDisable": false,
+                        "itemColor": "",
+                        "division": "",
+                        "gstSupplyCode": "SR",
+                        "gstPurchaseCode": "TX",
+                        "weight": 0,
+                        "height": 0,
+                        "length": 0,
+                        "width": 0,
+                        "matrixId": null,
+                        "matrixCode": null,
+                        "sellingPrice": 0,
+                        "reorderPoint": 0,
+                        "listProductMatrix": [],
+                        "listUniqueItems": [],
+                        "listPackage": []
+                    },
+                    "items": null,
+                    "divisions": null,
+                    "brands": null
                 },
                 "timestamp": 1487902852
             }
@@ -2072,82 +2224,83 @@ To retrive all dynamic modifier item
                     "lastTimestamp": null,
                     "item": null,
                     "items": [
-                        {
-                            "id": 2014,
-                            "itemCode": "AO002",
-                            "itemName": "Milk Tea",
-                            "itemType": "Drinks",
-                            "itemModel": "",
-                            "description": "",
-                            "brand": "",
-                            "category": "Milk Tea",
-                            "departmentCode": "",
-                            "departmentName": null,
-                            "vendorCode": "",
-                            "cost": 0,
-                            "suggestedPrice": 0,
-                            "salesPrice": 0,
-                            "employeePrice": 0,
-                            "wholesalesPrice": 0,
-                            "customPrice": 0,
-                            "webPrice": 0,
-                            "webDealerPrice": 0,
-                            "unitOfMeasurement": "",
-                            "alternateLookup": "",
-                            "attribute": "",
-                            "size": "",
-                            "image": null,
-                            "stockType": "NORMAL",
-                            "matrixXGroup": "",
-                            "matrixYGroup": "",
-                            "groupName": "Xilnex Milk Tea",
-                            "discountRate": "0.00",
-                            "promotionGroup": "",
-                            "promotionName": "",
-                            "customField1": "ABC",
-                            "customField2": "",
-                            "customField3": "",
-                            "customField4": "",
-                            "customField5": "",
-                            "customField6": "",
-                            "customField7": "",
-                            "customField8": "",
-                            "customField9": "",
-                            "customField10": "",
-                            "customField11": "",
-                            "customField12": "",
-                            "customField13": "",
-                            "customField14": "",
-                            "customField15": "",
-                            "gstRate": 0,
-                            "commission1": 0,
-                            "commission2": 0,
-                            "commissionRate1": 0,
-                            "commissionRate2": 0,
-                            "commission3": 0,
-                            "commission4": 0,
-                            "commissionRate3": 0,
-                            "commissionRate4": 0,
-                            "allowSellingWithoutStock": true,
-                            "parentItemId": null,
-                            "isLocalPrice": false,
-                            "isFoc": false,
-                            "isOpenPrice": false,
-                            "isDisable": false,
-                            "itemColor": "",
-                            "division": "",
-                            "gstSupplyCode": "",
-                            "gstPurchaseCode": "",
-                            "weight": 0,
-                            "height": 0,
-                            "length": 0,
-                            "width": 0,
-                            "matrixId": null,
-                            "matrixCode": null,
-                            "sellingPrice": 0,
-                            "listProductMatrix": [],
-                            "listUniqueItems": [],
-                            "listPackage": []
+                    {
+                        "id": 101,
+                        "itemCode": "TEF-BL30A1",
+                        "itemName": "BLENDER",
+                        "itemType": "",
+                        "itemModel": "",
+                        "description": "",
+                        "brand": "",
+                        "category": "",
+                        "departmentCode": "",
+                        "departmentName": "",
+                        "vendorCode": "",
+                        "cost": 0,
+                        "suggestedPrice": 0,
+                        "salesPrice": 0,
+                        "employeePrice": 0,
+                        "wholesalesPrice": 0,
+                        "customPrice": 0,
+                        "webPrice": 0,
+                        "webDealerPrice": 0,
+                        "unitOfMeasurement": "",
+                        "alternateLookup": "",
+                        "attribute": "",
+                        "size": "",
+                        "image": null,
+                        "stockType": "NORMAL",
+                        "matrixXGroup": null,
+                        "matrixYGroup": null,
+                        "groupName": "",
+                        "discountRate": "",
+                        "promotionGroup": "",
+                        "promotionName": null,
+                        "customField1": "",
+                        "customField2": "",
+                        "customField3": "",
+                        "customField4": "",
+                        "customField5": "",
+                        "customField6": "",
+                        "customField7": "",
+                        "customField8": "",
+                        "customField9": "",
+                        "customField10": "",
+                        "customField11": "",
+                        "customField12": "",
+                        "customField13": "",
+                        "customField14": "",
+                        "customField15": "",
+                        "gstRate": 0,
+                        "commission1": 0,
+                        "commission2": 0,
+                        "commissionRate1": 0,
+                        "commissionRate2": 0,
+                        "commission3": 0,
+                        "commission4": 0,
+                        "commissionRate3": 0,
+                        "commissionRate4": 0,
+                        "allowSellingWithoutStock": true,
+                        "parentItemId": null,
+                        "isLocalPrice": false,
+                        "isFoc": false,
+                        "isOpenPrice": false,
+                        "isDisable": false,
+                        "itemColor": "",
+                        "division": "",
+                        "gstSupplyCode": "SR",
+                        "gstPurchaseCode": "TX",
+                        "weight": 0,
+                        "height": 0,
+                        "length": 0,
+                        "width": 0,
+                        "matrixId": null,
+                        "matrixCode": null,
+                        "sellingPrice": 0,
+                        "reorderPoint": 0,
+                        "listProductMatrix": [],
+                        "listUniqueItems": [],
+                        "listPackage": []
                         }
                         ]
                     },
@@ -2389,6 +2542,128 @@ To retrive item details by code and location
             {
               "type": "object",
               "properties": {}
+            }
+
+### /logic/v2/items/filter
+
+#### GET
+To retrive item list by filter 
+
++ Parameter
+    + code: item code sss
+    + offset(Optional, number): Initial starting point for paging 0 by default
+    + locationId: location id
+    + limit (Optional): Number of results to return 500 by default
+    
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+    
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": {
+                    "lastTimestamp": null,
+                    "resultSet": {
+                        "offset": 0,
+                        "limit": 500,
+                        "total": 6
+                    },
+                    "item": null,
+                    "items": [
+                    {
+                        "id": 10664,
+                        "itemCode": "12324567",
+                        "itemName": "1234562345",
+                        "itemType": "",
+                        "itemModel": "",
+                        "description": "",
+                        "brand": "",
+                        "category": "",
+                        "departmentCode": "",
+                        "departmentName": null,
+                        "vendorCode": "",
+                        "cost": 0,
+                        "suggestedPrice": 0,
+                        "salesPrice": 1111.12,
+                        "employeePrice": 0,
+                        "wholesalesPrice": 0,
+                        "customPrice": 0,
+                        "webPrice": 0,
+                        "webDealerPrice": 0,
+                        "unitOfMeasurement": "",
+                        "alternateLookup": "",
+                        "attribute": "",
+                        "size": "",
+                        "image": null,
+                        "stockType": "NORMAL",
+                        "matrixXGroup": null,
+                        "matrixYGroup": null,
+                        "groupName": "",
+                        "discountRate": "",
+                        "promotionGroup": "",
+                        "promotionName": null,
+                        "customField1": "",
+                        "customField2": "",
+                        "customField3": "",
+                        "customField4": "",
+                        "customField5": "",
+                        "customField6": "",
+                        "customField7": "",
+                        "customField8": "",
+                        "customField9": "",
+                        "customField10": "",
+                        "customField11": "",
+                        "customField12": "",
+                        "customField13": "",
+                        "customField14": "",
+                        "customField15": "",
+                        "gstRate": 0,
+                        "commission1": 0,
+                        "commission2": 0,
+                        "commissionRate1": 0,
+                        "commissionRate2": 0,
+                        "commission3": 0,
+                        "commission4": 0,
+                        "commissionRate3": 0,
+                        "commissionRate4": 0,
+                        "allowSellingWithoutStock": true,
+                        "parentItemId": null,
+                        "isLocalPrice": false,
+                        "isFoc": false,
+                        "isOpenPrice": false,
+                        "isDisable": false,
+                        "itemColor": "",
+                        "division": "",
+                        "gstSupplyCode": "",
+                        "gstPurchaseCode": "",
+                        "weight": 0,
+                        "height": 0,
+                        "length": 0,
+                        "width": 0,
+                        "matrixId": null,
+                        "matrixCode": null,
+                        "sellingPrice": 0,
+                        "reorderPoint": 0,
+                        "listProductMatrix": [],
+                        "listUniqueItems": [],
+                        "listPackage": []
+                        }
+                        ]
+                    },
+                "timestamp": 1518429146
             }
             
 ### /logic/v2/items/priceschemes
@@ -4698,7 +4973,7 @@ The standard Post sales fields are these:
 | Field Name | DataType | Required | Notes |
 |---|---|---|---|
 | status |string| YES | OPEN, CONFIRMED, COMPLETED, CANCELLED, WRITE_OFF |
-| method |string| NO | Collection: cash, card, bank, cheque, web, creditnote, voucher, point, debitcard, forfeiture_voucher, creditcard_charges, contra, tradein, Other, BCard, prepaid, BCardToken, TnG, Entertainment, XCard |
+| method |string| YES | Collection: cash, card, bank, cheque, web, creditnote, voucher, point, debitcard, forfeiture_voucher, creditcard_charges, contra, tradein, Other, BCard, prepaid, BCardToken, TnG, Entertainment, XCard |
 | client |object| NO |  |
 | cashier |string| NO | cashier name |
 | shippingAdress |object| NO |  |
