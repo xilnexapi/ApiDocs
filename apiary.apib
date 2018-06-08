@@ -10,9 +10,16 @@ language such as JavaScript, Ruby, Swift, Object-C. C#, Java, php, etc.
 ## Setup for REST API
 For using this API you need send authenticated HTTP requests. Exists several 
 way to do this:
+### Version 4 Auth
 * Send a HTTPS header with include `Token: {api_token}` and `Dkey: {Dkey}`
 , where `{api_token}` is your API token and `{dkey}` is your private key
 ![name](https://s15.postimg.org/oagoiyr7f/Screenshot_1.png)
+
+### Version 5 Auth
+* Send a HTTPS header with include `Auth: 5` and `Token: {api_token}` and `AppId: {AppId}`
+, where `Auth` is Auth version, `{api_token}` is your API token and `{AppId}` is your application id
+![name](http://wbgeneric.blob.core.windows.net/resources/Auth5.png)
+
 
 
 Your API token and Dkey you can request from our comapny **api@webbytes.com.my**
@@ -690,7 +697,8 @@ create customer without go through compulsory setting
               "pointValue": 128,
               "image":"",
               "active":true,
-              "createdOutlet":"Main Outlet"
+              "createdOutlet":"Main Outlet",
+              "defaultSalesType":"Retail"
             }
         }
         
@@ -2549,12 +2557,22 @@ To retrive item details by code and location
 #### GET
 To retrive item list by filter 
 
-+ Parameter
-    + code: item code sss
-    + offset(Optional, number): Initial starting point for paging 0 by default
-    + locationId: location id
-    + limit (Optional): Number of results to return 500 by default
-    
++ Parameters
+
+    + itemCode(optional)
+    + name(Optional)
+    + type (Optional)
+    + model (Optional)
+    + category (Optional)
+    + departmentcode (Optional)
+    + alternatelookup (Optional)
+    + attribute (Optional)
+    + brand (Optional)
+    + groupname (Optional)
+    + division (Optional)
+    + offset (Optional, number)- Initial starting point for paging (0 by default)
+    + limit (Optional, number)- Number of results to return (500 by default)
+
 + Request
 
     + Headers
@@ -4180,6 +4198,154 @@ To retrive item price schemes name list
             }
 
 ## Group Redemption Voucher
+
+### /logic/v2/redemptionvoucher/salesvoucher/validate?voucherno={voucherno}&outlet={outlet}&clientid={clientid}
+
+#### validate sales voucher [GET]
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": {
+                    "redemption": 
+                    {
+                    "redemptionTypeId": 11904,
+                    "redemptionName": "RM 5 service",
+                    "cashValue": 0,
+                    "pointToDeduct": 0,
+                    "itemId": 119032,
+                    "maxUsePerTransaction": 0,
+                    "reusable": true,
+                    "type": 7,
+                    "periodOfValidVoucher": 99999,
+                    "defaultLength": 15,
+                    "redemptionCode": "RM 5 service",
+                    "groupName": "RM 5 service",
+                    "prefix": "",
+                    "devotedVoucher": false,
+                    "enforceRemark": false,
+                    "dateTimeStartDate": "01/01/2000",
+                    "dateTimeEndDate": "31/12/2999",
+                    "listVoucher": null
+                    },
+                    "voucher": 
+                    {
+                    "redemptionOutlet": null,
+                    "clientId": "",
+                    "voucherNumber": "Test3",
+                    "salesId": null,
+                    "paymentId": null,
+                    "paymentAmount": 0,
+                    "promotionType": "coupon",
+                    "issueBy": "RealMart Admin",
+                    "voucherDate": "2017-11-08T00:00:00.000Z",
+                    "generationSalesId": "342055",
+                    "isRedeemed": "",
+                    "groupName": "RM 5 service",
+                    "isActivation": true,
+                    "voucherDescription": "",
+                    "outletId": "",
+                    "expiryDate": "2291-08-23T00:00:00.000Z",
+                    "performType": null,
+                    "performRemark": null,
+                    "performDate": null,
+                    "effectiveDate": null,
+                    "isApiVoucher": false,
+                    "cardNumber": null,
+                    "voucherMasterId": 0
+                    }
+                },
+                "timestamp": 1528255644
+            }
+
+### /logic/v2/redemptionvoucher/paymentvoucher/validate?voucherno={voucherno}&outlet={outlet}&clientid={clientid}
+
+#### validate payment voucher [GET]
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": {
+                    "redemption": {
+                        "redemptionTypeId": 32602,
+                        "redemptionName": "RPW50",
+                        "cashValue": 50,
+                        "pointToDeduct": 0,
+                        "itemId": 0,
+                        "maxUsePerTransaction": 0,
+                        "reusable": true,
+                        "type": 6,
+                        "periodOfValidVoucher": 99999,
+                        "defaultLength": 15,
+                        "redemptionCode": "TEST2017101211",
+                        "groupName": "RPW50",
+                        "prefix": "",
+                        "devotedVoucher": false,
+                        "enforceRemark": false,
+                        "dateTimeStartDate": "14/11/2017",
+                        "dateTimeEndDate": "14/11/2018",
+                        "listVoucher": null
+                    },
+                    "voucher": {
+                        "redemptionOutlet": null,
+                        "clientId": "",
+                        "voucherNumber": "2017101203",
+                        "salesId": "326087",
+                        "paymentId": "326076",
+                        "paymentAmount": 0,
+                        "promotionType": "voucher",
+                        "issueBy": "RealMart Admin",
+                        "voucherDate": "2017-11-14T00:00:00.000Z",
+                        "generationSalesId": "0",
+                        "isRedeemed": "",
+                        "groupName": "RPW50",
+                        "isActivation": true,
+                        "voucherDescription": null,
+                        "outletId": "",
+                        "expiryDate": "2999-12-31T00:00:00.000Z",
+                        "performType": null,
+                        "performRemark": null,
+                        "performDate": "2017-11-14T00:00:00.000Z",
+                        "effectiveDate": null,
+                        "isApiVoucher": false,
+                        "cardNumber": null,
+                        "voucherMasterId": 0
+                    }
+                },
+                "timestamp": 1528255817
+            }
 
 ### /logic/v2/redemptionvoucher/paymentvoucher/redeem
 
