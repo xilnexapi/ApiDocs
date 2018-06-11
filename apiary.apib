@@ -4199,6 +4199,80 @@ To retrive item price schemes name list
 
 ## Group Redemption Voucher
 
+### /logic/v2/redemptionvoucher/vouchers/{voucherno}
+
+#### Get voucher information [GET]
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": {
+                    "redemption": {
+                        "redemptionTypeId": 33801,
+                        "redemptionName": "Generate Voucher RM100",
+                        "cashValue": 0,
+                        "pointToDeduct": 0,
+                        "itemId": 33806,
+                        "maxUsePerTransaction": 0,
+                        "reusable": false,
+                        "type": 7,
+                        "voucherType": "sales",
+                        "periodOfValidVoucher": 2,
+                        "defaultLength": 15,
+                        "redemptionCode": "GVRM100",
+                        "groupName": "GVRM100",
+                        "prefix": "GV",
+                        "devotedVoucher": false,
+                        "enforceRemark": false,
+                        "dateTimeStartDate": "13/04/2017",
+                        "dateTimeEndDate": "14/04/2017",
+                        "listVoucher": null
+                    },
+                    "voucher": {
+                        "redemptionOutlet": null,
+                        "clientId": "",
+                        "voucherNumber": "GV033802092541060",
+                        "salesId": null,
+                        "paymentId": null,
+                        "paymentAmount": 0,
+                        "promotionType": "voucher",
+                        "issueBy": "RealMart Admin",
+                        "voucherDate": "2017-04-13T00:00:00.000Z",
+                        "generationSalesId": "338020",
+                        "isRedeemed": "",
+                        "groupName": "GVRM100",
+                        "isActivation": true,
+                        "voucherDescription": "",
+                        "outletId": "",
+                        "expiryDate": "2017-04-14T00:00:00.000Z",
+                        "performType": null,
+                        "performRemark": null,
+                        "performDate": null,
+                        "effectiveDate": null,
+                        "isApiVoucher": false,
+                        "cardNumber": null,
+                        "voucherMasterId": 0
+                    }
+                },
+                "timestamp": 1528430079
+            }
+
 ### /logic/v2/redemptionvoucher/salesvoucher/validate?voucherno={voucherno}&outlet={outlet}&clientid={clientid}
 
 #### validate sales voucher [GET]
@@ -7302,6 +7376,1309 @@ The standard Post sales fields are these:
                "timestamp":1511158730
             }
             
+## Group Pick List
+### /logic/v2/PickList/{id}
+#### Get Pick List [GET]
++ Request
+    + id (required) - pick list Id
+    
+    + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+    
+    + Body
+            
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+        {
+          "ok": true,
+            "status": "SuccessQuery",
+            "warning": null,
+            "error": null,
+            "data": {
+                "pickList": {
+                    "id": 38105,
+                    "status": "Confirmed",
+                    "generateDate": "2018-01-18T00:00:00.000Z",
+                    "generateBy": "RealMart Admin",
+                    "fromLocationName": "!Enako",
+                    "refId": null,
+                    "remarks": "",
+                    "description": null,
+                    "pickingMode": "0",
+                    "pickItems": [
+                        {
+                            "id": 38106,
+                            "itemId": 282063,
+                            "matrixBarcode": "",
+                            "matrixX": "",
+                            "matrixY": "",
+                            "pickQuantity": 1,
+                            "refID": 38105,
+                            "toLocationName": "!Enako",
+                            "refItemID": 38106,
+                            "driverCode": null,
+                            "refNo": null,
+                            "documentType": "SalesOrder",
+                            "actualPickQuantity": 0,
+                            "fulfillQuantity": 0,
+                            "verifiedQuantity": 0
+                        }
+                    ],
+                    "pickerList": []
+                },
+                "pickLists": null,
+                "pickerIdLists": null
+            },
+            "timestamp": 1528683840
+        }  
+
+### /logic/v2/PickList/{id}/Picked
+#### POST [POST]
++ perform ePicking with Pick List Id
++ Parameters
+
+    + id (required) - pick list Id
+    
++ Request
+     + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+        
+     + Body
+    {  
+   "status":"Picked",
+   "PickItems":[  
+      {  
+         "id":379017,
+         "actualPickQuantity":4
+      },
+      {  
+         "id":379018,
+         "actualPickQuantity":1
+      }
+   ]
+}
+               
+    
++ Response 200 (application/json)
+
+    OK
+
+    + Body 
+    
+    {
+            "ok": true,
+            "status": "SuccessQuery",
+            "warning": null,
+            "error": null,
+            "data": {
+                "pickList": {
+                    "id": 379014,
+                    "status": "Picked",
+                    "generateDate": "2018-01-16T00:00:00.000Z",
+                    "generateBy": "RealMart Admin",
+                    "fromLocationName": "00 MAIN OUTLET",
+                    "refId": null,
+                    "remarks": "",
+                    "description": null,
+                    "pickingMode": "0",
+                    "pickItems": [
+                        {
+                            "id": 379017,
+                            "itemId": 37905,
+                            "matrixBarcode": "",
+                            "matrixX": "",
+                            "matrixY": "",
+                            "pickQuantity": 4,
+                            "refID": 379014,
+                            "toLocationName": "00 MAIN OUTLET",
+                            "refItemID": 379015,
+                            "driverCode": null,
+                            "refNo": null,
+                            "documentType": "SalesOrder",
+                            "actualPickQuantity": 4,
+                            "fulfillQuantity": 4,
+                            "verifiedQuantity": 4
+                        },
+                        {
+                            "id": 379018,
+                            "itemId": 5056,
+                            "matrixBarcode": "",
+                            "matrixX": "",
+                            "matrixY": "",
+                            "pickQuantity": 2,
+                            "refID": 379015,
+                            "toLocationName": "00 MAIN OUTLET",
+                            "refItemID": 379016,
+                            "driverCode": null,
+                            "refNo": null,
+                            "documentType": "SalesOrder",
+                            "actualPickQuantity": 1,
+                            "fulfillQuantity": 1,
+                            "verifiedQuantity": 1
+                        }
+                    ],
+                    "pickerList": []
+                },
+                "pickLists": null,
+                "pickerIdLists": null
+            },
+            "timestamp": 1528702101
+        }
+
+### /logic/v2/PickList/{id}/Completed
+#### POST [POST]
++ perform fulfillment with Pick List Id
++ Parameters
+
+    + id (required) - pick list Id
+    
++ Request
+     + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+        
+     + Body
+    {
+    "status": "Completed",
+    "PickItems": 
+    [
+    {
+    "id": 379017,
+    "FulfillQuantity": 4
+    },
+    {
+   "id": 379018,
+   "FulfillQuantity": 1
+    }
+    ]
+    }
+     
++ Response 200 (application/json)
+
+    OK
+
+    + Body 
+    {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "pickList": {
+            "id": 379014,
+            "status": "Completed",
+            "generateDate": "2018-01-16T00:00:00.000Z",
+            "generateBy": "RealMart Admin",
+            "fromLocationName": "00 MAIN OUTLET",
+            "refId": null,
+            "remarks": "",
+            "description": null,
+            "pickingMode": "0",
+            "pickItems": [
+                {
+                    "id": 379017,
+                    "itemId": 37905,
+                    "matrixBarcode": "",
+                    "matrixX": "",
+                    "matrixY": "",
+                    "pickQuantity": 4,
+                    "refID": 379014,
+                    "toLocationName": "00 MAIN OUTLET",
+                    "refItemID": 379015,
+                    "driverCode": null,
+                    "refNo": null,
+                    "documentType": "SalesOrder",
+                    "actualPickQuantity": 4,
+                    "fulfillQuantity": 4,
+                    "verifiedQuantity": 4
+                },
+                {
+                    "id": 379018,
+                    "itemId": 5056,
+                    "matrixBarcode": "",
+                    "matrixX": "",
+                    "matrixY": "",
+                    "pickQuantity": 2,
+                    "refID": 379015,
+                    "toLocationName": "00 MAIN OUTLET",
+                    "refItemID": 379016,
+                    "driverCode": null,
+                    "refNo": null,
+                    "documentType": "SalesOrder",
+                    "actualPickQuantity": 1,
+                    "fulfillQuantity": 1,
+                    "verifiedQuantity": 1
+                }
+            ],
+            "pickerList": []
+        },
+        "pickLists": null,
+        "pickerIdLists": null
+    },
+    "timestamp": 1528702721
+    }
+
+### /logic/v2/PickList/Filter?datefrom={datefrom}&dateto={dateto}&pickerId={pickerId}&status={status}
+#### GET [GET]
++ Filter Pick List with date and pick list Id 
++ Parameters
+    + datefrom: Iso8601 format
+    + dateto: Iso8601 format
+    + pickerId: picker Id 
+    + status : pick list status
+    
++ Request
+
+    + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+        
+    + Body
+    
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+    {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "pickList": null,
+        "pickLists": [
+            {
+                "id": 379025,
+                "status": "4",
+                "generateDate": "2018-01-19T00:00:00.000Z",
+                "generateBy": "RealMart Admin",
+                "fromLocationName": null,
+                "refId": null,
+                "remarks": "",
+                "description": null,
+                "pickingMode": "0",
+                "pickItems": [
+                    {
+                        "id": 379041,
+                        "itemId": 37905,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 5,
+                        "refID": 379038,
+                        "toLocationName": null,
+                        "refItemID": 379039,
+                        "driverCode": null,
+                        "refNo": null,
+                        "documentType": "1",
+                        "actualPickQuantity": 5,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    },
+                    {
+                        "id": 379042,
+                        "itemId": 37905,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 5,
+                        "refID": 379039,
+                        "toLocationName": null,
+                        "refItemID": 379040,
+                        "driverCode": null,
+                        "refNo": null,
+                        "documentType": "1",
+                        "actualPickQuantity": 5,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    },
+                    {
+                        "id": 379043,
+                        "itemId": 37905,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 2,
+                        "refID": 379040,
+                        "toLocationName": null,
+                        "refItemID": 379041,
+                        "driverCode": null,
+                        "refNo": null,
+                        "documentType": "1",
+                        "actualPickQuantity": 2,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    },
+                    {
+                        "id": 379044,
+                        "itemId": 37905,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 2,
+                        "refID": 379041,
+                        "toLocationName": null,
+                        "refItemID": 379042,
+                        "driverCode": null,
+                        "refNo": null,
+                        "documentType": "1",
+                        "actualPickQuantity": 2,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    },
+                    {
+                        "id": 379045,
+                        "itemId": 37907,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 1,
+                        "refID": 379041,
+                        "toLocationName": null,
+                        "refItemID": 379044,
+                        "driverCode": null,
+                        "refNo": null,
+                        "documentType": "1",
+                        "actualPickQuantity": 1,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    },
+                    {
+                        "id": 379046,
+                        "itemId": 37907,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 5,
+                        "refID": 379042,
+                        "toLocationName": null,
+                        "refItemID": 379043,
+                        "driverCode": null,
+                        "refNo": null,
+                        "documentType": "1",
+                        "actualPickQuantity": 5,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    }
+                ],
+                "pickerList": [
+                    {
+                        "id": "37901",
+                        "pickerId": "0122490162",
+                        "pickerName": "Test John Project"
+                    },
+                    {
+                        "id": "37902",
+                        "pickerId": "0129259015",
+                        "pickerName": "tt2 AA2"
+                    }
+                ]
+            }
+        ],
+        "pickerIdLists": null
+    },
+    "timestamp": 1528703847
+}
+
+### /logic/v2/PickList/Recent?status={status}
+#### GET [GET]
++ Get Top Recent Pick Lists
+
++ Parameters
+    + status : pick list status
+    
++ Request
+     + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+    
+     + Body
+    
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+    {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "pickList": null,
+        "pickLists": [
+            {
+                "id": 9003,
+                "status": "5",
+                "generateDate": "2018-04-26T00:00:00.000Z",
+                "generateBy": "realmart@xilnex.com",
+                "fromLocationName": null,
+                "refId": "",
+                "remarks": "",
+                "description": "",
+                "pickingMode": "0",
+                "pickItems": [
+                    {
+                        "id": 9003,
+                        "itemId": 282054,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 1,
+                        "refID": 23201,
+                        "toLocationName": null,
+                        "refItemID": 23201,
+                        "driverCode": "",
+                        "refNo": "",
+                        "documentType": "1",
+                        "actualPickQuantity": 0,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    },
+                    {
+                        "id": 9004,
+                        "itemId": 282054,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 1,
+                        "refID": 23201,
+                        "toLocationName": null,
+                        "refItemID": 23201,
+                        "driverCode": "",
+                        "refNo": "",
+                        "documentType": "1",
+                        "actualPickQuantity": 0,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    },
+                    {
+                        "id": 9005,
+                        "itemId": 282054,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 1,
+                        "refID": 23201,
+                        "toLocationName": null,
+                        "refItemID": 23201,
+                        "driverCode": "",
+                        "refNo": "",
+                        "documentType": "1",
+                        "actualPickQuantity": 0,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    },
+                    {
+                        "id": 9006,
+                        "itemId": 282054,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 1,
+                        "refID": 23201,
+                        "toLocationName": null,
+                        "refItemID": 23201,
+                        "driverCode": "",
+                        "refNo": "",
+                        "documentType": "1",
+                        "actualPickQuantity": 0,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    },
+                    {
+                        "id": 9007,
+                        "itemId": 282054,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 1,
+                        "refID": 23201,
+                        "toLocationName": null,
+                        "refItemID": 23201,
+                        "driverCode": "",
+                        "refNo": "",
+                        "documentType": "1",
+                        "actualPickQuantity": 1,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    }
+                ],
+                "pickerList": []
+            },
+            {
+                "id": 386013,
+                "status": "5",
+                "generateDate": "2018-04-11T00:00:00.000Z",
+                "generateBy": "RealMart Admin",
+                "fromLocationName": null,
+                "refId": null,
+                "remarks": "",
+                "description": null,
+                "pickingMode": "0",
+                "pickItems": [
+                    {
+                        "id": 386016,
+                        "itemId": 38601,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 10,
+                        "refID": 386010,
+                        "toLocationName": null,
+                        "refItemID": 386014,
+                        "driverCode": null,
+                        "refNo": null,
+                        "documentType": "1",
+                        "actualPickQuantity": 10,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    },
+                    {
+                        "id": 386017,
+                        "itemId": 38602,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 10,
+                        "refID": 386010,
+                        "toLocationName": null,
+                        "refItemID": 386015,
+                        "driverCode": null,
+                        "refNo": null,
+                        "documentType": "1",
+                        "actualPickQuantity": 10,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    },
+                    {
+                        "id": 386018,
+                        "itemId": 38603,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 1,
+                        "refID": 386010,
+                        "toLocationName": null,
+                        "refItemID": 386016,
+                        "driverCode": null,
+                        "refNo": null,
+                        "documentType": "1",
+                        "actualPickQuantity": 1,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    },
+                    {
+                        "id": 386019,
+                        "itemId": 38604,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 10,
+                        "refID": 386010,
+                        "toLocationName": null,
+                        "refItemID": 386017,
+                        "driverCode": null,
+                        "refNo": null,
+                        "documentType": "1",
+                        "actualPickQuantity": 5,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    }
+                ],
+                "pickerList": []
+            },
+            {
+                "id": 379032,
+                "status": "5",
+                "generateDate": "2018-02-13T00:00:00.000Z",
+                "generateBy": "RealMart Admin",
+                "fromLocationName": null,
+                "refId": null,
+                "remarks": "",
+                "description": null,
+                "pickingMode": "0",
+                "pickItems": [
+                    {
+                        "id": 379072,
+                        "itemId": 37901,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 1,
+                        "refID": 379066,
+                        "toLocationName": null,
+                        "refItemID": 3790124,
+                        "driverCode": null,
+                        "refNo": null,
+                        "documentType": "2",
+                        "actualPickQuantity": 1,
+                        "fulfillQuantity": 1,
+                        "verifiedQuantity": 0
+                    }
+                ],
+                "pickerList": []
+            },
+            {
+                "id": 38108,
+                "status": "5",
+                "generateDate": "2018-01-21T00:00:00.000Z",
+                "generateBy": "RealMart Admin",
+                "fromLocationName": null,
+                "refId": null,
+                "remarks": "",
+                "description": null,
+                "pickingMode": "0",
+                "pickItems": [
+                    {
+                        "id": 381013,
+                        "itemId": 282063,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 30,
+                        "refID": 381010,
+                        "toLocationName": null,
+                        "refItemID": 381016,
+                        "driverCode": null,
+                        "refNo": null,
+                        "documentType": "SalesOrder",
+                        "actualPickQuantity": 30,
+                        "fulfillQuantity": 30,
+                        "verifiedQuantity": 0
+                    }
+                ],
+                "pickerList": []
+            },
+            {
+                "id": 38107,
+                "status": "5",
+                "generateDate": "2018-01-19T00:00:00.000Z",
+                "generateBy": "RealMart Admin",
+                "fromLocationName": null,
+                "refId": null,
+                "remarks": "",
+                "description": null,
+                "pickingMode": "0",
+                "pickItems": [
+                    {
+                        "id": 381011,
+                        "itemId": 282063,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 2,
+                        "refID": 38109,
+                        "toLocationName": null,
+                        "refItemID": 381014,
+                        "driverCode": null,
+                        "refNo": null,
+                        "documentType": "SalesOrder",
+                        "actualPickQuantity": 0,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    },
+                    {
+                        "id": 381012,
+                        "itemId": 27606,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 2,
+                        "refID": 38109,
+                        "toLocationName": null,
+                        "refItemID": 381015,
+                        "driverCode": null,
+                        "refNo": null,
+                        "documentType": "SalesOrder",
+                        "actualPickQuantity": 0,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    }
+                ],
+                "pickerList": []
+            },
+            {
+                "id": 38102,
+                "status": "5",
+                "generateDate": "2018-01-12T00:00:00.000Z",
+                "generateBy": "RealMart Admin",
+                "fromLocationName": null,
+                "refId": "38102 ref id lo",
+                "remarks": " 38102 remark lo",
+                "description": "38102 description lo",
+                "pickingMode": "0",
+                "pickItems": [
+                    {
+                        "id": 38102,
+                        "itemId": 2705517,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 10,
+                        "refID": 38102,
+                        "toLocationName": null,
+                        "refItemID": 38102,
+                        "driverCode": null,
+                        "refNo": null,
+                        "documentType": "1",
+                        "actualPickQuantity": 0,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    }
+                ],
+                "pickerList": []
+            },
+            {
+                "id": 38101,
+                "status": "5",
+                "generateDate": "2018-01-11T00:00:00.000Z",
+                "generateBy": "RealMart Admin",
+                "fromLocationName": null,
+                "refId": null,
+                "remarks": "",
+                "description": null,
+                "pickingMode": "0",
+                "pickItems": [
+                    {
+                        "id": 38101,
+                        "itemId": 3401309,
+                        "matrixBarcode": "",
+                        "matrixX": "",
+                        "matrixY": "",
+                        "pickQuantity": 1,
+                        "refID": 38101,
+                        "toLocationName": null,
+                        "refItemID": 38101,
+                        "driverCode": null,
+                        "refNo": null,
+                        "documentType": "1",
+                        "actualPickQuantity": 0,
+                        "fulfillQuantity": 0,
+                        "verifiedQuantity": 0
+                    }
+                ],
+                "pickerList": []
+            }
+        ],
+        "pickerIdLists": null
+    },
+    "timestamp": 1528705856
+}    
+
+
+### /logic/v2/PickList/{id}/DocumentView
+#### GET [GET]
++ View Pick List in terms of Sales Order
+
++ Request
+    + id (required) - pick list Id
+    
+    + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+    
+    + Body
+            
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+    {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "salesOrder": null,
+        "salesOrderList": [
+            {
+                "id": 379014,
+                "soDateTime": "2018-01-16T11:28:12.000Z",
+                "total": 1600,
+                "recipient": "abc def",
+                "clientId": "5042",
+                "clientName": "Cindy E. B",
+                "paidAmount": 0,
+                "balance": 1600,
+                "term": "0",
+                "cashier": "RealMart Admin",
+                "billingAddress": {
+                    "street": "dfsfsd",
+                    "city": "",
+                    "state": "",
+                    "zipcode": "",
+                    "country": ""
+                },
+                "billingRemark": "",
+                "shippingAdress": {
+                    "street": "",
+                    "city": "",
+                    "state": "",
+                    "zipcode": "",
+                    "country": ""
+                },
+                "shippingRemark": "",
+                "shipmentDateTime": "0001-01-01T00:00:00.000Z",
+                "salesOrderPerson": "RealMart Admin",
+                "shipStatus": "PENDING",
+                "salesOrderStatus": "CONFIRMED",
+                "paymentStatus": "PENDING",
+                "locationId": "263c7e6e0bf74d8d8244ab85c497a59f",
+                "remark": "",
+                "discountPercentage": 0,
+                "taxPercentage": 0,
+                "profit": 200,
+                "isCashSales": false,
+                "isWebSales": true,
+                "rounding": 0,
+                "recipientContact": "01631033233",
+                "cancellationInfo": {
+                    "cancelBy": null,
+                    "cancelRemark": null,
+                    "IsoCancelDateTime": {
+                        "IsoPerformDate": "0001-01-01T00:00:00.000Z",
+                        "PerformDate": "01/01/0001",
+                        "PerformTime": "00:00:00.000Z",
+                        "DateTimePerformDate": "0001-01-01T00:00:00",
+                        "PerformDateTime": null
+                    },
+                    "cancelOutlet": null
+                },
+                "netAmount": 0,
+                "returnSales": false,
+                "internalSales": true,
+                "internalSalesLocationId": "6678c94c797f47d7a299aa69ea04b55b",
+                "receiveId": null,
+                "frReceiveId": "",
+                "internalSalesReceiveVendorId": "",
+                "internalSalesReceiveVendorName": "",
+                "type": "Internal Sales",
+                "tenderedAmount": 0,
+                "receiptPrintCount": 0,
+                "serverAudit": 0,
+                "purchaseOrderNumber": "",
+                "confirmLocationId": "263c7e6e0bf74d8d8244ab85c497a59f",
+                "siteId": "3790",
+                "quotationId": "",
+                "customField1": "",
+                "customField2": "",
+                "customField3": "",
+                "customField4": "",
+                "customField5": "",
+                "declarationSessionId": "37903",
+                "eodLogId": "37903",
+                "storeEODId": null,
+                "mgstTaxAmount": 0,
+                "exchangeRate": 1,
+                "isRecursive": false,
+                "recursiveFrequency": null,
+                "recursiveDateFrom": null,
+                "recursiveDateTo": null,
+                "recursiveCounter": 0,
+                "billingDate": null,
+                "foreignTotalAmount": 1600,
+                "currencyCode": "",
+                "shipmentProvider": null,
+                "localAmountExcrate": 0,
+                "foreignAmountExcrate": 0,
+                "integrationCustomField1": null,
+                "integrationCustomField2": null,
+                "integrationCustomField3": null,
+                "integrationCustomField4": null,
+                "integrationCustomField5": null,
+                "integrationCustomField6": null,
+                "integrationCustomField7": null,
+                "integrationCustomField8": null,
+                "integrationCustomField9": null,
+                "integrationCustomField10": null,
+                "externalRefId": null,
+                "soItems": [
+                    {
+                        "itemId": 37905,
+                        "itemName": "ITEM NORMAL 01",
+                        "itemType": "Type02",
+                        "itemModel": "00 ITEM MODEL 1",
+                        "description": "Best seller in 2017. Will be the next generation PC in the world.",
+                        "unitPrice": 400,
+                        "vendorCode": "37901",
+                        "salesOrderId": "379014",
+                        "returnId": null,
+                        "numberOfReturn": 0,
+                        "quantity": 4,
+                        "shippedQuantity": 0,
+                        "profit": 50,
+                        "cost": 0,
+                        "discountPercentage": 0,
+                        "instoreLocation": "default",
+                        "brand": "00 ITEM BRAND 1",
+                        "clientId": "5042",
+                        "clientName": "Cindy E. B",
+                        "salesOrderDate": "2018-01-16T00:00:00.000Z",
+                        "locationId": "263c7e6e0bf74d8d8244ab85c497a59f",
+                        "onSalesItemCode": "ITN01",
+                        "Prices": {
+                            "manufacturerPrice": 400,
+                            "salePrice": 1000,
+                            "employeePrice": 400,
+                            "wholesalePrice": 400,
+                            "customPrice": 400,
+                            "webPrice": 400,
+                            "webDealerPrice": 405,
+                            "cost": 350
+                        },
+                        "isUniqueItem": false,
+                        "uniqueId": "",
+                        "isPackage": false,
+                        "isService": false,
+                        "isPrepack": false,
+                        "commissionOne": 10,
+                        "commissionRateOne": 1,
+                        "commissionTwo": 20,
+                        "commissionRateTwo": 2,
+                        "commissionThree": 30,
+                        "commissionRateThree": 3,
+                        "commissionFour": 4,
+                        "commissionRateFour": 4,
+                        "itemCategory": "00 ITEM CATEGORY",
+                        "remark": "",
+                        "packageCode": "",
+                        "isPrint": true,
+                        "parentId": "",
+                        "pcId": "",
+                        "itemIndex": "0",
+                        "isMatrix": false,
+                        "matrixId": "",
+                        "matrixBarcode": "",
+                        "matrixSet1Value": null,
+                        "matrixSet2Value": null,
+                        "matrixSet3Value": null,
+                        "matrixSet4Value": null,
+                        "matrixSet5Value": null,
+                        "isFOC": false,
+                        "salesOrderPerson": "RealMart Admin",
+                        "alternateLookUp": "0166666666",
+                        "uom": "Unit XX",
+                        "isWeighted": 0,
+                        "scanCode": "ITN01",
+                        "epayTransactionId": null,
+                        "salesNo": "0",
+                        "status": "CONFIRMED",
+                        "quotationsNo": "",
+                        "totalSold": 0,
+                        "multiLevelDiscount": "",
+                        "declarationSessionId": "37903",
+                        "eodLogId": "37903",
+                        "promoIgnore": false,
+                        "promoGuid": "",
+                        "customField1": "",
+                        "customField2": "",
+                        "customField3": "",
+                        "customField4": "",
+                        "customField5": "",
+                        "promoGroup": "100promo",
+                        "gstTaxCode": "SR",
+                        "gstPercentage": 6,
+                        "gstAmount": 0,
+                        "gstInclusive": false,
+                        "enterPrice": 400,
+                        "isAdhoc": false,
+                        "recursiveDateFrom": null,
+                        "recursiveDateTo": null,
+                        "foreignUnitPrice": 400,
+                        "foreignSubtotal": 1600,
+                        "subTotal": 1600,
+                        "totalTaxAmount": 0,
+                        "totalDiscountAmount": 0
+                    }
+                ],
+                "collections": []
+            },
+            {
+                "id": 379015,
+                "soDateTime": "2018-01-16T11:31:36.000Z",
+                "total": 0,
+                "recipient": " ",
+                "clientId": "8002",
+                "clientName": "nene_0",
+                "paidAmount": 0,
+                "balance": 0,
+                "term": "",
+                "cashier": "RealMart Admin",
+                "billingAddress": {
+                    "street": "",
+                    "city": "",
+                    "state": "",
+                    "zipcode": "",
+                    "country": ""
+                },
+                "billingRemark": "",
+                "shippingAdress": {
+                    "street": "",
+                    "city": "",
+                    "state": "",
+                    "zipcode": "",
+                    "country": ""
+                },
+                "shippingRemark": "",
+                "shipmentDateTime": null,
+                "salesOrderPerson": "RealMart Admin",
+                "shipStatus": "PENDING",
+                "salesOrderStatus": "CONFIRMED",
+                "paymentStatus": "PENDING",
+                "locationId": "263c7e6e0bf74d8d8244ab85c497a59f",
+                "remark": "",
+                "discountPercentage": 0,
+                "taxPercentage": 0,
+                "profit": -820.76,
+                "isCashSales": false,
+                "isWebSales": false,
+                "rounding": 0,
+                "recipientContact": "",
+                "cancellationInfo": null,
+                "netAmount": 0,
+                "returnSales": false,
+                "internalSales": false,
+                "internalSalesLocationId": null,
+                "receiveId": null,
+                "frReceiveId": "",
+                "internalSalesReceiveVendorId": null,
+                "internalSalesReceiveVendorName": null,
+                "type": "Retail",
+                "tenderedAmount": 0,
+                "receiptPrintCount": 0,
+                "serverAudit": 0,
+                "purchaseOrderNumber": "",
+                "confirmLocationId": "263c7e6e0bf74d8d8244ab85c497a59f",
+                "siteId": "3790",
+                "quotationId": "",
+                "customField1": "",
+                "customField2": "",
+                "customField3": "",
+                "customField4": "",
+                "customField5": "",
+                "declarationSessionId": "37903",
+                "eodLogId": "37903",
+                "storeEODId": null,
+                "mgstTaxAmount": 0,
+                "exchangeRate": 1,
+                "isRecursive": false,
+                "recursiveFrequency": null,
+                "recursiveDateFrom": null,
+                "recursiveDateTo": null,
+                "recursiveCounter": 0,
+                "billingDate": null,
+                "foreignTotalAmount": 0,
+                "currencyCode": "",
+                "shipmentProvider": null,
+                "localAmountExcrate": 0,
+                "foreignAmountExcrate": 0,
+                "integrationCustomField1": null,
+                "integrationCustomField2": null,
+                "integrationCustomField3": null,
+                "integrationCustomField4": null,
+                "integrationCustomField5": null,
+                "integrationCustomField6": null,
+                "integrationCustomField7": null,
+                "integrationCustomField8": null,
+                "integrationCustomField9": null,
+                "integrationCustomField10": null,
+                "externalRefId": null,
+                "soItems": [
+                    {
+                        "itemId": 5056,
+                        "itemName": "pre2102",
+                        "itemType": "Hamper",
+                        "itemModel": "Hamper",
+                        "description": "",
+                        "unitPrice": 0,
+                        "vendorCode": "",
+                        "salesOrderId": "379015",
+                        "returnId": null,
+                        "numberOfReturn": 0,
+                        "quantity": 2,
+                        "shippedQuantity": 0,
+                        "profit": -410.38,
+                        "cost": 0,
+                        "discountPercentage": 0,
+                        "instoreLocation": "default",
+                        "brand": "",
+                        "clientId": "8002",
+                        "clientName": "nene_0",
+                        "salesOrderDate": "2018-01-16T00:00:00.000Z",
+                        "locationId": "263c7e6e0bf74d8d8244ab85c497a59f",
+                        "onSalesItemCode": "pre2102",
+                        "Prices": {
+                            "manufacturerPrice": 0,
+                            "salePrice": 410.38,
+                            "employeePrice": 0,
+                            "wholesalePrice": 0,
+                            "customPrice": 0,
+                            "webPrice": 0,
+                            "webDealerPrice": 0,
+                            "cost": 410.38
+                        },
+                        "isUniqueItem": false,
+                        "uniqueId": "",
+                        "isPackage": true,
+                        "isService": false,
+                        "isPrepack": true,
+                        "commissionOne": 0,
+                        "commissionRateOne": 0,
+                        "commissionTwo": 0,
+                        "commissionRateTwo": 0,
+                        "commissionThree": 0,
+                        "commissionRateThree": 0,
+                        "commissionFour": 0,
+                        "commissionRateFour": 0,
+                        "itemCategory": "001",
+                        "remark": "",
+                        "packageCode": "",
+                        "isPrint": true,
+                        "parentId": "",
+                        "pcId": "",
+                        "itemIndex": "0",
+                        "isMatrix": false,
+                        "matrixId": "",
+                        "matrixBarcode": "",
+                        "matrixSet1Value": null,
+                        "matrixSet2Value": null,
+                        "matrixSet3Value": null,
+                        "matrixSet4Value": null,
+                        "matrixSet5Value": null,
+                        "isFOC": false,
+                        "salesOrderPerson": "RealMart Admin",
+                        "alternateLookUp": "5056",
+                        "uom": "",
+                        "isWeighted": 0,
+                        "scanCode": "pre2102",
+                        "epayTransactionId": null,
+                        "salesNo": null,
+                        "status": "CONFIRMED",
+                        "quotationsNo": null,
+                        "totalSold": 0,
+                        "multiLevelDiscount": "",
+                        "declarationSessionId": "37903",
+                        "eodLogId": "37903",
+                        "promoIgnore": false,
+                        "promoGuid": "",
+                        "customField1": "",
+                        "customField2": "JolinTest",
+                        "customField3": "",
+                        "customField4": "",
+                        "customField5": "",
+                        "promoGroup": "P1",
+                        "gstTaxCode": "ZRL",
+                        "gstPercentage": 0,
+                        "gstAmount": 0,
+                        "gstInclusive": false,
+                        "enterPrice": 0,
+                        "isAdhoc": false,
+                        "recursiveDateFrom": null,
+                        "recursiveDateTo": null,
+                        "foreignUnitPrice": 0,
+                        "foreignSubtotal": 0,
+                        "subTotal": 0,
+                        "totalTaxAmount": 0,
+                        "totalDiscountAmount": 0
+                    }
+                ],
+                "collections": []
+            }
+        ]
+    },
+    "timestamp": 1528705953
+}
+            
+
+### /logic/v2/PickList/Picker
+#### GET [GET]
++ Retrieve Picker Id List
+
++ Request
+    + Headers
+            token: {token}
+            dkey: {dkey}
+            Content-Type: application/json
+    
+    + Body
+            
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+    {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "pickList": null,
+        "pickLists": null,
+        "pickerIdLists": [
+            "9003",
+            "9004",
+            "9005",
+            "9006",
+            "9007",
+            "9008",
+            "9009",
+            "0122490162",
+            "34201",
+            "34202",
+            "34203",
+            "34204",
+            "34205",
+            "34206",
+            "34207",
+            "34208",
+            "34209",
+            "0129259015",
+            "90010",
+            "90011",
+            "90012",
+            "90013",
+            "342010",
+            "342011",
+            "342012",
+            "342013",
+            "342014",
+            "342015",
+            "342016",
+            "342017",
+            "342018",
+            "342019",
+            "342020",
+            "342021",
+            "342022",
+            "342023",
+            "342024",
+            "342025",
+            "342026",
+            "342027",
+            "342028",
+            "342029"
+        ]
+    },
+    "timestamp": 1528707466
+}
+
+
+    
 #  Data Structures
 ## SaleV2 (object)
 + clientId
