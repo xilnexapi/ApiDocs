@@ -2411,14 +2411,14 @@ To retrive item details by code
               "properties": {}
             }
             
-### /logic/v2/items/barcodequery?code={code}&locationid={locationid}
+### /logic/v2/items/barcodequery?code={code}&outlet={outlet}
 
 #### GET
 To retrive item details by code and location
 
 + Parameter
     + code: item code
-    + locationId: location id
+    + outlet: outlet name
     
 + Request
 
@@ -2733,6 +2733,36 @@ To retrive item price schemes name list
 
 ### /logic/v2/outlets
 
+#### POST
+
++ Request
+    
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {  
+               "ok":true,
+               "status":"SuccessInsert",
+               "warning":null,
+               "error":null,
+               "data":{  
+                  "outlet":
+                    {  
+                        "outlet":"MAIN BRANCH"
+                     }
+               },
+               "timestamp":1487903117
+            }
+
 #### GET
 
 + Request
@@ -2755,19 +2785,19 @@ To retrive item price schemes name list
                "warning":null,
                "error":null,
                "data":{  
-                  "location":null,
-                  "locations":[  
+                  "outlet":null,
+                  "outlets":[  
                      {  
                         "id":"1",
-                        "outlet":"MAIN BRANCH"
+                        "name":"MAIN BRANCH"
                      },
                      {  
                         "id":"a0e2cf1fbfd4414f8356d6e2a32e6457",
-                        "outlet":"PENANG BRANCH"
+                        "name":"PENANG BRANCH"
                      },
                      {  
                         "id":"c0d0b16f4b0c4834a52087176462bdc1",
-                        "outlet":"PERAK BRANCH"
+                        "name":"PERAK BRANCH"
                      }
                   ]
                },
@@ -2798,11 +2828,11 @@ To retrive item price schemes name list
                "warning":null,
                "error":null,
                "data":{  
-                  "location":{  
+                  "outlet":{  
                      "id":"7d6f07132d2045d2be58e9f0ed807727",
                      "outlet":"Cheras"
                   },
-                  "locations":null
+                  "outlets":null
                },
                "timestamp":1487903159
             }
@@ -2870,38 +2900,6 @@ To retrive item price schemes name list
             {
     "Version": "20180116.090206"
 }
-
-    + Schema
-
-            {
-              "type": "object",
-              "properties": {}
-            }
-
-## Group Locations
-### /logic/v1/locationfunctions/NewOutlet/{outletname}
-
-#### POST
-
-+ Parameters
-
-    + outletname (required)
-
-+ Request
-
-    + Headers
-
-            Accept: application/json
-
-    + Body
-
-+ Response 200 (application/json)
-
-    OK
-
-    + Body
-
-            {}
 
     + Schema
 
@@ -7452,7 +7450,7 @@ The standard Post sales fields are these:
      + Body
     {  
    "status":"Picked",
-   "PickItems":[  
+   "pickItems":[  
       {  
          "id":379017,
          "actualPickQuantity":4
@@ -7546,7 +7544,7 @@ The standard Post sales fields are these:
      + Body
     {
     "status": "Completed",
-    "PickItems": 
+    "pickItems": 
     [
     {
     "id": 379017,
@@ -8182,7 +8180,7 @@ The standard Post sales fields are these:
   "timestamp":1528775823
 }
 
-### /logic/v2/PickList/{id}/DocumentView
+### /logic/v2/PickList/{id}/Documents
 #### GET [GET]
 + View Pick List in terms of Sales Order
 
