@@ -4556,7 +4556,7 @@ get sales by Sales id
                     "zipcode": null,
                     "country": null
                   },
-                  "shippingAdress": {
+                  "shippingAddress": {
                     "street": null,
                     "city": null,
                     "state": null,
@@ -4685,7 +4685,7 @@ get sales by client id and date range
                        "zipcode":null,
                        "country":null
                     },
-                    "shippingAdress":{  
+                    "shippingAddress":{  
                        "street":null,
                        "city":null,
                        "state":null,
@@ -5214,7 +5214,7 @@ The standard Post sales fields are these:
 | method |string| YES | Collection: cash, card, bank, cheque, web, creditnote, voucher, point, debitcard, forfeiture_voucher, creditcard_charges, contra, tradein, Other, BCard, prepaid, BCardToken, TnG, Entertainment, XCard |
 | client |object| NO |  |
 | cashier |string| NO | cashier name |
-| shippingAdress |object| NO |  |
+| shippingAddress |object| NO |  |
 | discountPercentage |number| NO |discount percentage for all order item. if discount percentage and bill Discount Amount both exist, api will take discount percentage as priority!  |
 | billDiscountAmount |decimal| NO |discount amount for transaction, discount amount will split into each order item.  |
 | recipientContact |string| NO |  |
@@ -5234,7 +5234,7 @@ The standard Post sales fields are these:
     + method(Collection) - cash, card, bank, cheque, web, creditnote, voucher, point, debitcard, forfeiture_voucher, creditcard_charges, contra, tradein, Other, BCard, prepaid, BCardToken, TnG, Entertainment, XCard 
     + client(Optional)
     + cashier(Optional)
-    + shippingAdress(Optional)
+    + shippingAddress(Optional)
     + discountPercentage(Optional) - discount percentage for all order item. if discount percentage and bill Discount Amount both exist, api will take discount percentage as priority!
     + billDiscountAmount(Optional, decimal) - discount amount for transaction, discount amount will split into each order item.
     + recipientContact(Optional)
@@ -5274,7 +5274,7 @@ The standard Post sales fields are these:
                             "country":""
                          }
                     },
-                    "shippingAdress":{  
+                    "shippingAddress":{  
                         "street":null,
                         "city":null,
                         "state":null,
@@ -5296,8 +5296,6 @@ The standard Post sales fields are these:
                         "quantity":1,
                         "enterPrice":88,
                         "discountPercentage":0,
-                        "matrixId":"201",
-                        "matrixBarcode":"matrix001"
                         "gstInclusive":true
                     }
                     ],
@@ -5594,7 +5592,7 @@ The standard Post sales fields are these:
     + method(Collection) - cash, card, bank, cheque, web, creditnote, voucher, point, debitcard, forfeiture_voucher, creditcard_charges, contra, tradein, Other, BCard, prepaid, BCardToken, TnG, Entertainment, XCard 
     + clientId(Optional)
     + cashier(Optional)
-    + shippingAdress(Optional)
+    + shippingAddress(Optional)
     + discountPercentage(Optional) - discount percentage for all order item. if discount percentage and bill Discount Amount both exist, api will take discount percentage as priority!
     + billDiscountAmount(Optional) - discount amount for transaction, discount amount will split into each order item.
     + recipientContact(Optional)
@@ -5866,7 +5864,7 @@ The standard Post sales fields are these:
     + method(Collection) - cash, card, bank, cheque, web, creditnote, voucher, point, debitcard, forfeiture_voucher, creditcard_charges, contra, tradein, Other, BCard, prepaid, BCardToken, TnG, Entertainment, XCard 
     + clientId(Optional)
     + cashier(Optional)
-    + shippingAdress(Optional)
+    + shippingAddress(Optional)
     + discountPercentage(Optional) - discount percentage for all order item. if discount percentage and bill Discount Amount both exist, api will take discount percentage as priority!
     + billDiscountAmount(Optional) - discount amount for transaction, discount amount will split into each order item.
     + recipientContact(Optional)
@@ -6160,7 +6158,7 @@ The standard Post sales fields are these:
     + method(Collection) - cash, card, bank, cheque, web, creditnote, voucher, point, debitcard, forfeiture_voucher, creditcard_charges, contra, tradein, Other, BCard, prepaid, BCardToken, TnG, Entertainment, XCard 
     + clientId(Optional)
     + cashier(Optional)
-    + shippingAdress(Optional)
+    + shippingAddress(Optional)
     + discountPercentage(Optional) - discount percentage for all order item. if discount percentage and bill Discount Amount both exist, api will take discount percentage as priority!
     + billDiscountAmount(Optional) - discount amount for transaction, discount amount will split into each order item.
     + recipientContact(Optional)
@@ -7555,11 +7553,11 @@ The standard Post sales fields are these:
     [
     {
     "id": 379017,
-    "FulfillQuantity": 4
+    "fulfillQuantity": 4
     },
     {
    "id": 379018,
-   "FulfillQuantity": 1
+   "fulfillQuantity": 1
     }
     ]
     }
