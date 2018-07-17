@@ -879,7 +879,7 @@ Update client detail
             }
             
         
-## Group Commision
+## Group Commission
 
 ### /logic/v2/commission/{id}
 
@@ -5288,7 +5288,7 @@ The standard Post sales fields are these:
                     "collections":[
                     {
                         "method":"cash",
-                        "tenderAmount":100
+                        "amount":100
                     },
                     {   "method":"card",
                         "amount": 10
@@ -7661,7 +7661,7 @@ Get invoice by id
             "timestamp": 1528683840
         }  
 
-### /logic/v2/PickList/{id}/Picked
+### /logic/v2/picklist/{id}/picked
 #### POST [POST]
 + Perform ePicking by pick list id
 + Parameters
@@ -8027,7 +8027,7 @@ Get invoice by id
 
 ### /logic/v2/picklist/recent?status={status}
 #### GET [GET]
-+ Get Top Recent Pick Lists
++ Get top recent pick list
 
 + Parameters
    + status(required, String) ... Pick list status
@@ -8548,7 +8548,7 @@ Get invoice by id
 
 ### /logic/v2/picklist/pickers
 #### GET [GET]
-+ Retrieve Picker Id List
++ Retrieve picker id list
 
 + Request
     + Headers
