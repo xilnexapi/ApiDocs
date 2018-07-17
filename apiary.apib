@@ -256,8 +256,7 @@ Retrive access control by access group or user group or user name or access Area
 ## Group Clients
 
 ### /logic/v2/clients/pointadjust
-#### PUT
-+ Adjust customer point 
+#### Adjust customer point [PUT]
 + Parameters
     + pointAdjustment: 5, -5
     
@@ -288,9 +287,9 @@ Retrive access control by access group or user group or user name or access Area
         }
         
 ### /logic/v2/clients/query?code={client_code}
-#### GET
-+ Use to retrive single result, the code must be exactly same
-+ search: alternate lookup-> company name-> mobile-> customer code-> ic-> email
+#### Retrieve clients information [GET]
+Use to retrive single result, the code must be exactly same
+search: alternate lookup-> company name-> mobile-> customer code-> ic-> email
 
 + Parameters
     + client_code: Client code, mobile, identity card, client name 
@@ -368,8 +367,9 @@ Retrive access control by access group or user group or user name or access Area
         }
         
 ### /logic/v2/clients/search?code={client_code}
-#### GET
-+ Use to retrive a list of result, api will query data like AnyCode.
+#### Retrieve clients information [GET]
+Use to retrive single result, the code must be exactly same
+search: alternate lookup-> company name-> mobile-> customer code-> ic-> email
 
 + Parameters
     + client_code: Client code, mobile, identity card, company name 
@@ -447,11 +447,10 @@ Retrive access control by access group or user group or user name or access Area
         }
 
 ### /logic/v2/clients/{id}
-#### GET
-+ To retrive client Information
+#### Retrieve client information [GET]
 
 + Parameters
-    + id: Client id
+    + id (required, Number) ... Client id
     
 + Request
     
@@ -526,10 +525,10 @@ Retrive access control by access group or user group or user name or access Area
 
 ### /logic/v2/clients/{id}/sales
 #### GET
-+ To retrieve client purchase history
++ Retrieve client purchase history
 
 + Parameters
-    + id: Client id
+    + id(optional, number) ... Client id
     
 + Request
     
@@ -4632,8 +4631,8 @@ get sales by client id and date range
 + Parameters
 
     + client_id: Client id
-    + date_from: Date from (YYYY-MM-DDThh:mm:ss.sssZ)
-    + date_to: Date to (YYYY-MM-DDThh:mm:ss.sssZ)
+    + date_from: Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Date from
+    + date_to: Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Date to
     + outlet: Outlet name
 
 + Request
@@ -7858,8 +7857,8 @@ Get invoice by id
 + Filter pick list by date and pick list Id 
 + Parameters
     + id (required, Number) ... Pick list id
-    + datefrom(required, Date) ... Date from
-    + dateto(required, Date) ... Date to
+    + datefrom(required, Date) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Date from
+    + dateto(required, Date) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Date to
     + pickerId(required, Number) ... Picker id
     + status(required, String) ... Pick list status
     
