@@ -86,7 +86,7 @@ permissions for requested operation.
 
 ## Group AccessControl
 
-### /logic/v1/accesscontrol/{accessGroup}/{userGroup}
+### /logic/v1/accesscontrol/{access_group}/{user_group}
 
 #### GET
 
@@ -94,10 +94,10 @@ Retrive access control by access group and user group
 
 + Parameters
 
-    + accessGroup (required) -  Administration, Client, Custom, Item, Listing,
+    + access_group (required) -  Administration, Client, Custom, Item, Listing,
     Menu_Tab, Purchasing, Receive, Report_Printing, Sales, Vendor, Report
     
-    + userGroup (required)
+    + user_group (required)
 
 + Request
 
@@ -122,9 +122,9 @@ Retrive access control by access group and user group
               "properties": {}
             }
 
-### /logic/v1/accesscontrol/Accesscontrols
+### /logic/v1/accesscontrol/accesscontrols
 
-####  get Access control [GET]
+####  Get access control [GET]
 
 Retrive access control by access group or user group or user name or access Area
 + Parameters
@@ -161,7 +161,7 @@ Retrive access control by access group or user group or user name or access Area
               "properties": {}
             }
 
-### /logic/v1/accesscontrol/Save
+### /logic/v1/accesscontrol/save
 
 #### Save or update the user group permission [POST]
 
@@ -255,9 +255,9 @@ Retrive access control by access group or user group or user name or access Area
 
 ## Group Clients
 
-### /logic/v2/clients/pointAdjust
+### /logic/v2/clients/pointadjust
 #### PUT
-+ Use to adjust customer point 
++ Adjust customer point 
 + Parameters
     + pointAdjustment: 5, -5
     
@@ -287,13 +287,13 @@ Retrive access control by access group or user group or user name or access Area
            "timestamp":1504759973
         }
         
-### /logic/v2/clients/query?code={AnyCode}
+### /logic/v2/clients/query?code={client_code}
 #### GET
 + Use to retrive single result, the code must be exactly same
 + search: alternate lookup-> company name-> mobile-> customer code-> ic-> email
 
 + Parameters
-    + AnyCode: Client code, mobile, identity card, client name 
+    + client_code: Client code, mobile, identity card, client name 
     
 + Request
     
@@ -367,12 +367,12 @@ Retrive access control by access group or user group or user name or access Area
           "timestamp": 1487901986
         }
         
-### /logic/v2/clients/search?code={AnyCode}
+### /logic/v2/clients/search?code={client_code}
 #### GET
 + Use to retrive a list of result, api will query data like AnyCode.
 
 + Parameters
-    + AnyCode: Client code, mobile, identity card, company name 
+    + client_code: Client code, mobile, identity card, company name 
     
 + Request
     
@@ -648,7 +648,7 @@ create customer without go through compulsory setting
             Header: {header}
             Token: {token}
     + Body
-    
+        
         {  
             "client":{  
               "id":0,
@@ -768,13 +768,13 @@ create customer without go through compulsory setting
         }
 
         
-### /logic/v2/clients/{clientId}
+### /logic/v2/clients/{client_id}
 
 #### PUT
 
 Update client detail
 + Parameters
-    + clientId: client id
+    + client_id: client id
     + paymentTerms: (Optional, number)- Payment terms
     + paymentTermsRemark: (Optional)- Payment terms remark
     + accountNumber: (Optional)- Account number
@@ -935,7 +935,7 @@ Update client detail
             }
 
 
-### /login/v2/commision/profits
+### /login/v2/commission/profits
 
 #### POST
 
@@ -1000,7 +1000,7 @@ Update client detail
     + Schema
     
     
-### /login/v2/commision/profits?year={year}&month={month}&outletname={outlet}
+### /login/v2/commission/profits?year={year}&month={month}&outletname={outlet}
 
 #### GET
 
@@ -1048,7 +1048,7 @@ Update client detail
 
     + Schema
     
-### /login/v2/commision/rates
+### /login/v2/commission/rates
 
 #### POST
 
@@ -1109,7 +1109,7 @@ Update client detail
 
     + Schema
     
-### /login/v2/commision/rates
+### /login/v2/commission/rates
 
 #### PUT
 
@@ -1171,7 +1171,7 @@ Update client detail
 
     + Schema
     
-### /login/v2/commision/users
+### /login/v2/commission/users
 
 #### GET
 
@@ -1215,7 +1215,7 @@ Update client detail
 
     + Schema
     
-### /login/v2/commision/users
+### /login/v2/commission/users
 
 #### POST
 
@@ -1278,7 +1278,7 @@ Update client detail
 
     + Schema
     
-### /login/v2/commision/users
+### /login/v2/commission/users
 
 #### PUT
 
@@ -1342,7 +1342,7 @@ Update client detail
 
     + Schema
 
-### /login/v2/commision/users
+### /login/v2/commission/users
 
 #### DELETE
 
@@ -1375,13 +1375,13 @@ Update client detail
     
 ## Group CompanyInfo
 
-### /logic/v1/companyinfo/{locationid}
+### /logic/v1/companyinfo/{outlet_id}
 
 #### GET
 
 + Parameters
 
-    + locationid (required)
+    + outlet_id (required)
 
 + Request
 
@@ -1406,7 +1406,7 @@ Update client detail
               "properties": {}
             }
 
-### /logic/v1/companyinfo/PostCompanyInfo
+### /logic/v1/companyinfo/postcompanyinfo
 
 #### POST
 
@@ -1535,7 +1535,7 @@ Update client detail
               "properties": {}
             }
 
-### /logic/v1/companyinfo/PostSignUpDetails
+### /logic/v1/companyinfo/postsignupdetails
 
 #### POST
 
@@ -1619,12 +1619,12 @@ Use to update invoice id when sales is cancel and re-create
                 }
             }
 
-### /logic/v2/integration/pending?integrationModule={integrationModule}&documentType={documentType}
+### /logic/v2/integration/pending?integrationmodule={integration_module}&documenttype={document_type}
 #### GET
 Get pending orders based on integration module
 + Parameters
-    + documentType: Example: Sales Invoice, Sales Order
-    + integrationModule: Example: Lazada, 11street, Shopee
+    + integration_module: Example: Lazada, 11street, Shopee
+    + document_type: Example: Sales Invoice, Sales Order
 + Request
 
     + Headers
@@ -1656,13 +1656,13 @@ Get pending orders based on integration module
                "timestamp":1489543516
             }
     
-### /logic/v2/integration/document?integrationModule={integrationModule}&externalDocumentId={key}
+### /logic/v2/integration/document?integrationmodule={integration_module}&externaldocumentid={document_id}
 #### GET
 Retrieve posted document by key and module
 
 + Parameters
-    + externalDocumentId: Reference key from external Example: e-commerce invoice id
-    + integrationModule: Example Lazada, 11street, Shopee
+    + integration_module: Example Lazada, 11street, Shopee
+    + document_id: Reference key from external Example: e-commerce invoice id
 + Request
 
     + Headers
@@ -1790,13 +1790,13 @@ Retrieve posted document by key and module
                "timestamp":1489543235
             }
 
-### /logic/v2/integration/document?documentType={documentType}&externalDocumentId={key}
+### /logic/v2/integration/document?documenttype={document_type}&externaldocumentid={document_id}
 #### GET
 Retrieve integration status by id and document type
 
 + Parameters
-    + externalDocumentId: Reference key from external Example: e-commerce invoice id
-    + documentType: Example: Sales Invoice, Sales Order
+    + document_id: Reference key from external Example: e-commerce invoice id
+    + document_type: Example: Sales Invoice, Sales Order
 + Request
 
     + Headers
@@ -1924,7 +1924,7 @@ Retrieve integration status by id and document type
                "timestamp":1489543235
             }
 
-### /logic/v2/integration/status?integrationModule={integrationModule}&externalDocumentId={externalDocumentId}
+### /logic/v2/integration/status?integrationmodule={integration_module}&externaldocumentid={document_id}
 #### PATCH
 Update post status on integration
 
@@ -2202,7 +2202,7 @@ To retrive item detail
               "properties": {}
             }
             
-### /logic/v2/items/DynamicModifierItems
+### /logic/v2/items/dynamicmodifieritems
 
 #### GET
 To retrive all dynamic modifier item
@@ -2804,9 +2804,12 @@ To retrive item price schemes name list
                "timestamp":1487903117
             }
             
-### /logic/v2/outlets/{id}
+### /logic/v2/outlets/{outlet_id}
 
 #### GET
+
++ Parameter
+    + outlet_id: Outlet id
 
 + Request
     
@@ -2880,37 +2883,9 @@ To retrive item price schemes name list
                "timestamp":1487903117
             }
 
-## Group Publish
-### /logic/v1/publish/version
-#### GET
-+ Parameters 
-+ Request
-    + Headers
-
-            Accept: application/json
-
-    + Body
-
-+ Response 200 (application/json)
-
-    OK
-
-    + Body
-
-            {
-    "Version": "20180116.090206"
-}
-
-    + Schema
-
-            {
-              "type": "object",
-              "properties": {}
-            }
-
 ## Group Mobile Catalogues
 
-### /logic/v1/MobileCatalogues
+### /logic/v1/mobilecatalogues
 
 #### Create Mobile Catalogues [POST]
 
@@ -3012,13 +2987,12 @@ To retrive item price schemes name list
             
 ## Group Quotation
 
-### /logic/v2/quotations/{quotationsId}
+### /logic/v2/quotations/{quotation_id}
 
 #### Get quotation [GET]
 
-+ Parameters
-
-    + quotationsId (required)
++ Parameter
+    + quotation_id: Quotation id
 
 + Request
 
@@ -3484,9 +3458,12 @@ To retrive item price schemes name list
                 "timestamp": 1480659973
                 }
                 
-### /logic/v2/quotations/{QuotationId}
+### /logic/v2/quotations/{quotation_id}
 
 #### Update quotation [PUT]
+
++ Parameter
+    + quotation_id: Quotation id
 
 + Parameters
     + QuotationId
@@ -3718,12 +3695,12 @@ To retrive item price schemes name list
                 "timestamp": 1480659973
                 }
                 
-### /logic/v2/quotations/{QuotationId}/confirm
+### /logic/v2/quotations/{quotation_id}/confirm
 
 #### Confirm quotation [PUT]
 
-+ Parameters
-    + QuotationId
++ Parameter
+    + quotation_id: Quotation id
     
 + Request
 
@@ -4197,9 +4174,12 @@ To retrive item price schemes name list
 
 ## Group Redemption Voucher
 
-### /logic/v2/redemptionvoucher/vouchers/{voucherno}
+### /logic/v2/redemptionvoucher/vouchers/{voucher_no}
 
 #### Get voucher information [GET]
+
++ Parameter
+    + voucher_no: Voucher number
 
 + Request
 
@@ -4271,9 +4251,14 @@ To retrive item price schemes name list
                 "timestamp": 1528430079
             }
 
-### /logic/v2/redemptionvoucher/salesvoucher/validate?voucherno={voucherno}&outlet={outlet}&clientid={clientid}
+### /logic/v2/redemptionvoucher/salesvoucher/validate?voucherno={voucher_no}&outlet={outlet}&clientid={client_id}
 
 #### validate sales voucher [GET]
+
++ Parameter
+    + voucher_no: Voucher number
+    + outlet: Outlet name
+    + client_id: Client id
 
 + Request
 
@@ -4346,9 +4331,14 @@ To retrive item price schemes name list
                 "timestamp": 1528255644
             }
 
-### /logic/v2/redemptionvoucher/paymentvoucher/validate?voucherno={voucherno}&outlet={outlet}&clientid={clientid}
+### /logic/v2/redemptionvoucher/paymentvoucher/validate?voucherno={voucher_no}&outlet={outlet}&clientid={client_id}
 
 #### validate payment voucher [GET]
+
++ Parameter
+    + voucher_no: Voucher number
+    + outlet: Outlet name
+    + client_id: Client Id
 
 + Request
 
@@ -4466,10 +4456,6 @@ To retrive item price schemes name list
 
 #### redeem sales voucher [PUT]
 
-+ Parameters
-
-    + id (required)
-
 + Request
 
     + Headers
@@ -4507,15 +4493,15 @@ To retrive item price schemes name list
             
 ## Group Sales
 
-### /logic/v2/sales/{SalesId}
+### /logic/v2/sales/{sales_id}
 
 #### Get Sales Detail [GET]
 
-get sales by Sales id
+Get sales by sales id
 
 + Parameters
 
-    + SalesId (required)
+    + sales_id: Sales id
 
 + Request
 
@@ -4637,7 +4623,7 @@ get sales by Sales id
               "properties": {}
             }
             
-### /logic/v2/sales/search?clientid={clientid}&datefrom={datefrom}&dateto={dateto}&outlet={outletname}
+### /logic/v2/sales/search?clientid={client_id}&datefrom={date_from}&dateto={date_to}&outlet={outlet}
 
 #### Get Sales Detail with filter [GET]
 
@@ -4645,10 +4631,10 @@ get sales by client id and date range
 
 + Parameters
 
-    + clientid
-    + datefrom - YYYY-MM-DDThh:mm:ss.sssZ
-    + dateto - YYYY-MM-DDThh:mm:ss.sssZ
-    + outletname
+    + client_id: Client id
+    + date_from: Date from (YYYY-MM-DDThh:mm:ss.sssZ)
+    + date_to: Date to (YYYY-MM-DDThh:mm:ss.sssZ)
+    + outlet: Outlet name
 
 + Request
 
@@ -4906,7 +4892,7 @@ Shipment: NA, PENDING, SHIPPED,
 
 + Parameters
 
-    + id (required) - invoice Id
+    + id (required) - Invoice id
 
 + Request
 
@@ -5080,7 +5066,7 @@ Shipment: NA, PENDING, SHIPPED,
 
 + Parameters
 
-    + id (required) - invoice Id
+    + id (required) - Invoice id
 
 + Request
 
@@ -6632,9 +6618,248 @@ The standard Post sales fields are these:
                "timestamp":1512017209
             }
 
+### /logic/v2/sales/{id}
+
+#### Get Sales Detail [GET]
+
+Get invoice by id
+
++ Parameters
+    + id: Sales id
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+           {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": {
+                    "lastTimestamp": null,
+                    "sale": {
+                        "items": [
+                            {
+                                "id": 90011122,
+                                "itemId": 236016,
+                                "salesDate": null,
+                                "itemName": "1015",
+                                "itemType": "Type",
+                                "model": null,
+                                "description": null,
+                                "unitPrice": 88,
+                                "quantity": 1,
+                                "deliveryQuantity": 0,
+                                "profit": 78.57,
+                                "discountPercentage": 0,
+                                "discountAmount": 0,
+                                "instoreOutlet": "default",
+                                "brand": null,
+                                "itemCode": "1015",
+                                "priceSchemes": {
+                                    "manufacturerPrice": 60,
+                                    "salePrice": 25,
+                                    "employeePrice": 30,
+                                    "wholesalePrice": 40,
+                                    "customPrice": 50,
+                                    "webPrice": 70,
+                                    "webDealerPrice": 80,
+                                    "cost": 9.43
+                                },
+                                "commissionOne": 0,
+                                "commissionTwo": 0,
+                                "commissionRateOne": 10,
+                                "commissionRateTwo": 0,
+                                "commissionThree": 0,
+                                "commissionFour": 0,
+                                "commissionRateThree": 0,
+                                "commissionRateFour": 0,
+                                "category": "Category1",
+                                "remark": null,
+                                "packageCode": null,
+                                "pcid": "",
+                                "matrixId": null,
+                                "matrixBarcode": null,
+                                "matrixX": null,
+                                "matrixY": null,
+                                "alternateLookup": "100010866",
+                                "salesPerson": "Realmart",
+                                "scanCode": "123",
+                                "salesOrderId": null,
+                                "salesOrderItemId": null,
+                                "advanceDiscount": null,
+                                "uniqueId": null,
+                                "alternateUniqueId": null,
+                                "salesItemType": null,
+                                "promoGroup": "PromoGroup1",
+                                "businessDateTime": "2018-07-16T00:00:00.000Z",
+                                "voucherNumber": null,
+                                "CustomValueOne": "1",
+                                "CustomValueTwo": "2",
+                                "CustomValueThree": "3",
+                                "CustomValueFour": "4",
+                                "CustomValueFive": "5",
+                                "taxCode": "ZRL",
+                                "gstPercentage": 0,
+                                "gstAmount": 0,
+                                "gstInclusive": true,
+                                "enterPrice": 88,
+                                "discountRemark": null,
+                                "CustomValueSix": "6",
+                                "CustomValueSeven": "7",
+                                "CustomValueEight": "8",
+                                "CustomValueNine": "9",
+                                "CustomValueTen": "10",
+                                "CustomValueEleven": "7",
+                                "CustomValueTwelve": "12",
+                                "CustomValueThirteen": "13",
+                                "CustomValueFourteen": "14",
+                                "CustomValueFifteen": "15",
+                                "TotalTaxAmount": 0,
+                                "TotalDiscountAmount": 0,
+                                "subtotal": 88,
+                                "cost": 0,
+                                "subItems": null,
+                                "deliveryInfo": null
+                            }
+                        ],
+                        "collections": [
+                            {
+                                "id": 900750,
+                                "clientId": null,
+                                "invoiceId": "90010005",
+                                "amount": 10,
+                                "method": "Cash",
+                                "xCard": null,
+                                "reference": null,
+                                "outlet": "MAIN BRANCH",
+                                "paymentDate": "2018-07-11T00:00:00.000Z",
+                                "isVoid": false,
+                                "creditCardRate": 0,
+                                "siteId": 0,
+                                "cardAppCode": null,
+                                "cardType": null,
+                                "status": "Saved",
+                                "receivedBy": null,
+                                "cardExpiry": null,
+                                "traceNumber": null,
+                                "remark": null,
+                                "tenderAmount": 10,
+                                "change": 0,
+                                "declarationSessionId": "900155",
+                                "eodLogId": "900201",
+                                "isDeposit": false,
+                                "salesOrderId": "",
+                                "cardType2": null,
+                                "cardType3": null,
+                                "businessDate": "2018-07-16T00:00:00.000Z",
+                                "internalReferenceId": null,
+                                "availableBalance": 0,
+                                "usedDate": null,
+                                "prepaidCardNumber": null,
+                                "prepaidReferenceNumber": null,
+                                "exchangeRate": 0,
+                                "currencyCode": null,
+                                "foreignAmount": 0,
+                                "foreignGain": null,
+                                "cardLookup": null
+                            }
+                        ],
+                        "shipments": [],
+                        "id": 90010005,
+                        "dateTime": "2018-07-11T11:15:00.000Z",
+                        "grandTotal": 88,
+                        "paid": 10,
+                        "balance": 78,
+                        "term": 1,
+                        "cashier": "REAL MART Admin",
+                        "shippingStatus": "NA",
+                        "status": "Open",
+                        "paymentStatus": "Pending",
+                        "outlet": "MAIN BRANCH",
+                        "remark": "remak",
+                        "discountPercentage": 0,
+                        "taxPercentage": 0,
+                        "cost": 9.43,
+                        "profit": 78.57,
+                        "rounding": 0,
+                        "netAmount": 88,
+                        "settlementDateTime": null,
+                        "isSalesReturn": false,
+                        "isInternalSales": false,
+                        "internalOutlet": null,
+                        "salesType": null,
+                        "reference": null,
+                        "confirmOutlet": null,
+                        "siteId": "900",
+                        "salesOrderId": null,
+                        "quotationId": null,
+                        "businessDateTime": "2018-07-16T00:00:00.000Z",
+                        "gstTaxAmount": 0,
+                        "customFieldValueOne": null,
+                        "customFieldValueTwo": null,
+                        "customFieldValueThree": null,
+                        "customFieldValueFour": null,
+                        "customFieldValueFive": null,
+                        "estimatedDeliveryDate": null,
+                        "exchangeRate": 0,
+                        "foreignTotalAmount": 0,
+                        "recipientContact": null,
+                        "recipientName": null,
+                        "currencyCode": null,
+                        "salesPerson": "Realmart",
+                        "clientId": null,
+                        "clientName": "CASH",
+                        "billingAddress": null,
+                        "shippingAddress": null,
+                        "client": {
+                            "id": null,
+                            "recipientContact": null,
+                            "recipientName": null,
+                            "name": "CASH",
+                            "billingAddress": null,
+                            "shippingAddress": null,
+                            "billingRemark": null,
+                            "shippingRemark": null,
+                            "shippingDateTime": null,
+                            "IsoShippingDateTime": null,
+                            "type": null
+                        },
+                        "cancelBy": null,
+                        "cancelRemark": null,
+                        "cancelOutlet": null,
+                        "cancelDateTime": null,
+                        "cancellationInfo": null,
+                        "billDiscountAmount": 0,
+                        "integrationCustomField1": null,
+                        "integrationCustomField2": null,
+                        "integrationCustomField3": null,
+                        "integrationCustomField4": null,
+                        "integrationCustomField5": null,
+                        "integrationCustomField6": null,
+                        "integrationCustomField7": null,
+                        "integrationCustomField8": null,
+                        "integrationCustomField9": null,
+                        "integrationCustomField10": null
+                    },
+                    "sales": null
+                },
+                "timestamp": 1531727004
+            }           
+
 ## Group SalesMallIntegrated
 
-### /logic/v1/salesmallintegrated/GetInvoices
+### /logic/v1/salesmallintegrated/getinvoices
 
 #### POST
 
@@ -6693,7 +6918,7 @@ The standard Post sales fields are these:
               "properties": {}
             }
 
-### /logic/v1/salesmallintegrated/UpdatePosted
+### /logic/v1/salesmallintegrated/updateposted
 
 #### POST
 
@@ -7006,7 +7231,7 @@ The standard Post sales fields are these:
 ### /logic/v2/shipment
 
 #### POST
-+ create shipment
++ Create shipment
 + Request
 
     + Headers
@@ -7049,7 +7274,9 @@ The standard Post sales fields are these:
 ### /logic/v2/shipment/{id}
 
 #### GET
-+ get shipment history by shipment id
++ Get shipment history by shipment id
++ Parameters
+    + id (required) - Shipment id
 + Request
 
     + Headers
@@ -7159,10 +7386,9 @@ The standard Post sales fields are these:
 ### /logic/v2/shipment/{id}/trackingcode
 
 #### PUT
-+ update shipment with tracking number
++ Update shipment with tracking number
 + Parameters
-
-    + id (required) - shipment Id
+    + id (required) - Shipment id
 + Request
 
     + Headers
@@ -7373,11 +7599,12 @@ The standard Post sales fields are these:
             }
             
 ## Group PickList
-### /logic/v2/PickList/{id}
+### /logic/v2/picklist/{id}
 #### Get Pick List [GET]
++ Parameters
+    + id (required, Number) ... Pick list id
+
 + Request
-    + id (required) - pick list Id
-    
     + Headers
         token: {token}
         dkey: {dkey}
@@ -7436,10 +7663,9 @@ The standard Post sales fields are these:
 
 ### /logic/v2/PickList/{id}/Picked
 #### POST [POST]
-+ perform ePicking with Pick List Id
++ Perform ePicking by pick list id
 + Parameters
-
-    + id (required) - pick list Id
+    + id (required, Number) ... Pick list id
     
 + Request
      + Headers
@@ -7532,12 +7758,11 @@ The standard Post sales fields are these:
             "timestamp": 1528702101
         }
 
-### /logic/v2/PickList/{id}/Completed
+### /logic/v2/picklist/{id}/completed
 #### POST [POST]
-+ perform fulfillment with Pick List Id
++ Perform fulfillment with pick list id
 + Parameters
-
-    + id (required) - pick list Id
+    + id (required, Number) ... Pick list id
     
 + Request
      + Headers
@@ -7628,14 +7853,15 @@ The standard Post sales fields are these:
     "timestamp": 1528702721
     }
 
-### /logic/v2/PickList/Filter?datefrom={datefrom}&dateto={dateto}&pickerId={pickerId}&status={status}
+### /logic/v2/picklist/filter?datefrom={date_from}&dateto={date_to}&pickerId={picker_id}&status={status}
 #### GET [GET]
-+ Filter Pick List with date and pick list Id 
++ Filter pick list by date and pick list Id 
 + Parameters
-    + datefrom: Iso8601 format
-    + dateto: Iso8601 format
-    + pickerId: picker Id 
-    + status : pick list status
+    + id (required, Number) ... Pick list id
+    + datefrom(required, Date) ... Date from
+    + dateto(required, Date) ... Date to
+    + pickerId(required, Number) ... Picker id
+    + status(required, String) ... Pick list status
     
 + Request
 
@@ -7799,12 +8025,12 @@ The standard Post sales fields are these:
    "timestamp":1529655296
 }
 
-### /logic/v2/PickList/Recent?status={status}
+### /logic/v2/picklist/recent?status={status}
 #### GET [GET]
 + Get Top Recent Pick Lists
 
 + Parameters
-   + status : pick list status
+   + status(required, String) ... Pick list status
     
 + Request
 
@@ -8258,12 +8484,14 @@ The standard Post sales fields are these:
   "timestamp":1530261484
 }
 
-### /logic/v2/PickList/{id}/Documents
+### /logic/v2/picklist/{id}/documents
 #### GET [GET]
-+ View Pick List Document in terms of Sales Order, Sale, Transfer Note or Stock Request
++ View pick list document in terms of Sales Order, Sale, Transfer Note or Stock Request
+
++ Parameters
+   + id(required, Number) ... Pick list id
 
 + Request
-    + id (required) - pick list Id
     
     + Headers
         token: {token}
@@ -8318,7 +8546,7 @@ The standard Post sales fields are these:
 }
     
 
-### /logic/v2/PickList/Pickers
+### /logic/v2/picklist/pickers
 #### GET [GET]
 + Retrieve Picker Id List
 
