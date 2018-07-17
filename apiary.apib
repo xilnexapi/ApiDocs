@@ -258,12 +258,10 @@ Retrive access control by access group or user group or user name or access Area
 ### /logic/v2/clients/pointadjust
 #### Adjust customer point [PUT]
 + Parameters
-    + pointAdjustment: 5, -5
-    
-+ Request
-    
-    + Headers
+    + pointadjustment: 5
 
++ Request
+    + Headers
             Accept: application/json
             Header: {header}
             Token: {token}
@@ -767,13 +765,13 @@ create customer without go through compulsory setting
         }
 
         
-### /logic/v2/clients/{client_id}
+### /logic/v2/clients/{id}
 
 #### PUT
 
 Update client detail
 + Parameters
-    + client_id: client id
+    + id: Client id
     + paymentTerms: (Optional, number)- Payment terms
     + paymentTermsRemark: (Optional)- Payment terms remark
     + accountNumber: (Optional)- Account number
@@ -2803,12 +2801,12 @@ To retrive item price schemes name list
                "timestamp":1487903117
             }
             
-### /logic/v2/outlets/{outlet_id}
+### /logic/v2/outlets/{id}
 
 #### GET
 
 + Parameter
-    + outlet_id: Outlet id
+    + id: Outlet id
 
 + Request
     
@@ -2986,12 +2984,12 @@ To retrive item price schemes name list
             
 ## Group Quotation
 
-### /logic/v2/quotations/{quotation_id}
+### /logic/v2/quotations/{id}
 
 #### Get quotation [GET]
 
 + Parameter
-    + quotation_id: Quotation id
+    + id(required, Number) ... Quotation id
 
 + Request
 
@@ -3457,12 +3455,12 @@ To retrive item price schemes name list
                 "timestamp": 1480659973
                 }
                 
-### /logic/v2/quotations/{quotation_id}
+### /logic/v2/quotations/{id}
 
 #### Update quotation [PUT]
 
 + Parameter
-    + quotation_id: Quotation id
+    + id(required, Number) ... Quotation id
 
 + Parameters
     + QuotationId
@@ -3694,12 +3692,12 @@ To retrive item price schemes name list
                 "timestamp": 1480659973
                 }
                 
-### /logic/v2/quotations/{quotation_id}/confirm
+### /logic/v2/quotations/{id}/confirm
 
 #### Confirm quotation [PUT]
 
 + Parameter
-    + quotation_id: Quotation id
+    + id(required, Number) ... Quotation id
     
 + Request
 
@@ -3931,14 +3929,14 @@ To retrive item price schemes name list
                "timestamp":1487900051
             }
 
-### /logic/v2/quotations/query?datefrom={datefrom}&dateto={dateto}&outlets={outlets name}
+### /logic/v2/quotations/query?datefrom={date_from}&dateto={date_to}&outlets={outlets_id}
 
 #### Get quotation [GET]
 
 + Parameters
-    + datefrom: Iso8601 format
-    + dateto: Iso8601 format
-    + outlets: outlets Id 
+    + date_from(required, Date) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Date from
+    + date_to(required, Date) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Date to
+    + outlets_id(required, String) ... Outlets id
     
 + Request
 
@@ -4178,7 +4176,7 @@ To retrive item price schemes name list
 #### Get voucher information [GET]
 
 + Parameter
-    + voucher_no: Voucher number
+    + voucher_no(required, String) ... Voucher number
 
 + Request
 
@@ -4255,9 +4253,9 @@ To retrive item price schemes name list
 #### validate sales voucher [GET]
 
 + Parameter
-    + voucher_no: Voucher number
-    + outlet: Outlet name
-    + client_id: Client id
+    + voucher_no(required, String) ... Voucher number
+    + outlet(required, String) ... Outlet name
+    + client_id(required, Number) ... Client id
 
 + Request
 
@@ -4335,9 +4333,9 @@ To retrive item price schemes name list
 #### validate payment voucher [GET]
 
 + Parameter
-    + voucher_no: Voucher number
-    + outlet: Outlet name
-    + client_id: Client Id
+    + voucher_no(required, String) ... Voucher number
+    + outlet(required, String) ... Outlet name
+    + client_id(required, Number) ... Client id
 
 + Request
 
@@ -4492,15 +4490,14 @@ To retrive item price schemes name list
             
 ## Group Sales
 
-### /logic/v2/sales/{sales_id}
+### /logic/v2/sales/{id}
 
 #### Get Sales Detail [GET]
 
 Get sales by sales id
 
-+ Parameters
-
-    + sales_id: Sales id
++ Parameter
+    + id(required, Number) ... Sales id
 
 + Request
 
@@ -4629,11 +4626,10 @@ Get sales by sales id
 get sales by client id and date range
 
 + Parameters
-
-    + client_id: Client id
-    + date_from: Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Date from
-    + date_to: Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Date to
-    + outlet: Outlet name
+    + client_id(required, Number) ... Client id
+    + date_from(required, Date) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Date from
+    + date_to(required, Date) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Date to
+    + outlet(required, String) ... Outlet name
 
 + Request
 
@@ -4889,9 +4885,8 @@ Sales invoice can be cancel in all situation such as
 Sales status: OPEN, CONFIRMED, COMPLETED, CANCELLED, WRITE_OFF
 Shipment: NA, PENDING, SHIPPED,
 
-+ Parameters
-
-    + id (required) - Invoice id
++ Parameter
+    + id(required, Number) ... Sales/Invoice id
 
 + Request
 
@@ -5063,9 +5058,8 @@ Sales invoice can be cancel in all situation such as
 Sales status: OPEN, CONFIRMED, COMPLETED, CANCELLED, WRITE_OFF
 Shipment: NA, PENDING, SHIPPED,
 
-+ Parameters
-
-    + id (required) - Invoice id
++ Parameter
+    + id(required, Number) ... Sales/Invoice id
 
 + Request
 
@@ -5214,7 +5208,7 @@ The standard Post sales fields are these:
 | gstInclusive |bool| NO |Set to true, if the posting sales item price is inclusive of GST.  |
 
 + Parameters
-    + outlet - outlet name
+    + outlet(required, String) - outlet name
     + status - OPEN, CONFIRMED, COMPLETED, CANCELLED, WRITE_OFF
     + method(Collection) - cash, card, bank, cheque, web, creditnote, voucher, point, debitcard, forfeiture_voucher, creditcard_charges, contra, tradein, Other, BCard, prepaid, BCardToken, TnG, Entertainment, XCard 
     + client(Optional)
@@ -7196,9 +7190,9 @@ Get invoice by id
             }
             
 
-## Group SalesOrderFunctions
+## Group SalesOrder
 
-### /logic/v1/salesfunctions/RecursiveSO
+### /logic/v1/salesfunctions/recursiveso
 
 #### Auto billing on recursive sales order [POST]
 
@@ -7535,13 +7529,15 @@ Get invoice by id
   
 ## Group Stock
 
-### /logic/v2/stocks/item/{itemId}?outlet={outlet}
+### /logic/v2/stocks/item/{item_id}?outlet={outlet}
 
 #### Get Stock [GET]
 
++ Parameters
+    + item_id(required, Number) ... Item id
+    + outlet(required, String) ... Outlet name
+
 + Request
-    + itemId (required) - item Id
-    + outlet - outlet name
 
     + Headers
 
