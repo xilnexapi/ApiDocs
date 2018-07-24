@@ -7976,6 +7976,99 @@ Get invoice by id
             "timestamp": 1528683840
         }  
 
+### /logic/v2/picklist
+#### POST [POST]
++ Inserting pick list
+
++ Request
+     + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+        
+     + Body
+    {  
+  "status":"Confirmed",
+  "fromLocationName":"MAIN BRANCH",
+  "refId":"",
+  "remarks":"",
+  "description":"",
+  "pickItems":[  
+    {  
+      "id":90032,
+      "itemId":282054,
+      "matrixBarcode":"",
+      "refId":23201,
+      "toLocationName":"",
+      "refItemId":23201,
+      "driverCode":"",
+      "refNo":"",
+      "documentType":"SalesOrder"
+    }
+  ],
+  "pickers":[  
+    {  
+      "pickerName":"SH9999"
+    }
+  ]
+}
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body 
+    {  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "pickList":{  
+      "id":90040,
+      "status":"Confirmed",
+      "generateDate":"2018-07-12T10:40:16.501Z",
+      "generateBy":"realmart@xilnex.com",
+      "fromLocationName":"MAIN BRANCH",
+      "refId":"",
+      "remarks":"",
+      "description":"",
+      "pickingMode":"0",
+      "pickItems":[  
+        {  
+          "id":90032,
+          "itemId":282054,
+          "matrixBarcode":"",
+          "matrixX":null,
+          "matrixY":null,
+          "pickQuantity":1,
+          "refId":23201,
+          "toLocationName":"",
+          "refItemId":23201,
+          "driverCode":"",
+          "refNo":"",
+          "documentType":"SalesOrder",
+          "actualPickQuantity":1,
+          "fulfillQuantity":1,
+          "verifiedQuantity":1,
+          "itemCode":"normal1123456",
+          "itemName":"normal1"
+        }
+      ],
+      "pickers":[  
+        {  
+          "id":"90023",
+          "pickerId":"90023",
+          "pickerName":"SH9999"
+        }
+      ]
+    },
+    "pickLists":null
+  },
+  "timestamp":1531363219
+}
+
+
 ### /logic/v2/picklist/{id}/picked
 #### POST [POST]
 + Perform ePicking by pick list id
