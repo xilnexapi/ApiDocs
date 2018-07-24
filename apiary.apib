@@ -84,20 +84,19 @@ permissions for requested operation.
 
 `GO` - https://github.com/tylerlim/CallXilnexRestApi
 
-## Group AccessControl
+##Group Access Control
+### Access Control Collection [/logic/v1/accesscontrol/{access_group}/{user_group}]
 
-### /logic/v1/accesscontrol/{access_group}/{user_group}
-
-#### GET
+### List access control by user group [GET]
 
 Retrive access control by access group and user group
 
 + Parameters
 
-    + access_group (required) -  Administration, Client, Custom, Item, Listing,
+    + access_group (required, String) ...  Administration, Client, Custom, Item, Listing,
     Menu_Tab, Purchasing, Receive, Report_Printing, Sales, Vendor, Report
     
-    + user_group (required)
+    + user_group (required, String) ... User group
 
 + Request
 
@@ -563,6 +562,87 @@ search: alternate lookup-> company name-> mobile-> customer code-> ic-> email
             "timestamp":1487902292
         }
 
+### /logic/v2/clients/{id}/vouchers
+#### GET
++ Retrieve client available vouchers
+
++ Parameters
+    + Client id
+    
++ Request
+    
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+        
++ Response 200 (application/json)
+
+        {
+            "ok": true,
+            "status": "SuccessQuery",
+            "warning": null,
+            "error": null,
+            "data": {
+                "redemption": null,
+                "voucher": null,
+                "vouchers": [
+                    {
+                        "redemptionOutlet": "",
+                        "clientId": "101",
+                        "voucherNumber": "0000001",
+                        "salesId": null,
+                        "paymentId": null,
+                        "paymentAmount": 0,
+                        "promotionType": "voucher",
+                        "issueBy": "RealMart Admin",
+                        "voucherDate": "2018-07-06T00:00:00.000Z",
+                        "generationSalesId": "0",
+                        "isRedeemed": null,
+                        "groupName": "jihin20%",
+                        "isActivation": true,
+                        "voucherDescription": null,
+                        "outlet": "MAIN BRANCH",
+                        "expiryDate": "2999-12-31T00:00:00.000Z",
+                        "performType": null,
+                        "performRemark": null,
+                        "performDate": null,
+                        "effectiveDate": null,
+                        "isApiVoucher": false,
+                        "cardNumber": null,
+                        "voucherMasterId": 0
+                    },
+                    {
+                        "redemptionOutlet": "",
+                        "clientId": "101",
+                        "voucherNumber": "0000002",
+                        "salesId": null,
+                        "paymentId": null,
+                        "paymentAmount": 0,
+                        "promotionType": "voucher",
+                        "issueBy": "RealMart Admin",
+                        "voucherDate": "2018-07-06T00:00:00.000Z",
+                        "generationSalesId": "0",
+                        "isRedeemed": null,
+                        "groupName": "jihin20%",
+                        "isActivation": true,
+                        "voucherDescription": null,
+                        "outlet": "MAIN BRANCH",
+                        "expiryDate": "2999-12-31T00:00:00.000Z",
+                        "performType": null,
+                        "performRemark": null,
+                        "performDate": null,
+                        "effectiveDate": null,
+                        "isApiVoucher": false,
+                        "cardNumber": null,
+                        "voucherMasterId": 0
+                    }
+                ]
+            },
+            "timestamp": 1532066231
+        }
     
 ### /logic/v2/clients/entryform
 #### GET
@@ -5284,11 +5364,18 @@ The standard Post sales fields are these:
                         "amount":100
                     },
                     {   "method":"card",
-                        "amount": 10
+                        "amount": 5
+                    },
+                    {
+                        "method":"Other",
+                        "amount":5,
+                        "remark":"dummy remark",
+                        "reference":"21984yh32"
                     }
                     ]
                 }
             }
+            
 + Request Shipment by item to diffrent address
     + Body
             {  
@@ -7593,6 +7680,239 @@ Get invoice by id
                "timestamp":1511158730
             }
             
+## Group Order
+### /logic/v2/order/{id}
+#### Get Order [GET]
++ Parameters
+  + id(required, Number) ... Order id
+
++ Request
+    + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+        
+ + Body
+            
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+    {  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "order":{  
+      "id":90039,
+      "orderDateTime":"2018-07-05T11:51:33.000Z",
+      "totalAmount":11,
+      "recipient":"RealMart Admin",
+      "customerId":5042,
+      "paidAmount":0,
+      "balanceAmount":11,
+      "cashier":"RealMart Admin",
+      "isReservation":false,
+      "orderStatus":"OPEN",
+      "orderPerson":"RealMart Admin",
+      "paymentStatus":"PENDING",
+      "locationId":"263c7e6e0bf74d8d8244ab85c497a59f",
+      "orderNo":"1",
+      "salesNo":"1190185",
+      "pax":"1",
+      "orderType":"Delivery",
+      "roundingAmount":0,
+      "remark":"hgh",
+      "netAmount":11,
+      "referenceOrderId":null,
+      "isPrinted":false,
+      "printedCount":0,
+      "serviceChargeAmount":1,
+      "externalRefId":null,
+      "customerName":"Cindy E. B",
+      "mobileNo":"",
+      "orderSource":null,
+      "orderItems":[  
+        {  
+          "itemId":236045,
+          "itemName":"zzz",
+          "itemType":"Type02",
+          "model":"",
+          "description":"Description",
+          "price":10,
+          "enterPrice":10,
+          "quantity":1,
+          "discountPercentage":0,
+          "instoreLocation":"default",
+          "orderDateTime":"2018-07-05T23:43:06.000Z",
+          "itemRemark":null,
+          "orderItemCode":"zzz",
+          "isUniqueItem":false,
+          "uniqueCode":null,
+          "isPackage":false,
+          "isService":false,
+          "isPrepack":false,
+          "pcid":null,
+          "itemIndex":1,
+          "cashier":null,
+          "location":"263c7e6e0bf74d8d8244ab85c497a59f",
+          "itemCategory":"",
+          "orderItemRemark":"",
+          "isPrint":false,
+          "orderPerson":"RealMart Admin",
+          "altLookUp":"",
+          "refSalesItemId":0,
+          "promoGroup":"",
+          "orderItemOrderType":"Delivery",
+          "serviceChargePercentage":10,
+          "discountRemark":"",
+          "orderedItemSavedDateTime":"2018-07-05T11:51:33.000Z",
+          "printStatus":false,
+          "subTotal":10,
+          "scanCode":null
+        }
+      ]
+    }
+  },
+  "timestamp":1532413927
+}
+
+### /logic/v2/order
+#### POST [POST]
++ post eOrdering
+    
++ Request
+     + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+        
+ + Body
+ {  
+  "recipient":"RealMart Admin",
+  "customerId":5042,
+  "cashier":"RealMart Admin",
+  "orderPerson":"RealMart Admin",
+  "locationId":"263c7e6e0bf74d8d8244ab85c497a59f",
+  "orderNo":"1",
+  "salesNo":"1190185",
+  "pax":"1",
+  "orderType":"Delivery",
+  "roundingAmount":0,
+  "remark":"hgh",
+  "referenceOrderId":null,
+  "externalRefId":null,
+  "orderSource":null,
+  "orderItems":[  
+    {  
+      "itemId":236045,
+      "enterPrice":10,
+      "orderId":11901,
+      "quantity":1,
+      "discountPercentage":0,
+      "itemRemark":null,
+      "cashier":null,
+      "location":"263c7e6e0bf74d8d8244ab85c497a59f",
+      "orderItemRemark":"",
+      "orderPerson":"RealMart Admin",
+      "refSalesItemId":0,
+      "promoGroup":"",
+      "orderItemOrderType":"Delivery",
+      "serviceChargePercentage":10,
+      "discountRemark":"",
+      "isDiscountIncludeSubItem":false
+    }
+  ]
+}
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body 
+    {  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "order":{  
+      "id":90045,
+      "orderDateTime":"2018-07-24T14:43:51.000Z",
+      "totalAmount":11,
+      "recipient":"RealMart Admin",
+      "customerId":5042,
+      "paidAmount":0,
+      "balanceAmount":11,
+      "cashier":"RealMart Admin",
+      "isReservation":false,
+      "orderStatus":"OPEN",
+      "orderPerson":"RealMart Admin",
+      "paymentStatus":"PENDING",
+      "locationId":"263c7e6e0bf74d8d8244ab85c497a59f",
+      "orderNo":"1",
+      "salesNo":"1190185",
+      "pax":"1",
+      "orderType":"Delivery",
+      "roundingAmount":0,
+      "remark":"hgh",
+      "netAmount":11,
+      "referenceOrderId":null,
+      "isPrinted":false,
+      "printedCount":0,
+      "serviceChargeAmount":1,
+      "externalRefId":null,
+      "customerName":"Cindy E. B",
+      "mobileNo":"",
+      "orderSource":null,
+      "orderItems":[  
+        {  
+          "itemId":236045,
+          "itemName":"zzz",
+          "itemType":"Type02",
+          "model":"",
+          "description":"Description",
+          "price":10,
+          "enterPrice":10,
+          "quantity":1,
+          "discountPercentage":0,
+          "instoreLocation":"default",
+          "orderDateTime":"2018-07-25T05:27:42.000Z",
+          "itemRemark":null,
+          "orderItemCode":"zzz",
+          "isUniqueItem":false,
+          "uniqueCode":null,
+          "isPackage":false,
+          "isService":false,
+          "isPrepack":false,
+          "pcid":null,
+          "itemIndex":1,
+          "cashier":null,
+          "location":"263c7e6e0bf74d8d8244ab85c497a59f",
+          "itemCategory":"",
+          "orderItemRemark":"",
+          "isPrint":false,
+          "orderPerson":"RealMart Admin",
+          "altLookUp":"",
+          "refSalesItemId":0,
+          "promoGroup":"",
+          "orderItemOrderType":"Delivery",
+          "serviceChargePercentage":10,
+          "discountRemark":"",
+          "orderedItemSavedDateTime":"2018-07-24T14:43:51.000Z",
+          "printStatus":false,
+          "subTotal":10,
+          "scanCode":null
+        }
+      ]
+    }
+  },
+  "timestamp":1532414634
+}
+    
+
 ## Group PickList
 ### /logic/v2/picklist/{id}
 #### Get Pick List [GET]
