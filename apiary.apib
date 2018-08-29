@@ -8,34 +8,15 @@ way to intergrate website, e-commerce, server, mobile written in any programming
 language such as JavaScript, Ruby, Swift, Object-C. C#, Java, php, etc.
 
 ## Setup for REST API
-For using this API you need send authenticated HTTP requests. Exists several 
-way to do this:
-### Version 4 Auth
-* Send a HTTPS header with include `Token: {api_token}` and `Dkey: {Dkey}`
-, where `{api_token}` is your API token and `{dkey}` is your private key
-![name](https://wbgeneric.blob.core.windows.net/resources/V4Auth.png)
+For using this API you need send authenticated HTTP requests as access token which can be generated in https://developer.xilnex.com/ by userperadmin log in.
 
-### Version 5 Auth
+### Access Token
 * Send a HTTPS header with include `Auth: 5` and `Token: {api_token}` and `AppId: {AppId}`
 , where `Auth` is Auth version, `{api_token}` is your API token and `{AppId}` is your application id
 ![name](http://wbgeneric.blob.core.windows.net/resources/Auth5.png)
 
 
-
-Your API token and Dkey you can request from our comapny **api@webbytes.com.my**
-by providing below
-information in your email
-* Company Name:
-* Name:
-* Purpose of the API:
-    * Purpose:
-    * Request action: `Read, Write, Update, Delete`
-* Super admin email address:
-* Api e-mail address :
-* Api e-mail password : 
-
-API e-mail address and password `You need to create a user on xilnex application, and
-specific for API purpose only`
+Contact us at **api@webbytes.com.my**
 
 ## Basic Usage
 ### HTTPS
@@ -643,7 +624,295 @@ search: alternate lookup-> company name-> mobile-> customer code-> ic-> email
             },
             "timestamp": 1532066231
         }
-    
+
+### /logic/v2/clients/query?type={type}&topcount={topcount}&offset={offset}
+#### Query clients by type [GET]
++ Request
+    + Headers
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+
++ Response 200 (application/json)
+
+       {
+            "ok": true,
+            "status": "SuccessQuery",
+            "warning": null,
+            "error": null,
+            "data": {
+                "lastTimestamp": null,
+                "client": null,
+                "clients": [
+                    {
+                        "currency": null,
+                        "id": 5044,
+                        "name": "active members 02",
+                        "alternateLookup": "5044",
+                        "priceScheme": "0",
+                        "creditLimit": 300,
+                        "billingAddress": "",
+                        "shippingAddress": "",
+                        "shipping": {
+                            "street": "",
+                            "city": "",
+                            "state": "",
+                            "zipcode": "",
+                            "country": ""
+                        },
+                        "billing": {
+                            "street": "",
+                            "city": "",
+                            "state": "",
+                            "zipcode": "",
+                            "country": ""
+                        },
+                        "code": "5044",
+                        "title": "",
+                        "email": "",
+                        "type": "testgsm",
+                        "group": "",
+                        "registrationCode": "",
+                        "gender": "female",
+                        "dob": "2017-05-04T00:00:00.000Z",
+                        "ic": "",
+                        "nationality": null,
+                        "createdBy": "realmart@xilnex.com",
+                        "firstName": "",
+                        "lastName": "",
+                        "phone": "",
+                        "office": "",
+                        "mobile": "",
+                        "accountNumber": "",
+                        "alternateName": "",
+                        "alternateContact": "",
+                        "alternatePhone": "",
+                        "additionalInfo": "",
+                        "fax": "",
+                        "remarks": "",
+                        "billingRemarks": null,
+                        "shippingRemarks": null,
+                        "race": "",
+                        "category": "Personal",
+                        "active": true,
+                        "allowAllOutlets": true,
+                        "gstInclusive": true,
+                        "pointValue": 650.7084,
+                        "defaultSalesType": "",
+                        "expiryDate": "2018-10-30T00:00:00.000Z",
+                        "createdOutlet": "Coded UI Branch 2",
+                        "pointFactor": 1,
+                        "dedicatedSalesPerson": "Test John Project",
+                        "image": "",
+                        "xilnexConnectOutlet": "Coded UI Branch 2",
+                        "paymentTerms": 0,
+                        "paymentTermsRemark": "",
+                        "gstNo": null,
+                        "currencyCode": "",
+                        "gstNumber": "",
+                        "taxCode": "",
+                        "createDate": "2016-12-06T00:00:00.000Z",
+                        "enableDOB": true,
+                        "updateTimeStamp": "0x00000000721EA50B",
+                        "listBranchClients": [],
+                        "customFieldValue1": "",
+                        "customFieldValue2": "",
+                        "customFieldValue3": "",
+                        "customFieldValue4": "",
+                        "customFieldValue5": "",
+                        "customFieldValue6": "",
+                        "customFieldValue7": "",
+                        "customFieldValue8": "",
+                        "customFieldValue9": "",
+                        "customFieldValue10": "",
+                        "customFieldValue11": "",
+                        "customFieldValue12": "",
+                        "customFieldValue13": "",
+                        "customFieldValue14": "",
+                        "customFieldValue15": "",
+                        "verified": false
+                    },
+                    {
+                        "currency": null,
+                        "id": 5054,
+                        "name": "04052016",
+                        "alternateLookup": "04052016",
+                        "priceScheme": "1",
+                        "creditLimit": 0,
+                        "billingAddress": "",
+                        "shippingAddress": "",
+                        "shipping": {
+                            "street": "",
+                            "city": "",
+                            "state": "",
+                            "zipcode": "",
+                            "country": ""
+                        },
+                        "billing": {
+                            "street": "",
+                            "city": "",
+                            "state": "",
+                            "zipcode": "",
+                            "country": ""
+                        },
+                        "code": "",
+                        "title": "",
+                        "email": "",
+                        "type": "testgsm",
+                        "group": "",
+                        "registrationCode": "",
+                        "gender": "female",
+                        "dob": "2016-05-04T00:00:00.000Z",
+                        "ic": "04052016",
+                        "nationality": "",
+                        "createdBy": "",
+                        "firstName": "",
+                        "lastName": "",
+                        "phone": "",
+                        "office": "",
+                        "mobile": "",
+                        "accountNumber": "",
+                        "alternateName": "",
+                        "alternateContact": "",
+                        "alternatePhone": "",
+                        "additionalInfo": "",
+                        "fax": "",
+                        "remarks": "",
+                        "billingRemarks": "",
+                        "shippingRemarks": "",
+                        "race": "",
+                        "category": "Personal",
+                        "active": true,
+                        "allowAllOutlets": true,
+                        "gstInclusive": true,
+                        "pointValue": 33,
+                        "defaultSalesType": "0",
+                        "expiryDate": "2017-12-21T00:00:00.000Z",
+                        "createdOutlet": "Coded UI Branch 2",
+                        "pointFactor": 1,
+                        "dedicatedSalesPerson": "",
+                        "image": "",
+                        "xilnexConnectOutlet": "",
+                        "paymentTerms": 0,
+                        "paymentTermsRemark": "",
+                        "gstNo": null,
+                        "currencyCode": "",
+                        "gstNumber": "",
+                        "taxCode": "",
+                        "createDate": "2017-05-04T00:00:00.000Z",
+                        "enableDOB": true,
+                        "updateTimeStamp": "0x0000000071F6EEE4",
+                        "listBranchClients": [],
+                        "customFieldValue1": "",
+                        "customFieldValue2": "",
+                        "customFieldValue3": "",
+                        "customFieldValue4": "",
+                        "customFieldValue5": "",
+                        "customFieldValue6": "",
+                        "customFieldValue7": "",
+                        "customFieldValue8": "",
+                        "customFieldValue9": "",
+                        "customFieldValue10": "",
+                        "customFieldValue11": "",
+                        "customFieldValue12": "",
+                        "customFieldValue13": "",
+                        "customFieldValue14": "",
+                        "customFieldValue15": "",
+                        "verified": false
+                    },
+                    {
+                        "currency": null,
+                        "id": 1820164,
+                        "name": "gsmtest",
+                        "alternateLookup": "gsmtest",
+                        "priceScheme": "0",
+                        "creditLimit": 0,
+                        "billingAddress": "Malaysia",
+                        "shippingAddress": "Malaysia",
+                        "shipping": {
+                            "street": "",
+                            "city": "",
+                            "state": "",
+                            "zipcode": "",
+                            "country": "Malaysia"
+                        },
+                        "billing": {
+                            "street": "",
+                            "city": "",
+                            "state": "",
+                            "zipcode": "",
+                            "country": "Malaysia"
+                        },
+                        "code": "gsmtest",
+                        "title": "gsmtest",
+                        "email": "",
+                        "type": "testgsm",
+                        "group": "testgsm",
+                        "registrationCode": "",
+                        "gender": "female",
+                        "dob": "1995-07-18T00:00:00.000Z",
+                        "ic": "",
+                        "nationality": "Malaysia",
+                        "createdBy": "realmart@xilnex.com",
+                        "firstName": "",
+                        "lastName": "",
+                        "phone": "",
+                        "office": "",
+                        "mobile": "",
+                        "accountNumber": "",
+                        "alternateName": "",
+                        "alternateContact": "",
+                        "alternatePhone": "",
+                        "additionalInfo": "",
+                        "fax": "",
+                        "remarks": "",
+                        "billingRemarks": null,
+                        "shippingRemarks": null,
+                        "race": "",
+                        "category": "Personal",
+                        "active": true,
+                        "allowAllOutlets": true,
+                        "gstInclusive": true,
+                        "pointValue": 0,
+                        "defaultSalesType": "",
+                        "expiryDate": null,
+                        "createdOutlet": "424353",
+                        "pointFactor": 1,
+                        "dedicatedSalesPerson": "",
+                        "image": "",
+                        "xilnexConnectOutlet": "",
+                        "paymentTerms": 0,
+                        "paymentTermsRemark": "",
+                        "gstNo": null,
+                        "currencyCode": null,
+                        "gstNumber": "",
+                        "taxCode": "",
+                        "createDate": "2018-07-18T00:00:00.000Z",
+                        "enableDOB": true,
+                        "updateTimeStamp": "0x0000000071F6E8EA",
+                        "listBranchClients": [],
+                        "customFieldValue1": "",
+                        "customFieldValue2": "",
+                        "customFieldValue3": "",
+                        "customFieldValue4": "",
+                        "customFieldValue5": "",
+                        "customFieldValue6": "",
+                        "customFieldValue7": "",
+                        "customFieldValue8": "",
+                        "customFieldValue9": "",
+                        "customFieldValue10": "",
+                        "customFieldValue11": "",
+                        "customFieldValue12": "",
+                        "customFieldValue13": "",
+                        "customFieldValue14": "",
+                        "customFieldValue15": "",
+                        "verified": false
+                    }
+                ]
+            },
+            "timestamp": 1533026027
+        }
+
 ### /logic/v2/clients/entryform
 #### GET
 To retrive full list of client entry form
@@ -954,8 +1223,195 @@ Update client detail
                   "lastName":"chiew"
                }
             }
-            
-        
+
+### /logic/v2/clients/{clientid}/buddies
+#### Retrieve client's buddies [GET]
+Use to retrive client's buddies
+
++ Parameters
+    + clientid
+    
++ Request
+    
+    + Headers
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+    
++ Response 200 (application/json)
+
+        {
+            "ok": true,
+            "status": "SuccessQuery",
+            "warning": null,
+            "error": null,
+            "data": {
+                "lastTimestamp": null,
+                "client": null,
+                "clients": [
+                    {
+                        "currency": null,
+                        "id": 9002,
+                        "name": "Terrance Tan (Test)",
+                        "alternateLookup": null,
+                        "priceScheme": null,
+                        "creditLimit": 0,
+                        "billingAddress": null,
+                        "shippingAddress": null,
+                        "shipping": null,
+                        "billing": null,
+                        "code": null,
+                        "title": null,
+                        "email": null,
+                        "type": "MEMBER",
+                        "group": "1",
+                        "registrationCode": null,
+                        "gender": "female",
+                        "dob": "0001-01-01T00:00:00.000Z",
+                        "ic": null,
+                        "nationality": "Malaysia",
+                        "createdBy": null,
+                        "firstName": "Terrance",
+                        "lastName": "Tan",
+                        "phone": null,
+                        "office": null,
+                        "mobile": null,
+                        "accountNumber": null,
+                        "alternateName": null,
+                        "alternateContact": null,
+                        "alternatePhone": null,
+                        "additionalInfo": null,
+                        "fax": null,
+                        "remarks": null,
+                        "billingRemarks": null,
+                        "shippingRemarks": null,
+                        "race": null,
+                        "category": "Personal",
+                        "active": true,
+                        "allowAllOutlets": true,
+                        "gstInclusive": true,
+                        "pointValue": 170,
+                        "defaultSalesType": "RETAIL",
+                        "expiryDate": "2020-07-25T00:00:00.000Z",
+                        "createdOutlet": "",
+                        "pointFactor": 1,
+                        "dedicatedSalesPerson": null,
+                        "image": null,
+                        "xilnexConnectOutlet": null,
+                        "paymentTerms": 0,
+                        "paymentTermsRemark": null,
+                        "gstNo": null,
+                        "currencyCode": null,
+                        "gstNumber": null,
+                        "taxCode": null,
+                        "createDate": "2017-06-20T00:00:00.000Z",
+                        "enableDOB": false,
+                        "updateTimeStamp": "0x00000000411CCC0D",
+                        "listBranchClients": [],
+                        "customFieldValue1": null,
+                        "customFieldValue2": null,
+                        "customFieldValue3": null,
+                        "customFieldValue4": null,
+                        "customFieldValue5": null,
+                        "customFieldValue6": null,
+                        "customFieldValue7": null,
+                        "customFieldValue8": null,
+                        "customFieldValue9": null,
+                        "customFieldValue10": null,
+                        "customFieldValue11": null,
+                        "customFieldValue12": null,
+                        "customFieldValue13": null,
+                        "customFieldValue14": null,
+                        "customFieldValue15": null,
+                        "verified": false,
+                        "buddyReferenceID": 90021002,
+                        "buddyPoints": 0
+                    },
+                    {
+                        "currency": null,
+                        "id": 9006,
+                        "name": "Jac Test",
+                        "alternateLookup": null,
+                        "priceScheme": null,
+                        "creditLimit": 0,
+                        "billingAddress": null,
+                        "shippingAddress": null,
+                        "shipping": null,
+                        "billing": null,
+                        "code": null,
+                        "title": null,
+                        "email": null,
+                        "type": "MEMBER",
+                        "group": "1",
+                        "registrationCode": null,
+                        "gender": null,
+                        "dob": null,
+                        "ic": null,
+                        "nationality": null,
+                        "createdBy": null,
+                        "firstName": "Jac",
+                        "lastName": "Test",
+                        "phone": null,
+                        "office": null,
+                        "mobile": null,
+                        "accountNumber": null,
+                        "alternateName": null,
+                        "alternateContact": null,
+                        "alternatePhone": null,
+                        "additionalInfo": null,
+                        "fax": null,
+                        "remarks": null,
+                        "billingRemarks": null,
+                        "shippingRemarks": null,
+                        "race": null,
+                        "category": "Personal",
+                        "active": true,
+                        "allowAllOutlets": true,
+                        "gstInclusive": true,
+                        "pointValue": 23724.6,
+                        "defaultSalesType": "RETAIL",
+                        "expiryDate": "2022-07-26T00:00:00.000Z",
+                        "createdOutlet": "",
+                        "pointFactor": 0,
+                        "dedicatedSalesPerson": null,
+                        "image": null,
+                        "xilnexConnectOutlet": null,
+                        "paymentTerms": 0,
+                        "paymentTermsRemark": null,
+                        "gstNo": null,
+                        "currencyCode": null,
+                        "gstNumber": null,
+                        "taxCode": null,
+                        "createDate": "2017-06-20T00:00:00.000Z",
+                        "enableDOB": false,
+                        "updateTimeStamp": "0x000000004820008A",
+                        "listBranchClients": [],
+                        "customFieldValue1": null,
+                        "customFieldValue2": null,
+                        "customFieldValue3": null,
+                        "customFieldValue4": null,
+                        "customFieldValue5": null,
+                        "customFieldValue6": null,
+                        "customFieldValue7": null,
+                        "customFieldValue8": null,
+                        "customFieldValue9": null,
+                        "customFieldValue10": null,
+                        "customFieldValue11": null,
+                        "customFieldValue12": null,
+                        "customFieldValue13": null,
+                        "customFieldValue14": null,
+                        "customFieldValue15": null,
+                        "verified": false,
+                        "buddyReferenceID": 90021002,
+                        "buddyPoints": 0
+                    }
+                ]
+            },
+            "timestamp": 1533865536
+        }
+
+    
 ## Group Commission
 
 ### /logic/v2/commission/{id}
@@ -4819,141 +5275,8 @@ get sales by client id and date range
             ],
             "timestamp":1483520163
         }
-            
-### /logic/v2/sales/invoices
-
-#### Post Sales Detail [POST]
-
-## Create invoice
-* POST invoice 
-
-## Callback URL
-* Callback URL is necessary, where api will post the invoice status back to merchant based on the callback url 
-when sales creation.
-* Example: [POST]http://www.{YourCompanyDomain}.com/sales/callback
-
-![name](http://wbgeneric.blob.core.windows.net/resources/SalesV2UML.png)
-
-+ Parameters
-
-    + status - OPEN, CONFIRMED, COMPLETED, CANCELLED, WRITE_OFF
-    + method(Collection) - cash, card, bank, cheque, web, creditnote, voucher, point, debitcard, forfeiture_voucher, creditcard_charges, contra, tradein, Other, BCard, prepaid, BCardToken, TnG, Entertainment, XCard 
-    + clientId(Optional)
-    + cashier(Optional)
-    + shippingAddress(Optional)
-    + discountPercentage(Optional) - discount percentage for all order item. if discount percentage and bill Discount Amount both exist, api will take discount percentage as priority!
-    + billDiscountAmount(Optional) - discount amount for transaction, discount amount will split into each order item.
-    + recipientContact(Optional)
-    + shipmentProvider(Optional) - e.g. GDEX, Skynet etc.
-    + itemCode/itemId - One of the code must be enter.
-    + matrixId(Optional)
-    + enterPrice(Optional) - Selling price 
-    + reference(Optional) - if using voucher or card will need to key in.
-    + confirmOutlet(Optional) - if the sales status is confirm, confirm outlet must be enter.
-    + key(Optional) - if needed custom key, else server will return a new key
-    + module(Optional) 
-+ Request
-
-    + Headers
-
-            Accept: application/json
-            DKey: (required)
-            Token: (required)
-
-    + Body
-        
-            {
-                "sale":
-                {
-                    "clientId": 502,
-                    "term":1,
-                    "cashier":"REAL MART Admin",
-                    "dateTime":"2016-12-16T00:00:00.000Z",
-                    "salesPerson":"Realmart",
-                    "billingAddress":
-                    {
-                        "street":"476",
-                        "city":"new ",
-                        "state":"new You",
-                        "zipcode":"12345",
-                        "country":"US"
-                    },
-                    "shippingAddress":{  
-                        "street":null,
-                        "city":null,
-                        "state":null,
-                        "zipcode":null,
-                        "country":null
-                    },
-                    "shippingRemark":"anytime",
-                    "salesPerson":"Realmart",
-                    "status":"COMPLETED", 
-                    "outlet":"Code UI Branh",
-                    "remark":"remak",
-                    "outlet":"Code UI Branch",
-                    "confirmOutlet":"Code UI Branch",
-                    "remark":null,
-                    "discountPercentage":0,
-                    "billDiscountAmount":0,
-                    "recipientContact":null,
-                    "items":[
-                    {
-                        "itemCode":"1233", 
-                        "itemId":101,
-                        "quantity":1,
-                        "enterPrice":88
-                        "discountPercentage":0,
-                        "matrixId":"201",
-                        "matrixBarcode":"matrix001",
-                        "enterPrice":10
-                    }
-                    ],
-                    "collection":[
-                    {
-                        "method":"cash", 
-                        "reference":"",
-                        "amount":100
-                    }
-                    ]
-                },
-                "key":"WS0001"
-            }
         
 
-+ Response 200 (application/json)
-
-    OK
-
-    + Body
-
-            {
-                "ok": true,
-                "status": "SuccessQuery",
-                "warning": null,
-                "error": null,
-                "data": "3536e4f575d14ace914c3de26848eb1e",
-                "timestamp": 1487745887
-            }
-
-    + Schema
-
-            {
-              "type": "object",
-              "properties": {}
-            }
-            
-#### Callback [POST]
-+ Response 200 (application/json)
-
-    + Body 
-    
-            {  
-               "sale":{  
-            
-               },
-               "key":2345679590789232,
-               "status":"success"
-            }
             
 ### /logic/v2/sales/invoices/{id}/cancel
 
@@ -5255,7 +5578,6 @@ Shipment: NA, PENDING, SHIPPED,
               "properties": {}
             }
             
-## Group Sales-Beta
 
 ### /logic/v2/sales/salesinvoice/{outlet}
 
@@ -7696,88 +8018,126 @@ Get invoice by id
             
 + Response 200 (application/json)
 
-    OK
-
-    + Body
-    {  
-  "ok":true,
-  "status":"SuccessQuery",
-  "warning":null,
-  "error":null,
-  "data":{  
-    "order":{  
-      "id":90039,
-      "orderDateTime":"2018-07-05T11:51:33.000Z",
-      "totalAmount":11,
-      "recipient":"RealMart Admin",
-      "customerId":5042,
-      "paidAmount":0,
-      "balanceAmount":11,
-      "cashier":"RealMart Admin",
-      "isReservation":false,
-      "orderStatus":"OPEN",
-      "orderPerson":"RealMart Admin",
-      "paymentStatus":"PENDING",
-      "locationId":"263c7e6e0bf74d8d8244ab85c497a59f",
-      "orderNo":"1",
-      "salesNo":"1190185",
-      "pax":"1",
-      "orderType":"Delivery",
-      "roundingAmount":0,
-      "remark":"hgh",
-      "netAmount":11,
-      "referenceOrderId":null,
-      "isPrinted":false,
-      "printedCount":0,
-      "serviceChargeAmount":1,
-      "externalRefId":null,
-      "customerName":"Cindy E. B",
-      "mobileNo":"",
-      "orderSource":null,
-      "orderItems":[  
-        {  
-          "itemId":236045,
-          "itemName":"zzz",
-          "itemType":"Type02",
-          "model":"",
-          "description":"Description",
-          "price":10,
-          "enterPrice":10,
-          "quantity":1,
-          "discountPercentage":0,
-          "instoreLocation":"default",
-          "orderDateTime":"2018-07-05T23:43:06.000Z",
-          "itemRemark":null,
-          "orderItemCode":"zzz",
-          "isUniqueItem":false,
-          "uniqueCode":null,
-          "isPackage":false,
-          "isService":false,
-          "isPrepack":false,
-          "pcid":null,
-          "itemIndex":1,
-          "cashier":null,
-          "location":"263c7e6e0bf74d8d8244ab85c497a59f",
-          "itemCategory":"",
-          "orderItemRemark":"",
-          "isPrint":false,
-          "orderPerson":"RealMart Admin",
-          "altLookUp":"",
-          "refSalesItemId":0,
-          "promoGroup":"",
-          "orderItemOrderType":"Delivery",
-          "serviceChargePercentage":10,
-          "discountRemark":"",
-          "orderedItemSavedDateTime":"2018-07-05T11:51:33.000Z",
-          "printStatus":false,
-          "subTotal":10,
-          "scanCode":null
-        }
-      ]
-    }
-  },
-  "timestamp":1532413927
-}
+            {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": {
+                    "order": {
+                        "id": 90010,
+                        "orderDateTime": "2018-08-14T17:12:07.760Z",
+                        "totalAmount": 30.35,
+                        "recipient": " Peninsula Admin",
+                        "customerId": 104,
+                        "paidAmount": 0,
+                        "balanceAmount": 30.35,
+                        "cashier": " Peninsula Admin",
+                        "isReservation": false,
+                        "orderStatus": "OPEN",
+                        "orderPerson": " Peninsula Admin",
+                        "paymentStatus": "PENDING",
+                        "outlet": "TESTING OUTLET",
+                        "orderNo": "VIP7",
+                        "salesNo": null,
+                        "pax": "5",
+                        "orderType": "Retail",
+                        "roundingAmount": -0.01,
+                        "remark": "",
+                        "netAmount": 30.35,
+                        "referenceOrderId": null,
+                        "isPrinted": false,
+                        "printedCount": 0,
+                        "serviceChargeAmount": 2.76,
+                        "externalRefId": "25243",
+                        "customerName": "TEST",
+                        "mobileNo": "",
+                        "orderSource": "DeliverEat",
+                        "orderItems": [
+                            {
+                                "itemId": 30295,
+                                "itemName": "Carlsberg (Big Btl)",
+                                "itemType": "BAR",
+                                "model": "",
+                                "description": "",
+                                "price": 22.8,
+                                "enterPrice": 22.8,
+                                "quantity": 1,
+                                "discountPercentage": 0,
+                                "instoreLocation": "default",
+                                "orderDateTime": "2018-08-14T17:12:07.760Z",
+                                "itemRemark": null,
+                                "orderItemCode": "BR001",
+                                "isUniqueItem": false,
+                                "uniqueCode": "",
+                                "isPackage": true,
+                                "isService": false,
+                                "isPrepack": false,
+                                "pcid": "",
+                                "itemIndex": 1,
+                                "cashier": null,
+                                "outlet": "TESTING OUTLET",
+                                "itemCategory": "Beer",
+                                "orderItemRemark": "",
+                                "isPrint": false,
+                                "orderPerson": " Peninsula Admin",
+                                "altLookUp": "",
+                                "refSalesItemId": 0,
+                                "promoGroup": "",
+                                "orderItemOrderType": "Dine_In",
+                                "serviceChargePercentage": 10,
+                                "discountRemark": "",
+                                "orderedItemSavedDateTime": "2018-08-14T17:12:07.760Z",
+                                "printStatus": false,
+                                "subTotal": 22.8,
+                                "scanCode": "",
+                                "addOns": [
+                                    {
+                                        "itemId": 30182,
+                                        "itemName": "豪庭马来糕  Steamed Homemade Layered Cake ",
+                                        "itemType": "DIM SUM",
+                                        "model": "",
+                                        "description": "",
+                                        "price": 8,
+                                        "enterPrice": 8,
+                                        "quantity": 1,
+                                        "discountPercentage": 40,
+                                        "instoreLocation": "default",
+                                        "orderDateTime": "2018-07-18T00:00:00.000Z",
+                                        "itemRemark": null,
+                                        "orderItemCode": "DS003",
+                                        "isUniqueItem": false,
+                                        "uniqueCode": "",
+                                        "isPackage": true,
+                                        "isService": false,
+                                        "isPrepack": false,
+                                        "pcid": "90019",
+                                        "itemIndex": 2,
+                                        "cashier": null,
+                                        "outlet": "TESTING OUTLET",
+                                        "itemCategory": "Dim Sum",
+                                        "orderItemRemark": "",
+                                        "isPrint": false,
+                                        "orderPerson": "",
+                                        "altLookUp": "",
+                                        "refSalesItemId": 0,
+                                        "promoGroup": "",
+                                        "orderItemOrderType": "Dine_In",
+                                        "serviceChargePercentage": 10,
+                                        "discountRemark": "",
+                                        "orderedItemSavedDateTime": "2018-07-18T12:32:00.000Z",
+                                        "printStatus": false,
+                                        "subTotal": 4.8,
+                                        "scanCode": "",
+                                        "addOns": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "timestamp": 1534237961
+            }
 
 ### /logic/v2/order
 #### POST [POST]
@@ -7790,127 +8150,168 @@ Get invoice by id
         Content-Type: application/json
         
  + Body
- {  
-  "recipient":"RealMart Admin",
-  "customerId":5042,
-  "cashier":"RealMart Admin",
-  "orderPerson":"RealMart Admin",
-  "locationId":"263c7e6e0bf74d8d8244ab85c497a59f",
-  "orderNo":"1",
-  "salesNo":"1190185",
-  "pax":"1",
-  "orderType":"Delivery",
-  "roundingAmount":0,
-  "remark":"hgh",
-  "referenceOrderId":null,
-  "externalRefId":null,
-  "orderSource":null,
-  "orderItems":[  
-    {  
-      "itemId":236045,
-      "enterPrice":10,
-      "orderId":11901,
-      "quantity":1,
-      "discountPercentage":0,
-      "itemRemark":null,
-      "cashier":null,
-      "location":"263c7e6e0bf74d8d8244ab85c497a59f",
-      "orderItemRemark":"",
-      "orderPerson":"RealMart Admin",
-      "refSalesItemId":0,
-      "promoGroup":"",
-      "orderItemOrderType":"Delivery",
-      "serviceChargePercentage":10,
-      "discountRemark":"",
-      "isDiscountIncludeSubItem":false
-    }
-  ]
-}
+        {  
+            "recipient": "Peninsula Admin",
+            "customerId": 104,
+            "cashier": "Peninsula Admin",
+            "orderPerson": " Peninsula Admin",
+            "outlet": "TESTING OUTLET",
+            "orderNo": "VIP7",
+            "pax":"5",
+            "orderType": "Retail",
+            "remark": "",
+            "externalRefId":"9999",
+            "orderSource": "DeliverEat",
+            "orderItems": [
+                          {
+                          "orderItemCode": "BR001",
+                              "enterPrice": 22.8,
+                              "quantity": 1,
+                              "discountPercentage": 0,
+                              "orderDateTime": "2018-08-14T17:12:07.760Z",
+                              "orderItemRemark": "",
+                              "orderItemOrderType": "Dine_In",
+                              "serviceChargePercentage": 10,
+                              "discountRemark": "",
+                              "addOns": [
+                                  {
+                                      "enterPrice": 8,
+                                      "quantity": 1,
+                                      "discountPercentage": 40,
+                                      "orderDateTime": "2018-07-18T00:00:00.000Z",
+                                      "orderItemCode": "DS003",
+                                      "orderItemRemark": "",
+                                      "orderItemOrderType": "Dine_In",
+                                      "serviceChargePercentage": 10,
+                                      "discountRemark": ""
+                                  }
+                              ]
+                          }
+                        ]
+               }
 
 + Response 200 (application/json)
 
-    OK
-
-    + Body 
-    {  
-  "ok":true,
-  "status":"SuccessQuery",
-  "warning":null,
-  "error":null,
-  "data":{  
-    "order":{  
-      "id":90045,
-      "orderDateTime":"2018-07-24T14:43:51.000Z",
-      "totalAmount":11,
-      "recipient":"RealMart Admin",
-      "customerId":5042,
-      "paidAmount":0,
-      "balanceAmount":11,
-      "cashier":"RealMart Admin",
-      "isReservation":false,
-      "orderStatus":"OPEN",
-      "orderPerson":"RealMart Admin",
-      "paymentStatus":"PENDING",
-      "locationId":"263c7e6e0bf74d8d8244ab85c497a59f",
-      "orderNo":"1",
-      "salesNo":"1190185",
-      "pax":"1",
-      "orderType":"Delivery",
-      "roundingAmount":0,
-      "remark":"hgh",
-      "netAmount":11,
-      "referenceOrderId":null,
-      "isPrinted":false,
-      "printedCount":0,
-      "serviceChargeAmount":1,
-      "externalRefId":null,
-      "customerName":"Cindy E. B",
-      "mobileNo":"",
-      "orderSource":null,
-      "orderItems":[  
-        {  
-          "itemId":236045,
-          "itemName":"zzz",
-          "itemType":"Type02",
-          "model":"",
-          "description":"Description",
-          "price":10,
-          "enterPrice":10,
-          "quantity":1,
-          "discountPercentage":0,
-          "instoreLocation":"default",
-          "orderDateTime":"2018-07-25T05:27:42.000Z",
-          "itemRemark":null,
-          "orderItemCode":"zzz",
-          "isUniqueItem":false,
-          "uniqueCode":null,
-          "isPackage":false,
-          "isService":false,
-          "isPrepack":false,
-          "pcid":null,
-          "itemIndex":1,
-          "cashier":null,
-          "location":"263c7e6e0bf74d8d8244ab85c497a59f",
-          "itemCategory":"",
-          "orderItemRemark":"",
-          "isPrint":false,
-          "orderPerson":"RealMart Admin",
-          "altLookUp":"",
-          "refSalesItemId":0,
-          "promoGroup":"",
-          "orderItemOrderType":"Delivery",
-          "serviceChargePercentage":10,
-          "discountRemark":"",
-          "orderedItemSavedDateTime":"2018-07-24T14:43:51.000Z",
-          "printStatus":false,
-          "subTotal":10,
-          "scanCode":null
-        }
-      ]
-    }
-  },
-  "timestamp":1532414634
-}
+            {
+                "ok": true,
+                "status": "SuccessQuery",
+                "warning": null,
+                "error": null,
+                "data": {
+                    "order": {
+                        "id": 90010,
+                        "orderDateTime": "2018-08-14T17:12:07.760Z",
+                        "totalAmount": 30.35,
+                        "recipient": " Peninsula Admin",
+                        "customerId": 104,
+                        "paidAmount": 0,
+                        "balanceAmount": 30.35,
+                        "cashier": " Peninsula Admin",
+                        "isReservation": false,
+                        "orderStatus": "OPEN",
+                        "orderPerson": " Peninsula Admin",
+                        "paymentStatus": "PENDING",
+                        "outlet": "TESTING OUTLET",
+                        "orderNo": "VIP7",
+                        "salesNo": null,
+                        "pax": "5",
+                        "orderType": "Retail",
+                        "roundingAmount": -0.01,
+                        "remark": "",
+                        "netAmount": 30.35,
+                        "referenceOrderId": null,
+                        "isPrinted": false,
+                        "printedCount": 0,
+                        "serviceChargeAmount": 2.76,
+                        "externalRefId": "25243",
+                        "customerName": "TEST",
+                        "mobileNo": "",
+                        "orderSource": "DeliverEat",
+                        "orderItems": [
+                            {
+                                "itemId": 30295,
+                                "itemName": "Carlsberg (Big Btl)",
+                                "itemType": "BAR",
+                                "model": "",
+                                "description": "",
+                                "price": 22.8,
+                                "enterPrice": 22.8,
+                                "quantity": 1,
+                                "discountPercentage": 0,
+                                "instoreLocation": "default",
+                                "orderDateTime": "2018-08-14T17:12:07.760Z",
+                                "itemRemark": null,
+                                "orderItemCode": "BR001",
+                                "isUniqueItem": false,
+                                "uniqueCode": "",
+                                "isPackage": true,
+                                "isService": false,
+                                "isPrepack": false,
+                                "pcid": "",
+                                "itemIndex": 1,
+                                "cashier": null,
+                                "outlet": "TESTING OUTLET",
+                                "itemCategory": "Beer",
+                                "orderItemRemark": "",
+                                "isPrint": false,
+                                "orderPerson": " Peninsula Admin",
+                                "altLookUp": "",
+                                "refSalesItemId": 0,
+                                "promoGroup": "",
+                                "orderItemOrderType": "Dine_In",
+                                "serviceChargePercentage": 10,
+                                "discountRemark": "",
+                                "orderedItemSavedDateTime": "2018-08-14T17:12:07.760Z",
+                                "printStatus": false,
+                                "subTotal": 22.8,
+                                "scanCode": "",
+                                "addOns": [
+                                    {
+                                        "itemId": 30182,
+                                        "itemName": "豪庭马来糕  Steamed Homemade Layered Cake ",
+                                        "itemType": "DIM SUM",
+                                        "model": "",
+                                        "description": "",
+                                        "price": 8,
+                                        "enterPrice": 8,
+                                        "quantity": 1,
+                                        "discountPercentage": 40,
+                                        "instoreLocation": "default",
+                                        "orderDateTime": "2018-07-18T00:00:00.000Z",
+                                        "itemRemark": null,
+                                        "orderItemCode": "DS003",
+                                        "isUniqueItem": false,
+                                        "uniqueCode": "",
+                                        "isPackage": true,
+                                        "isService": false,
+                                        "isPrepack": false,
+                                        "pcid": "90019",
+                                        "itemIndex": 2,
+                                        "cashier": null,
+                                        "outlet": "TESTING OUTLET",
+                                        "itemCategory": "Dim Sum",
+                                        "orderItemRemark": "",
+                                        "isPrint": false,
+                                        "orderPerson": "",
+                                        "altLookUp": "",
+                                        "refSalesItemId": 0,
+                                        "promoGroup": "",
+                                        "orderItemOrderType": "Dine_In",
+                                        "serviceChargePercentage": 10,
+                                        "discountRemark": "",
+                                        "orderedItemSavedDateTime": "2018-07-18T12:32:00.000Z",
+                                        "printStatus": false,
+                                        "subTotal": 4.8,
+                                        "scanCode": "",
+                                        "addOns": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "timestamp": 1534237961
+            }
     
 
 ## Group PickList
