@@ -237,17 +237,30 @@ Retrive access control by access group or user group or user name or access Area
 
 ### /logic/v2/clients/buddy
 #### add buddy [POST]
+The standard Post sales fields are these:
+
 + Request
     + Headers
     + Body
             {
                 "client":{
-                    "id":9001000
+                    "id":9000000
                 },
                 "buddy":{
-                    "id":9001001
+                    "id":9000001
                 }
             }
+            
++ Response 200 (application/json)
+
+        {  
+           "ok":true,
+           "status":"SuccessPost",
+           "warning":null,
+           "error":null,
+           "data":null,
+           "timestamp":1504759973
+        }
 
 ### /logic/v2/clients/pointadjust
 #### Adjust customer point [PUT]
@@ -1192,11 +1205,9 @@ Update client detail
             
 + Response 200 (application/json)
 
-    OK
-    
     + Body
     
-            {  
+           {  
                "client":{  
                   "id":5042,
                   "alternateLookup":null,
@@ -1251,7 +1262,6 @@ Use to retrive client's buddies
             Accept: application/json
             Header: {header}
             Token: {token}
-    + Body
     
 + Response 200 (application/json)
 
@@ -1424,6 +1434,30 @@ Use to retrive client's buddies
             },
             "timestamp": 1533865536
         }
+
+### /logic/v2/clients/{id}
+
+#### DELETE
+Delete client
++ Parameters
+    + id: Client id
++ Request
+    + Headers
+            
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+            
++ Response 200 (application/json)
+
+            {
+                "ok": true,
+                "status": "SuccessDelete",
+                "warning": null,
+                "error": null,
+                "data": null,
+                "timestamp": 1535939891
+            }
 
     
 ## Group Commission
@@ -1921,6 +1955,66 @@ Use to retrive client's buddies
     + Schema
     
 ## Group CompanyInfo
+
+### /logic/v2/companyinfo/{outlet_name}
+#### GET
+
++ Parameters
+
+    + outlet_name (required)
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+    {  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "companyInfo":{  
+      "printedName":"test name",
+      "printedAddress":"999, JALAN A,\nTAMAN B,\n56895 PENANG",
+      "mainContactEmail":"",
+      "mainContact":"",
+      "mainContactTel":"",
+      "registrationNumber":"33333",
+      "gstRegistraitonNumber":"1111111",
+      "outletType":"",
+      "locationEntity":"Retail",
+      "outletLocation":"",
+      "fax":"",
+      "outletOwnership":"",
+      "branchCode":"test code",
+      "branchCreatedDate":"20/17/",
+      "branchCompletionDate":"20/17/",
+      "branchCreatedBy":"RealMart Admin",
+      "branchOpeningDate":"",
+      "financialDimension":"",
+      "branchGroup":"External Outlet",
+      "ownershipStatus":"",
+      "branchRental":"",
+      "branchSize":"",
+      "locationLatitude":"0",
+      "locationLongitude":"0",
+      "weatherLocation":"",
+      "projetCode":"",
+      "areaCode":""
+    }
+  },
+  "timestamp":1536806500
+}
+
 
 ### /logic/v1/companyinfo/{outlet_id}
 
