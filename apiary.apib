@@ -5263,7 +5263,7 @@ Get sales by sales id
               "properties": {}
             }
             
-### /logic/v2/sales/search?clientid={client_id}&datefrom={date_from}&dateto={date_to}&outlet={outlet}
+### /logic/v2/sales/search?clientid={client_id}&datefrom={date_from}&dateto={date_to}&outlet={outlet}&limit={limit}&offset={offset}
 
 #### Get Sales Detail with filter [GET]
 
@@ -5271,9 +5271,11 @@ get sales by client id and date range
 
 + Parameters
     + client_id(required, Number) ... Client id
-    + date_from(required, Date) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Date from
-    + date_to(required, Date) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Date to
+    + date_from(required, Date) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSSZ` Date from
+    + date_to(required, Date) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSSZ` Date to
     + outlet(required, String) ... Outlet name
+    + limit (optional, Number) ... default 4000
+    + offset(optional, Number) ... default 0
 
 + Request
 
@@ -5381,7 +5383,9 @@ get sales by client id and date range
                  }
               }
             ],
-            "timestamp":1483520163
+            "timestamp": 1536812704,
+            "nextRecordsUrl": "http://localhost:5715/logic/v2/sales/search?outlet=003+-+Sunway&datefrom=2018-08-11T00:00:00.000Z&dateto=2018-08-11T23:59:59.999Z&limit=5&offset=4",
+            "totalSize": 262
         }
         
 
@@ -8109,6 +8113,74 @@ Get invoice by id
                },
                "timestamp":1511158730
             }
+            
+## Group StockTake
+### /logic/v2/stocktake/segment
+#### POST [POST]
++ post stock take by segment
+
++ Request
+     + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+        
+ + Body
+ {  
+  "segmentItems":[  
+    {  
+      "itemId":5045,
+      "quantity":1,
+      "serialNo":"",
+      "matrixBarcode":"",
+      "alternateSerialNo":"",
+      "shelfNo":""
+    }
+  ],
+  "outletId":"d065f421-4873-4170-b500-0df776adf4e9",
+  "issueBy":"RealMart Admin",
+  "issueDate":"2018-03-22T00:00:00.000Z",
+  "status":"Saved",
+  "remark":"TestRemark"
+}
+
++ Response 200 (application/json)
+{  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "segment":{  
+      "segmentItems":[  
+        {  
+          "itemId":"5045",
+          "itemCode":"voucher1111",
+          "itemName":"voucher1111",
+          "quantity":1,
+          "uom":null,
+          "serialNo":"",
+          "matrixX":null,
+          "matrixY":null,
+          "matrixBarcode":"",
+          "alternateSerialNo":"",
+          "shelfNo":"",
+          "id":900170
+        }
+      ],
+      "id":90060,
+      "outletId":"d065f421-4873-4170-b500-0df776adf4e9",
+      "issueBy":"realmart@xilnex.com",
+      "issueDate":"2018-03-22T00:00:00.000Z",
+      "status":"0",
+      "remark":"TestRemark"
+    }
+  },
+  "timestamp":1537430486,
+  "nextRecordsUrl":null,
+  "totalSize":0
+}
+
             
 ## Group Order
 ### /logic/v2/order/{id}
