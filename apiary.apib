@@ -233,6 +233,165 @@ Retrive access control by access group or user group or user name or access Area
               "properties": {}
             }
 
+## Group Cells
+### /logic/c2/cells/{id}
+#### Retrieve cell information by id [GET]
++ Parameters
+    + id Cell Id
+
++ Request
+    
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+        
++ Response 200 (application/json)
+{  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "cells":null,
+    "cell":{  
+      "id":90022,
+      "outlet":{  
+        "id":"1",
+        "name":"MAIN BRANCH"
+      },
+      "ownerInfo":"sample",
+      "unit":"A-3-5",
+      "l1":"1",
+      "l2":"2",
+      "l3":"3",
+      "dimension":{  
+        "length":1,
+        "height":1,
+        "width":1
+      },
+      "contents":[  
+        {  
+          "itemId":1034,
+          "itemName":"ABC 123",
+          "itemCode":"FD001",
+          "itemType":"normal",
+          "serialInfo":[  
+
+          ],
+          "batchInfo":[  
+
+          ],
+          "isBatchControl":false,
+          "quantity":1,
+          "cellId":90022
+        },
+        {  
+          "itemId":5051,
+          "itemName":"21022017U",
+          "itemCode":"21022017U",
+          "itemType":"serial",
+          "serialInfo":[  
+            {  
+              "itemId":5051,
+              "serialNo":"u8907479"
+            }
+          ],
+          "batchInfo":[  
+
+          ],
+          "isBatchControl":false,
+          "quantity":1,
+          "cellId":90022
+        },
+        {  
+          "itemId":1201370,
+          "itemName":"BNC test",
+          "itemCode":"BNC test",
+          "itemType":"normal",
+          "serialInfo":[  
+
+          ],
+          "batchInfo":[  
+            {  
+              "itemId":1201370,
+              "batchQuantity":1,
+              "batchNo":"abc001"
+            }
+          ],
+          "isBatchControl":true,
+          "quantity":1,
+          "cellId":90022
+        }
+      ]
+    }
+  },
+  "timestamp":1538101378,
+  "nextRecordsUrl":null,
+  "totalSize":0
+}
+
+### /logic/v2/cells?outlet={outlet}&unit={unitno}
+#### retrieve cell by name [GET]
++ Parameters
+    + outlet Outlet name
+    + unit Unit number or shelf number
+
++ Request
+    
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+        
++ Response 200 (application/json)
+{  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "cells":null,
+    "cell":{  
+      "id":90017,
+      "outlet":{  
+        "id":"1",
+        "name":"MAIN BRANCH"
+      },
+      "ownerInfo":"sample",
+      "unit":"A-2-8",
+      "l1":"1",
+      "l2":"2",
+      "l3":"3",
+      "dimension":null,
+      "contents":[  
+        {  
+          "itemId":1034,
+          "itemName":"ABC 123",
+          "itemCode":"FD001",
+          "itemType":"normal",
+          "serialInfo":[  
+
+          ],
+          "batchInfo":[  
+
+          ],
+          "isBatchControl":false,
+          "quantity":1,
+          "cellId":90017
+        }
+      ]
+    }
+  },
+  "timestamp":1538102077,
+  "nextRecordsUrl":null,
+  "totalSize":0
+}
+    
 ## Group Clients
 
 ### /logic/v2/clients/buddy
