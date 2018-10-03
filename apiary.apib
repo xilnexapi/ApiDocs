@@ -234,7 +234,7 @@ Retrive access control by access group or user group or user name or access Area
             }
 
 ## Group Cells
-### /logic/c2/cells/{id}
+### /logic/v2/cells/{id}
 #### Retrieve cell information by id [GET]
 + Parameters
     + id: Cell Id
@@ -277,7 +277,7 @@ Retrive access control by access group or user group or user name or access Area
           "itemId":1034,
           "itemName":"ABC 123",
           "itemCode":"FD001",
-          "itemType":"normal",
+          "itemType":"Normal",
           "serialInfo":[  
 
           ],
@@ -292,7 +292,7 @@ Retrive access control by access group or user group or user name or access Area
           "itemId":5051,
           "itemName":"21022017U",
           "itemCode":"21022017U",
-          "itemType":"serial",
+          "itemType":"Serial",
           "serialInfo":[  
             {  
               "itemId":5051,
@@ -310,7 +310,7 @@ Retrive access control by access group or user group or user name or access Area
           "itemId":1201370,
           "itemName":"BNC test",
           "itemCode":"BNC test",
-          "itemType":"normal",
+          "itemType":"Normal",
           "serialInfo":[  
 
           ],
@@ -373,7 +373,7 @@ Retrive access control by access group or user group or user name or access Area
           "itemId":1034,
           "itemName":"ABC 123",
           "itemCode":"FD001",
-          "itemType":"normal",
+          "itemType":"Normal",
           "serialInfo":[  
 
           ],
@@ -388,6 +388,361 @@ Retrive access control by access group or user group or user name or access Area
     }
   },
   "timestamp":1538102077,
+  "nextRecordsUrl":null,
+  "totalSize":0
+}
+
+### /logic/v2/cells/transfer
+#### Perform cell transfer [POST]
++ Request
+     + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+        
+     + Body
+     {  
+  "fromCellid":90050,
+  "toCellId":90051,
+  "contents":[  
+    {  
+      "itemId":5053,
+      "quantity":1
+    },
+    {  
+      "itemId":37906,
+      "quantity":1,
+      "serialInfo":[  
+        {  
+          "serialNo":"00 SERIAL 01"
+        }
+      ]
+    },
+    {  
+      "itemId":38601006,
+      "quantity":1,
+      "batchInfo":[  
+        {  
+          "batchNo":"testing0101abcb1",
+          "batchQuantity":1
+        }
+      ]
+    }
+  ]
+}
+
++ Response 200 (application/json)
+{  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "cells":[  
+      {  
+        "id":90050,
+        "outlet":{  
+          "id":"1",
+          "name":"MAIN BRANCH"
+        },
+        "ownerInfo":"sample",
+        "unit":"A-2-3",
+        "l1":"1",
+        "l2":"2",
+        "l3":"3",
+        "dimension":{  
+          "length":1,
+          "height":1,
+          "width":1
+        },
+        "contents":[  
+          {  
+            "itemId":5050,
+            "itemName":"210220171",
+            "itemCode":"210220171",
+            "itemType":"Normal",
+            "serialInfo":[  
+
+            ],
+            "batchInfo":[  
+
+            ],
+            "isBatchControl":false,
+            "quantity":5,
+            "cellId":90050
+          },
+          {  
+            "itemId":36902,
+            "itemName":"S27112017",
+            "itemCode":"S27112017",
+            "itemType":"Serial",
+            "serialInfo":[  
+
+            ],
+            "batchInfo":[  
+
+            ],
+            "isBatchControl":false,
+            "quantity":0,
+            "cellId":90050
+          },
+          {  
+            "itemId":394033,
+            "itemName":"123456789011",
+            "itemCode":"123456789011",
+            "itemType":"Normal",
+            "serialInfo":[  
+
+            ],
+            "batchInfo":[  
+              {  
+                "itemId":394033,
+                "batchQuantity":10,
+                "batchNo":"12345678"
+              }
+            ],
+            "isBatchControl":true,
+            "quantity":10,
+            "cellId":90050
+          },
+          {  
+            "itemId":5053,
+            "itemName":"b21022017",
+            "itemCode":"b21022017",
+            "itemType":"Normal",
+            "serialInfo":[  
+
+            ],
+            "batchInfo":[  
+
+            ],
+            "isBatchControl":false,
+            "quantity":3,
+            "cellId":90050
+          },
+          {  
+            "itemId":37906,
+            "itemName":"ITEM SERIALIZED 01",
+            "itemCode":"ITS01",
+            "itemType":"Serial",
+            "serialInfo":[  
+              {  
+                "itemId":37906,
+                "serialNo":"00 SERIAL 02"
+              }
+            ],
+            "batchInfo":[  
+
+            ],
+            "isBatchControl":false,
+            "quantity":1,
+            "cellId":90050
+          },
+          {  
+            "itemId":38601006,
+            "itemName":"testing0101abc",
+            "itemCode":"testing0101abc",
+            "itemType":"Normal",
+            "serialInfo":[  
+
+            ],
+            "batchInfo":[  
+              {  
+                "itemId":38601006,
+                "batchQuantity":1,
+                "batchNo":"testing0101abcb1"
+              },
+              {  
+                "itemId":38601006,
+                "batchQuantity":2,
+                "batchNo":"testing0101abcb2"
+              }
+            ],
+            "isBatchControl":true,
+            "quantity":3,
+            "cellId":90050
+          },
+          {  
+            "itemId":5061,
+            "itemName":"10042017",
+            "itemCode":"10042017",
+            "itemType":"Normal",
+            "serialInfo":[  
+
+            ],
+            "batchInfo":[  
+
+            ],
+            "isBatchControl":false,
+            "quantity":1,
+            "cellId":90050
+          },
+          {  
+            "itemId":38601125,
+            "itemName":"testingbatch00002",
+            "itemCode":"testingbatch00002",
+            "itemType":"Normal",
+            "serialInfo":[  
+
+            ],
+            "batchInfo":[  
+              {  
+                "itemId":38601125,
+                "batchQuantity":-7,
+                "batchNo":"testingbatch00002-B1"
+              }
+            ],
+            "isBatchControl":true,
+            "quantity":-7,
+            "cellId":90050
+          }
+        ]
+      },
+      {  
+        "id":90051,
+        "outlet":{  
+          "id":"1",
+          "name":"MAIN BRANCH"
+        },
+        "ownerInfo":"sample",
+        "unit":"A-2-4",
+        "l1":"1",
+        "l2":"2",
+        "l3":"3",
+        "dimension":{  
+          "length":1,
+          "height":1,
+          "width":1
+        },
+        "contents":[  
+          {  
+            "itemId":5053,
+            "itemName":"b21022017",
+            "itemCode":"b21022017",
+            "itemType":"Normal",
+            "serialInfo":[  
+
+            ],
+            "batchInfo":[  
+
+            ],
+            "isBatchControl":false,
+            "quantity":2,
+            "cellId":90051
+          },
+          {  
+            "itemId":37906,
+            "itemName":"ITEM SERIALIZED 01",
+            "itemCode":"ITS01",
+            "itemType":"Serial",
+            "serialInfo":[  
+              {  
+                "itemId":37906,
+                "serialNo":"00 SERIAL 3"
+              },
+              {  
+                "itemId":37906,
+                "serialNo":"00 SERIAL 4"
+              },
+              {  
+                "itemId":37906,
+                "serialNo":"00 SERIAL 01"
+              }
+            ],
+            "batchInfo":[  
+
+            ],
+            "isBatchControl":false,
+            "quantity":3,
+            "cellId":90051
+          },
+          {  
+            "itemId":38601006,
+            "itemName":"testing0101abc",
+            "itemCode":"testing0101abc",
+            "itemType":"Normal",
+            "serialInfo":[  
+
+            ],
+            "batchInfo":[  
+              {  
+                "itemId":38601006,
+                "batchQuantity":9,
+                "batchNo":"testing0101abcb1"
+              },
+              {  
+                "itemId":38601006,
+                "batchQuantity":0,
+                "batchNo":"testing0101abcb2"
+              },
+              {  
+                "itemId":38601006,
+                "batchQuantity":3,
+                "batchNo":"testing0101abcbb1"
+              }
+            ],
+            "isBatchControl":true,
+            "quantity":12,
+            "cellId":90051
+          },
+          {  
+            "itemId":5061,
+            "itemName":"10042017",
+            "itemCode":"10042017",
+            "itemType":"Normal",
+            "serialInfo":[  
+
+            ],
+            "batchInfo":[  
+
+            ],
+            "isBatchControl":false,
+            "quantity":-1,
+            "cellId":90051
+          },
+          {  
+            "itemId":36902,
+            "itemName":"S27112017",
+            "itemCode":"S27112017",
+            "itemType":"Serial",
+            "serialInfo":[  
+              {  
+                "itemId":36902,
+                "serialNo":"1u2eiu348723g532"
+              }
+            ],
+            "batchInfo":[  
+
+            ],
+            "isBatchControl":false,
+            "quantity":1,
+            "cellId":90051
+          },
+          {  
+            "itemId":38601125,
+            "itemName":"testingbatch00002",
+            "itemCode":"testingbatch00002",
+            "itemType":"Normal",
+            "serialInfo":[  
+
+            ],
+            "batchInfo":[  
+              {  
+                "itemId":38601125,
+                "batchQuantity":7,
+                "batchNo":"testingbatch00002-B1"
+              }
+            ],
+            "isBatchControl":true,
+            "quantity":7,
+            "cellId":90051
+          }
+        ]
+      }
+    ],
+    "cell":null
+  },
+  "timestamp":1538533908,
   "nextRecordsUrl":null,
   "totalSize":0
 }
