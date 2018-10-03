@@ -866,6 +866,76 @@ Retrive access control by access group or user group or user name or access Area
   "totalSize":0
 }
 
+###/logic/v2/cells/outlet/{outlet}
+#### retrieve cells by outlet name [GET]
++ Parameters
+    + outlet: outlet name
+    
++ Request
+    
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+        
++ Response 200 (application/json)
+{  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "cells":[  
+      {  
+        "id":90057,
+        "outlet":{  
+          "id":"a0e2cf1fbfd4414f8356d6e2a32e6457",
+          "name":"PENANG BRANCH"
+        },
+        "ownerInfo":"sample",
+        "unit":"A-1-1",
+        "l1":"1",
+        "l2":"2",
+        "l3":"3",
+        "dimension":{  
+          "length":2,
+          "height":2,
+          "width":2
+        },
+        "contents":[  
+
+        ]
+      },
+      {  
+        "id":90058,
+        "outlet":{  
+          "id":"a0e2cf1fbfd4414f8356d6e2a32e6457",
+          "name":"PENANG BRANCH"
+        },
+        "ownerInfo":"sample",
+        "unit":"A-1-2",
+        "l1":"GA",
+        "l2":"GB",
+        "l3":"GC",
+        "dimension":{  
+          "length":2,
+          "height":2,
+          "width":2
+        },
+        "contents":[  
+
+        ]
+      }
+    ],
+    "cell":null
+  },
+  "timestamp":1538541679,
+  "nextRecordsUrl":null,
+  "totalSize":0
+}
+    
     
 ## Group Clients
 
