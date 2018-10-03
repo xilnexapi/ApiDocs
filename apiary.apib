@@ -402,7 +402,7 @@ Retrive access control by access group or user group or user name or access Area
         
      + Body
      {  
-  "fromCellid":90050,
+  "fromCellId":90050,
   "toCellId":90051,
   "contents":[  
     {  
@@ -746,6 +746,126 @@ Retrive access control by access group or user group or user name or access Area
   "nextRecordsUrl":null,
   "totalSize":0
 }
+
+### /logic/v2/cells
+#### create cell [POST]
++ Request
+     + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+        
+     + Body
+     {  
+  "outlet":{  
+    "name":"MAIN BRANCH"
+  },
+  "ownerInfo":"sample",
+  "unit":"A-2-5",
+  "l1":"1",
+  "l2":"2",
+  "l3":"3",
+  "dimension":{  
+    "width":1.0,
+    "height":1.0,
+    "length":1.0
+  }
+}
+
++ Response 200 (application/json)
+{  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "cells":null,
+    "cell":{  
+      "id":90056,
+      "outlet":{  
+        "id":"1",
+        "name":"MAIN BRANCH"
+      },
+      "ownerInfo":"sample",
+      "unit":"A-2-5",
+      "l1":"1",
+      "l2":"2",
+      "l3":"3",
+      "dimension":{  
+        "length":1,
+        "height":1,
+        "width":1
+      },
+      "contents":[  
+
+      ]
+    }
+  },
+  "timestamp":1538538039,
+  "nextRecordsUrl":null,
+  "totalSize":0
+}
+
+### /logic/v2/cells/{id}
+#### update cell [PUT]
++ Parameters
+    + id: Cell Id
+
++ Request
+    
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
+     {  
+  "ownerInfo":"sample3",
+  "unit":"A-2-5",
+  "l1":"11",
+  "l2":"22",
+  "l3":"33",
+  "dimension":{  
+    "width":2.0,
+    "height":2.0,
+    "length":2.0
+  }
+}
+
++ Response 200 (application/json)
+{  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "cells":null,
+    "cell":{  
+      "id":90056,
+      "outlet":{  
+        "id":"1",
+        "name":"MAIN BRANCH"
+      },
+      "ownerInfo":"sample3",
+      "unit":"A-2-5",
+      "l1":"11",
+      "l2":"22",
+      "l3":"33",
+      "dimension":{  
+        "length":2,
+        "height":2,
+        "width":2
+      },
+      "contents":[  
+
+      ]
+    }
+  },
+  "timestamp":1538538377,
+  "nextRecordsUrl":null,
+  "totalSize":0
+}
+
     
 ## Group Clients
 
@@ -5895,11 +6015,11 @@ get sales by client id and date range
                        }
                     ]
                  }
-              }
+              },
+              "nextRecordsUrl": "http://api.xilnex.com/logic/v2/sales/search?outlet=003+-+Sunway&datefrom=2018-08-11T00:00:00.000Z&dateto=2018-08-11T23:59:59.999Z&limit=5&offset=4",
+              "totalSize": 262
             ],
             "timestamp": 1536812704,
-            "nextRecordsUrl": "http://localhost:5715/logic/v2/sales/search?outlet=003+-+Sunway&datefrom=2018-08-11T00:00:00.000Z&dateto=2018-08-11T23:59:59.999Z&limit=5&offset=4",
-            "totalSize": 262
         }
         
 
