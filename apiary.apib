@@ -277,14 +277,15 @@ Retrive access control by access group or user group or user name or access Area
           "itemId":1034,
           "itemName":"ABC 123",
           "itemCode":"FD001",
-          "itemType":"Normal",
+          "itemType":"Type02",
+          "stockType":"Normal",
           "serialInfo":[  
 
           ],
           "batchInfo":[  
 
           ],
-          "isBatchControl":false,
+          "batchControl":false,
           "quantity":1,
           "cellId":90022
         },
@@ -292,7 +293,8 @@ Retrive access control by access group or user group or user name or access Area
           "itemId":5051,
           "itemName":"21022017U",
           "itemCode":"21022017U",
-          "itemType":"Serial",
+          "itemType":"1",
+          "stockType":"Serial",
           "serialInfo":[  
             {  
               "itemId":5051,
@@ -302,7 +304,7 @@ Retrive access control by access group or user group or user name or access Area
           "batchInfo":[  
 
           ],
-          "isBatchControl":false,
+          "batchControl":false,
           "quantity":1,
           "cellId":90022
         },
@@ -310,7 +312,8 @@ Retrive access control by access group or user group or user name or access Area
           "itemId":1201370,
           "itemName":"BNC test",
           "itemCode":"BNC test",
-          "itemType":"Normal",
+          "itemType":"Type02",
+          "stockType":"Normal",
           "serialInfo":[  
 
           ],
@@ -321,7 +324,7 @@ Retrive access control by access group or user group or user name or access Area
               "batchNo":"abc001"
             }
           ],
-          "isBatchControl":true,
+          "batchControl":true,
           "quantity":1,
           "cellId":90022
         }
@@ -333,11 +336,12 @@ Retrive access control by access group or user group or user name or access Area
   "totalSize":0
 }
 
-### /logic/v2/cells?outlet={outlet}&unit={unitno}
-#### retrieve cell by name [GET]
+### /logic/v2/cells?outlet={outlet}&unit={unitno}&itemId={itemId}
+#### retrieve cell by parmas [GET]
 + Parameters
     + outlet: Outlet name
     + unit: Unit number or shelf number
+    + item id : Item Id
 
 + Request
     
@@ -373,14 +377,15 @@ Retrive access control by access group or user group or user name or access Area
           "itemId":1034,
           "itemName":"ABC 123",
           "itemCode":"FD001",
-          "itemType":"Normal",
+          "itemType":"Type02",
+          "stockType":"Normal",
           "serialInfo":[  
 
           ],
           "batchInfo":[  
 
           ],
-          "isBatchControl":false,
+          "batchControl":false,
           "quantity":1,
           "cellId":90017
         }
@@ -460,14 +465,15 @@ Retrive access control by access group or user group or user name or access Area
             "itemId":5050,
             "itemName":"210220171",
             "itemCode":"210220171",
-            "itemType":"Normal",
+            "itemType":"1",
+            "stockType":"Normal",
             "serialInfo":[  
 
             ],
             "batchInfo":[  
 
             ],
-            "isBatchControl":false,
+            "batchControl":false,
             "quantity":5,
             "cellId":90050
           },
@@ -475,14 +481,15 @@ Retrive access control by access group or user group or user name or access Area
             "itemId":36902,
             "itemName":"S27112017",
             "itemCode":"S27112017",
-            "itemType":"Serial",
+            "itemType":"Type02",
+            "stockType":"Serial",
             "serialInfo":[  
 
             ],
             "batchInfo":[  
 
             ],
-            "isBatchControl":false,
+            "batchControl":false,
             "quantity":0,
             "cellId":90050
           },
@@ -490,7 +497,8 @@ Retrive access control by access group or user group or user name or access Area
             "itemId":394033,
             "itemName":"123456789011",
             "itemCode":"123456789011",
-            "itemType":"Normal",
+            "itemType":"Type02",
+            "stockType":"Normal",
             "serialInfo":[  
 
             ],
@@ -501,7 +509,7 @@ Retrive access control by access group or user group or user name or access Area
                 "batchNo":"12345678"
               }
             ],
-            "isBatchControl":true,
+            "batchControl":true,
             "quantity":10,
             "cellId":90050
           },
@@ -509,14 +517,15 @@ Retrive access control by access group or user group or user name or access Area
             "itemId":5053,
             "itemName":"b21022017",
             "itemCode":"b21022017",
-            "itemType":"Normal",
+            "itemType":"1",
+            "stockType":"Normal",
             "serialInfo":[  
 
             ],
             "batchInfo":[  
 
             ],
-            "isBatchControl":false,
+            "batchControl":false,
             "quantity":3,
             "cellId":90050
           },
@@ -524,7 +533,8 @@ Retrive access control by access group or user group or user name or access Area
             "itemId":37906,
             "itemName":"ITEM SERIALIZED 01",
             "itemCode":"ITS01",
-            "itemType":"Serial",
+            "itemType":"00 ITEM TYPE 1",
+            "stockType":"Serial",
             "serialInfo":[  
               {  
                 "itemId":37906,
@@ -534,7 +544,7 @@ Retrive access control by access group or user group or user name or access Area
             "batchInfo":[  
 
             ],
-            "isBatchControl":false,
+            "batchControl":false,
             "quantity":1,
             "cellId":90050
           },
@@ -542,7 +552,8 @@ Retrive access control by access group or user group or user name or access Area
             "itemId":38601006,
             "itemName":"testing0101abc",
             "itemCode":"testing0101abc",
-            "itemType":"Normal",
+            "itemType":"Type02",
+            "stockType":"Normal",
             "serialInfo":[  
 
             ],
@@ -558,7 +569,7 @@ Retrive access control by access group or user group or user name or access Area
                 "batchNo":"testing0101abcb2"
               }
             ],
-            "isBatchControl":true,
+            "batchControl":true,
             "quantity":3,
             "cellId":90050
           },
@@ -566,14 +577,15 @@ Retrive access control by access group or user group or user name or access Area
             "itemId":5061,
             "itemName":"10042017",
             "itemCode":"10042017",
-            "itemType":"Normal",
+            "itemType":"1",
+            "stockType":"Normal",
             "serialInfo":[  
 
             ],
             "batchInfo":[  
 
             ],
-            "isBatchControl":false,
+            "batchControl":false,
             "quantity":1,
             "cellId":90050
           },
@@ -581,7 +593,8 @@ Retrive access control by access group or user group or user name or access Area
             "itemId":38601125,
             "itemName":"testingbatch00002",
             "itemCode":"testingbatch00002",
-            "itemType":"Normal",
+             "itemType":"Type02",
+            "stockType":"Normal",
             "serialInfo":[  
 
             ],
@@ -592,7 +605,7 @@ Retrive access control by access group or user group or user name or access Area
                 "batchNo":"testingbatch00002-B1"
               }
             ],
-            "isBatchControl":true,
+            "batchControl":true,
             "quantity":-7,
             "cellId":90050
           }
@@ -619,7 +632,8 @@ Retrive access control by access group or user group or user name or access Area
             "itemId":5053,
             "itemName":"b21022017",
             "itemCode":"b21022017",
-            "itemType":"Normal",
+            "itemType":"1",
+            "stockType":"Normal",
             "serialInfo":[  
 
             ],
@@ -634,7 +648,8 @@ Retrive access control by access group or user group or user name or access Area
             "itemId":37906,
             "itemName":"ITEM SERIALIZED 01",
             "itemCode":"ITS01",
-            "itemType":"Serial",
+            "itemType":"00 ITEM TYPE 1",
+            "stockType":"Serial",
             "serialInfo":[  
               {  
                 "itemId":37906,
@@ -652,7 +667,7 @@ Retrive access control by access group or user group or user name or access Area
             "batchInfo":[  
 
             ],
-            "isBatchControl":false,
+            "batchControl":false,
             "quantity":3,
             "cellId":90051
           },
@@ -660,7 +675,8 @@ Retrive access control by access group or user group or user name or access Area
             "itemId":38601006,
             "itemName":"testing0101abc",
             "itemCode":"testing0101abc",
-            "itemType":"Normal",
+            "itemType":"Type02",
+            "stockType":"Normal",
             "serialInfo":[  
 
             ],
@@ -681,7 +697,7 @@ Retrive access control by access group or user group or user name or access Area
                 "batchNo":"testing0101abcbb1"
               }
             ],
-            "isBatchControl":true,
+            "batchControl":true,
             "quantity":12,
             "cellId":90051
           },
@@ -689,14 +705,15 @@ Retrive access control by access group or user group or user name or access Area
             "itemId":5061,
             "itemName":"10042017",
             "itemCode":"10042017",
-            "itemType":"Normal",
+            "itemType":"1",
+            "stockType":"Normal",
             "serialInfo":[  
 
             ],
             "batchInfo":[  
 
             ],
-            "isBatchControl":false,
+            "batchControl":false,
             "quantity":-1,
             "cellId":90051
           },
@@ -704,7 +721,8 @@ Retrive access control by access group or user group or user name or access Area
             "itemId":36902,
             "itemName":"S27112017",
             "itemCode":"S27112017",
-            "itemType":"Serial",
+            "itemType":"Type02",
+            "stockType":"Serial",
             "serialInfo":[  
               {  
                 "itemId":36902,
@@ -714,7 +732,7 @@ Retrive access control by access group or user group or user name or access Area
             "batchInfo":[  
 
             ],
-            "isBatchControl":false,
+            "batchControl":false,
             "quantity":1,
             "cellId":90051
           },
@@ -722,7 +740,8 @@ Retrive access control by access group or user group or user name or access Area
             "itemId":38601125,
             "itemName":"testingbatch00002",
             "itemCode":"testingbatch00002",
-            "itemType":"Normal",
+            "itemType":"Type02",
+            "stockType":"Normal",
             "serialInfo":[  
 
             ],
@@ -733,7 +752,7 @@ Retrive access control by access group or user group or user name or access Area
                 "batchNo":"testingbatch00002-B1"
               }
             ],
-            "isBatchControl":true,
+            "batchControl":true,
             "quantity":7,
             "cellId":90051
           }
@@ -756,6 +775,8 @@ Retrive access control by access group or user group or user name or access Area
         Content-Type: application/json
         
      + Body
+     {
+     "cell":
      {  
   "outlet":{  
     "name":"MAIN BRANCH"
@@ -770,6 +791,7 @@ Retrive access control by access group or user group or user name or access Area
     "height":1.0,
     "length":1.0
   }
+}
 }
 
 + Response 200 (application/json)
@@ -819,6 +841,8 @@ Retrive access control by access group or user group or user name or access Area
             Header: {header}
             Token: {token}
     + Body
+    {
+    "cell":
      {  
   "ownerInfo":"sample3",
   "unit":"A-2-5",
@@ -831,7 +855,7 @@ Retrive access control by access group or user group or user name or access Area
     "length":2.0
   }
 }
-
+}
 + Response 200 (application/json)
 {  
   "ok":true,
@@ -862,76 +886,6 @@ Retrive access control by access group or user group or user name or access Area
     }
   },
   "timestamp":1538538377,
-  "nextRecordsUrl":null,
-  "totalSize":0
-}
-
-###/logic/v2/cells/outlet/{outlet}
-#### retrieve cells by outlet name [GET]
-+ Parameters
-    + outlet: outlet name
-    
-+ Request
-    
-    + Headers
-
-            Accept: application/json
-            Header: {header}
-            Token: {token}
-    + Body
-        
-+ Response 200 (application/json)
-{  
-  "ok":true,
-  "status":"SuccessQuery",
-  "warning":null,
-  "error":null,
-  "data":{  
-    "cells":[  
-      {  
-        "id":90057,
-        "outlet":{  
-          "id":"a0e2cf1fbfd4414f8356d6e2a32e6457",
-          "name":"PENANG BRANCH"
-        },
-        "ownerInfo":"sample",
-        "unit":"A-1-1",
-        "l1":"1",
-        "l2":"2",
-        "l3":"3",
-        "dimension":{  
-          "length":2,
-          "height":2,
-          "width":2
-        },
-        "contents":[  
-
-        ]
-      },
-      {  
-        "id":90058,
-        "outlet":{  
-          "id":"a0e2cf1fbfd4414f8356d6e2a32e6457",
-          "name":"PENANG BRANCH"
-        },
-        "ownerInfo":"sample",
-        "unit":"A-1-2",
-        "l1":"GA",
-        "l2":"GB",
-        "l3":"GC",
-        "dimension":{  
-          "length":2,
-          "height":2,
-          "width":2
-        },
-        "contents":[  
-
-        ]
-      }
-    ],
-    "cell":null
-  },
-  "timestamp":1538541679,
   "nextRecordsUrl":null,
   "totalSize":0
 }
@@ -8830,6 +8784,8 @@ Get invoice by id
         Content-Type: application/json
         
  + Body
+ {
+ "segment":
  {  
   "segmentItems":[  
     {  
@@ -8841,11 +8797,12 @@ Get invoice by id
       "shelfNo":""
     }
   ],
-  "outletId":"d065f421-4873-4170-b500-0df776adf4e9",
+  "outlet":"090120161",
   "issueBy":"RealMart Admin",
   "issueDate":"2018-03-22T00:00:00.000Z",
   "status":"Saved",
   "remark":"TestRemark"
+}
 }
 
 + Response 200 (application/json)
@@ -8873,7 +8830,7 @@ Get invoice by id
         }
       ],
       "id":90060,
-      "outletId":"d065f421-4873-4170-b500-0df776adf4e9",
+      "outlet":"090120161",
       "issueBy":"realmart@xilnex.com",
       "issueDate":"2018-03-22T00:00:00.000Z",
       "status":"0",
