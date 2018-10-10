@@ -9137,8 +9137,714 @@ Get invoice by id
                 },
                 "timestamp": 1534237961
             }
-    
+            
+### /logic/v2/order?datefrom={date_from}&dateto={date_to}&outlet={outlet}&status={status}&limit={limit}&offset={offset}
+#### Get Order Details with filter [GET]
+get orders by outlet name, status and date range
 
++ Parameters
+    + date_from(required, Date) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSSZ` Date from
+    + date_to(required, Date) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSSZ` Date to
+    + outlet(required, String) ... Outlet name
+    + status(optional,String) ... Order status
+    + limit (optional, Number) ... default 4000
+    + offset(optional, Number) ... default 0
+    
++ Request
+    + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+    
+    + Body
+    
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+    {  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "order":null,
+    "orders":[  
+      {  
+        "id":11903,
+        "orderDateTime":"2018-08-07T09:31:38.000Z",
+        "totalAmount":25288.38,
+        "recipient":"RealMart Admin",
+        "customerId":5044,
+        "paidAmount":25288.38,
+        "balanceAmount":0,
+        "cashier":"RealMart Admin",
+        "isReservation":true,
+        "orderStatus":"COMPLETED",
+        "orderPerson":"RealMart Admin",
+        "paymentStatus":"PENDING",
+        "outlet":"00 MAIN OUTLET",
+        "orderNo":"OUT3",
+        "salesNo":"1190222",
+        "pax":"4",
+        "orderType":"Dine In",
+        "roundingAmount":0,
+        "remark":"adasd",
+        "netAmount":25288.38,
+        "referenceOrderId":null,
+        "isPrinted":false,
+        "printedCount":0,
+        "serviceChargeAmount":0,
+        "externalRefId":null,
+        "customerName":"active members 02",
+        "mobileNo":null,
+        "orderSource":null,
+        "orderItems":[  
+
+        ]
+      },
+      {  
+        "id":11905,
+        "orderDateTime":"2018-08-07T16:41:43.000Z",
+        "totalAmount":25000,
+        "recipient":"RealMart Admin",
+        "customerId":5044,
+        "paidAmount":25000,
+        "balanceAmount":0,
+        "cashier":"RealMart Admin",
+        "isReservation":true,
+        "orderStatus":"COMPLETED",
+        "orderPerson":"RealMart Admin",
+        "paymentStatus":"PENDING",
+        "outlet":"00 MAIN OUTLET",
+        "orderNo":"OUT2",
+        "salesNo":"1190223",
+        "pax":"2",
+        "orderType":"Dine In",
+        "roundingAmount":0,
+        "remark":"",
+        "netAmount":25000,
+        "referenceOrderId":null,
+        "isPrinted":false,
+        "printedCount":0,
+        "serviceChargeAmount":0,
+        "externalRefId":null,
+        "customerName":"active members 02",
+        "mobileNo":null,
+        "orderSource":null,
+        "orderItems":[  
+
+        ]
+      },
+      {  
+        "id":11906,
+        "orderDateTime":"2018-08-07T16:44:52.000Z",
+        "totalAmount":50000,
+        "recipient":"RealMart Admin",
+        "customerId":5044,
+        "paidAmount":50000,
+        "balanceAmount":0,
+        "cashier":"RealMart Admin",
+        "isReservation":true,
+        "orderStatus":"COMPLETED",
+        "orderPerson":"RealMart Admin",
+        "paymentStatus":"PENDING",
+        "outlet":"00 MAIN OUTLET",
+        "orderNo":"OUT2",
+        "salesNo":"1190224",
+        "pax":"2",
+        "orderType":"Dine In",
+        "roundingAmount":0,
+        "remark":"",
+        "netAmount":50000,
+        "referenceOrderId":null,
+        "isPrinted":false,
+        "printedCount":0,
+        "serviceChargeAmount":0,
+        "externalRefId":null,
+        "customerName":"active members 02",
+        "mobileNo":null,
+        "orderSource":null,
+        "orderItems":[  
+
+        ]
+      },
+      {  
+        "id":11907,
+        "orderDateTime":"2018-08-08T15:48:02.000Z",
+        "totalAmount":11,
+        "recipient":"RealMart Admin",
+        "customerId":119033,
+        "paidAmount":11,
+        "balanceAmount":0,
+        "cashier":"RealMart Admin",
+        "isReservation":true,
+        "orderStatus":"COMPLETED",
+        "orderPerson":"RealMart Admin",
+        "paymentStatus":"PENDING",
+        "outlet":"00 MAIN OUTLET",
+        "orderNo":"OUT1",
+        "salesNo":"1190226",
+        "pax":"1",
+        "orderType":"Dine In",
+        "roundingAmount":0,
+        "remark":"deposit",
+        "netAmount":11,
+        "referenceOrderId":null,
+        "isPrinted":false,
+        "printedCount":0,
+        "serviceChargeAmount":0,
+        "externalRefId":null,
+        "customerName":"Faiz",
+        "mobileNo":null,
+        "orderSource":null,
+        "orderItems":[  
+
+        ]
+      }
+    ]
+  },
+  "timestamp":1539153845
+}
+
+### /logic/v2/order/{id}/Confirmed
+#### Confirm Order [PUT]
+Confirm e-order
+
++ Parameters
+    + id (required, Number) ... Order id
+
++ Request
+    + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+    
+    + Body
+    
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+    {  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "order":{  
+      "id":9007,
+      "orderDateTime":"2018-06-26T16:52:00.000Z",
+      "totalAmount":793.95,
+      "recipient":"RealMart Admin",
+      "customerId":5042,
+      "paidAmount":0,
+      "balanceAmount":793.95,
+      "cashier":"RealMart Admin",
+      "isReservation":false,
+      "orderStatus":"CONFIRMED",
+      "orderPerson":"RealMart Admin",
+      "paymentStatus":"PENDING",
+      "outlet":"00 MAIN OUTLET",
+      "orderNo":"1",
+      "salesNo":"1190185",
+      "pax":"1",
+      "orderType":"Delivery",
+      "roundingAmount":0.01,
+      "remark":"hgh",
+      "netAmount":793.95,
+      "referenceOrderId":null,
+      "isPrinted":false,
+      "printedCount":0,
+      "serviceChargeAmount":34.24,
+      "externalRefId":null,
+      "customerName":"Cindy E. B",
+      "mobileNo":"",
+      "orderSource":null,
+      "orderItems":[  
+        {  
+          "itemId":236045,
+          "itemName":"zzz",
+          "itemType":"Type02",
+          "model":"",
+          "description":"Description",
+          "price":8.9,
+          "enterPrice":8.9,
+          "quantity":5,
+          "discountPercentage":40,
+          "instoreLocation":"default",
+          "orderDateTime":"2018-06-27T09:44:00.000Z",
+          "itemRemark":null,
+          "orderItemCode":"zzz",
+          "isUniqueItem":false,
+          "uniqueCode":null,
+          "isPackage":false,
+          "isService":false,
+          "isPrepack":false,
+          "pcid":"",
+          "itemIndex":1,
+          "cashier":null,
+          "outlet":"00 MAIN OUTLET",
+          "itemCategory":"",
+          "orderItemRemark":"",
+          "isPrint":false,
+          "orderPerson":"RealMart Admin",
+          "altLookUp":"",
+          "refSalesItemId":0,
+          "promoGroup":"",
+          "orderItemOrderType":"Delivery",
+          "serviceChargePercentage":5,
+          "discountRemark":"",
+          "orderedItemSavedDateTime":"2018-06-26T16:52:00.000Z",
+          "printStatus":false,
+          "subTotal":26.7,
+          "scanCode":null,
+          "addOns":[  
+
+          ]
+        },
+        {  
+          "itemId":236045,
+          "itemName":"zzz",
+          "itemType":"Type02",
+          "model":"",
+          "description":"Description",
+          "price":25,
+          "enterPrice":25,
+          "quantity":3,
+          "discountPercentage":0,
+          "instoreLocation":"default",
+          "orderDateTime":"2018-06-27T09:44:00.000Z",
+          "itemRemark":null,
+          "orderItemCode":"zzz",
+          "isUniqueItem":false,
+          "uniqueCode":null,
+          "isPackage":false,
+          "isService":false,
+          "isPrepack":false,
+          "pcid":"",
+          "itemIndex":2,
+          "cashier":null,
+          "outlet":"00 MAIN OUTLET",
+          "itemCategory":"",
+          "orderItemRemark":"",
+          "isPrint":false,
+          "orderPerson":"RealMart Admin",
+          "altLookUp":"",
+          "refSalesItemId":0,
+          "promoGroup":"",
+          "orderItemOrderType":"Delivery",
+          "serviceChargePercentage":0,
+          "discountRemark":"",
+          "orderedItemSavedDateTime":"2018-06-26T16:52:00.000Z",
+          "printStatus":false,
+          "subTotal":75,
+          "scanCode":null,
+          "addOns":[  
+
+          ]
+        },
+        {  
+          "itemId":236045,
+          "itemName":"zzz",
+          "itemType":"Type02",
+          "model":"",
+          "description":"Description",
+          "price":8,
+          "enterPrice":8,
+          "quantity":2,
+          "discountPercentage":0,
+          "instoreLocation":"default",
+          "orderDateTime":"2018-06-27T09:44:00.000Z",
+          "itemRemark":null,
+          "orderItemCode":"zzz",
+          "isUniqueItem":false,
+          "uniqueCode":null,
+          "isPackage":false,
+          "isService":false,
+          "isPrepack":false,
+          "pcid":"",
+          "itemIndex":3,
+          "cashier":null,
+          "outlet":"00 MAIN OUTLET",
+          "itemCategory":"",
+          "orderItemRemark":"",
+          "isPrint":false,
+          "orderPerson":"RealMart Admin",
+          "altLookUp":"",
+          "refSalesItemId":0,
+          "promoGroup":"",
+          "orderItemOrderType":"Delivery",
+          "serviceChargePercentage":5,
+          "discountRemark":"",
+          "orderedItemSavedDateTime":"2018-06-26T16:52:00.000Z",
+          "printStatus":false,
+          "subTotal":16,
+          "scanCode":null,
+          "addOns":[  
+
+          ]
+        },
+        {  
+          "itemId":236045,
+          "itemName":"zzz",
+          "itemType":"Type02",
+          "model":"",
+          "description":"Description",
+          "price":688,
+          "enterPrice":688,
+          "quantity":1,
+          "discountPercentage":10,
+          "instoreLocation":"default",
+          "orderDateTime":"2018-06-27T09:44:00.000Z",
+          "itemRemark":null,
+          "orderItemCode":"zzz",
+          "isUniqueItem":false,
+          "uniqueCode":null,
+          "isPackage":false,
+          "isService":false,
+          "isPrepack":false,
+          "pcid":"",
+          "itemIndex":4,
+          "cashier":null,
+          "outlet":"00 MAIN OUTLET",
+          "itemCategory":"",
+          "orderItemRemark":"",
+          "isPrint":false,
+          "orderPerson":"RealMart Admin",
+          "altLookUp":"",
+          "refSalesItemId":0,
+          "promoGroup":"",
+          "orderItemOrderType":"Delivery",
+          "serviceChargePercentage":5,
+          "discountRemark":"",
+          "orderedItemSavedDateTime":"2018-06-26T16:52:00.000Z",
+          "printStatus":false,
+          "subTotal":619.2,
+          "scanCode":null,
+          "addOns":[  
+
+          ]
+        },
+        {  
+          "itemId":236045,
+          "itemName":"zzz",
+          "itemType":"Type02",
+          "model":"",
+          "description":"Description",
+          "price":22.8,
+          "enterPrice":22.8,
+          "quantity":1,
+          "discountPercentage":0,
+          "instoreLocation":"default",
+          "orderDateTime":"2018-06-27T09:44:00.000Z",
+          "itemRemark":null,
+          "orderItemCode":"zzz",
+          "isUniqueItem":false,
+          "uniqueCode":null,
+          "isPackage":false,
+          "isService":false,
+          "isPrepack":false,
+          "pcid":"",
+          "itemIndex":5,
+          "cashier":null,
+          "outlet":"00 MAIN OUTLET",
+          "itemCategory":"",
+          "orderItemRemark":"",
+          "isPrint":false,
+          "orderPerson":"RealMart Admin",
+          "altLookUp":"",
+          "refSalesItemId":0,
+          "promoGroup":"",
+          "orderItemOrderType":"Delivery",
+          "serviceChargePercentage":5,
+          "discountRemark":"",
+          "orderedItemSavedDateTime":"2018-06-26T16:52:00.000Z",
+          "printStatus":false,
+          "subTotal":22.8,
+          "scanCode":null,
+          "addOns":[  
+
+          ]
+        }
+      ]
+    },
+    "orders":null
+  },
+  "timestamp":1539155083
+}
+
+### /logic/v2/order/{id}/Completed
+#### Complete Order [PUT]
+Complete e-order
+
++ Parameters
+    + id (required, Number) ... Order id
+
++ Request
+    + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+    
+    + Body
+    
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+    {  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "order":{  
+      "id":9007,
+      "orderDateTime":"2018-06-26T16:52:00.000Z",
+      "totalAmount":793.95,
+      "recipient":"RealMart Admin",
+      "customerId":5042,
+      "paidAmount":0,
+      "balanceAmount":793.95,
+      "cashier":"RealMart Admin",
+      "isReservation":false,
+      "orderStatus":"COMPLETED",
+      "orderPerson":"RealMart Admin",
+      "paymentStatus":"PENDING",
+      "outlet":"00 MAIN OUTLET",
+      "orderNo":"1",
+      "salesNo":"1190185",
+      "pax":"1",
+      "orderType":"Delivery",
+      "roundingAmount":0.01,
+      "remark":"hgh",
+      "netAmount":793.95,
+      "referenceOrderId":null,
+      "isPrinted":false,
+      "printedCount":0,
+      "serviceChargeAmount":34.24,
+      "externalRefId":null,
+      "customerName":"Cindy E. B",
+      "mobileNo":"",
+      "orderSource":null,
+      "orderItems":[  
+        {  
+          "itemId":236045,
+          "itemName":"zzz",
+          "itemType":"Type02",
+          "model":"",
+          "description":"Description",
+          "price":8.9,
+          "enterPrice":8.9,
+          "quantity":5,
+          "discountPercentage":40,
+          "instoreLocation":"default",
+          "orderDateTime":"2018-06-27T09:44:00.000Z",
+          "itemRemark":null,
+          "orderItemCode":"zzz",
+          "isUniqueItem":false,
+          "uniqueCode":null,
+          "isPackage":false,
+          "isService":false,
+          "isPrepack":false,
+          "pcid":"",
+          "itemIndex":1,
+          "cashier":null,
+          "outlet":"00 MAIN OUTLET",
+          "itemCategory":"",
+          "orderItemRemark":"",
+          "isPrint":false,
+          "orderPerson":"RealMart Admin",
+          "altLookUp":"",
+          "refSalesItemId":0,
+          "promoGroup":"",
+          "orderItemOrderType":"Delivery",
+          "serviceChargePercentage":5,
+          "discountRemark":"",
+          "orderedItemSavedDateTime":"2018-06-26T16:52:00.000Z",
+          "printStatus":false,
+          "subTotal":26.7,
+          "scanCode":null,
+          "addOns":[  
+
+          ]
+        },
+        {  
+          "itemId":236045,
+          "itemName":"zzz",
+          "itemType":"Type02",
+          "model":"",
+          "description":"Description",
+          "price":25,
+          "enterPrice":25,
+          "quantity":3,
+          "discountPercentage":0,
+          "instoreLocation":"default",
+          "orderDateTime":"2018-06-27T09:44:00.000Z",
+          "itemRemark":null,
+          "orderItemCode":"zzz",
+          "isUniqueItem":false,
+          "uniqueCode":null,
+          "isPackage":false,
+          "isService":false,
+          "isPrepack":false,
+          "pcid":"",
+          "itemIndex":2,
+          "cashier":null,
+          "outlet":"00 MAIN OUTLET",
+          "itemCategory":"",
+          "orderItemRemark":"",
+          "isPrint":false,
+          "orderPerson":"RealMart Admin",
+          "altLookUp":"",
+          "refSalesItemId":0,
+          "promoGroup":"",
+          "orderItemOrderType":"Delivery",
+          "serviceChargePercentage":0,
+          "discountRemark":"",
+          "orderedItemSavedDateTime":"2018-06-26T16:52:00.000Z",
+          "printStatus":false,
+          "subTotal":75,
+          "scanCode":null,
+          "addOns":[  
+
+          ]
+        },
+        {  
+          "itemId":236045,
+          "itemName":"zzz",
+          "itemType":"Type02",
+          "model":"",
+          "description":"Description",
+          "price":8,
+          "enterPrice":8,
+          "quantity":2,
+          "discountPercentage":0,
+          "instoreLocation":"default",
+          "orderDateTime":"2018-06-27T09:44:00.000Z",
+          "itemRemark":null,
+          "orderItemCode":"zzz",
+          "isUniqueItem":false,
+          "uniqueCode":null,
+          "isPackage":false,
+          "isService":false,
+          "isPrepack":false,
+          "pcid":"",
+          "itemIndex":3,
+          "cashier":null,
+          "outlet":"00 MAIN OUTLET",
+          "itemCategory":"",
+          "orderItemRemark":"",
+          "isPrint":false,
+          "orderPerson":"RealMart Admin",
+          "altLookUp":"",
+          "refSalesItemId":0,
+          "promoGroup":"",
+          "orderItemOrderType":"Delivery",
+          "serviceChargePercentage":5,
+          "discountRemark":"",
+          "orderedItemSavedDateTime":"2018-06-26T16:52:00.000Z",
+          "printStatus":false,
+          "subTotal":16,
+          "scanCode":null,
+          "addOns":[  
+
+          ]
+        },
+        {  
+          "itemId":236045,
+          "itemName":"zzz",
+          "itemType":"Type02",
+          "model":"",
+          "description":"Description",
+          "price":688,
+          "enterPrice":688,
+          "quantity":1,
+          "discountPercentage":10,
+          "instoreLocation":"default",
+          "orderDateTime":"2018-06-27T09:44:00.000Z",
+          "itemRemark":null,
+          "orderItemCode":"zzz",
+          "isUniqueItem":false,
+          "uniqueCode":null,
+          "isPackage":false,
+          "isService":false,
+          "isPrepack":false,
+          "pcid":"",
+          "itemIndex":4,
+          "cashier":null,
+          "outlet":"00 MAIN OUTLET",
+          "itemCategory":"",
+          "orderItemRemark":"",
+          "isPrint":false,
+          "orderPerson":"RealMart Admin",
+          "altLookUp":"",
+          "refSalesItemId":0,
+          "promoGroup":"",
+          "orderItemOrderType":"Delivery",
+          "serviceChargePercentage":5,
+          "discountRemark":"",
+          "orderedItemSavedDateTime":"2018-06-26T16:52:00.000Z",
+          "printStatus":false,
+          "subTotal":619.2,
+          "scanCode":null,
+          "addOns":[  
+
+          ]
+        },
+        {  
+          "itemId":236045,
+          "itemName":"zzz",
+          "itemType":"Type02",
+          "model":"",
+          "description":"Description",
+          "price":22.8,
+          "enterPrice":22.8,
+          "quantity":1,
+          "discountPercentage":0,
+          "instoreLocation":"default",
+          "orderDateTime":"2018-06-27T09:44:00.000Z",
+          "itemRemark":null,
+          "orderItemCode":"zzz",
+          "isUniqueItem":false,
+          "uniqueCode":null,
+          "isPackage":false,
+          "isService":false,
+          "isPrepack":false,
+          "pcid":"",
+          "itemIndex":5,
+          "cashier":null,
+          "outlet":"00 MAIN OUTLET",
+          "itemCategory":"",
+          "orderItemRemark":"",
+          "isPrint":false,
+          "orderPerson":"RealMart Admin",
+          "altLookUp":"",
+          "refSalesItemId":0,
+          "promoGroup":"",
+          "orderItemOrderType":"Delivery",
+          "serviceChargePercentage":5,
+          "discountRemark":"",
+          "orderedItemSavedDateTime":"2018-06-26T16:52:00.000Z",
+          "printStatus":false,
+          "subTotal":22.8,
+          "scanCode":null,
+          "addOns":[  
+
+          ]
+        }
+      ]
+    },
+    "orders":null
+  },
+  "timestamp":1539155205
+}
+    
+    
 ## Group PickList
 ### /logic/v2/picklist/{id}
 #### Get Pick List [GET]
