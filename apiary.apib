@@ -840,6 +840,7 @@ Retrive access control by access group or user group or user name or access Area
   }
 }
 }
+
 + Response 200 (application/json)
 {  
   "ok":true,
@@ -873,8 +874,31 @@ Retrive access control by access group or user group or user name or access Area
   "nextRecordsUrl":null,
   "totalSize":0
 }
+
+### /logic/v2/cells/{id}
+#### delete cell [DELETE]
++ Parameters
+    + id: Cell Id
+
++ Request
     
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+    + Body
     
++ Response 200 (application/json) 
+{
+    "ok": true,
+    "status": "SuccessDelete",
+    "warning": null,
+    "error": null,
+    "data": null,
+    "timestamp": 1540176451
+}
+
 ## Group Clients
 
 ### /logic/v2/clients/buddy
