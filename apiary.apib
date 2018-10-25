@@ -11153,7 +11153,585 @@ Complete e-order
    "timestamp":1529643067
 }
 
+## Group Purchase Order
+### /logic/v2/purchaseorder/{id}
+#### Get Purchase Order [GET]
++ Parameters
+    + id (required, Number) ... Purchase order number
 
++ Request
+    + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+    
+    + Body
+            
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+    {  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "purchaseOrder":{  
+      "poItems":[  
+        {  
+          "id":90062,
+          "itemId":"182030295",
+          "itemCode":"i01",
+          "itemName":"i01",
+          "uomEnterQuantity":2,
+          "price":23,
+          "remark":null,
+          "discountPercentage":0,
+          "totalReceived":1,
+          "itemType":"1",
+          "alternateLookup":null,
+          "matrixBarcode":"",
+          "priceScheme":{  
+            "manufacturerPrice":0,
+            "salePrice":12,
+            "employeePrice":12,
+            "wholesalePrice":0,
+            "customPrice":0,
+            "webPrice":0,
+            "webDealerPrice":1.123,
+            "cost":0
+          },
+          "purchaseUOM":"EACH",
+          "enterQuantity":2,
+          "uomFactor":1,
+          "packageId":"-1",
+          "taxCode":"TX",
+          "taxPercentage":0,
+          "taxAmount":0,
+          "inclusiveMGST":false,
+          "enterCost":23,
+          "matrixX":null,
+          "matrixY":null,
+          "foreignEnterCost":23,
+          "foreignTotalCost":46,
+          "remarks2":null,
+          "gstPercent":0,
+          "gstAmount":0,
+          "subTotal":0,
+          "totalTaxAmount":0,
+          "totalDiscountAmount":0,
+          "vatCode":null,
+          "vatRate":0,
+          "intExtend1":0,
+          "intExtend2":0,
+          "intExtend3":0,
+          "stringExtend3":null
+        }
+      ],
+      "id":90038,
+      "issueBy":"realmart@xilnex.com",
+      "lastReceivedBy":"realmart@xilnex.com",
+      "lastReceivedDate":"2018-10-09T00:00:00.000Z",
+      "remarks":"NA",
+      "issueDate":"2018-03-26T00:00:00.000Z",
+      "submitterOutlet":"A New Outlet",
+      "producerOutlet":"A New Outlet",
+      "status":"Partially_Received",
+      "vendorSalesOrder":"NA",
+      "serviceCharge":0,
+      "exchangeRate":1,
+      "referencePONo":null,
+      "poExpiryDate":"2018-03-26T00:00:00.000Z",
+      "lastReceivedNo":null,
+      "department":"",
+      "cancelDate":null,
+      "currencyCode":"",
+      "terms":0,
+      "poCurrentDateTime":"2018-10-09T18:47:13.000Z",
+      "vendorId":"",
+      "vendorName":"",
+      "expectedDateOfArrival":"2018-03-26T00:00:00.000Z",
+      "discountRate":0,
+      "termsRemark":null,
+      "localAmountExcrate":1,
+      "foreignAmountExcrate":1,
+      "transferTo":null,
+      "mgstTaxAmount":0,
+      "foreignGrandTotal":0,
+      "taxFreeAmount":0,
+      "isInclusive":false
+    }
+  },
+  "timestamp":1540439372
+}
+
+### /logic/v2/purchaseorder
+#### POST [POST]
++ Post purchase order with service item
+    
++ Request
+     + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+        
+     + Body
+     {  
+  "purchaseOrder":{  
+    "poItems":[  
+      {  
+        "itemId":"182030701",
+        "enterQuantity":10,
+        "enterCost":10.6000,
+        "matrixBarcode":"",
+        "discountPercentage":0
+      },
+      {  
+        "itemId":"182030702",
+        "enterQuantity":10,
+        "enterCost":10.6000,
+        "matrixBarcode":"",
+        "discountPercentage":0
+      }
+    ],
+    "issueBy":"RealMart Admin",
+    "remarks":"NA",
+    "issueDate":"2018-03-26T00:00:00.000Z",
+    "submitterOutlet":"!EOutlet",
+    "producerOutlet":"!EOutlet",
+    "status":"Confirmed",
+    "vendorSalesOrder":"NA",
+    "serviceCharge":0,
+    "referencePONo":"",
+    "POExpiryDate":"",
+    "lastReceivedNo":"",
+    "department":"",
+    "terms":0,
+    "vendorId":"",
+    "expectedDateOfArrival":"2018-03-26T00:00:00.000Z",
+    "discountRate":"0.00",
+    "termsRemark":"",
+    "localAmountExcrate":1,
+    "foreignAmountExcrate":1
+  }
+}
+     
++ Response 200 (application/json)
+
+    OK
+
+    + Body 
+    {  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "purchaseOrder":{  
+      "poItems":[  
+        {  
+          "id":900113,
+          "itemId":"182030701",
+          "itemCode":"testing0101",
+          "itemName":"testing0101",
+          "uomEnterQuantity":10,
+          "price":10.6,
+          "remark":null,
+          "discountPercentage":0,
+          "totalReceived":0,
+          "itemType":"testing0101-itemtype",
+          "alternateLookup":"",
+          "matrixBarcode":"",
+          "priceScheme":{  
+            "manufacturerPrice":6,
+            "salePrice":10.6,
+            "employeePrice":3,
+            "wholesalePrice":4,
+            "customPrice":5,
+            "webPrice":7,
+            "webDealerPrice":8,
+            "cost":0
+          },
+          "purchaseUOM":"EACH",
+          "enterQuantity":10,
+          "uomFactor":1,
+          "packageId":"-1",
+          "taxCode":"TX",
+          "taxPercentage":0,
+          "taxAmount":0,
+          "inclusiveMGST":false,
+          "enterCost":10.6,
+          "matrixX":null,
+          "matrixY":null,
+          "foreignEnterCost":10.6,
+          "foreignTotalCost":106,
+          "remarks2":null,
+          "gstPercent":0,
+          "gstAmount":0,
+          "subTotal":106,
+          "totalTaxAmount":0,
+          "totalDiscountAmount":0,
+          "vatCode":null,
+          "vatRate":0,
+          "intExtend1":0,
+          "intExtend2":0,
+          "intExtend3":0,
+          "stringExtend3":null
+        },
+        {  
+          "id":900114,
+          "itemId":"182030702",
+          "itemCode":"testing0102",
+          "itemName":"testing0102",
+          "uomEnterQuantity":10,
+          "price":10.6,
+          "remark":null,
+          "discountPercentage":0,
+          "totalReceived":0,
+          "itemType":"Type02",
+          "alternateLookup":"testing0101-altlookup",
+          "matrixBarcode":"",
+          "priceScheme":{  
+            "manufacturerPrice":0,
+            "salePrice":10.6,
+            "employeePrice":0,
+            "wholesalePrice":0,
+            "customPrice":0,
+            "webPrice":0,
+            "webDealerPrice":0,
+            "cost":0
+          },
+          "purchaseUOM":"EACH",
+          "enterQuantity":10,
+          "uomFactor":1,
+          "packageId":"-1",
+          "taxCode":"TX",
+          "taxPercentage":0,
+          "taxAmount":0,
+          "inclusiveMGST":false,
+          "enterCost":10.6,
+          "matrixX":null,
+          "matrixY":null,
+          "foreignEnterCost":10.6,
+          "foreignTotalCost":106,
+          "remarks2":null,
+          "gstPercent":0,
+          "gstAmount":0,
+          "subTotal":106,
+          "totalTaxAmount":0,
+          "totalDiscountAmount":0,
+          "vatCode":null,
+          "vatRate":0,
+          "intExtend1":0,
+          "intExtend2":0,
+          "intExtend3":0,
+          "stringExtend3":null
+        }
+      ],
+      "id":90071,
+      "issueBy":"realmart@xilnex.com",
+      "lastReceivedBy":null,
+      "lastReceivedDate":null,
+      "remarks":"NA",
+      "issueDate":"2018-03-26T00:00:00.000Z",
+      "submitterOutlet":"!EOutlet",
+      "producerOutlet":"!EOutlet",
+      "status":"Confirmed",
+      "vendorSalesOrder":"NA",
+      "serviceCharge":0,
+      "exchangeRate":1,
+      "referencePONo":"",
+      "poExpiryDate":null,
+      "lastReceivedNo":"",
+      "department":"",
+      "cancelDate":null,
+      "currencyCode":"",
+      "terms":0,
+      "poCurrentDateTime":"2018-10-25T03:52:49.000Z",
+      "vendorId":"",
+      "vendorName":"",
+      "expectedDateOfArrival":"2018-03-26T00:00:00.000Z",
+      "discountRate":0,
+      "termsRemark":"",
+      "localAmountExcrate":1,
+      "foreignAmountExcrate":1,
+      "transferTo":null,
+      "mgstTaxAmount":0,
+      "foreignGrandTotal":0,
+      "taxFreeAmount":0,
+      "isInclusive":false
+    }
+  },
+  "timestamp":1540439570
+}
+
+### /logic/v2/purchaseorder/{id}/GRNs
+#### POST [POST]
++ Post goods receive note (Purcahse Receive)
+    
++ Request
+     + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+        
+     + Body
+     {  
+  "purchaseReceive":{  
+    "receivedItems":[  
+      {  
+        "itemId":"182030701",
+        "discountPercentage":0,
+        "uniqueId":"",
+        "matrixBarcode":"",
+        "itemRemark":"",
+        "enterQuantity":10,
+        "altSerialNo":"",
+        "labelNo":"",
+        "enterCost":10.60,
+        "refReceivedItemId":"",
+        "batchNo":"",
+        "remarks2":"",
+        "batchExpiryDate":"",
+        "returnRefReceivedId":"",
+        "returnRefVendorInvNo":""
+      },
+      {  
+        "itemId":"182030702",
+        "discountPercentage":0,
+        "uniqueId":"",
+        "matrixBarcode":"",
+        "itemRemark":"",
+        "enterQuantity":10,
+        "altSerialNo":"",
+        "labelNo":"",
+        "enterCost":10.60,
+        "refReceivedItemId":"",
+        "batchNo":"",
+        "remarks2":"",
+        "batchExpiryDate":"",
+        "returnRefReceivedId":"",
+        "returnRefVendorInvNo":""
+      }
+    ],
+    "invoiceNo":"2342342",
+    "discount":0,
+    "termsRemark":"",
+    "deliveryOrderNumber":"",
+    "type":"",
+    "deliveryOrderDate":"",
+    "invoiceDate":"2018-03-26T00:00:00.000Z",
+    "forwarderInvoiceNumber1":"",
+    "forwarderInvoiceNumber2":"",
+    "forwarderCost1":0,
+    "forwarderCost2":0,
+    "forwarderInvoiceDate1":"",
+    "forwarderInvoiceDate2":"",
+    "adjustedSubTotal":0,
+    "adjustedMGSTAmountGrandTotal":0,
+    "postingDate":"2018-03-26T00:00:00.000Z",
+    "receivedStatus":"Completed",
+    "receivingDate":"2018-03-26T00:00:00.000Z",
+    "remark":"NA",
+    "outlet":"!EOutlet"
+  }
+}
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body 
+    {  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "purchaseReceive":{  
+      "receivedItems":[  
+        {  
+          "itemId":"182030701",
+          "itemName":"testing0101",
+          "inStoreLocation":"default",
+          "quantityReceived":10,
+          "totalCost":106,
+          "discountPercentage":0,
+          "refItemId":"900113",
+          "itemBrand":null,
+          "uniqueId":"",
+          "altLookup":"",
+          "matrixBarcode":"",
+          "priceScheme":{  
+            "manufacturerPrice":6,
+            "salePrice":10.6,
+            "employeePrice":3,
+            "wholesalePrice":4,
+            "customPrice":5,
+            "webPrice":7,
+            "webDealerPrice":8,
+            "cost":10.6
+          },
+          "itemRemark":"",
+          "enterQuantity":10,
+          "uomQuantity":1,
+          "packageId":"-1",
+          "unitCost":10.6,
+          "uom":"EACH",
+          "expiryManufacturingDate":"2018-10-25T03:57:12.670Z",
+          "altSerialNo":"",
+          "carton":1,
+          "labelNo":"",
+          "taxCode":"TX",
+          "taxPercentage":0,
+          "taxAmount":0,
+          "inclusiveMGST":false,
+          "enterCost":10.6,
+          "refReceivedItemId":"",
+          "valueX":null,
+          "valueY":null,
+          "itemCode":"testing0101",
+          "foreignEnterCost":10.6,
+          "foreignTotalCost":106,
+          "batchNo":"",
+          "remarks2":"",
+          "batchExpiryDate":"0001-01-01T00:00:00.000Z",
+          "returnRefReceivedId":"",
+          "returnRefVendorInvNo":"",
+          "gstTPercent":0,
+          "gstAmount":0,
+          "subTotal":106,
+          "totalTaxAmount":0,
+          "totalDiscountAmount":0,
+          "vatCode":null,
+          "vatRate":0,
+          "unitCostIncludedFC":0,
+          "subTotalIncludedFC":0,
+          "totalFC":0,
+          "intExtend1":0,
+          "intExtend2":0,
+          "intExtend3":0
+        },
+        {  
+          "itemId":"182030702",
+          "itemName":"testing0102",
+          "inStoreLocation":"default",
+          "quantityReceived":10,
+          "totalCost":106,
+          "discountPercentage":0,
+          "refItemId":"900114",
+          "itemBrand":null,
+          "uniqueId":"",
+          "altLookup":"testing0101-altlookup",
+          "matrixBarcode":"",
+          "priceScheme":{  
+            "manufacturerPrice":0,
+            "salePrice":10.6,
+            "employeePrice":0,
+            "wholesalePrice":0,
+            "customPrice":0,
+            "webPrice":0,
+            "webDealerPrice":0,
+            "cost":10.6
+          },
+          "itemRemark":"",
+          "enterQuantity":10,
+          "uomQuantity":1,
+          "packageId":"-1",
+          "unitCost":10.6,
+          "uom":"EACH",
+          "expiryManufacturingDate":"2018-10-25T03:57:13.170Z",
+          "altSerialNo":"",
+          "carton":1,
+          "labelNo":"",
+          "taxCode":"TX",
+          "taxPercentage":0,
+          "taxAmount":0,
+          "inclusiveMGST":false,
+          "enterCost":10.6,
+          "refReceivedItemId":"",
+          "valueX":null,
+          "valueY":null,
+          "itemCode":"testing0102",
+          "foreignEnterCost":10.6,
+          "foreignTotalCost":106,
+          "batchNo":"",
+          "remarks2":"",
+          "batchExpiryDate":"0001-01-01T00:00:00.000Z",
+          "returnRefReceivedId":"",
+          "returnRefVendorInvNo":"",
+          "gstTPercent":0,
+          "gstAmount":0,
+          "subTotal":106,
+          "totalTaxAmount":0,
+          "totalDiscountAmount":0,
+          "vatCode":null,
+          "vatRate":0,
+          "unitCostIncludedFC":0,
+          "subTotalIncludedFC":0,
+          "totalFC":0,
+          "intExtend1":0,
+          "intExtend2":0,
+          "intExtend3":0
+        }
+      ],
+      "id":9009129,
+      "receivingDate":"2018-10-25T03:57:11.887Z",
+      "invoiceNo":"2342342",
+      "receiveDate":null,
+      "receivedBy":"realmart@xilnex.com",
+      "vendorCode":"",
+      "refId":"90071",
+      "receiveType":"2",
+      "discount":0,
+      "terms":0,
+      "termsRemark":"",
+      "deliveryOrderNumber":"",
+      "type":"",
+      "importType":0,
+      "deliveryOrderDate":"0001-01-01T00:00:00.000Z",
+      "invoiceDate":"2018-03-26T00:00:00.000Z",
+      "poNumber":null,
+      "isUpdateItemCost":false,
+      "cancelDate":null,
+      "forwarderInvoiceNumber1":"",
+      "forwarderInvoiceNumber2":"",
+      "forwarderCost1":0,
+      "forwarderCost2":0,
+      "forwarderInvoiceDate1":"0001-01-01T00:00:00.000Z",
+      "forwarderInvoiceDate2":"0001-01-01T00:00:00.000Z",
+      "subTotal":212,
+      "grandTotalMGSTAmount":0,
+      "grandTotal":212,
+      "varianceSubTotal":0,
+      "varianceMGSTAmountGrandTotal":0,
+      "varianceGrandTotal":0,
+      "adjustedSubTotal":212,
+      "adjustedMGSTAmountGrandTotal":0,
+      "adjustedGrandTotal":212,
+      "postingDate":"2018-03-26T00:00:00.000Z",
+      "exchangeRate":1,
+      "currencyCode":"",
+      "discountRate":0,
+      "serviceCharge":0,
+      "receivedStatus":"Completed",
+      "cancelReceivingVersion":"2",
+      "remark":"NA",
+      "outlet":"!EOutlet",
+      "vendorName":"",
+      "localAmountExchangeRate":1,
+      "foreignAmountExchageRate":1,
+      "foreignGrandTotal":0,
+      "roundingAmount":0,
+      "taxFreeAmount":0,
+      "isInclusive":false,
+      "taxPercentage":0
+    }
+  },
+  "timestamp":1540439834
+}
     
 #  Data Structures
 ## SaleV2 (object)
