@@ -5798,6 +5798,90 @@ To retrive item price schemes name list
                "timestamp":1508493704
             }
             
+### /logic/v2/redemptionvoucher/redemption/{code}/vouchers
+
+#### get all available vouchers [GET]
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "redemption": null,
+        "voucher": null,
+        "vouchers": [
+            {
+                "id": 32901,
+                "redemptionOutlet": null,
+                "clientId": "",
+                "voucherNumber": "5000100",
+                "salesId": "329088",
+                "paymentId": "329097",
+                "paymentAmount": 0,
+                "promotionType": "voucher",
+                "issueBy": "RealMart Admin",
+                "voucherDate": "2018-07-05T00:00:00.000Z",
+                "generationSalesId": "0",
+                "isRedeemed": "1",
+                "groupName": "myVoucher",
+                "isActivation": true,
+                "voucherDescription": null,
+                "outlet": null,
+                "expiryDate": "2999-12-31T00:00:00.000Z",
+                "performType": null,
+                "performRemark": null,
+                "performDate": "2018-07-05T00:00:00.000Z",
+                "effectiveDate": null,
+                "isApiVoucher": false,
+                "cardNumber": null,
+                "voucherMasterId": 0
+            },
+            {
+                "id": 32902,
+                "redemptionOutlet": null,
+                "clientId": "",
+                "voucherNumber": "5000110",
+                "salesId": "329091",
+                "paymentId": "329099",
+                "paymentAmount": 0,
+                "promotionType": "voucher",
+                "issueBy": "RealMart Admin",
+                "voucherDate": "2018-07-05T00:00:00.000Z",
+                "generationSalesId": "0",
+                "isRedeemed": "1",
+                "groupName": "myVoucher",
+                "isActivation": true,
+                "voucherDescription": null,
+                "outlet": null,
+                "expiryDate": "2999-12-31T00:00:00.000Z",
+                "performType": null,
+                "performRemark": null,
+                "performDate": "2018-07-18T00:00:00.000Z",
+                "effectiveDate": null,
+                "isApiVoucher": false,
+                "cardNumber": null,
+                "voucherMasterId": 0
+            }
+            ]
+            },
+            "timestamp": 1540547206
+        }
+            
 ## Group Sales
 
 ### /logic/v2/sales/{id}
@@ -6441,7 +6525,7 @@ The standard Post sales fields are these:
                         "country":null
                     },
                     "shippingRemark":"anytime",
-                    "status":"COMPLETED", 
+                    "status":"confirmed", 
                     "outlet":"Code UI Branh",
                     "remark":"remak",
                     "confirmOutlet":"Code UI Branch",
@@ -6455,7 +6539,21 @@ The standard Post sales fields are these:
                         "quantity":1,
                         "enterPrice":88,
                         "discountPercentage":0,
-                        "gstInclusive":true
+                        "gstInclusive":true,
+                        "deliveryInfo":
+                        {
+                            "shippingOutlet":"Main Branch",
+                            "recipient":"test user",
+                            "recipientContact":010242342354,
+                            "shippingAddress":
+                            {
+                                "street":"",
+                                "city":"",
+                                "state":"",
+                                "zipcode":"",
+                                "country":""
+                            }
+                        }
                     }
                     ],
                     "collections":[
@@ -10216,15 +10314,15 @@ Complete e-order
     "timestamp": 1528702721
     }
 
-### /logic/v2/picklist/filter?datefrom={date_from}&dateto={date_to}&pickerId={picker_id}&status={status}
+### /logic/v2/picklist/filter?datefrom={date_from}&dateto={date_to}&pickerId={picker_id}&status={status}&outlet={outlet}
 #### GET [GET]
 + Filter pick list by date and pick list Id 
 + Parameters
-    + id (required, Number) ... Pick list id
-    + datefrom(required, Date) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Date from
-    + dateto(required, Date) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Date to
-    + pickerId(required, Number) ... Picker id
-    + status(required, String) ... Pick list status
+    + datefrom(optional, Date) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Date from
+    + dateto(optional, Date) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Date to
+    + pickerId(optional, String) ... Picker id
+    + status(optional, String) ... Pick list status
+    + outlet(optional, String)... Outlet name
     
 + Request
 
@@ -11469,7 +11567,7 @@ Complete e-order
 
 ### /logic/v2/purchaseorder/{id}/GRNs
 #### POST [POST]
-+ Post goods receive note (Purcahse Receive)
++ Post goods receive note (Purchase Receive)
     
 + Request
      + Headers
