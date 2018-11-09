@@ -8659,7 +8659,201 @@ Get invoice by id
               "type": "object",
               "properties": {}
             }
+
+### /logic/v2/shipment/query?datefrom={datefrom}&dateto={dateto}&deliverfrom={deliverfrom}&deliverto={deliverto}
+
+#### GET
++ Get shipment history by filter
++ Parameters
+    + date from (optional)
+    + date to (optional)
+    + outlet deliver from (optional)
+    + outlet deliver to (optional)
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Token: {token}
+            DKey: {dkey}
+
+    + Body
+           
             
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+
+            {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "shipment": null,
+        "shipments": [
+            {
+                "id": 8001,
+                "shippingDateTime": "2018-10-24T16:45:46.000Z",
+                "salesId": "8005",
+                "shippingOutlet": "MAIN BRANCH",
+                "shippingAddress": {
+                    "street": "",
+                    "city": "",
+                    "state": "",
+                    "zipcode": "",
+                    "country": ""
+                },
+                "shippingRemark": null,
+                "trackingNumber": null,
+                "shippingProvider": null,
+                "shipmentStatus": null,
+                "receivedBy": null,
+                "receivedDateTime": null,
+                "shippingToOutlet": null,
+                "receiver": "abc",
+                "receiverId": null,
+                "deliveredBy": "realmart@xilnex.com",
+                "documentType": "1",
+                "documentId": "8005",
+                "issuedBy": null,
+                "shipTo": null,
+                "cancelledBy": null,
+                "cancelRemark": null,
+                "cancelDateTime": null,
+                "cancelOutlet": null,
+                "shipmentProvider": null,
+                "acknowledged": false,
+                "driver": null,
+                "shipmentItems": [
+                    {
+                        "shipmentId": "8001",
+                        "itemId": "236016",
+                        "itemCode": "1015",
+                        "itemName": "1015",
+                        "shippingQuantity": 1,
+                        "shippingOutlet": "MAIN BRANCH",
+                        "instoreOutlet": "default",
+                        "salesItemId": null,
+                        "matrixX": null,
+                        "matrixY": null,
+                        "receiverInstoreOutlet": null,
+                        "totalReceived": 0,
+                        "shipmentType": null,
+                        "documentItemId": "8007",
+                        "uniqueId": null,
+                        "alternateLookUp": "100010866",
+                        "matrixBarcode": "",
+                        "itemPriceScheme": {
+                            "manufacturerPrice": 0,
+                            "salePrice": 1,
+                            "employeePrice": 0,
+                            "wholesalePrice": 0,
+                            "customPrice": 0,
+                            "webPrice": 0,
+                            "webDealerPrice": 0,
+                            "cost": 1
+                        },
+                        "remark": null,
+                        "driverCommissionRate": 0,
+                        "driverCommissionPercentage": 0,
+                        "installerCommissionRate": 0,
+                        "installerCommissionPercentage": 0,
+                        "driver": null,
+                        "installer": null,
+                        "carton": 0,
+                        "uom": "-1",
+                        "uomQuantity": 0,
+                        "uomFactor": 1,
+                        "packageId": null,
+                        "senderName": null
+                    }
+                ]
+            },
+            {
+                "id": 8002,
+                "shippingDateTime": "2018-10-24T16:51:15.000Z",
+                "salesId": "8007",
+                "shippingOutlet": "MAIN BRANCH",
+                "shippingAddress": {
+                    "street": "Thomas Nolan Kaszas II",
+                    "city": "Otter Lane",
+                    "state": "Middleberge ",
+                    "zipcode": "5322",
+                    "country": "FL 32068"
+                },
+                "shippingRemark": null,
+                "trackingNumber": null,
+                "shippingProvider": null,
+                "shipmentStatus": null,
+                "receivedBy": null,
+                "receivedDateTime": null,
+                "shippingToOutlet": null,
+                "receiver": "Cindy E. B ??",
+                "receiverId": null,
+                "deliveredBy": "realmart@xilnex.com",
+                "documentType": "1",
+                "documentId": "8007",
+                "issuedBy": null,
+                "shipTo": null,
+                "cancelledBy": null,
+                "cancelRemark": null,
+                "cancelDateTime": null,
+                "cancelOutlet": null,
+                "shipmentProvider": null,
+                "acknowledged": false,
+                "driver": null,
+                "shipmentItems": [
+                    {
+                        "shipmentId": "8002",
+                        "itemId": "236016",
+                        "itemCode": "1015",
+                        "itemName": "1015",
+                        "shippingQuantity": 1,
+                        "shippingOutlet": "MAIN BRANCH",
+                        "instoreOutlet": "default",
+                        "salesItemId": null,
+                        "matrixX": null,
+                        "matrixY": null,
+                        "receiverInstoreOutlet": null,
+                        "totalReceived": 0,
+                        "shipmentType": null,
+                        "documentItemId": "8009",
+                        "uniqueId": null,
+                        "alternateLookUp": "100010866",
+                        "matrixBarcode": "",
+                        "itemPriceScheme": {
+                            "manufacturerPrice": 0,
+                            "salePrice": 1,
+                            "employeePrice": 0,
+                            "wholesalePrice": 0,
+                            "customPrice": 0,
+                            "webPrice": 0,
+                            "webDealerPrice": 0,
+                            "cost": 1
+                        },
+                        "remark": null,
+                        "driverCommissionRate": 0,
+                        "driverCommissionPercentage": 0,
+                        "installerCommissionRate": 0,
+                        "installerCommissionPercentage": 0,
+                        "driver": null,
+                        "installer": null,
+                        "carton": 0,
+                        "uom": "-1",
+                        "uomQuantity": 0,
+                        "uomFactor": 1,
+                        "packageId": null,
+                        "senderName": null
+                    }
+                ]
+            }
+        ]
+    },
+    "timestamp": 1540871205
+}
 
 ### /logic/v2/shipment/{id}/trackingcode
 
@@ -11632,6 +11826,7 @@ Complete e-order
     "postingDate":"2018-03-26T00:00:00.000Z",
     "receivedStatus":"Completed",
     "receivingDate":"2018-03-26T00:00:00.000Z",
+    "receiveDate":"2018-03-26T00:00:00.000Z",
     "remark":"NA",
     "outlet":"!EOutlet"
   }
@@ -11778,7 +11973,7 @@ Complete e-order
       "id":9009129,
       "receivingDate":"2018-10-25T03:57:11.887Z",
       "invoiceNo":"2342342",
-      "receiveDate":null,
+      "receiveDate":"2018-03-26T00:00:00.000Z",
       "receivedBy":"realmart@xilnex.com",
       "vendorCode":"",
       "refId":"90071",
