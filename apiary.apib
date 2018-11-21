@@ -232,6 +232,93 @@ Retrive access control by access group or user group or user name or access Area
               "type": "object",
               "properties": {}
             }
+            
+## Group Attendance
+### /logic/v2/attendance/clockin
+#### Clock in attendance [POST]
++ Request
+     + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+        
+     + Body
+    {  
+  "attendance":{  
+    "username":"realmart@xilnex.com",
+    "password":"",
+    "userEmail":null,
+    "remarks":"",
+    "outlet":"MAIN BRANCH",
+    "clockType":"WithPassword",
+    "AttendanceType":null
+  }
+}
+
++ Response 200 (application/json)
+{
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "attendance": {
+            "id": 90010,
+            "username": "realmart@xilnex.com",
+            "userEmail": null,
+            "action": "Clock In",
+            "remarks": "",
+            "outlet": "MAIN BRANCH",
+            "category": "Clock In",
+            "clockType": "WithPassword",
+            "AttendanceType": null,
+            "dateTime": "2018-11-21T10:59:08.000Z"
+        }
+    }
+}
+
+### /logic/v2/attendance/clockout
+#### Clock out attendance [POST]
++ Request
+     + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+        
+     + Body
+    {  
+  "attendance":{  
+    "username":"realmart@xilnex.com",
+    "password":"",
+    "userEmail":null,
+    "remarks":"",
+    "outlet":"MAIN BRANCH",
+    "clockType":"WithPassword",
+    "AttendanceType":null
+  }
+}
+
++ Response 200 (application/json)
+{
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "attendance": {
+            "id": 90011,
+            "username": "realmart@xilnex.com",
+            "userEmail": null,
+            "action": "Clock Out",
+            "remarks": "",
+            "outlet": "MAIN BRANCH",
+            "category": "Clock Out",
+            "clockType": "WithPassword",
+            "AttendanceType": null,
+            "dateTime": "2018-11-21T16:28:31.000Z"
+        }
+    }
+}
 
 ## Group Cells
 ### /logic/v2/cells/{id}
@@ -10316,7 +10403,7 @@ Complete e-order
 }
 
 
-### /logic/v2/picklist/{id}/picked
+### /logic/v2/picklist/{id}/pick
 #### POST [POST]
 + Perform ePicking by pick list id
 + Parameters
@@ -10413,7 +10500,7 @@ Complete e-order
             "timestamp": 1528702101
         }
 
-### /logic/v2/picklist/{id}/completed
+### /logic/v2/picklist/{id}/complete
 #### POST [POST]
 + Perform fulfillment with pick list id
 + Parameters
