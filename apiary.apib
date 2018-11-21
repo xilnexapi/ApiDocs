@@ -236,6 +236,7 @@ Retrive access control by access group or user group or user name or access Area
 ## Group Attendance
 ### /logic/v2/attendance/clockin
 #### Clock in attendance [POST]
+Clock in attendance WithPassword or WithBiometric
 + Request
      + Headers
         token: {token}
@@ -279,6 +280,7 @@ Retrive access control by access group or user group or user name or access Area
 
 ### /logic/v2/attendance/clockout
 #### Clock out attendance [POST]
+Clock out attendance WithPassword or WithBiometric
 + Request
      + Headers
         token: {token}
@@ -5968,6 +5970,142 @@ To retrive item price schemes name list
             },
             "timestamp": 1540547206
         }
+
+### /logic/v2/redemptionvoucher/redemption
+#### Create Redemption with On Sales [POST]
+create redemption with redemption type On Sales
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+    {  
+  "redemption":{  
+    "redemptionName":"redemption09",
+    "pointToDeduct":0.0,
+    "itemId":5045,
+    "maxUsePerTransaction":0,
+    "reusable":false,
+    "type":7,
+    "voucherType":null,
+    "periodOfValidVoucher":0,
+    "defaultLength":15,
+    "redemptionCode":"redemption09",
+    "groupName":"group09",
+    "prefix":null,
+    "devotedVoucher":false,
+    "enforceRemark":false,
+    "dateTimeStartDate":null,
+    "dateTimeEndDate":null
+  }
+}
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+    {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "redemption": {
+            "redemptionTypeId": 0,
+            "redemptionName": "redemption09",
+            "cashValue": 0,
+            "pointToDeduct": 0,
+            "itemId": 5045,
+            "maxUsePerTransaction": 0,
+            "reusable": false,
+            "type": 7,
+            "voucherType": "sales",
+            "periodOfValidVoucher": 0,
+            "defaultLength": 15,
+            "redemptionCode": "redemption09",
+            "groupName": "group09",
+            "prefix": null,
+            "devotedVoucher": false,
+            "enforceRemark": false,
+            "dateTimeStartDate": "01/01/2000",
+            "dateTimeEndDate": "31/12/2999",
+            "listVoucher": null
+        }
+    }
+}
+
+### /logic/v2/redemptionvoucher/redemption
+#### Create Redemption with On Payment [POST]
+create redemption with redemption type On Payment
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
+    + Body
+    {  
+  "redemption":{  
+    "redemptionName":"redemption10",
+    "cashValue":10.0,
+    "pointToDeduct":0.0,
+    "maxUsePerTransaction":0,
+    "reusable":false,
+    "type":6,
+    "voucherType":null,
+    "periodOfValidVoucher":0,
+    "defaultLength":15,
+    "redemptionCode":"redemption10",
+    "groupName":"group10",
+    "prefix":null,
+    "devotedVoucher":false,
+    "enforceRemark":false,
+    "dateTimeStartDate":"2018-11-01T00:00:00.000Z",
+    "dateTimeEndDate":"2018-12-31T00:00:00.000Z"
+  }
+}
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body   
+    {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "redemption": {
+            "redemptionTypeId": 0,
+            "redemptionName": "redemption10",
+            "cashValue": 10,
+            "pointToDeduct": 0,
+            "itemId": 0,
+            "maxUsePerTransaction": 0,
+            "reusable": false,
+            "type": 6,
+            "voucherType": "payment",
+            "periodOfValidVoucher": 0,
+            "defaultLength": 15,
+            "redemptionCode": "redemption10",
+            "groupName": "group10",
+            "prefix": null,
+            "devotedVoucher": false,
+            "enforceRemark": false,
+            "dateTimeStartDate": "01/11/2018",
+            "dateTimeEndDate": "31/12/2018",
+            "listVoucher": null
+        }
+    }
+}
             
 ## Group Sales
 
