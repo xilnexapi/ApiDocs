@@ -6795,11 +6795,16 @@ The standard Post sales fields are these:
                         "remark":"dummy remark",
                         "reference":"21984yh32"
                     }
+                    ],
+                    "listVoucherMaster":[
+                    {
+                        "voucherMasterId":9001
+                    }
                     ]
                 }
             }
             
-+ Request Shipment by item to diffrent address
++ Request Shipment by item to different address
     + Body
             {  
                "sale":{  
@@ -9539,6 +9544,7 @@ Get invoice by id
                               "orderItemOrderType": "Dine_In",
                               "serviceChargePercentage": 10,
                               "discountRemark": "",
+                              "orderTerminalId":"",
                               "addOns": [
                                   {
                                       "enterPrice": 8,
@@ -9549,7 +9555,8 @@ Get invoice by id
                                       "orderItemRemark": "",
                                       "orderItemOrderType": "Dine_In",
                                       "serviceChargePercentage": 10,
-                                      "discountRemark": ""
+                                      "discountRemark": "",
+                                      "orderTerminalId":""
                                   }
                               ]
                           }
@@ -9631,6 +9638,8 @@ Get invoice by id
                                 "printStatus": false,
                                 "subTotal": 22.8,
                                 "scanCode": "",
+                                "orderSource": "DeliverEat",
+                                "orderTerminalId":"",
                                 "addOns": [
                                     {
                                         "itemId": 30182,
@@ -9669,6 +9678,8 @@ Get invoice by id
                                         "printStatus": false,
                                         "subTotal": 4.8,
                                         "scanCode": "",
+                                        "orderSource": "DeliverEat",
+                                        "orderTerminalId":"",
                                         "addOns": []
                                     }
                                 ]
