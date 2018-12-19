@@ -3516,6 +3516,7 @@ Use to bill consignment delivery order
             Token: {token}
 
     + Body
+    {}
 
 + Response 200 (application/json)
 
@@ -9543,7 +9544,369 @@ Get invoice by id
               "type": "object",
               "properties": {}
             }
-  
+
+## Group SessionScan
+### /logic/v2/sessionscan/{id}
+#### GET
++ Get session scan by id
++ Parameters
+    + id (required) - Session id
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Token: {token}
+            DKey: {dkey}
+
+    + Body
+           
+            
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+    {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "sessionScan": {
+            "sessionScanDocuments": [
+                {
+                    "id": 900162,
+                    "sessionId": 900161,
+                    "documentId": 900280
+                }
+            ],
+            "sessionScanClients": [
+                {
+                    "sessionScanItems": [
+                        {
+                            "id": 900255,
+                            "sessionClientId": 900715,
+                            "itemId": 33805,
+                            "itemQuantity": 1,
+                            "itemName": "product",
+                            "itemCode": "A0001"
+                        },
+                        {
+                            "id": 900256,
+                            "sessionClientId": 900715,
+                            "itemId": 5046,
+                            "itemQuantity": 1,
+                            "itemName": "12092016",
+                            "itemCode": "12092016"
+                        }
+                    ],
+                    "id": 900715,
+                    "sessionId": 900161,
+                    "openDate": "2018-12-19T15:26:10.000Z",
+                    "closeDate": "2018-12-19T15:26:26.000Z",
+                    "cancelDate": null,
+                    "status": "Close",
+                    "identifier": "realmart@xilnex.com"
+                }
+            ],
+            "id": 900161,
+            "openBy": "realmart@xilnex.com",
+            "closeBy": "realmart@xilnex.com",
+            "cancelBy": null,
+            "openDate": "2018-12-19T15:26:10.000Z",
+            "closeDate": "2018-12-19T15:27:12.000Z",
+            "cancelDate": null,
+            "status": "Closing",
+            "type": "PickListVerification",
+            "owner": "realmart@xilnex.com"
+        }
+    }
+}
+
+### /logic/v2/sessionscan/{id}/closing
+#### Closing session scan [POST]
+
++ Closing session scan included session scan clients
++ Parameters
+    + id (required) - Session id
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Token: {token}
+            DKey: {dkey}
+
+    + Body
+    {}
+
++ Response 200 (application/json)
+
+    OK
+    
+    + Body
+    {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "sessionScan": {
+            "sessionScanDocuments": [
+                {
+                    "id": 900163,
+                    "sessionId": 900162,
+                    "documentId": 900281
+                }
+            ],
+            "sessionScanClients": [
+                {
+                    "sessionScanItems": [],
+                    "id": 900716,
+                    "sessionId": 900162,
+                    "openDate": "2018-12-19T15:30:31.000Z",
+                    "closeDate": "2018-12-19T15:30:45.000Z",
+                    "cancelDate": null,
+                    "status": "Close",
+                    "identifier": "realmart@xilnex.com"
+                }
+            ],
+            "id": 900162,
+            "openBy": "realmart@xilnex.com",
+            "closeBy": "realmart@xilnex.com",
+            "cancelBy": null,
+            "openDate": "2018-12-19T15:30:31.000Z",
+            "closeDate": "2018-12-19T15:30:45.000Z",
+            "cancelDate": null,
+            "status": "Closing",
+            "type": "PickListVerification",
+            "owner": "realmart@xilnex.com"
+        }
+    }
+}
+
+### /logic/v2/sessionscan/sessionclient/{sessionclientid}
+#### GET
++ Get session scan client by session client id
++ Parameters
+    + sessionclientid (required) - Session scan client id
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Token: {token}
+            DKey: {dkey}
+
+    + Body
+           
+            
++ Response 200 (application/json)
+
+    OK
+    
+    + Body
+    {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "sessionScan": {
+            "sessionScanClients": [
+                {
+                    "sessionScanItems": [
+                        {
+                            "id": 900255,
+                            "sessionClientId": 900715,
+                            "itemId": 33805,
+                            "itemQuantity": 1,
+                            "itemName": "product",
+                            "itemCode": "A0001"
+                        },
+                        {
+                            "id": 900256,
+                            "sessionClientId": 900715,
+                            "itemId": 5046,
+                            "itemQuantity": 1,
+                            "itemName": "12092016",
+                            "itemCode": "12092016"
+                        }
+                    ],
+                    "id": 900715,
+                    "sessionId": 900161,
+                    "openDate": "2018-12-19T15:26:10.000Z",
+                    "closeDate": "2018-12-19T15:26:26.000Z",
+                    "cancelDate": null,
+                    "status": "Close",
+                    "identifier": "realmart@xilnex.com"
+                }
+            ],
+            "id": 900161,
+            "openBy": "realmart@xilnex.com",
+            "closeBy": "realmart@xilnex.com",
+            "cancelBy": null,
+            "openDate": "2018-12-19T15:26:10.000Z",
+            "closeDate": "2018-12-19T15:27:12.000Z",
+            "cancelDate": null,
+            "status": "Closing",
+            "type": "PickListVerification",
+            "owner": "realmart@xilnex.com"
+        }
+    }
+}
+
+### /logic/v2/sessionscan/sessionclient
+#### POST
++ Create session scan client
++ Join session if session already exists
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Token: {token}
+            DKey: {dkey}
+
+    + Body
+    {  
+  "sessionScan":{  
+    "sessionScanDocuments":[
+      {  
+        "documentId":900282
+      }
+    ],
+    "type":"PickListVerification"
+  }
+}
+
++ Response 200 (application/json)
+
+    OK
+    
+    + Body
+    {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "sessionScan": {
+            "sessionScanClients": [
+                {
+                    "sessionScanItems": [],
+                    "id": 900718,
+                    "sessionId": 900163,
+                    "openDate": "2018-12-19T17:00:38.000Z",
+                    "closeDate": null,
+                    "cancelDate": null,
+                    "status": "Open",
+                    "identifier": "realmart@xilnex.com"
+                }
+            ],
+            "id": 900163,
+            "openBy": "realmart@xilnex.com",
+            "closeBy": null,
+            "cancelBy": null,
+            "openDate": "2018-12-19T17:00:38.000Z",
+            "closeDate": null,
+            "cancelDate": null,
+            "status": "Open",
+            "type": "PickListVerification",
+            "owner": "realmart@xilnex.com"
+        }
+    }
+}
+
+
+### /logic/v2/sessionscan/sessionclient/{sessionclientid}/Close
+#### POST
++ Close session scan client after scanning items
++ Parameters
+    + sessionclientid (required) - Session scan client id
+    
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Token: {token}
+            DKey: {dkey}
+
+    + Body
+    {  
+  "sessionScanClient":{  
+    "sessionScanItems":[  
+      {  
+        "itemId":33805,
+        "itemQuantity":1
+      },
+       {  
+        "itemId":5046,
+        "itemQuantity":1
+      }
+    ],
+    "status":"Close"
+  }
+}
+
++ Response 200 (application/json)
+
+    OK
+    
+    + Body
+    {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "sessionScan": {
+            "sessionScanClients": [
+                {
+                    "sessionScanItems": [
+                        {
+                            "id": 900255,
+                            "sessionClientId": 900715,
+                            "itemId": 33805,
+                            "itemQuantity": 1,
+                            "itemName": "product",
+                            "itemCode": "A0001"
+                        },
+                        {
+                            "id": 900256,
+                            "sessionClientId": 900715,
+                            "itemId": 5046,
+                            "itemQuantity": 1,
+                            "itemName": "12092016",
+                            "itemCode": "12092016"
+                        }
+                    ],
+                    "id": 900715,
+                    "sessionId": 900161,
+                    "openDate": "2018-12-19T15:26:10.000Z",
+                    "closeDate": "2018-12-19T15:26:26.000Z",
+                    "cancelDate": null,
+                    "status": "Close",
+                    "identifier": "realmart@xilnex.com"
+                }
+            ],
+            "id": 900161,
+            "openBy": "realmart@xilnex.com",
+            "closeBy": null,
+            "cancelBy": null,
+            "openDate": "2018-12-19T15:26:10.000Z",
+            "closeDate": null,
+            "cancelDate": null,
+            "status": "Open",
+            "type": "PickListVerification",
+            "owner": "realmart@xilnex.com"
+        }
+    }
+}
+
 ## Group Shipment
 
 ### /logic/v2/shipment
