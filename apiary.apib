@@ -7049,7 +7049,7 @@ Get sales by sales id
               "properties": {}
             }
             
-### /logic/v2/sales/search?clientid={client_id}&datefrom={date_from}&dateto={date_to}&outlet={outlet}&limit={limit}&offset={offset}
+### /logic/v2/sales/search?clientid={client_id}&datefrom={date_from}&dateto={date_to}&outlet={outlet}&limit={limit}&offset={offset}&externalrefid={externalrefid}
 
 #### Get Sales Detail with filter [GET]
 
@@ -7125,6 +7125,7 @@ get sales by client id and date range
                     "exchangeRate":0,
                     "foreignTotalAmount":0,
                     "currencyCode":null,
+                    "externalrefid":null,
                     "items":[  
                        {  
                           "salesDate":"2016-12-16T00:00:00.000Z",
@@ -9625,7 +9626,7 @@ Get invoice by id
 }
 
 ### /logic/v2/sessionscan/{id}/closing
-#### Closing session scan [POST]
+#### Closing session scan [PUT]
 
 + Closing session scan included session scan clients
 + Parameters
@@ -9680,6 +9681,67 @@ Get invoice by id
             "closeDate": "2018-12-19T15:30:45.000Z",
             "cancelDate": null,
             "status": "Closing",
+            "type": "PickListVerification",
+            "owner": "realmart@xilnex.com"
+        }
+    }
+}
+
+### /logic/v2/sessionscan/{id}/close
+#### Close session scan [PUT]
+
++ Close session scan included session scan clients
++ Parameters
+    + id (required) - Session id
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Token: {token}
+            DKey: {dkey}
+
+    + Body
+    {}
+
++ Response 200 (application/json)
+
+    OK
+    + Body
+    {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "sessionScan": {
+            "sessionScanDocuments": [
+                {
+                    "id": 900163,
+                    "sessionId": 900162,
+                    "documentId": 900281
+                }
+            ],
+            "sessionScanClients": [
+                {
+                    "sessionScanItems": [],
+                    "id": 900716,
+                    "sessionId": 900162,
+                    "openDate": "2018-12-19T15:30:31.000Z",
+                    "closeDate": "2018-12-19T15:30:45.000Z",
+                    "cancelDate": null,
+                    "status": "Close",
+                    "identifier": "realmart@xilnex.com"
+                }
+            ],
+            "id": 900162,
+            "openBy": "realmart@xilnex.com",
+            "closeBy": "realmart@xilnex.com",
+            "cancelBy": null,
+            "openDate": "2018-12-19T15:30:31.000Z",
+            "closeDate": "2018-12-21T08:42:06.000Z",
+            "cancelDate": null,
+            "status": "Close",
             "type": "PickListVerification",
             "owner": "realmart@xilnex.com"
         }
@@ -9822,7 +9884,7 @@ Get invoice by id
 
 
 ### /logic/v2/sessionscan/sessionclient/{sessionclientid}/Close
-#### POST
+#### PUT
 + Close session scan client after scanning items
 + Parameters
     + sessionclientid (required) - Session scan client id
@@ -10695,175 +10757,183 @@ Get invoice by id
         
  + Body
         {  
-            "recipient": "Peninsula Admin",
-            "customerId": 104,
-            "cashier": "Peninsula Admin",
-            "orderPerson": " Peninsula Admin",
-            "outlet": "TESTING OUTLET",
-            "orderNo": "VIP7",
-            "pax":"5",
-            "orderType": "Retail",
-            "remark": "",
-            "externalRefId":"9999",
-            "reservationDateTime":"2018-08-14T17:12:07.760Z",
-            "orderSource": "DeliverEat",
-            "orderItems": [
-                          {
-                          "orderItemCode": "BR001",
-                              "enterPrice": 22.8,
-                              "quantity": 1,
-                              "discountPercentage": 0,
-                              "orderDateTime": "2018-08-14T17:12:07.760Z",
-                              "orderItemRemark": "",
-                              "orderItemOrderType": "Dine_In",
-                              "serviceChargePercentage": 10,
-                              "discountRemark": "",
-                              "orderTerminalId":"",
-                              "addOns": [
-                                  {
-                                      "enterPrice": 8,
-                                      "quantity": 1,
-                                      "discountPercentage": 40,
-                                      "orderDateTime": "2018-07-18T00:00:00.000Z",
-                                      "orderItemCode": "DS003",
-                                      "orderItemRemark": "",
-                                      "orderItemOrderType": "Dine_In",
-                                      "serviceChargePercentage": 10,
-                                      "discountRemark": "",
-                                      "orderTerminalId":""
-                                  }
-                              ]
-                          }
-                        ]
-               }
+  "order":{  
+    "recipient":"Peninsula Admin",
+    "customerId":104,
+    "cashier":"Peninsula Admin",
+    "orderPerson":" Peninsula Admin",
+    "outlet":"TESTING OUTLET",
+    "orderNo":"VIP7",
+    "pax":"5",
+    "orderType":"Retail",
+    "remark":"",
+    "externalRefId":"9999",
+    "reservationDateTime":"2018-08-14T17:12:07.760Z",
+    "orderSource":"",
+    "deliveryType":"DELIVEREAT",
+    "orderItems":[  
+      {  
+        "orderItemCode":"BR001",
+        "enterPrice":22.8,
+        "quantity":1,
+        "discountPercentage":0,
+        "orderDateTime":"2018-08-14T17:12:07.760Z",
+        "orderItemRemark":"",
+        "orderItemOrderType":"Dine_In",
+        "serviceChargePercentage":10,
+        "discountRemark":"",
+        "orderTerminalId":"",
+        "addOns":[  
+          {  
+            "enterPrice":8,
+            "quantity":1,
+            "discountPercentage":40,
+            "orderDateTime":"2018-07-18T00:00:00.000Z",
+            "orderItemCode":"DS003",
+            "orderItemRemark":"",
+            "orderItemOrderType":"Dine_In",
+            "serviceChargePercentage":10,
+            "discountRemark":"",
+            "orderTerminalId":""
+          }
+        ]
+      }
+    ]
+  }
+}
 
 + Response 200 (application/json)
 
-            {
-                "ok": true,
-                "status": "SuccessQuery",
-                "warning": null,
-                "error": null,
-                "data": {
-                    "order": {
-                        "id": 90010,
-                        "orderDateTime": "2018-08-14T17:12:07.760Z",
-                        "totalAmount": 30.35,
-                        "recipient": " Peninsula Admin",
-                        "customerId": 104,
-                        "paidAmount": 0,
-                        "balanceAmount": 30.35,
-                        "cashier": " Peninsula Admin",
-                        "isReservation": false,
-                        "orderStatus": "OPEN",
-                        "orderPerson": " Peninsula Admin",
-                        "paymentStatus": "PENDING",
-                        "outlet": "TESTING OUTLET",
-                        "orderNo": "VIP7",
-                        "salesNo": null,
-                        "pax": "5",
-                        "orderType": "Retail",
-                        "roundingAmount": -0.01,
-                        "remark": "",
-                        "netAmount": 30.35,
-                        "referenceOrderId": null,
-                        "isPrinted": false,
-                        "printedCount": 0,
-                        "serviceChargeAmount": 2.76,
-                        "reservationDateTime":"2018-08-14T17:12:07.760Z",
-                        "externalRefId": "25243",
-                        "customerName": "TEST",
-                        "mobileNo": "",
-                        "orderSource": "DeliverEat",
-                        "orderItems": [
-                            {
-                                "itemId": 30295,
-                                "itemName": "Carlsberg (Big Btl)",
-                                "itemType": "BAR",
-                                "model": "",
-                                "description": "",
-                                "price": 22.8,
-                                "enterPrice": 22.8,
-                                "quantity": 1,
-                                "discountPercentage": 0,
-                                "instoreLocation": "default",
-                                "orderDateTime": "2018-08-14T17:12:07.760Z",
-                                "itemRemark": null,
-                                "orderItemCode": "BR001",
-                                "isUniqueItem": false,
-                                "uniqueCode": "",
-                                "isPackage": true,
-                                "isService": false,
-                                "isPrepack": false,
-                                "pcid": "",
-                                "itemIndex": 1,
-                                "cashier": null,
-                                "outlet": "TESTING OUTLET",
-                                "itemCategory": "Beer",
-                                "orderItemRemark": "",
-                                "isPrint": false,
-                                "orderPerson": " Peninsula Admin",
-                                "altLookUp": "",
-                                "refSalesItemId": 0,
-                                "promoGroup": "",
-                                "orderItemOrderType": "Dine_In",
-                                "serviceChargePercentage": 10,
-                                "discountRemark": "",
-                                "orderedItemSavedDateTime": "2018-08-14T17:12:07.760Z",
-                                "printStatus": false,
-                                "subTotal": 22.8,
-                                "scanCode": "",
-                                "orderSource": "DeliverEat",
-                                "orderTerminalId":"",
-                                "addOns": [
-                                    {
-                                        "itemId": 30182,
-                                        "itemName": "豪庭马来糕  Steamed Homemade Layered Cake ",
-                                        "itemType": "DIM SUM",
-                                        "model": "",
-                                        "description": "",
-                                        "price": 8,
-                                        "enterPrice": 8,
-                                        "quantity": 1,
-                                        "discountPercentage": 40,
-                                        "instoreLocation": "default",
-                                        "orderDateTime": "2018-07-18T00:00:00.000Z",
-                                        "itemRemark": null,
-                                        "orderItemCode": "DS003",
-                                        "isUniqueItem": false,
-                                        "uniqueCode": "",
-                                        "isPackage": true,
-                                        "isService": false,
-                                        "isPrepack": false,
-                                        "pcid": "90019",
-                                        "itemIndex": 2,
-                                        "cashier": null,
-                                        "outlet": "TESTING OUTLET",
-                                        "itemCategory": "Dim Sum",
-                                        "orderItemRemark": "",
-                                        "isPrint": false,
-                                        "orderPerson": "",
-                                        "altLookUp": "",
-                                        "refSalesItemId": 0,
-                                        "promoGroup": "",
-                                        "orderItemOrderType": "Dine_In",
-                                        "serviceChargePercentage": 10,
-                                        "discountRemark": "",
-                                        "orderedItemSavedDateTime": "2018-07-18T12:32:00.000Z",
-                                        "printStatus": false,
-                                        "subTotal": 4.8,
-                                        "scanCode": "",
-                                        "orderSource": "DeliverEat",
-                                        "orderTerminalId":"",
-                                        "addOns": []
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                },
-                "timestamp": 1534237961
+            {  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "order":{  
+      "id":90010,
+      "orderDateTime":"2018-08-14T17:12:07.760Z",
+      "totalAmount":30.35,
+      "recipient":" Peninsula Admin",
+      "customerId":104,
+      "paidAmount":0,
+      "balanceAmount":30.35,
+      "cashier":" Peninsula Admin",
+      "isReservation":false,
+      "orderStatus":"OPEN",
+      "orderPerson":" Peninsula Admin",
+      "paymentStatus":"PENDING",
+      "outlet":"TESTING OUTLET",
+      "orderNo":"VIP7",
+      "salesNo":null,
+      "pax":"5",
+      "orderType":"Retail",
+      "roundingAmount":-0.01,
+      "remark":"",
+      "netAmount":30.35,
+      "referenceOrderId":null,
+      "isPrinted":false,
+      "printedCount":0,
+      "serviceChargeAmount":2.76,
+      "reservationDateTime":"2018-08-14T17:12:07.760Z",
+      "externalRefId":"25243",
+      "customerName":"TEST",
+      "mobileNo":"",
+      "orderSource":"",
+      "deliveryType":"DELIVEREAT",
+      "orderItems":[  
+        {  
+          "itemId":30295,
+          "itemName":"Carlsberg (Big Btl)",
+          "itemType":"BAR",
+          "model":"",
+          "description":"",
+          "price":22.8,
+          "enterPrice":22.8,
+          "quantity":1,
+          "discountPercentage":0,
+          "instoreLocation":"default",
+          "orderDateTime":"2018-08-14T17:12:07.760Z",
+          "itemRemark":null,
+          "orderItemCode":"BR001",
+          "isUniqueItem":false,
+          "uniqueCode":"",
+          "isPackage":true,
+          "isService":false,
+          "isPrepack":false,
+          "pcid":"",
+          "itemIndex":1,
+          "cashier":null,
+          "outlet":"TESTING OUTLET",
+          "itemCategory":"Beer",
+          "orderItemRemark":"",
+          "isPrint":false,
+          "orderPerson":" Peninsula Admin",
+          "altLookUp":"",
+          "refSalesItemId":0,
+          "promoGroup":"",
+          "orderItemOrderType":"Dine_In",
+          "serviceChargePercentage":10,
+          "discountRemark":"",
+          "orderedItemSavedDateTime":"2018-08-14T17:12:07.760Z",
+          "printStatus":false,
+          "subTotal":22.8,
+          "scanCode":"",
+          "orderSource":"",
+          "deliveryType":"DELIVEREAT",
+          "orderTerminalId":"",
+          "addOns":[  
+            {  
+              "itemId":30182,
+              "itemName":"豪庭马来糕  Steamed Homemade Layered Cake ",
+              "itemType":"DIM SUM",
+              "model":"",
+              "description":"",
+              "price":8,
+              "enterPrice":8,
+              "quantity":1,
+              "discountPercentage":40,
+              "instoreLocation":"default",
+              "orderDateTime":"2018-07-18T00:00:00.000Z",
+              "itemRemark":null,
+              "orderItemCode":"DS003",
+              "isUniqueItem":false,
+              "uniqueCode":"",
+              "isPackage":true,
+              "isService":false,
+              "isPrepack":false,
+              "pcid":"90019",
+              "itemIndex":2,
+              "cashier":null,
+              "outlet":"TESTING OUTLET",
+              "itemCategory":"Dim Sum",
+              "orderItemRemark":"",
+              "isPrint":false,
+              "orderPerson":"",
+              "altLookUp":"",
+              "refSalesItemId":0,
+              "promoGroup":"",
+              "orderItemOrderType":"Dine_In",
+              "serviceChargePercentage":10,
+              "discountRemark":"",
+              "orderedItemSavedDateTime":"2018-07-18T12:32:00.000Z",
+              "printStatus":false,
+              "subTotal":4.8,
+              "scanCode":"",
+              "orderSource":"",
+              "deliveryType":"DELIVEREAT",
+              "orderTerminalId":"",
+              "addOns":[  
+
+              ]
             }
+          ]
+        }
+      ]
+    }
+  },
+  "timestamp":1534237961
+}
             
 ### /logic/v2/order?datefrom={date_from}&dateto={date_to}&outlet={outlet}&status={status}&limit={limit}&offset={offset}
 #### Get Order Details with filter [GET]
@@ -11823,6 +11893,97 @@ Complete e-order
             },
             "timestamp": 1528702101
         }
+
+        
+### /logic/v2/picklist/{id}/verify
+#### POST [POST]
++ Perform verification with pick list id
++ Parameters
+    + id (required, Number) ... Pick list id
+    
++ Request
+     + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+        
+     + Body
+    {
+  "pickItems": [
+    {
+      "id": 900611,
+      "verifiedQuantity": 1
+    }
+  ],
+   "itemRemarks":[  
+    {  
+      "cellId":900125,
+      "itemId":282054,
+      "quantity":1.0,
+      "type":"Found",
+      "remark":null
+    }
+  ]
+}
+     
++ Response 200 (application/json)
+
+    OK
+
+    + Body 
+    {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "pickList": {
+            "pickItems": [
+                {
+                    "id": 900611,
+                    "itemId": 282054,
+                    "matrixBarcode": "",
+                    "matrixX": null,
+                    "matrixY": null,
+                    "pickQuantity": 1,
+                    "refId": 23201,
+                    "toLocationName": "",
+                    "refItemId": 23201,
+                    "driverCode": "",
+                    "refNo": "",
+                    "documentType": "SalesOrder",
+                    "actualPickQuantity": 1,
+                    "fulfillQuantity": 1,
+                    "verifiedQuantity": 1,
+                    "itemCode": "normal1123456",
+                    "itemName": "normal1",
+                    "itemType": "1",
+                    "pickListItemCellDetails": null
+                }
+            ],
+            "pickers": [
+                {
+                    "id": "900276",
+                    "pickerId": "SH9999",
+                    "pickerName": "SH9999"
+                }
+            ],
+            "itemRemarks": [],
+            "id": 900284,
+            "status": "Verified",
+            "generateDate": "2018-12-21T00:00:00.000Z",
+            "generateBy": "realmart@xilnex.com",
+            "fromLocationName": "MAIN BRANCH",
+            "refId": "",
+            "remarks": "",
+            "description": "",
+            "pickingMode": "0"
+        },
+        "pickListWithChild": null,
+        "pickLists": null
+    }
+}
+
 
 ### /logic/v2/picklist/{id}/complete
 #### POST [POST]
