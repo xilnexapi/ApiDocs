@@ -3794,6 +3794,343 @@ Use to bill consignment delivery order
     }
 }
 
+## Group Goods Receive Note
+### /logic/v2/goodsreceive/{id}
+#### GET
+
++ Parameters
+
+    + id   :GRN id (required)
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+
+    + Body
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+    {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "goodsReceive": {
+            "receivedItems": [
+                {
+                    "itemId": "5053",
+                    "itemName": "b21022017",
+                    "inStoreLocation": "default",
+                    "quantityReceived": 1,
+                    "totalCost": 22,
+                    "discountPercentage": 0,
+                    "refItemId": null,
+                    "itemBrand": null,
+                    "uniqueId": "",
+                    "altLookup": null,
+                    "matrixBarcode": null,
+                    "priceScheme": {
+                        "manufacturerPrice": 43,
+                        "salePrice": 11,
+                        "employeePrice": 76,
+                        "wholesalePrice": 65,
+                        "customPrice": 54,
+                        "webPrice": 32,
+                        "webDealerPrice": 21,
+                        "cost": 0
+                    },
+                    "itemRemark": "",
+                    "enterQuantity": 1,
+                    "uomQuantity": 1,
+                    "packageId": "-1",
+                    "unitCost": 20.75,
+                    "uom": "EACH",
+                    "expiryManufacturingDate": "0001-01-01T00:00:00.000Z",
+                    "altSerialNo": "",
+                    "carton": 1,
+                    "labelNo": "",
+                    "taxCode": "TX",
+                    "taxPercentage": 6,
+                    "taxAmount": 1.25,
+                    "inclusiveMGST": true,
+                    "enterCost": 22,
+                    "refReceivedItemId": "",
+                    "valueX": null,
+                    "valueY": null,
+                    "itemCode": "b21022017",
+                    "foreignEnterCost": 0,
+                    "foreignTotalCost": 0,
+                    "batchNo": "",
+                    "remarks2": "",
+                    "batchExpiryDate": null,
+                    "returnRefReceivedId": "",
+                    "returnRefVendorInvNo": "",
+                    "gstTPercent": 0,
+                    "gstAmount": 0,
+                    "subTotal": 22,
+                    "totalTaxAmount": 1.25,
+                    "totalDiscountAmount": 0,
+                    "vatCode": null,
+                    "vatRate": 0,
+                    "unitCostIncludedFC": 0,
+                    "subTotalIncludedFC": 0,
+                    "totalFC": 0,
+                    "intExtend1": 0,
+                    "intExtend2": 0,
+                    "intExtend3": 0
+                }
+            ],
+            "id": 9009192,
+            "receivingDate": "2019-01-25T00:00:00.000Z",
+            "invoiceNo": "2342342",
+            "receiveDate": "2018-03-26T00:00:00.000Z",
+            "receivedBy": "realmart@xilnex.com",
+            "vendorCode": "",
+            "refId": null,
+            "receiveType": "Receive",
+            "discount": 0,
+            "terms": 0,
+            "termsRemark": "",
+            "deliveryOrderNumber": "",
+            "type": "",
+            "importType": 0,
+            "deliveryOrderDate": null,
+            "invoiceDate": "2018-03-26T00:00:00.000Z",
+            "poNumber": null,
+            "isUpdateItemCost": false,
+            "cancelDate": null,
+            "forwarderInvoiceNumber1": "",
+            "forwarderInvoiceNumber2": "",
+            "forwarderCost1": 0,
+            "forwarderCost2": 0,
+            "forwarderInvoiceDate1": null,
+            "forwarderInvoiceDate2": null,
+            "subTotal": 20.75,
+            "grandTotalMGSTAmount": 1.25,
+            "grandTotal": 22,
+            "varianceSubTotal": 0,
+            "varianceMGSTAmountGrandTotal": 0,
+            "varianceGrandTotal": 0,
+            "adjustedSubTotal": 20.75,
+            "adjustedMGSTAmountGrandTotal": 1.25,
+            "adjustedGrandTotal": 22,
+            "postingDate": "2018-03-26T00:00:00.000Z",
+            "exchangeRate": 0,
+            "currencyCode": null,
+            "discountRate": 0,
+            "serviceCharge": 0,
+            "receivedStatus": "Completed",
+            "cancelReceivingVersion": "2",
+            "remark": "NA",
+            "outlet": "MAIN BRANCH",
+            "vendorName": "",
+            "localAmountExchangeRate": 0,
+            "foreignAmountExchageRate": 0,
+            "foreignGrandTotal": 0,
+            "roundingAmount": 0,
+            "taxFreeAmount": 0,
+            "isInclusive": false,
+            "taxPercentage": 0
+        }
+    }
+}
+
+### /logic/v2/goodsreceive
+#### POST
+Use to create goods receive note
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+
+    + Body
+    {  
+  "goodsReceive":{  
+    "receivedItems":[  
+      {  
+        "itemId":5053,
+        "itemCode":"",
+        "discountPercentage":0,
+        "uniqueId":"",
+        "itemRemark":"",
+        "enterQuantity":1,
+        "altSerialNo":"",
+        "labelNo":"",
+        "enterCost":22,
+        "refReceivedItemId":"",
+        "batchNo":"",
+        "remarks2":"",
+        "batchExpiryDate":"",
+        "returnRefReceivedId":"",
+        "returnRefVendorInvNo":""
+      }
+    ],
+    "invoiceNo":"2342342",
+    "discount":0,
+    "termsRemark":"",
+    "deliveryOrderNumber":"9999",
+    "type":"",
+    "deliveryOrderDate":"2019-01-28T00:00:00.000Z",
+    "invoiceDate":"2018-03-26T00:00:00.000Z",
+    "forwarderInvoiceNumber1":"",
+    "forwarderInvoiceNumber2":"",
+    "forwarderCost1":0,
+    "forwarderCost2":0,
+    "forwarderInvoiceDate1":"",
+    "forwarderInvoiceDate2":"",
+    "adjustedSubTotal":0,
+    "adjustedMGSTAmountGrandTotal":0,
+    "postingDate":"2018-03-26T00:00:00.000Z",
+    "receivedStatus":"Completed",
+    "receivingDate":"2018-03-26T00:00:00.000Z",
+    "receiveDate":"2018-03-26T00:00:00.000Z",
+    "remark":"NA",
+    "outlet":"MAIN BRANCH"
+  }
+}
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+    {  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "goodsReceive":{  
+      "receivedItems":[  
+        {  
+          "itemId":"5053",
+          "itemName":"b21022017",
+          "inStoreLocation":"default",
+          "quantityReceived":1,
+          "totalCost":22,
+          "discountPercentage":0,
+          "refItemId":null,
+          "itemBrand":null,
+          "uniqueId":"",
+          "altLookup":null,
+          "matrixBarcode":null,
+          "priceScheme":{  
+            "manufacturerPrice":43,
+            "salePrice":11,
+            "employeePrice":76,
+            "wholesalePrice":65,
+            "customPrice":54,
+            "webPrice":32,
+            "webDealerPrice":21,
+            "cost":0
+          },
+          "itemRemark":"",
+          "enterQuantity":1,
+          "uomQuantity":1,
+          "packageId":"-1",
+          "unitCost":20.75,
+          "uom":"EACH",
+          "expiryManufacturingDate":"0001-01-01T00:00:00.000Z",
+          "altSerialNo":"",
+          "carton":1,
+          "labelNo":"",
+          "taxCode":"TX",
+          "taxPercentage":6,
+          "taxAmount":1.25,
+          "inclusiveMGST":true,
+          "enterCost":22,
+          "refReceivedItemId":"",
+          "valueX":null,
+          "valueY":null,
+          "itemCode":"b21022017",
+          "foreignEnterCost":0,
+          "foreignTotalCost":0,
+          "batchNo":"",
+          "remarks2":"",
+          "batchExpiryDate":null,
+          "returnRefReceivedId":"",
+          "returnRefVendorInvNo":"",
+          "gstTPercent":0,
+          "gstAmount":0,
+          "subTotal":22,
+          "totalTaxAmount":1.25,
+          "totalDiscountAmount":0,
+          "vatCode":null,
+          "vatRate":0,
+          "unitCostIncludedFC":0,
+          "subTotalIncludedFC":0,
+          "totalFC":0,
+          "intExtend1":0,
+          "intExtend2":0,
+          "intExtend3":0
+        }
+      ],
+      "id":9009193,
+      "receivingDate":"2019-01-25T00:00:00.000Z",
+      "invoiceNo":"2342342",
+      "receiveDate":"2018-03-26T00:00:00.000Z",
+      "receivedBy":"realmart@xilnex.com",
+      "vendorCode":"",
+      "refId":null,
+      "receiveType":"Receive",
+      "discount":0,
+      "terms":0,
+      "termsRemark":"",
+      "deliveryOrderNumber":"9999",
+      "type":"",
+      "importType":0,
+      "deliveryOrderDate":"2019-01-28T00:00:00.000Z",
+      "invoiceDate":"2018-03-26T00:00:00.000Z",
+      "poNumber":null,
+      "isUpdateItemCost":false,
+      "cancelDate":null,
+      "forwarderInvoiceNumber1":"",
+      "forwarderInvoiceNumber2":"",
+      "forwarderCost1":0,
+      "forwarderCost2":0,
+      "forwarderInvoiceDate1":null,
+      "forwarderInvoiceDate2":null,
+      "subTotal":20.75,
+      "grandTotalMGSTAmount":1.25,
+      "grandTotal":22,
+      "varianceSubTotal":0,
+      "varianceMGSTAmountGrandTotal":0,
+      "varianceGrandTotal":0,
+      "adjustedSubTotal":20.75,
+      "adjustedMGSTAmountGrandTotal":1.25,
+      "adjustedGrandTotal":22,
+      "postingDate":"2018-03-26T00:00:00.000Z",
+      "exchangeRate":0,
+      "currencyCode":null,
+      "discountRate":0,
+      "serviceCharge":0,
+      "receivedStatus":"Completed",
+      "cancelReceivingVersion":"2",
+      "remark":"NA",
+      "outlet":"MAIN BRANCH",
+      "vendorName":"",
+      "localAmountExchangeRate":0,
+      "foreignAmountExchageRate":0,
+      "foreignGrandTotal":0,
+      "roundingAmount":0,
+      "taxFreeAmount":0,
+      "isInclusive":false,
+      "taxPercentage":0
+    }
+  }
+}
+    
 ## Group Integration
 
 ### /logic/v2/integration
@@ -9515,9 +9852,520 @@ Get invoice by id
               "type": "object",
               "properties": {}
             }
-            
 
-## Group SalesOrder
+### /logic/v2/salesorder/search?datefrom={datefrom}&dateto={dateto}&clientid={clientid}&outlet={outlet}&status={status}&limit={limit}&offset={offset}
+#### Query Sales Order [GET]
+
+Search by client id, date range,outlet and outlet
+
++ Parameters
+    + clientid: client id
+    + datefrom: start date
+    + dateto: end date
+    + outlet: outlet name
+    + status: status
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            DKey: (required)
+            Token: (required)
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+           {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "salesOrder": null,
+        "salesOrders": [
+            {
+                "id": 90048,
+                "dateTime": "2018-01-15T05:44:04.000Z",
+                "total": 14.15,
+                "recipient": "yan ccc",
+                "clientId": "900112",
+                "clientName": "yan ccc",
+                "paidAmount": 14.15,
+                "balance": 0,
+                "term": 0,
+                "cashier": "Molpay Seamless",
+                "billingAddress": null,
+                "billingRemark": "test",
+                "shipmentAdress": {
+                    "street": "POS 221, Batu 7, Jalan Kesang, Kesang Laut",
+                    "city": "Muar",
+                    "state": "Johor",
+                    "zipcode": "84000",
+                    "country": "MY"
+                },
+                "shippingAddress": {
+                    "street": "POS 221, Batu 7, Jalan Kesang, Kesang Laut",
+                    "city": "Muar",
+                    "state": "Johor",
+                    "zipcode": "84000",
+                    "country": "MY"
+                },
+                "shipmentRemark": "test",
+                "shipmentDateTime": null,
+                "salesOrderPerson": "Petsmore App",
+                "shipStatus": null,
+                "status": "CONFIRMED",
+                "paymentStatus": "PAID",
+                "outlet": null,
+                "remark": null,
+                "discountPercentage": 0,
+                "taxPercentage": 0,
+                "cost": 7.8,
+                "profit": 6.2,
+                "isCashSales": false,
+                "isWebSales": true,
+                "rounding": 0,
+                "recipientContact": "60128881111",
+                "cancellationInfo": null,
+                "netAmount": 14.15,
+                "returnSales": false,
+                "internalSales": false,
+                "internalSalesLocationId": null,
+                "receiveId": null,
+                "frReceiveId": null,
+                "internalSalesReceiveVendorId": null,
+                "internalSalesReceiveVendorName": null,
+                "type": "NEW Love Card",
+                "tenderedAmount": 0,
+                "receiptPrintCount": 0,
+                "serverAudit": 0,
+                "purchaseOrderNo": "#000000050",
+                "confirmOutlet": null,
+                "siteId": "900",
+                "quotationId": null,
+                "customField1": null,
+                "customField2": null,
+                "customField3": null,
+                "customField4": null,
+                "customField5": null,
+                "declarationSessionId": "900104",
+                "eodLogId": "900104",
+                "storeEODId": null,
+                "mgstTaxAmount": 0,
+                "exchangeRate": 0,
+                "isRecursive": false,
+                "recursiveFrequency": null,
+                "recursiveDateFrom": null,
+                "recursiveDateTo": null,
+                "recursiveCounter": 0,
+                "billingDate": null,
+                "foreignTotalAmount": 0,
+                "currencyCode": null,
+                "shipmentProvider": null,
+                "localAmountExcrate": 0,
+                "foreignAmountExcrate": 0,
+                "integrationCustomField1": null,
+                "integrationCustomField2": null,
+                "integrationCustomField3": null,
+                "integrationCustomField4": null,
+                "integrationCustomField5": null,
+                "integrationCustomField6": null,
+                "integrationCustomField7": null,
+                "integrationCustomField8": null,
+                "integrationCustomField9": null,
+                "integrationCustomField10": null,
+                "externalRefId": null,
+                "salesOrderItems": [
+                    {
+                        "id": 900144,
+                        "itemId": 1022540,
+                        "itemName": "PETIDO CatCare - Apple 10L",
+                        "itemType": "Household",
+                        "itemModel": "9555677201560",
+                        "description": "",
+                        "unitPrice": 14.15,
+                        "vendorCode": "27019",
+                        "salesOrderId": "90048",
+                        "returnId": null,
+                        "numberOfReturn": 0,
+                        "quantity": 1,
+                        "shippedQuantity": 0,
+                        "profit": 6.2,
+                        "cost": 0,
+                        "discountPercentage": 0,
+                        "instoreLocation": "default",
+                        "brand": "C061-CATCARE",
+                        "clientId": "900112",
+                        "clientName": "yan ccc",
+                        "date": "2018-01-15T00:00:00.000Z",
+                        "outlet": null,
+                        "itemCode": "0706002070",
+                        "prices": {
+                            "manufacturerPrice": 3,
+                            "salePrice": 22.64,
+                            "employeePrice": 9.36,
+                            "wholesalePrice": 20.88,
+                            "customPrice": 14.15,
+                            "webPrice": 22.64,
+                            "webDealerPrice": 7.8,
+                            "cost": 7.8
+                        },
+                        "isUniqueItem": false,
+                        "uniqueId": null,
+                        "isPackage": false,
+                        "isService": false,
+                        "isPrepack": false,
+                        "commissionOne": 0,
+                        "commissionRateOne": 0.1,
+                        "commissionTwo": 0,
+                        "commissionRateTwo": 0,
+                        "commissionThree": 0,
+                        "commissionRateThree": 0,
+                        "commissionFour": 0,
+                        "commissionRateFour": 0,
+                        "itemCategory": "Litter",
+                        "remark": null,
+                        "packageCode": null,
+                        "isPrint": true,
+                        "parentId": null,
+                        "pcId": null,
+                        "itemIndex": "0",
+                        "isMatrix": false,
+                        "matrixId": null,
+                        "matrixBarcode": null,
+                        "matrixX": null,
+                        "matrixY": null,
+                        "isFOC": false,
+                        "salesOrderPerson": "Petsmore App",
+                        "alternateLookUp": "",
+                        "uom": "EACH",
+                        "isWeighted": 0,
+                        "scanCode": "0706002070",
+                        "epayTransactionId": null,
+                        "salesNo": null,
+                        "status": "CONFIRMED",
+                        "quotationsNo": null,
+                        "postedQuantity": 0,
+                        "postingQuantity": 0,
+                        "multiLevelDiscount": null,
+                        "declarationSessionId": "900104",
+                        "eodLogId": "900104",
+                        "promoIgnore": false,
+                        "promoGuid": null,
+                        "customField1": "6",
+                        "customField2": "EXTRA4DAYS20%",
+                        "customField3": "",
+                        "customField4": "EXTRA4DAYS20%",
+                        "customField5": "9555677201560",
+                        "promoGroup": "Paper & Cotton Product",
+                        "gstTaxCode": "SR",
+                        "gstPercentage": 0,
+                        "gstAmount": 0,
+                        "gstInclusive": true,
+                        "enterPrice": 14.15,
+                        "isAdhoc": false,
+                        "recursiveDateFrom": null,
+                        "recursiveDateTo": null,
+                        "foreignUnitPrice": 0,
+                        "foreignSubtotal": 0,
+                        "subTotal": 0,
+                        "totalTaxAmount": 0,
+                        "totalDiscountAmount": 0,
+                        "subItems": []
+                    }
+                ],
+                "collections": [
+                    {
+                        "id": 9002719,
+                        "clientId": "900112",
+                        "invoiceId": "",
+                        "amount": 14.15,
+                        "method": "Molpay_seamless",
+                        "xCard": null,
+                        "reference": "Test Transaction ID: 61986980",
+                        "outlet": null,
+                        "paymentDate": "2018-01-15T05:44:04.000Z",
+                        "isVoid": false,
+                        "creditCardRate": 0,
+                        "siteId": 0,
+                        "cardAppCode": null,
+                        "cardType": null,
+                        "status": "Saved",
+                        "receivedBy": null,
+                        "cardExpiry": null,
+                        "traceNumber": null,
+                        "remark": null,
+                        "tenderAmount": 0,
+                        "change": 0,
+                        "declarationSessionId": "900104",
+                        "eodLogId": "900104",
+                        "isDeposit": true,
+                        "salesOrderId": "90048",
+                        "cardType2": null,
+                        "cardType3": null,
+                        "businessDate": "2019-01-16T00:00:00.000Z",
+                        "internalReferenceId": null,
+                        "availableBalance": 0,
+                        "usedDate": null,
+                        "prepaidCardNumber": null,
+                        "prepaidReferenceNumber": null,
+                        "exchangeRate": 0,
+                        "currencyCode": null,
+                        "foreignAmount": 0,
+                        "foreignGain": null,
+                        "cardLookup": null
+                    }
+                ],
+                "collection": null
+            },
+            {
+                "id": 90049,
+                "dateTime": "2018-01-15T05:44:04.000Z",
+                "total": 14.15,
+                "recipient": "yan ccc",
+                "clientId": "900112",
+                "clientName": "yan ccc",
+                "paidAmount": 14.15,
+                "balance": 0,
+                "term": 0,
+                "cashier": "Molpay Seamless",
+                "billingAddress": null,
+                "billingRemark": "test",
+                "shipmentAdress": {
+                    "street": "POS 221, Batu 7, Jalan Kesang, Kesang Laut",
+                    "city": "Muar",
+                    "state": "Johor",
+                    "zipcode": "84000",
+                    "country": "MY"
+                },
+                "shippingAddress": {
+                    "street": "POS 221, Batu 7, Jalan Kesang, Kesang Laut",
+                    "city": "Muar",
+                    "state": "Johor",
+                    "zipcode": "84000",
+                    "country": "MY"
+                },
+                "shipmentRemark": "test",
+                "shipmentDateTime": null,
+                "salesOrderPerson": "Petsmore App",
+                "shipStatus": null,
+                "status": "CONFIRMED",
+                "paymentStatus": "PAID",
+                "outlet": null,
+                "remark": null,
+                "discountPercentage": 0,
+                "taxPercentage": 0,
+                "cost": 7.8,
+                "profit": 6.2,
+                "isCashSales": false,
+                "isWebSales": true,
+                "rounding": 0,
+                "recipientContact": "60128881111",
+                "cancellationInfo": null,
+                "netAmount": 14.15,
+                "returnSales": false,
+                "internalSales": false,
+                "internalSalesLocationId": null,
+                "receiveId": null,
+                "frReceiveId": null,
+                "internalSalesReceiveVendorId": null,
+                "internalSalesReceiveVendorName": null,
+                "type": "NEW Love Card",
+                "tenderedAmount": 0,
+                "receiptPrintCount": 0,
+                "serverAudit": 0,
+                "purchaseOrderNo": "#000000050",
+                "confirmOutlet": null,
+                "siteId": "900",
+                "quotationId": null,
+                "customField1": null,
+                "customField2": null,
+                "customField3": null,
+                "customField4": null,
+                "customField5": null,
+                "declarationSessionId": "900104",
+                "eodLogId": "900104",
+                "storeEODId": null,
+                "mgstTaxAmount": 0,
+                "exchangeRate": 0,
+                "isRecursive": false,
+                "recursiveFrequency": null,
+                "recursiveDateFrom": null,
+                "recursiveDateTo": null,
+                "recursiveCounter": 0,
+                "billingDate": null,
+                "foreignTotalAmount": 0,
+                "currencyCode": null,
+                "shipmentProvider": null,
+                "localAmountExcrate": 0,
+                "foreignAmountExcrate": 0,
+                "integrationCustomField1": null,
+                "integrationCustomField2": null,
+                "integrationCustomField3": null,
+                "integrationCustomField4": null,
+                "integrationCustomField5": null,
+                "integrationCustomField6": null,
+                "integrationCustomField7": null,
+                "integrationCustomField8": null,
+                "integrationCustomField9": null,
+                "integrationCustomField10": null,
+                "externalRefId": null,
+                "salesOrderItems": [
+                    {
+                        "id": 900145,
+                        "itemId": 1022540,
+                        "itemName": "PETIDO CatCare - Apple 10L",
+                        "itemType": "Household",
+                        "itemModel": "9555677201560",
+                        "description": "",
+                        "unitPrice": 14.15,
+                        "vendorCode": "27019",
+                        "salesOrderId": "90049",
+                        "returnId": null,
+                        "numberOfReturn": 0,
+                        "quantity": 1,
+                        "shippedQuantity": 0,
+                        "profit": 6.2,
+                        "cost": 0,
+                        "discountPercentage": 0,
+                        "instoreLocation": "default",
+                        "brand": "C061-CATCARE",
+                        "clientId": "900112",
+                        "clientName": "yan ccc",
+                        "date": "2018-01-15T00:00:00.000Z",
+                        "outlet": null,
+                        "itemCode": "0706002070",
+                        "prices": {
+                            "manufacturerPrice": 3,
+                            "salePrice": 22.64,
+                            "employeePrice": 9.36,
+                            "wholesalePrice": 20.88,
+                            "customPrice": 14.15,
+                            "webPrice": 22.64,
+                            "webDealerPrice": 7.8,
+                            "cost": 7.8
+                        },
+                        "isUniqueItem": false,
+                        "uniqueId": null,
+                        "isPackage": false,
+                        "isService": false,
+                        "isPrepack": false,
+                        "commissionOne": 0,
+                        "commissionRateOne": 0.1,
+                        "commissionTwo": 0,
+                        "commissionRateTwo": 0,
+                        "commissionThree": 0,
+                        "commissionRateThree": 0,
+                        "commissionFour": 0,
+                        "commissionRateFour": 0,
+                        "itemCategory": "Litter",
+                        "remark": null,
+                        "packageCode": null,
+                        "isPrint": true,
+                        "parentId": null,
+                        "pcId": null,
+                        "itemIndex": "0",
+                        "isMatrix": false,
+                        "matrixId": null,
+                        "matrixBarcode": null,
+                        "matrixX": null,
+                        "matrixY": null,
+                        "isFOC": false,
+                        "salesOrderPerson": "Petsmore App",
+                        "alternateLookUp": "",
+                        "uom": "EACH",
+                        "isWeighted": 0,
+                        "scanCode": "0706002070",
+                        "epayTransactionId": null,
+                        "salesNo": null,
+                        "status": "CONFIRMED",
+                        "quotationsNo": null,
+                        "postedQuantity": 0,
+                        "postingQuantity": 0,
+                        "multiLevelDiscount": null,
+                        "declarationSessionId": "900104",
+                        "eodLogId": "900104",
+                        "promoIgnore": false,
+                        "promoGuid": null,
+                        "customField1": "6",
+                        "customField2": "EXTRA4DAYS20%",
+                        "customField3": "",
+                        "customField4": "EXTRA4DAYS20%",
+                        "customField5": "9555677201560",
+                        "promoGroup": "Paper & Cotton Product",
+                        "gstTaxCode": "SR",
+                        "gstPercentage": 0,
+                        "gstAmount": 0,
+                        "gstInclusive": true,
+                        "enterPrice": 14.15,
+                        "isAdhoc": false,
+                        "recursiveDateFrom": null,
+                        "recursiveDateTo": null,
+                        "foreignUnitPrice": 0,
+                        "foreignSubtotal": 0,
+                        "subTotal": 0,
+                        "totalTaxAmount": 0,
+                        "totalDiscountAmount": 0,
+                        "subItems": []
+                    }
+                ],
+                "collections": [
+                    {
+                        "id": 9002720,
+                        "clientId": "900112",
+                        "invoiceId": "",
+                        "amount": 14.15,
+                        "method": "Molpay_seamless",
+                        "xCard": null,
+                        "reference": "Test Transaction ID: 61986980",
+                        "outlet": null,
+                        "paymentDate": "2018-01-15T05:44:04.000Z",
+                        "isVoid": false,
+                        "creditCardRate": 0,
+                        "siteId": 0,
+                        "cardAppCode": null,
+                        "cardType": null,
+                        "status": "Saved",
+                        "receivedBy": null,
+                        "cardExpiry": null,
+                        "traceNumber": null,
+                        "remark": null,
+                        "tenderAmount": 0,
+                        "change": 0,
+                        "declarationSessionId": "900104",
+                        "eodLogId": "900104",
+                        "isDeposit": true,
+                        "salesOrderId": "90049",
+                        "cardType2": null,
+                        "cardType3": null,
+                        "businessDate": "2019-01-16T00:00:00.000Z",
+                        "internalReferenceId": null,
+                        "availableBalance": 0,
+                        "usedDate": null,
+                        "prepaidCardNumber": null,
+                        "prepaidReferenceNumber": null,
+                        "exchangeRate": 0,
+                        "currencyCode": null,
+                        "foreignAmount": 0,
+                        "foreignGain": null,
+                        "cardLookup": null
+                    }
+                ],
+                "collection": null
+            }
+        ],
+        "key": null,
+        "status": null,
+        "salesId": null,
+        "documentkey": null,
+        "totalSize": 21,
+        "nextRecordsUrl": "api.xilnex.com/logic/v2/salesorder/search?datefrom=2018-01-15T00:00:00.000Z&dateto=2018-01-16T00:00:00.000Z"
+    }
+}       
+
 
 ### /logic/v1/salesfunctions/recursiveso
 
@@ -12250,465 +13098,6 @@ Complete e-order
       ]
    },
    "timestamp":1529655296
-}
-
-### /logic/v2/picklist/recent?status={status}
-#### GET [GET]
-+ Get top recent pick list
-
-+ Parameters
-   + status(required, String) ... Pick list status
-    
-+ Request
-
-    + Headers
-        token: {token}
-        dkey: {dkey}
-        Content-Type: application/json
-        
-    + Body
-    
-+ Response 200 (application/json)
-
-    OK
-
-    + Body
-    {  
-  "ok":true,
-  "status":"SuccessQuery",
-  "warning":null,
-  "error":null,
-  "data":{  
-    "pickList":null,
-    "pickLists":[  
-      {  
-        "id":9003,
-        "status":"Picked",
-        "generateDate":"2018-04-26T00:00:00.000Z",
-        "generateBy":"realmart@xilnex.com",
-        "fromLocationName":"MAIN BRANCH",
-        "refId":"",
-        "remarks":"",
-        "description":"",
-        "pickingMode":"0",
-        "pickItems":[  
-          {  
-            "id":9003,
-            "itemId":282054,
-            "matrixBarcode":"",
-            "matrixX":"",
-            "matrixY":"",
-            "pickQuantity":1,
-            "refId":23201,
-            "toLocationName":"090120161",
-            "refItemId":23201,
-            "driverCode":"",
-            "refNo":"",
-            "documentType":"SalesOrder",
-            "actualPickQuantity":0,
-            "fulfillQuantity":0,
-            "verifiedQuantity":0,
-            "itemCode":"normal1123456",
-            "itemName":"normal1"
-          },
-          {  
-            "id":9004,
-            "itemId":282054,
-            "matrixBarcode":"",
-            "matrixX":"",
-            "matrixY":"",
-            "pickQuantity":1,
-            "refId":23201,
-            "toLocationName":"090120161",
-            "refItemId":23201,
-            "driverCode":"",
-            "refNo":"",
-            "documentType":"SalesOrder",
-            "actualPickQuantity":0,
-            "fulfillQuantity":0,
-            "verifiedQuantity":0,
-            "itemCode":"normal1123456",
-            "itemName":"normal1"
-          },
-          {  
-            "id":9005,
-            "itemId":282054,
-            "matrixBarcode":"",
-            "matrixX":"",
-            "matrixY":"",
-            "pickQuantity":1,
-            "refId":23201,
-            "toLocationName":"090120161",
-            "refItemId":23201,
-            "driverCode":"",
-            "refNo":"",
-            "documentType":"SalesOrder",
-            "actualPickQuantity":0,
-            "fulfillQuantity":0,
-            "verifiedQuantity":0,
-            "itemCode":"normal1123456",
-            "itemName":"normal1"
-          },
-          {  
-            "id":9006,
-            "itemId":282054,
-            "matrixBarcode":"",
-            "matrixX":"",
-            "matrixY":"",
-            "pickQuantity":1,
-            "refId":23201,
-            "toLocationName":"090120161",
-            "refItemId":23201,
-            "driverCode":"",
-            "refNo":"",
-            "documentType":"SalesOrder",
-            "actualPickQuantity":0,
-            "fulfillQuantity":0,
-            "verifiedQuantity":0,
-            "itemCode":"normal1123456",
-            "itemName":"normal1"
-          },
-          {  
-            "id":9007,
-            "itemId":282054,
-            "matrixBarcode":"",
-            "matrixX":"",
-            "matrixY":"",
-            "pickQuantity":1,
-            "refId":23201,
-            "toLocationName":"090120161",
-            "refItemId":23201,
-            "driverCode":"",
-            "refNo":"",
-            "documentType":"SalesOrder",
-            "actualPickQuantity":1,
-            "fulfillQuantity":0,
-            "verifiedQuantity":0,
-            "itemCode":"normal1123456",
-            "itemName":"normal1"
-          }
-        ],
-        "pickers":[  
-
-        ]
-      },
-      {  
-        "id":386013,
-        "status":"Picked",
-        "generateDate":"2018-04-11T00:00:00.000Z",
-        "generateBy":"RealMart Admin",
-        "fromLocationName":"!Enako",
-        "refId":null,
-        "remarks":"",
-        "description":null,
-        "pickingMode":"0",
-        "pickItems":[  
-          {  
-            "id":386016,
-            "itemId":38601,
-            "matrixBarcode":"",
-            "matrixX":"",
-            "matrixY":"",
-            "pickQuantity":10,
-            "refId":386010,
-            "toLocationName":"!Enako",
-            "refItemId":386014,
-            "driverCode":null,
-            "refNo":null,
-            "documentType":"SalesOrder",
-            "actualPickQuantity":10,
-            "fulfillQuantity":0,
-            "verifiedQuantity":0,
-            "itemCode":"Testing1802120001",
-            "itemName":"Testing1802120001"
-          },
-          {  
-            "id":386017,
-            "itemId":38602,
-            "matrixBarcode":"",
-            "matrixX":"",
-            "matrixY":"",
-            "pickQuantity":10,
-            "refId":386010,
-            "toLocationName":"!Enako",
-            "refItemId":386015,
-            "driverCode":null,
-            "refNo":null,
-            "documentType":"SalesOrder",
-            "actualPickQuantity":10,
-            "fulfillQuantity":0,
-            "verifiedQuantity":0,
-            "itemCode":"Testing1802120002",
-            "itemName":"Testing1802120002"
-          },
-          {  
-            "id":386018,
-            "itemId":38603,
-            "matrixBarcode":"",
-            "matrixX":"",
-            "matrixY":"",
-            "pickQuantity":1,
-            "refId":386010,
-            "toLocationName":"!Enako",
-            "refItemId":386016,
-            "driverCode":null,
-            "refNo":null,
-            "documentType":"SalesOrder",
-            "actualPickQuantity":1,
-            "fulfillQuantity":0,
-            "verifiedQuantity":0,
-            "itemCode":"Testing1802120003",
-            "itemName":"Testing1802120003"
-          },
-          {  
-            "id":386019,
-            "itemId":38604,
-            "matrixBarcode":"",
-            "matrixX":"",
-            "matrixY":"",
-            "pickQuantity":10,
-            "refId":386010,
-            "toLocationName":"!Enako",
-            "refItemId":386017,
-            "driverCode":null,
-            "refNo":null,
-            "documentType":"SalesOrder",
-            "actualPickQuantity":5,
-            "fulfillQuantity":0,
-            "verifiedQuantity":0,
-            "itemCode":"Testing1802120004",
-            "itemName":"Testing1802120004"
-          }
-        ],
-        "pickers":[  
-
-        ]
-      },
-      {  
-        "id":379032,
-        "status":"Picked",
-        "generateDate":"2018-02-13T00:00:00.000Z",
-        "generateBy":"RealMart Admin",
-        "fromLocationName":"00 MAIN OUTLET",
-        "refId":null,
-        "remarks":"",
-        "description":null,
-        "pickingMode":"0",
-        "pickItems":[  
-          {  
-            "id":379072,
-            "itemId":37901,
-            "matrixBarcode":"",
-            "matrixX":"",
-            "matrixY":"",
-            "pickQuantity":1,
-            "refId":379066,
-            "toLocationName":"00 MAIN OUTLET",
-            "refItemId":3790124,
-            "driverCode":null,
-            "refNo":null,
-            "documentType":"Sale",
-            "actualPickQuantity":1,
-            "fulfillQuantity":1,
-            "verifiedQuantity":0,
-            "itemCode":"WM0001",
-            "itemName":"Washing Machine 1"
-          }
-        ],
-        "pickers":[  
-
-        ]
-      },
-      {  
-        "id":38108,
-        "status":"Picked",
-        "generateDate":"2018-01-21T00:00:00.000Z",
-        "generateBy":"RealMart Admin",
-        "fromLocationName":"!Enako",
-        "refId":null,
-        "remarks":"",
-        "description":null,
-        "pickingMode":"0",
-        "pickItems":[  
-          {  
-            "id":381013,
-            "itemId":282063,
-            "matrixBarcode":"",
-            "matrixX":"",
-            "matrixY":"",
-            "pickQuantity":30,
-            "refId":381010,
-            "toLocationName":"!Enako",
-            "refItemId":381016,
-            "driverCode":null,
-            "refNo":null,
-            "documentType":"SalesOrder",
-            "actualPickQuantity":30,
-            "fulfillQuantity":30,
-            "verifiedQuantity":0,
-            "itemCode":"normal1a",
-            "itemName":"locd"
-          }
-        ],
-        "pickers":[  
-
-        ]
-      },
-      {  
-        "id":38107,
-        "status":"Picked",
-        "generateDate":"2018-01-19T00:00:00.000Z",
-        "generateBy":"RealMart Admin",
-        "fromLocationName":"!Enako",
-        "refId":null,
-        "remarks":"",
-        "description":null,
-        "pickingMode":"0",
-        "pickItems":[  
-          {  
-            "id":381011,
-            "itemId":282063,
-            "matrixBarcode":"",
-            "matrixX":"",
-            "matrixY":"",
-            "pickQuantity":2,
-            "refId":38109,
-            "toLocationName":"",
-            "refItemId":381014,
-            "driverCode":null,
-            "refNo":null,
-            "documentType":"SalesOrder",
-            "actualPickQuantity":0,
-            "fulfillQuantity":0,
-            "verifiedQuantity":0,
-            "itemCode":"normal1a",
-            "itemName":"locd"
-          },
-          {  
-            "id":381012,
-            "itemId":27606,
-            "matrixBarcode":"",
-            "matrixX":"",
-            "matrixY":"",
-            "pickQuantity":2,
-            "refId":38109,
-            "toLocationName":"",
-            "refItemId":381015,
-            "driverCode":null,
-            "refNo":null,
-            "documentType":"SalesOrder",
-            "actualPickQuantity":0,
-            "fulfillQuantity":0,
-            "verifiedQuantity":0,
-            "itemCode":"test001",
-            "itemName":"test item"
-          }
-        ],
-        "pickers":[  
-
-        ]
-      },
-      {  
-        "id":342057,
-        "status":"Picked",
-        "generateDate":"2018-01-18T00:00:00.000Z",
-        "generateBy":"SenHeng Admin",
-        "fromLocationName":"MKS",
-        "refId":"342042",
-        "remarks":"PLH*CDC*000802",
-        "description":null,
-        "pickingMode":"3",
-        "pickItems":[  
-          {  
-            "id":3420152,
-            "itemId":3420720,
-            "matrixBarcode":"",
-            "matrixX":"",
-            "matrixY":"",
-            "pickQuantity":5,
-            "refId":342042,
-            "toLocationName":"shun",
-            "refItemId":3420110,
-            "driverCode":null,
-            "refNo":null,
-            "documentType":"SalesOrder",
-            "actualPickQuantity":2,
-            "fulfillQuantity":2,
-            "verifiedQuantity":2,
-            "itemCode":"ELE-EWE361GXDWB",
-            "itemName":"WATER HEATER"
-          },
-          {  
-            "id":3420153,
-            "itemId":3420720,
-            "matrixBarcode":"",
-            "matrixX":"",
-            "matrixY":"",
-            "pickQuantity":1,
-            "refId":342043,
-            "toLocationName":"shun",
-            "refItemId":3420111,
-            "driverCode":null,
-            "refNo":null,
-            "documentType":"SalesOrder",
-            "actualPickQuantity":1,
-            "fulfillQuantity":1,
-            "verifiedQuantity":1,
-            "itemCode":"ELE-EWE361GXDWB",
-            "itemName":"WATER HEATER"
-          }
-        ],
-        "pickers":[  
-          {  
-            "id":"342021",
-            "pickerId":"TEST",
-            "pickerName":"TEST"
-          },
-          {  
-            "id":"342022",
-            "pickerId":"TEST",
-            "pickerName":"TEST"
-          }
-        ]
-      },
-      {  
-        "id":38102,
-        "status":"Picked",
-        "generateDate":"2018-01-12T00:00:00.000Z",
-        "generateBy":"RealMart Admin",
-        "fromLocationName":"MAIN BRANCH",
-        "refId":"38102 ref id lo",
-        "remarks":" 38102 remark lo",
-        "description":"38102 description lo",
-        "pickingMode":"0",
-        "pickItems":[  
-          {  
-            "id":38102,
-            "itemId":2705517,
-            "matrixBarcode":"",
-            "matrixX":"",
-            "matrixY":"",
-            "pickQuantity":10,
-            "refId":38102,
-            "toLocationName":"MAIN BRANCH",
-            "refItemId":38102,
-            "driverCode":null,
-            "refNo":null,
-            "documentType":"SalesOrder",
-            "actualPickQuantity":0,
-            "fulfillQuantity":0,
-            "verifiedQuantity":0,
-            "itemCode":"NewItem",
-            "itemName":"NewItem"
-          }
-        ],
-        "pickers":[  
-
-        ]
-      }
-    ]
-  },
-  "timestamp":1530261484
 }
 
 ### /logic/v2/picklist/{id}/documents
