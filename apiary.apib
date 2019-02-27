@@ -13771,7 +13771,397 @@ Search by client id, date range,outlet and outlet
   "totalSize":0
 }
 
+## Group SubPickList
+### /logic/v2/subpicklist?picklistid={picklist_id}&status={status}
+#### Get subpicklists with filter [GET]
+get subpicklists by picklist id and status
+
++ Parameters
+    + picklist_id(required, String) ... Picklist id
+    + status(optional,String) ... Order status
+    
++ Request
+    + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+    
+    + Body
+    
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+    {  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "subPickLists":[  
+      {  
+        "id":"41502_1",
+        "status":"Picked",
+        "generateDate":"2019-02-19T10:16:28.000Z",
+        "generateBy":"RealMart Admin",
+        "fromLocationName":"MAIN BRANCH",
+        "refId":null,
+        "remarks":"",
+        "description":null,
+        "pickingMode":"0"
+      },
+      {  
+        "id":"41502_2",
+        "status":"Confirmed",
+        "generateDate":"2019-02-19T20:32:56.000Z",
+        "generateBy":"RealMart Admin",
+        "fromLocationName":"MAIN BRANCH",
+        "refId":null,
+        "remarks":"",
+        "description":null,
+        "pickingMode":"0"
+      },
+      {  
+        "id":"41502_3",
+        "status":"Confirmed",
+        "generateDate":"2019-02-19T20:32:56.000Z",
+        "generateBy":"RealMart Admin",
+        "fromLocationName":"MAIN BRANCH",
+        "refId":null,
+        "remarks":"",
+        "description":null,
+        "pickingMode":"0"
+      }
+    ]
+  }
+}
+
+### /logic/v2/subpicklist/{subpicklistid}
+#### Get Subpicklist by subpicklistid [GET]
++ Parameters
+  + id(required, Number) ... subpicklistid
+
++ Request
+    + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+        
+ + Body
             
++ Response 200 (application/json)
+{  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "subPickList":{  
+      "subPickListItems":[  
+        {  
+          "id":9003,
+          "itemId":27606,
+          "matrixBarcode":"",
+          "matrixX":"",
+          "matrixY":"",
+          "quantity":1,
+          "actualPickQuantity":0,
+          "refId":415030,
+          "toLocationName":"MAIN BRANCH",
+          "refItemId":415032,
+          "driverCode":null,
+          "refNo":null,
+          "documentType":"TransferNote",
+          "itemCode":"test001",
+          "itemName":"test item",
+          "itemType":"Type02",
+          "cellId":90050,
+          "cellUnit":"A-2-3",
+          "subPickListItemCellDetails":null
+        }
+      ],
+      "id":"41502_2",
+      "status":"Confirmed",
+      "generateDate":"2019-02-19T10:16:28.000Z",
+      "generateBy":"RealMart Admin",
+      "fromLocationName":"MAIN BRANCH",
+      "refId":null,
+      "remarks":"",
+      "description":null,
+      "pickingMode":"0"
+    }
+  }
+}
+
+### /logic/v2/subpicklist/{subpicklistid}/Pick
+### /logic/v2/subpicklist/{subpicklistid}/Picked
+#### Pick Subpicklist by subpicklist id [POST]
++ Parameters
+  + subpicklistid(required, Number) ... Subpicklist id
+
++ Request
+     + Headers
+        token: {token}
+        dkey: {dkey}
+        Content-Type: application/json
+        
+ + Body
+ {  
+  "subPickListItems":[  
+    {  
+      "actualPickQuantity":1,
+      "pickListItemCellDetails":[  
+        {  
+          "cellId":90050,
+          "quantity":1
+        }
+      ],
+      "id":9002
+    },
+    {  
+      "actualPickQuantity":0,
+      "pickListItemCellDetails":[  
+
+      ],
+      "id":9004
+    },
+    {  
+      "actualPickQuantity":0,
+      "pickListItemCellDetails":[  
+
+      ],
+      "id":9005
+    },
+    {  
+      "actualPickQuantity":0,
+      "pickListItemCellDetails":[  
+
+      ],
+      "id":9006
+    },
+    {  
+      "actualPickQuantity":0,
+      "pickListItemCellDetails":[  
+
+      ],
+      "id":9007
+    },
+    {  
+      "actualPickQuantity":0,
+      "pickListItemCellDetails":[  
+
+      ],
+      "id":9008
+    },
+    {  
+      "actualPickQuantity":0,
+      "pickListItemCellDetails":[  
+
+      ],
+      "id":9009
+    },
+    {  
+      "actualPickQuantity":0,
+      "pickListItemCellDetails":[  
+
+      ],
+      "id":90010
+    }
+  ],
+  "status":"Picked"
+}
++ Response 200 (application/json)
+  {  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "subPickList":{  
+      "subPickListItems":[  
+        {  
+          "id":9002,
+          "itemId":27606,
+          "matrixBarcode":"",
+          "matrixX":"",
+          "matrixY":"",
+          "quantity":1,
+          "actualPickQuantity":1,
+          "refId":415030,
+          "toLocationName":"MAIN BRANCH",
+          "refItemId":415032,
+          "driverCode":null,
+          "refNo":null,
+          "documentType":"TransferNote",
+          "itemCode":"test001",
+          "itemName":"test item",
+          "itemType":"Type02",
+          "cellId":90050,
+          "cellUnit":"A-2-3",
+          "subPickListItemCellDetails":null
+        },
+        {  
+          "id":9004,
+          "itemId":27606,
+          "matrixBarcode":"",
+          "matrixX":"",
+          "matrixY":"",
+          "quantity":1,
+          "actualPickQuantity":0,
+          "refId":415030,
+          "toLocationName":"MAIN BRANCH",
+          "refItemId":415032,
+          "driverCode":null,
+          "refNo":null,
+          "documentType":"TransferNote",
+          "itemCode":"test001",
+          "itemName":"test item",
+          "itemType":"Type02",
+          "cellId":90050,
+          "cellUnit":"A-2-3",
+          "subPickListItemCellDetails":null
+        },
+        {  
+          "id":9005,
+          "itemId":27606,
+          "matrixBarcode":"",
+          "matrixX":"",
+          "matrixY":"",
+          "quantity":1,
+          "actualPickQuantity":0,
+          "refId":415030,
+          "toLocationName":"MAIN BRANCH",
+          "refItemId":415032,
+          "driverCode":null,
+          "refNo":null,
+          "documentType":"TransferNote",
+          "itemCode":"test001",
+          "itemName":"test item",
+          "itemType":"Type02",
+          "cellId":90050,
+          "cellUnit":"A-2-3",
+          "subPickListItemCellDetails":null
+        },
+        {  
+          "id":9006,
+          "itemId":27606,
+          "matrixBarcode":"",
+          "matrixX":"",
+          "matrixY":"",
+          "quantity":1,
+          "actualPickQuantity":0,
+          "refId":415030,
+          "toLocationName":"MAIN BRANCH",
+          "refItemId":415032,
+          "driverCode":null,
+          "refNo":null,
+          "documentType":"TransferNote",
+          "itemCode":"test001",
+          "itemName":"test item",
+          "itemType":"Type02",
+          "cellId":90050,
+          "cellUnit":"A-2-3",
+          "subPickListItemCellDetails":null
+        },
+        {  
+          "id":9007,
+          "itemId":27606,
+          "matrixBarcode":"",
+          "matrixX":"",
+          "matrixY":"",
+          "quantity":1,
+          "actualPickQuantity":0,
+          "refId":415030,
+          "toLocationName":"MAIN BRANCH",
+          "refItemId":415032,
+          "driverCode":null,
+          "refNo":null,
+          "documentType":"TransferNote",
+          "itemCode":"test001",
+          "itemName":"test item",
+          "itemType":"Type02",
+          "cellId":90050,
+          "cellUnit":"A-2-3",
+          "subPickListItemCellDetails":null
+        },
+        {  
+          "id":9008,
+          "itemId":27606,
+          "matrixBarcode":"",
+          "matrixX":"",
+          "matrixY":"",
+          "quantity":1,
+          "actualPickQuantity":0,
+          "refId":415030,
+          "toLocationName":"MAIN BRANCH",
+          "refItemId":415032,
+          "driverCode":null,
+          "refNo":null,
+          "documentType":"TransferNote",
+          "itemCode":"test001",
+          "itemName":"test item",
+          "itemType":"Type02",
+          "cellId":90050,
+          "cellUnit":"A-2-3",
+          "subPickListItemCellDetails":null
+        },
+        {  
+          "id":9009,
+          "itemId":27606,
+          "matrixBarcode":"",
+          "matrixX":"",
+          "matrixY":"",
+          "quantity":1,
+          "actualPickQuantity":0,
+          "refId":415030,
+          "toLocationName":"MAIN BRANCH",
+          "refItemId":415032,
+          "driverCode":null,
+          "refNo":null,
+          "documentType":"TransferNote",
+          "itemCode":"test001",
+          "itemName":"test item",
+          "itemType":"Type02",
+          "cellId":90050,
+          "cellUnit":"A-2-3",
+          "subPickListItemCellDetails":null
+        },
+        {  
+          "id":90010,
+          "itemId":27606,
+          "matrixBarcode":"",
+          "matrixX":"",
+          "matrixY":"",
+          "quantity":1,
+          "actualPickQuantity":0,
+          "refId":415030,
+          "toLocationName":"MAIN BRANCH",
+          "refItemId":415032,
+          "driverCode":null,
+          "refNo":null,
+          "documentType":"TransferNote",
+          "itemCode":"test001",
+          "itemName":"test item",
+          "itemType":"Type02",
+          "cellId":90050,
+          "cellUnit":"A-2-3",
+          "subPickListItemCellDetails":null
+        }
+      ],
+      "id":"41502_1",
+      "status":"Picked",
+      "generateDate":"2019-02-19T10:16:28.000Z",
+      "generateBy":"RealMart Admin",
+      "fromLocationName":"MAIN BRANCH",
+      "refId":null,
+      "remarks":"",
+      "description":null,
+      "pickingMode":"0"
+    }
+  }
+}
+
 ## Group Order
 ### /logic/v2/order/{id}
 #### Get Order [GET]
