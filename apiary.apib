@@ -6110,6 +6110,451 @@ Use to update consignment do
   }
 }
 
+### /logic/v2/consignmentdo/{id}/confirm
+### /logic/v2/consignmentdo/{id}/confirmed
+#### PUT
+Use to confirm consignment delivery order
+
++ Parameters
+
+    + id   : Consignment Delivery Order Number (required)
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Header: {header}
+            Token: {token}
+
+    + Body
+    {}
+
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+    {  
+  "ok":true,
+  "status":"SuccessQuery",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "consignmentDO":{  
+      "id":90072,
+      "totalAmount":2252.52,
+      "totalQuantity":3,
+      "client":{  
+        "id":5042,
+        "recipientContact":"",
+        "recipientName":null,
+        "name":"Cindy E. B ??",
+        "billingAddress":{  
+          "street":"",
+          "city":"Melaka",
+          "state":"1125bilyew",
+          "zipcode":"",
+          "country":""
+        },
+        "shippingAddress":{  
+          "street":"Thomas Nolan Kaszas II",
+          "city":"Otter Lane",
+          "state":"Middleberge ",
+          "zipcode":"5322",
+          "country":"FL 32068"
+        },
+        "billingRemark":null,
+        "shippingRemark":null,
+        "shippingDateTime":null,
+        "IsoShippingDateTime":{  
+          "IsoPerformDate":"2019-02-28T11:59:09.000Z",
+          "PerformDate":"28/02/2019",
+          "PerformTime":"11:59:09.000Z",
+          "DateTimePerformDate":"2019-02-28T11:59:09",
+          "PerformDateTime":null
+        },
+        "type":"Client"
+      },
+      "creationDate":"2019-02-28T00:00:00.000Z",
+      "createdBy":"realmart@xilnex.com",
+      "creationOutlet":"MAIN BRANCH",
+      "trackingCode":"",
+      "deliveryStatus":"Shipped",
+      "deliveredOutlet":"MAIN BRANCH",
+      "deliveryPerson":null,
+      "billingStatus":"Pending",
+      "invoiceId":0,
+      "cancellationInfo":null,
+      "salesPerson":"RealMart Admin",
+      "confirmedBy":"realmart@xilnex.com",
+      "stringExtend3":null,
+      "consignmentItems":[  
+        {  
+          "id":900266,
+          "itemId":35701,
+          "itemCode":"normal",
+          "itemName":"normal",
+          "itemType":"NORMAL",
+          "itemModel":null,
+          "itemCategory":"",
+          "unitPrice":10,
+          "enterPrice":10,
+          "quantity":1,
+          "quantityBilled":0,
+          "discountPercentage":0,
+          "taxCode":"SR",
+          "taxPercentage":0,
+          "taxAmount":0,
+          "inclusiveMGST":false,
+          "deliveryDateTime":"2019-02-28T11:59:09.000Z",
+          "deliveryOutlet":"MAIN BRANCH",
+          "priceScheme":{  
+            "manufacturerPrice":5,
+            "salePrice":10,
+            "employeePrice":2,
+            "wholesalePrice":3,
+            "customPrice":2,
+            "webPrice":6,
+            "webDealerPrice":7,
+            "cost":2
+          },
+          "carton":0,
+          "uom":"EACH",
+          "uomEnterQuantity":1,
+          "uomQuantity":1,
+          "packageId":"-1",
+          "driverName":null,
+          "installerName":"",
+          "driverCommissionRate":0,
+          "driverCommissionPercent":0,
+          "installerCommissionRate":0,
+          "installerCommissionPercent":0,
+          "isUniqueItem":false,
+          "isPackage":false,
+          "isPrepack":false,
+          "uniqueId":null,
+          "alternateLookup":"",
+          "packageCode":null,
+          "parentId":"",
+          "pcid":"",
+          "isMatrix":false,
+          "matrixId":null,
+          "matrixBarcode":null,
+          "matrixX":null,
+          "matrixY":null,
+          "multiLevelDiscount":null,
+          "alternateSerialNumber":null,
+          "customField1":"1",
+          "customField2":"2",
+          "customField3":"daniel ",
+          "customField4":"4",
+          "customField5":"5",
+          "isPromoIgnore":false,
+          "isPromoModified":false,
+          "promoGroup":null,
+          "promoGuid":null,
+          "rulesName":null,
+          "rulesId":null,
+          "campaignName":null,
+          "campaignId":null,
+          "subItems":[  
+
+          ]
+        },
+        {  
+          "id":900267,
+          "itemId":5057,
+          "itemCode":"bun2202",
+          "itemName":"bun2202",
+          "itemType":null,
+          "itemModel":null,
+          "itemCategory":"Package",
+          "unitPrice":2192.52,
+          "enterPrice":2192.52,
+          "quantity":1,
+          "quantityBilled":0,
+          "discountPercentage":0,
+          "taxCode":"SR",
+          "taxPercentage":0,
+          "taxAmount":0,
+          "inclusiveMGST":false,
+          "deliveryDateTime":"2019-02-28T11:59:09.000Z",
+          "deliveryOutlet":"MAIN BRANCH",
+          "priceScheme":{  
+            "manufacturerPrice":0,
+            "salePrice":115,
+            "employeePrice":0,
+            "wholesalePrice":0,
+            "customPrice":0,
+            "webPrice":0,
+            "webDealerPrice":0,
+            "cost":481.8874
+          },
+          "carton":0,
+          "uom":"EACH",
+          "uomEnterQuantity":1,
+          "uomQuantity":1,
+          "packageId":"-1",
+          "driverName":null,
+          "installerName":"",
+          "driverCommissionRate":0,
+          "driverCommissionPercent":0,
+          "installerCommissionRate":0,
+          "installerCommissionPercent":0,
+          "isUniqueItem":false,
+          "isPackage":true,
+          "isPrepack":false,
+          "uniqueId":null,
+          "alternateLookup":null,
+          "packageCode":"",
+          "parentId":"",
+          "pcid":"5VJr0p2",
+          "isMatrix":false,
+          "matrixId":null,
+          "matrixBarcode":null,
+          "matrixX":null,
+          "matrixY":null,
+          "multiLevelDiscount":null,
+          "alternateSerialNumber":null,
+          "customField1":null,
+          "customField2":"JolinTest",
+          "customField3":null,
+          "customField4":null,
+          "customField5":null,
+          "isPromoIgnore":false,
+          "isPromoModified":false,
+          "promoGroup":"promocombo",
+          "promoGuid":null,
+          "rulesName":null,
+          "rulesId":null,
+          "campaignName":null,
+          "campaignId":null,
+          "subItems":[  
+            {  
+              "id":900268,
+              "itemId":5046,
+              "itemCode":"12092016",
+              "itemName":"12092016",
+              "itemType":"1",
+              "itemModel":"asd",
+              "itemCategory":"",
+              "unitPrice":2142.52,
+              "enterPrice":2142.52,
+              "quantity":1,
+              "quantityBilled":0,
+              "discountPercentage":0,
+              "taxCode":"SR",
+              "taxPercentage":0,
+              "taxAmount":0,
+              "inclusiveMGST":false,
+              "deliveryDateTime":"2019-02-28T11:59:09.000Z",
+              "deliveryOutlet":"MAIN BRANCH",
+              "priceScheme":{  
+                "manufacturerPrice":0,
+                "salePrice":110,
+                "employeePrice":2323,
+                "wholesalePrice":2410.66,
+                "customPrice":0,
+                "webPrice":38,
+                "webDealerPrice":2191.51,
+                "cost":100
+              },
+              "carton":0,
+              "uom":"EACH",
+              "uomEnterQuantity":1,
+              "uomQuantity":1,
+              "packageId":null,
+              "driverName":null,
+              "installerName":null,
+              "driverCommissionRate":0,
+              "driverCommissionPercent":0,
+              "installerCommissionRate":0,
+              "installerCommissionPercent":0,
+              "isUniqueItem":false,
+              "isPackage":false,
+              "isPrepack":false,
+              "uniqueId":null,
+              "alternateLookup":"100434552",
+              "packageCode":"bun2202",
+              "parentId":null,
+              "pcid":"5VJr0p2",
+              "isMatrix":false,
+              "matrixId":null,
+              "matrixBarcode":null,
+              "matrixX":null,
+              "matrixY":null,
+              "multiLevelDiscount":null,
+              "alternateSerialNumber":null,
+              "customField1":null,
+              "customField2":"JolinTest",
+              "customField3":null,
+              "customField4":null,
+              "customField5":"jihin",
+              "isPromoIgnore":false,
+              "isPromoModified":false,
+              "promoGroup":"promo2",
+              "promoGuid":null,
+              "rulesName":null,
+              "rulesId":null,
+              "campaignName":null,
+              "campaignId":null,
+              "subItems":[  
+
+              ]
+            },
+            {  
+              "id":900269,
+              "itemId":236016,
+              "itemCode":"1015",
+              "itemName":"1015",
+              "itemType":"Type02",
+              "itemModel":null,
+              "itemCategory":"Category1",
+              "unitPrice":25,
+              "enterPrice":25,
+              "quantity":2,
+              "quantityBilled":0,
+              "discountPercentage":0,
+              "taxCode":"ZRL",
+              "taxPercentage":0,
+              "taxAmount":0,
+              "inclusiveMGST":false,
+              "deliveryDateTime":"2019-02-28T11:59:09.000Z",
+              "deliveryOutlet":"MAIN BRANCH",
+              "priceScheme":{  
+                "manufacturerPrice":0,
+                "salePrice":104.56,
+                "employeePrice":0,
+                "wholesalePrice":0,
+                "customPrice":0,
+                "webPrice":0,
+                "webDealerPrice":0,
+                "cost":95.05
+              },
+              "carton":0,
+              "uom":"EACH",
+              "uomEnterQuantity":2,
+              "uomQuantity":1,
+              "packageId":null,
+              "driverName":null,
+              "installerName":null,
+              "driverCommissionRate":0,
+              "driverCommissionPercent":0,
+              "installerCommissionRate":0,
+              "installerCommissionPercent":0,
+              "isUniqueItem":false,
+              "isPackage":false,
+              "isPrepack":false,
+              "uniqueId":null,
+              "alternateLookup":"100010866",
+              "packageCode":"bun2202",
+              "parentId":null,
+              "pcid":"5VJr0p2",
+              "isMatrix":false,
+              "matrixId":null,
+              "matrixBarcode":null,
+              "matrixX":null,
+              "matrixY":null,
+              "multiLevelDiscount":null,
+              "alternateSerialNumber":null,
+              "customField1":"1",
+              "customField2":"2",
+              "customField3":"3",
+              "customField4":"4",
+              "customField5":"5",
+              "isPromoIgnore":false,
+              "isPromoModified":false,
+              "promoGroup":"PromoGroup1",
+              "promoGuid":null,
+              "rulesName":null,
+              "rulesId":null,
+              "campaignName":null,
+              "campaignId":null,
+              "subItems":[  
+
+              ]
+            }
+          ]
+        },
+        {  
+          "id":900270,
+          "itemId":338036,
+          "itemCode":"normal1",
+          "itemName":"normal1",
+          "itemType":"Type02",
+          "itemModel":"",
+          "itemCategory":"",
+          "unitPrice":50,
+          "enterPrice":50,
+          "quantity":1,
+          "quantityBilled":0,
+          "discountPercentage":0,
+          "taxCode":"SR",
+          "taxPercentage":0,
+          "taxAmount":0,
+          "inclusiveMGST":false,
+          "deliveryDateTime":"2019-02-28T11:59:09.000Z",
+          "deliveryOutlet":"MAIN BRANCH",
+          "priceScheme":{  
+            "manufacturerPrice":0,
+            "salePrice":50,
+            "employeePrice":4.5,
+            "wholesalePrice":3.85,
+            "customPrice":2.5,
+            "webPrice":0,
+            "webDealerPrice":0,
+            "cost":3.5
+          },
+          "carton":0,
+          "uom":"EACH",
+          "uomEnterQuantity":1,
+          "uomQuantity":1,
+          "packageId":"-1",
+          "driverName":null,
+          "installerName":"",
+          "driverCommissionRate":0,
+          "driverCommissionPercent":0,
+          "installerCommissionRate":0,
+          "installerCommissionPercent":0,
+          "isUniqueItem":false,
+          "isPackage":false,
+          "isPrepack":false,
+          "uniqueId":null,
+          "alternateLookup":"",
+          "packageCode":null,
+          "parentId":"",
+          "pcid":"",
+          "isMatrix":false,
+          "matrixId":null,
+          "matrixBarcode":null,
+          "matrixX":null,
+          "matrixY":null,
+          "multiLevelDiscount":null,
+          "alternateSerialNumber":null,
+          "customField1":"",
+          "customField2":"",
+          "customField3":"daniel ",
+          "customField4":"",
+          "customField5":"",
+          "isPromoIgnore":false,
+          "isPromoModified":false,
+          "promoGroup":"White",
+          "promoGuid":null,
+          "rulesName":null,
+          "rulesId":null,
+          "campaignName":null,
+          "campaignId":null,
+          "subItems":[  
+
+          ]
+        }
+      ]
+    },
+    "consignmentDOs":null
+  }
+}
+
 ## Group Goods Receive Note
 ### /logic/v2/goodsreceive/{id}
 #### GET
@@ -13838,7 +14283,7 @@ get subpicklists by picklist id and status
 }
 
 ### /logic/v2/subpicklist/{subpicklistid}
-#### Get Subpicklist by subpicklistid [GET]
+#### Get subpicklist by subpicklistid [GET]
 + Parameters
   + id(required, Number) ... subpicklistid
 
@@ -13894,9 +14339,9 @@ get subpicklists by picklist id and status
   }
 }
 
-### /logic/v2/subpicklist/{subpicklistid}/Pick
-### /logic/v2/subpicklist/{subpicklistid}/Picked
-#### Pick Subpicklist by subpicklist id [POST]
+### /logic/v2/subpicklist/{subpicklistid}/pick
+### /logic/v2/subpicklist/{subpicklistid}/picked
+#### Pick subpicklist by subpicklist id [POST]
 + Parameters
   + subpicklistid(required, Number) ... Subpicklist id
 
