@@ -8555,214 +8555,223 @@ To retrive item price schemes name list
             Token: (required)
 
     + Body
-    
-            {  
-               "quotation":{  
-                  "dateTime":"02-12-2016T11:02:00.000Z",
-                  "recipient":" ",
-                  "client":{  
-                     "id":123,
-                     "recipientContact":"abc",
-                     "recipientName":"abc"
-                  },
-                  "clientName":"client1",
-                  "term":"0",
-                  "cashier":"REAL MART Admin",
-                  "billingAddress":{  
-                     "street":"",
-                     "city":"",
-                     "state":"",
-                     "zipcode":"",
-                     "country":""
-                  },
-                  "shippingAddress":{  
-                     "street":"",
-                     "city":"",
-                     "state":"",
-                     "zipcode":"",
-                     "country":""
-                  },
-                  "billingRemark":"",
-                  "shippingRemark":"",
-                  "pic":"REAL MART Admin",
-                  "status":"CONFIRMED",
-                  "outlet":"Coded UI Branch 2",
-                  "remarks":"",
-                  "discountPercentage":0,
-                  "taxPercentage":0,
-                  "recipientContact":"1234567890",
-                  "cancelRemark":null,
-                  "type":"Retail",
-                  "confirmLocation":"Coded UI Branch 2",
-                  "expiryDate":"31/12/9999"
-               },
-               "items":[  
-                  {  
-                     "itemID":"236016",
-                     "quantity":1,
-                     "discountPercentage":0,
-                     "itemCode":"1015",
-                     "gstPercentage":6,
-                     "gstAmount":5.34,
-                     "stockType":"normal",
-                     "uniqueID":"",
-                     "itemRemark":"",
-                     "itemIndex":"0",
-                     "matrixID":"",
-                     "matrixBarcode":"",
-                     "matrixXValue":"",
-                     "matrixYValue":"",
-                     "quotationPerson":"REAL MART Admin",
-                     "scanCode":"1015",
-                     "isMgstInclusive":true,
-                     "enterPrice":100,
-                     "subItems":[  
-            
-                     ]
-                  }
-               ]
-            }
+    {  
+  "quotation":{  
+    "dateTime":"2016-02-12T11:02:00.000Z",
+    "recipient":" ",
+    "client":{  
+      "id":123,
+      "recipientContact":"abc",
+      "recipientName":"abc",
+      "billingAddress":{  
+        "street":"1",
+        "city":"",
+        "state":"",
+        "zipcode":"",
+        "country":""
+      },
+      "shippingAddress":{  
+        "street":"1",
+        "city":"",
+        "state":"",
+        "zipcode":"",
+        "country":""
+      },
+      "billingRemark":"",
+      "shippingRemark":"1"
+    },
+    "clientName":"client1",
+    "term":"0",
+    "cashier":"REAL MART Admin",
+    "pic":"REAL MART Admin",
+    "status":"CONFIRMED",
+    "outlet":"Coded UI Branch 2",
+    "remarks":"",
+    "discountPercentage":0,
+    "taxPercentage":0,
+    "recipientContact":"1234567890",
+    "cancelRemark":null,
+    "type":"Retail",
+    "confirmLocation":"Coded UI Branch 2",
+    "expiryDate":"31/12/9999",
+    "quotationPerson":"REAL MART Admin",
+    "items":[  
+      {  
+        "itemID":"236016",
+        "quantity":1,
+        "discountPercentage":0,
+        "itemCode":"1015",
+        "gstPercentage":6,
+        "gstAmount":5.34,
+        "stockType":"normal",
+        "uniqueID":"",
+        "itemRemark":"",
+        "itemIndex":"0",
+        "matrixID":"",
+        "matrixBarcode":"",
+        "matrixXValue":"",
+        "matrixYValue":"",
+        "scanCode":"1015",
+        "isMgstInclusive":true,
+        "enterPrice":100,
+        "subItems":[  
+
+        ]
+      }
+    ]
+  }
+}
+
 + Response 200 (application/json)
 
     OK
 
     + Body
+    {  
+  "ok":true,
+  "status":"SuccessInsert",
+  "warning":null,
+  "error":null,
+  "data":{  
+    "quotation":{  
+      "id":900476,
+      "dateTime":"2016-02-12T11:02:00.000Z",
+      "grandTotal":100,
+      "paidAmount":0,
+      "balanceAmount":0,
+      "term":0,
+      "cashier":"REAL MART Admin",
+      "quotationPerson":"REAL MART Admin",
+      "status":"Confirmed",
+      "outlet":"Coded UI Branch 2",
+      "remarks":"",
+      "discountPercentage":0,
+      "taxPercentage":0,
+      "cost":95.05,
+      "profit":4.95,
+      "roundingAmount":0,
+      "netAmount":0,
+      "settlementDate":null,
+      "isInternalSales":false,
+      "internalOutlet":null,
+      "frReceivedID":null,
+      "type":"Retail",
+      "purchaseOrderID":null,
+      "confirmOutlet":"Coded UI Branch 2",
+      "siteID":null,
+      "expiryDate":null,
+      "gstTaxAmount":0,
+      "exchangeRate":0,
+      "foreignAmount":0,
+      "currencyCode":null,
+      "client":{  
+        "recipientContact":"abc",
+        "recipientName":"abc",
+        "id":123,
+        "name":null,
+        "billingAddress":{  
+          "street":"1",
+          "city":"",
+          "state":"",
+          "zipcode":"",
+          "country":""
+        },
+        "shippingAddress":{  
+          "street":"1",
+          "city":"",
+          "state":"",
+          "zipcode":"",
+          "country":""
+        },
+        "billingRemark":"",
+        "shippingRemark":"1",
+        "shippingDateTime":null
+      },
+      "cancellationInfo":{  
+        "cancelBy":null,
+        "cancelRemark":null,
+        "cancelDateTime":null,
+        "cancelOutlet":null,
+        "cancelLocation":null
+      },
+      "items":[  
+        {  
+          "id":900715,
+          "itemId":236016,
+          "itemName":"1015",
+          "itemType":"Type02",
+          "model":null,
+          "description":null,
+          "unitPrice":100,
+          "vendorCode":null,
+          "quantity":1,
+          "profit":4.95,
+          "cost":95.05,
+          "discountPercentage":0,
+          "discountAmount":0,
+          "instoreOutlet":"default",
+          "brand":null,
+          "date":"2019-03-04T00:00:00.000Z",
+          "outlet":"Coded UI Branch 2",
+          "itemCode":"1015",
+          "priceSchemes":{  
+            "manufacturerPrice":0,
+            "salePrice":104.56,
+            "employeePrice":0,
+            "wholesalePrice":0,
+            "customPrice":0,
+            "webPrice":0,
+            "webDealerPrice":0,
+            "cost":95.05
+          },
+          "stockType":"normal",
+          "uniqueID":null,
+          "commissionOne":0,
+          "commissionRateOne":10,
+          "commissionTwo":0,
+          "commissionRateTwo":0,
+          "commissionThree":0,
+          "commissionRateThree":0,
+          "commissionFour":0,
+          "commissionRateFour":0,
+          "itemCategory":"Category1",
+          "itemRemark":"",
+          "packageCode":null,
+          "pcid":null,
+          "itemIndex":"1",
+          "matrixID":"",
+          "matrixBarcode":null,
+          "matrixXValue":null,
+          "matrixYValue":null,
+          "quotationPerson":"REAL MART Admin",
+          "alternateLookup":"100010866",
+          "uom":null,
+          "scanCode":"1015",
+          "itemStatus":"CONFIRMED",
+          "multiLevelDiscount":null,
+          "taxCode":"ZRL",
+          "gstTaxPercentage":0,
+          "gstTaxAmount":0,
+          "gstPercentage":0,
+          "gstAmount":0,
+          "gstInclusive":false,
+          "enterPrice":100,
+          "foreignUnitPrice":0,
+          "foreignSubtotal":0,
+          "clientId":123,
+          "clientName":null,
+          "subtotal":100,
+          "subItems":[  
 
-            {
-                "ok": true,
-                "status": "SuccessInsert",
-                "warning": null,
-                "error": null,
-                "data": {
-                "quotation": {
-                  "id": 9004,
-                  "dateTime": "02-12-2016T11:02:00.000Z",
-                  "grandTotal": 100,
-                  "recipient": " ",
-                  "clientID": "28209",
-                  "clientName": "client1",
-                  "paidAmount": 0,
-                  "balanceAmount": 0,
-                  "term": "0",
-                  "cashier": "REAL MART Admin",
-                  "billingAddress": {
-                    "street": "",
-                    "city": "",
-                    "state": "",
-                    "zipcode": "",
-                    "country": ""
-                  },
-                  "shippingAddress": {
-                    "street": "",
-                    "city": "",
-                    "state": "",
-                    "zipcode": "",
-                    "country": ""
-                  },
-                  "billingRemark": "",
-                  "shippingRemark": "",
-                  "shippingDateTime": null,
-                  "pic": "REAL MART Admin",
-                  "status": "CONFIRMED",
-                  "location": "Coded UI Branch 2",
-                  "remarks": "",
-                  "discountPercentage": 0,
-                  "taxPercentage": 0,
-                  "cost": 0,
-                  "profit": 100,
-                  "roundingAmount": 0,
-                  "recipientContact": "1234567890",
-                  "cancelBy": null,
-                  "cancelRemark": null,
-                  "cancelDateTime": null,
-                  "cancelLocation": null,
-                  "netAmount": 0,
-                  "settlementDate": null,
-                  "isInternalSales": false,
-                  "internalLocation": null,
-                  "frReceivedID": null,
-                  "type": "Retail",
-                  "purchaseOrderID": null,
-                  "confirmLocation": "Coded UI Branch 2",
-                  "siteID": null,
-                  "expiryDate": null,
-                  "mgstTaxAmount": 0,
-                  "exchangeRate": 0,
-                  "foreignAmount": 0,
-                  "currencyCode": null
-                },
-                "items": [
-                  {
-                    "id": 9004,
-                    "itemID": "236016",
-                    "itemName": "1015",
-                    "itemType": "",
-                    "model": "",
-                    "description": "",
-                    "unitPrice": 100,
-                    "vendorCode": null,
-                    "quantity": 1,
-                    "profit": 100,
-                    "cost": 0,
-                    "discountPercentage": 0,
-                    "instoreLocation": "default",
-                    "brand": "",
-                    "clientID": "28209",
-                    "clientName": "client1",
-                    "date": "2016-12-02T00:00:00.000Z",
-                    "location": "Coded UI Branch 2",
-                    "itemCode": "1015",
-                    "priceSchemes": {
-                      "manufacturerPrice": 60,
-                      "salePrice": 20,
-                      "employeePrice": 30,
-                      "wholesalePrice": 40,
-                      "customPrice": 50,
-                      "webPrice": 70,
-                      "webDealerPrice": 80,
-                      "cost": 0
-                    },
-                    "gstPercentage": 0,
-                    "gstAmount": 0,
-                    "stockType": "normal",
-                    "uniqueID": null,
-                    "commissionOne": 0,
-                    "commissionRateOne": 0,
-                    "commissionTwo": 0,
-                    "commissionRateTwo": 0,
-                    "commissionThree": 0,
-                    "commissionRateThree": 0,
-                    "commissionFour": 0,
-                    "commissionRateFour": 0,
-                    "itemCategory": "Category1",
-                    "itemRemark": null,
-                    "packageCode": null,
-                    "pcid": null,
-                    "itemIndex": "1",
-                    "matrixID": "",
-                    "matrixBarcode": null,
-                    "matrixXValue": null,
-                    "matrixYValue": null,
-                    "quotationPerson": "REAL MART Admin",
-                    "altLookup": "",
-                    "uom": null,
-                    "scanCode": "1015",
-                    "itemStatus": "CONFIRMED",
-                    "multiLevelDiscount": null,
-                    "taxCode": "SR",
-                    "mgstTaxPercentage": 0,
-                    "mgstTaxAmount": 0,
-                    "isMgstInclusive": true,
-                    "enterPrice": 100,
-                    "foreignUnitPrice": 0,
-                    "foreignSubtotal": 0,
-                    "subItems": []
-                  }
-                ]
-                },
-                "timestamp": 1480659973
-                }
-                
+          ]
+        }
+      ],
+      "confirmLocation":"Coded UI Branch 2"
+    },
+    "quotations":null
+  }
+}
+
 ### /logic/v2/quotations/{id}
 
 #### Update quotation [PUT]
