@@ -13619,6 +13619,7 @@ Search by client id, date range,outlet and outlet
     "status":"Save",
     "outlet":"MAIN BRANCH",
     "documentType":"PurchaseOrder",
+    "remark": null,
     "sessionDetails":[  
       {  
         "id":8003,
@@ -13639,8 +13640,7 @@ Search by client id, date range,outlet and outlet
       {  
         "id":8003,
         "sessionId":8003,
-        "refId":15103,
-        "documentRefNo":""
+        "refId":15103
       }
     ]
   }
@@ -13664,9 +13664,10 @@ Search by client id, date range,outlet and outlet
         "status": "Confirm",
         "outlet": "MAIN BRANCH",
         "documentType": "TransferNote",
+        "remark": "test",
         "sessionDetails": [
             {
-                "itemID": 1015,
+                "itemId": 1015,
                 "itemCode": null,
                 "matrixBarcode": null,
                 "matrixX": null,
@@ -13680,8 +13681,7 @@ Search by client id, date range,outlet and outlet
         ],
         "sessionDocuments": [
             {
-                "refID": 5042,
-                "documentRefNo": ""
+                "refID": 5042
             }
         ]
     }
@@ -13702,6 +13702,7 @@ Search by client id, date range,outlet and outlet
         "status": "Confirm",
         "outlet": "MAIN BRANCH",
         "documentType": "TransferNote",
+        "remark": "test",
         "sessionDetails": [
             {
                 "id": 9006,
@@ -13722,8 +13723,113 @@ Search by client id, date range,outlet and outlet
             {
                 "id": 9006,
                 "sessionId": 9006,
-                "refId": 5042,
-                "documentRefNo": ""
+                "refId": 5042
+            }
+        ]
+    }
+}
+
+### /logic/v2/sessionx/query?datefrom={datefrom}&dateto={dateto}&status={status}&documenttype={documenttype}&outlet={outlet}
+
+#### GET
++ Get shipment history by filter
++ Parameters
+    + date from (optional)
+    + date to (optional)
+    + status (optional)
+    + document type (optional)
+    + outlet name (optional)
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Token: {token}
+            DKey: {dkey}
+
+    + Body
+           
+            
++ Response 200 (application/json)
+
+    OK
+
+    + Body
+    {
+    "ok": true,
+    "status": "SuccessQuery",
+    "warning": null,
+    "error": null,
+    "data": {
+        "sessionX": null,
+        "sessionsX": [
+            {
+                "id": 8008,
+                "createdBy": "realmart@xilnex.com",
+                "confirmedBy": "realmart@xilnex.com",
+                "createDate": "2019-05-13T23:40:12.000Z",
+                "confirmDate": "2019-05-13T23:40:12.000Z",
+                "status": "Confirm",
+                "outlet": "MAIN BRANCH",
+                "documentType": "Direct",
+                "remark": "",
+                "sessionDetails": [
+                    {
+                        "id": 8008,
+                        "sessionId": 8008,
+                        "itemId": 236016,
+                        "itemCode": "1015",
+                        "matrixBarcode": null,
+                        "matrixX": null,
+                        "matrixY": null,
+                        "serialNo": null,
+                        "altSerialNo": null,
+                        "batchNo": null,
+                        "cellId": 0,
+                        "quantity": 1
+                    }
+                ],
+                "sessionDocuments": [
+                    {
+                        "id": 8008,
+                        "sessionId": 8008,
+                        "refId": null
+                    }
+                ]
+            },
+            {
+                "id": 9006,
+                "createdBy": "realmart@xilnex.com",
+                "confirmedBy": "realmart@xilnex.com",
+                "createDate": "2019-05-13T10:20:08.000Z",
+                "confirmDate": "2019-05-13T10:20:08.000Z",
+                "status": "Confirm",
+                "outlet": "MAIN BRANCH",
+                "documentType": "TransferNote",
+                "remark": null,
+                "sessionDetails": [
+                    {
+                        "id": 9006,
+                        "sessionId": 9006,
+                        "itemId": 236016,
+                        "itemCode": "1015",
+                        "matrixBarcode": null,
+                        "matrixX": null,
+                        "matrixY": null,
+                        "serialNo": null,
+                        "altSerialNo": null,
+                        "batchNo": null,
+                        "cellId": 0,
+                        "quantity": 1
+                    }
+                ],
+                "sessionDocuments": [
+                    {
+                        "id": 9006,
+                        "sessionId": 9006,
+                        "refId": 5042
+                    }
+                ]
             }
         ]
     }
