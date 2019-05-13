@@ -13588,6 +13588,147 @@ Search by client id, date range,outlet and outlet
     }
 }
 
+## Group Session X
+### /logic/v2/sessionx/{id}
+#### GET
++ Get by session x id
++ Parameters
+    + id (required) - Session x id
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Token: {token}
+            DKey: {dkey}
+
+    + Body
+    
++ Response 200 (application/json)
+
+    OK
+    
+   + Body
+   {  
+  "sessionX":{  
+    "id":8003,
+    "createdBy":"realmart@xilnex.com",
+    "confirmedBy":null,
+    "createDate":"2019-05-10T19:28:48.000Z",
+    "confirmDate":null,
+    "status":"Save",
+    "outlet":"MAIN BRANCH",
+    "documentType":"PurchaseOrder",
+    "sessionDetails":[  
+      {  
+        "id":8003,
+        "sessionId":8003,
+        "itemId":236016,
+        "itemCode":"1015",
+        "matrixBarcode":null,
+        "matrixX":null,
+        "matrixY":null,
+        "serialNo":null,
+        "altSerialNo":null,
+        "batchNo":null,
+        "cellId":0,
+        "quantity":1
+      }
+    ],
+    "sessionDocuments":[  
+      {  
+        "id":8003,
+        "sessionId":8003,
+        "refId":15103,
+        "documentRefNo":""
+      }
+    ]
+  }
+}
+
+### /logic/v2/sessionx
+
+#### POST
++ Create session x
++ Request
+
+    + Headers
+
+            Accept: application/json
+            Token: {token}
+            DKey: {dkey}
+
+    + Body
+    {
+    "sessionX": {
+        "status": "Confirm",
+        "outlet": "MAIN BRANCH",
+        "documentType": "TransferNote",
+        "sessionDetails": [
+            {
+                "itemID": 1015,
+                "itemCode": null,
+                "matrixBarcode": null,
+                "matrixX": null,
+                "matrixY": null,
+                "serialNo": null,
+                "altSerialNo": null,
+                "batchNo": null,
+                "cellId": 0,
+                "quantity": 1
+            }
+        ],
+        "sessionDocuments": [
+            {
+                "refID": 5042,
+                "documentRefNo": ""
+            }
+        ]
+    }
+}
+
++ Response 200 (application/json)
+
+    OK
+    
+   + Body
+   {
+    "sessionX": {
+        "id": 9006,
+        "createdBy": "realmart@xilnex.com",
+        "confirmedBy": "realmart@xilnex.com",
+        "createDate": "2019-05-13T10:20:08.000Z",
+        "confirmDate": "2019-05-13T10:20:08.000Z",
+        "status": "Confirm",
+        "outlet": "MAIN BRANCH",
+        "documentType": "TransferNote",
+        "sessionDetails": [
+            {
+                "id": 9006,
+                "sessionId": 9006,
+                "itemId": 236016,
+                "itemCode": "1015",
+                "matrixBarcode": null,
+                "matrixX": null,
+                "matrixY": null,
+                "serialNo": null,
+                "altSerialNo": null,
+                "batchNo": null,
+                "cellId": 0,
+                "quantity": 1
+            }
+        ],
+        "sessionDocuments": [
+            {
+                "id": 9006,
+                "sessionId": 9006,
+                "refId": 5042,
+                "documentRefNo": ""
+            }
+        ]
+    }
+}
+
 ## Group Shipment
 
 ### /logic/v2/shipment
